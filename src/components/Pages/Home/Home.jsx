@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Home() {
   return (
@@ -230,7 +231,7 @@ function Home() {
           </div>
           <div className='offset-1 col-4'>
             <div className='row'>
-              <h6 className='text-capitalize mb-3'>suggestion</h6>
+              <h6 className='text-capitalize mb-3 fw-bold'>suggestion</h6>
               <figure className='col-2'>
                 <img
                   className='w-100'
@@ -270,7 +271,7 @@ function Home() {
             </div>
             <hr />
             <div className='row'>
-              <h6 className='text-capitalize mb-3'>followed hashtag</h6>
+              <h6 className='text-capitalize mb-3 fw-bold'>followed hashtag</h6>
 
               <div className='col-4'>#example-1</div>
               <div className='col-4'>#example-2</div>
@@ -292,15 +293,27 @@ function Home() {
             <div className='row'>
               <nav className=''>
                 <ul className='row list-unstyled'>
-                  <li className='col-2 text-capitalize'>about</li>
-                  <li className='col-2 text-capitalize'>privacy</li>
-                  <li className='col-2 text-capitalize'>terms</li>
-                  <li className='col-4 text-capitalize text-center'>
-                    help center
+                  <li className='col-2 text-capitalize'>
+                    <NavLink to='#'>about</NavLink>
                   </li>
-                  <li className='col text-capitalize'>blog</li>
-                  <li className='col text-capitalize'>top reviews</li>
-                  <li className='col text-capitalize text-center'>more</li>
+                  <li className='col-2 text-capitalize'>
+                    <NavLink to='#'>privacy</NavLink>
+                  </li>
+                  <li className='col-2 text-capitalize'>
+                    <NavLink to='#'>terms</NavLink>
+                  </li>
+                  <li className='col-4 text-capitalize text-center'>
+                    <NavLink to='#'>help center</NavLink>
+                  </li>
+                  <li className='col text-capitalize'>
+                    <NavLink to='#'>blog</NavLink>
+                  </li>
+                  <li className='col text-capitalize'>
+                    <NavLink to='#'>top reviews</NavLink>
+                  </li>
+                  <li className='col text-capitalize text-center'>
+                    <NavLink to='#'>more</NavLink>
+                  </li>
                   <li className='col-5 text-capitalize'>
                     copyright &copy; 2021
                   </li>
