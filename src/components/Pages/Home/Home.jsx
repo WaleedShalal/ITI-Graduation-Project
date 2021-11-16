@@ -27,17 +27,17 @@ function Home() {
                   allowfullscreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='far fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='far fa-star'></i>
                   </div>
                   <div className='me-2'>
-                    <i class='fas fa-comment-alt'></i>
+                    <i className='fas fa-comment-alt'></i>
                   </div>
                   <div>
-                    <i class='fas fa-share'></i>
+                    <i className='fas fa-share'></i>
                   </div>
                   <div className='ms-auto'>
                     <i class='far fa-bookmark'></i>
@@ -71,20 +71,20 @@ function Home() {
                   allowfullscreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='far fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='far fa-star'></i>
                   </div>
                   <div className='me-2'>
-                    <i class='fas fa-comment-alt'></i>
+                    <i className='fas fa-comment-alt'></i>
                   </div>
                   <div>
-                    <i class='fas fa-share'></i>
+                    <i className='fas fa-share'></i>
                   </div>
                   <div className='ms-auto'>
-                    <i class='far fa-bookmark'></i>
+                    <i className='far fa-bookmark'></i>
                   </div>
                 </div>
                 <form className='' action=''>
@@ -115,20 +115,20 @@ function Home() {
                   allowfullscreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='far fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='far fa-star'></i>
                   </div>
                   <div className='me-2'>
-                    <i class='fas fa-comment-alt'></i>
+                    <i className='fas fa-comment-alt'></i>
                   </div>
                   <div>
-                    <i class='fas fa-share'></i>
+                    <i className='fas fa-share'></i>
                   </div>
                   <div className='ms-auto'>
-                    <i class='far fa-bookmark'></i>
+                    <i className='far fa-bookmark'></i>
                   </div>
                 </div>
                 <form className='' action=''>
@@ -159,17 +159,17 @@ function Home() {
                   allowfullscreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='far fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='far fa-star'></i>
                   </div>
                   <div className='me-2'>
-                    <i class='fas fa-comment-alt'></i>
+                    <i className='fas fa-comment-alt'></i>
                   </div>
                   <div>
-                    <i class='fas fa-share'></i>
+                    <i className='fas fa-share'></i>
                   </div>
                   <div className='ms-auto'>
                     <i class='far fa-bookmark'></i>
@@ -203,17 +203,17 @@ function Home() {
                   allowfullscreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='fas fa-star'></i>
-                    <i class='far fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='fas fa-star'></i>
+                    <i className='far fa-star'></i>
                   </div>
                   <div className='me-2'>
-                    <i class='fas fa-comment-alt'></i>
+                    <i className='fas fa-comment-alt'></i>
                   </div>
                   <div>
-                    <i class='fas fa-share'></i>
+                    <i className='fas fa-share'></i>
                   </div>
                   <div className='ms-auto'>
                     <i class='far fa-bookmark'></i>
