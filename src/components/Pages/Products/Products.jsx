@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
+  fetchProducts,
   addCart,
   removeCart,
   removeAllCart,
@@ -10,14 +11,22 @@ import './Products.scss';
 
 const Products = () => {
   const { fetchedData } = useSelector((state) => state);
+  console.log(fetchedData);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
 
   return (
     <React.Fragment>
       <main className='container'>
         <div className='row'>
           <div className='options'>
-            <div className='filter col-sm-12 col-md-5'>
+            <div className='col-md-3'>
+              Edit Products <i class='far fa-edit'></i>
+            </div>
+            <div className='filter col-sm-12 col-md-3'>
               <span>Filter by : </span>
               <select
                 value={fetchedData.filterValue}
@@ -38,7 +47,7 @@ const Products = () => {
                 <option value='electronics'>electronics</option>
               </select>
             </div>
-            <div className='sort col-sm-12 col-md-4'>
+            <div className='sort col-sm-12 col-md-3'>
               <span>Sort by : </span>
               <select
                 value={fetchedData.sortValue}
