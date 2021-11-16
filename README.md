@@ -16,5 +16,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 sass : npm install node-sass --save.\
 bootstrap : npm install bootstrap.\
 Font Awesome : npm install --save @fortawesome/fontawesome-free.\
-React-router : npm i react-router-dom.
+React-router : npm i react-router-dom@5.0.0.
 react-player : npm install react-player.
