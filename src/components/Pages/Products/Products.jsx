@@ -24,7 +24,7 @@ const Products = () => {
         <div className='row'>
           <div className='options'>
             <div className='col-md-3'>
-              Edit Products <i class='far fa-edit'></i>
+              Edit Products <i className='far fa-edit'></i>
             </div>
             <div className='filter col-sm-12 col-md-3'>
               <span>Filter by : </span>
