@@ -1,0 +1,31 @@
+
+  // small 
+  @mixin small{
+      @media (min-width: $small) { 
+        @content;
+    }
+  }
+  // medium 
+  @mixin medium{
+      @media (min-width: $medium) { 
+        @content;
+    }
+  }
+  // large 
+  @mixin large{
+      @media (min-width: $large) { 
+        @content;
+    }
+  }
+  // x-large 
+  @mixin x-large {
+      @media (min-width: $x-large ) { 
+        @content;
+    }
+  }
+  // xx-large 
+  @mixin x-large {
+      @media (min-width: $xx-large ) { 
+        @content;
+    }
+  }
