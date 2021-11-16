@@ -1,4 +1,4 @@
-import * as actionsTypes from './shoppingCartTypes';
+import * as actionsTypes from './cartTypes';
 import axios from 'axios';
 
 // START ACTIONS FOR FETCHED DATA
