@@ -1,4 +1,4 @@
-import * as actionsTypes from './shoppingCartTypes';
+import * as actionsTypes from './cartTypes';
 
 const initialState = {
   loading: false,

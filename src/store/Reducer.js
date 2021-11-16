@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import * as allReducer from './shoppingcart/shoppingCartReducers';
+import * as allReducer from './cartReducers';
 
 const rootReducer = combineReducers({
   fetchedData: allReducer.fetchProductsReducer,
