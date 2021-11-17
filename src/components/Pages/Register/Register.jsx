@@ -1,12 +1,12 @@
 import React from 'react';
 import { Formik, Form, FieldArray } from 'formik';
 import * as yup from 'yup';
-import FormField from '../form-field/FormField';
-import FormRadioButton from './../../form-radio-buuton/FormRadioButton';
-import FormCheckboxInput from './../form-checkbox-input/FormCheckboxInput';
+import FormField from '../../shared/FormikField/FormikField';
+import FormRadioButton from '../../shared/FormikRadioButton/FormikRadioButton';
+import FormCheckboxInput from '../../shared/FormikCheckboxInput/ForminCheckboxInput';
 import './Register.scss';
 
-function RegisterForm() {
+function Register() {
   const genderOption = [
     {
       id: 1,
@@ -21,16 +21,24 @@ function RegisterForm() {
   ];
 
   const initialValues = {
-    username: '',
+    firstName: '',
+    lastName: '',
+    birthDate: '',
+    gender: '',
     email: '',
     password: '',
     confirmPassword: '',
-    gender: '',
-    followedHashtag: [''],
+    address: [''],
+    phoneNumber: '',
+    website: '',
+    followedHashtags: '',
     subscribeUs: false,
   };
   const validationSchema = yup.object({
-    username: yup.string().required(),
+    firstName: yup.string().required(),
+    lastName: yup.string().required(),
+    birthDate: yup.string().required(),
+    gender: yup.string().required(),
     email: yup
       .string()
       .email('Please Enter A Valid Email')
@@ -43,9 +51,13 @@ function RegisterForm() {
       .string()
       .oneOf([yup.ref('password'), ''], 'Password Must Be Matched')
       .required(),
-    gender: yup.string().required(),
+    address: yup.string().required(),
+    phoneNumber: yup.string().required(),
+    website: yup.string().required(),
+    followedHashtags: yup.string().required(),
   });
-  const onSubmit = (values) => alert(`Welcome "${values.username}""`);
+  const onSubmit = (values) =>
+    alert(`Welcome ${values.firstName} ${values.lastName}`);
 
   return (
     <Formik
@@ -55,8 +67,15 @@ function RegisterForm() {
       {(formik) => {
         return (
           <Form>
-            <div className='register__form d-flex flex-column align-items-center mt-5 p-3 w-75 mx-auto'>
-              <FormField name='username' type='text' label='username' />
+            <div className='register__form'>
+              <FormField name='firstName' type='text' label='firstname' />
+              <FormField name='lastName' type='text' label='lastname' />
+              <FormField name='birthDate' type='date' label='birthdate' />
+              <FormRadioButton
+                name='gender'
+                label='gender'
+                options={genderOption}
+              />
               <FormField name='email' type='email' label='email' />
               <FormField name='password' type='password' label='password' />
               <FormField
@@ -64,33 +83,24 @@ function RegisterForm() {
                 type='password'
                 label='confirmPassword'
               />
-
-              <FormRadioButton
-                name='gender'
-                label='gender'
-                options={genderOption}
-              />
-
-              <FieldArray name='followedHashtag'>
+              <FieldArray name='address'>
                 {(props) => {
                   const { push, remove, form } = props;
                   const { values } = form;
-                  const { followedHashtag } = values;
+                  const { address } = values;
                   return (
                     <>
-                      {followedHashtag.map((_, index) => (
-                        <div
-                          className='w-100 d-flex align-items-center flex-column'
-                          key={index}>
+                      {address.map((_, index) => (
+                        <div className='' key={index}>
                           <FormField
-                            name={`followedHashtag[${index}]`}
+                            name={`address[${index}]`}
                             type='text'
-                            label='followedHashtag'
+                            label='address'
                           />
-                          <div className='d-flex justify-content-around w-50'>
+                          <div className=''>
                             <button
                               type='button'
-                              className='btn btn-primary  '
+                              className='btn btn-primary'
                               onClick={() => push('')}>
                               +
                             </button>
@@ -109,6 +119,15 @@ function RegisterForm() {
                   );
                 }}
               </FieldArray>
+              <FormField name='phoneNumber' type='text' label='phoneNumber' />
+              <FormField name='website' type='text' label='website' />
+              <FormField name='website' type='text' label='website' />
+              <FormField
+                name='followedHashtags'
+                type='text'
+                label='followed hashtags'
+              />
+
               <FormCheckboxInput
                 name='subscribeUs'
                 type='checkbox'
@@ -117,7 +136,7 @@ function RegisterForm() {
               <button
                 type='submit'
                 disabled={!formik.isValid}
-                className='register__btn btn btn-primary text-capitalize w-25'>
+                className='register__btn btn btn-primary text-capitalize'>
                 register
               </button>
             </div>
@@ -128,4 +147,4 @@ function RegisterForm() {
   );
 }
 
-export default RegisterForm;
+export default Register;
