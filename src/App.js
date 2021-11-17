@@ -5,6 +5,7 @@ import Home from './components/Pages/Home/Home';
 import Profile from './components/Pages/Profile/Profile';
 import Products from './components/Pages/Products/Products';
 import Cart from './components/Pages/Cart/Cart';
+import Admin from './components/Pages/Admin/Admin';
 import  NotFound  from './components/Pages/NotFound/NotFound';
 import './App.scss';
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Profile />
       <Products />
       <Cart />
+      <Admin />
       <NotFound />
     </div>
   );
