@@ -3,16 +3,19 @@
   border-radius: 15px;
   position: relative;
   margin-top: 150px;
-}
-.user__image {
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translate(-50%, -60%);
+  .user__image {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+  }
 }
 .input__style {
   border: black;
   border-radius: 15px;
+}
+.form__wrapper {
+  margin-top: 100px;
 }
 .login__btn {
   width: 100px;
