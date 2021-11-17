@@ -1,0 +1,46 @@
+.login__form {
+  box-shadow: 1px 1px 10px 3px black;
+  border-radius: 15px;
+  position: relative;
+  margin-top: 150px;
+}
+.user__image {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+.input__style {
+  border: black;
+  border-radius: 15px;
+}
+.login__btn {
+  width: 100px;
+}
+.login__btn:hover {
+  color: blue;
+  background-color: white;
+}
+.error__message {
+  border-radius: 15px;
+}
+.form__decoration::before {
+  content: '';
+  display: inline-block;
+  width: 100px;
+  height: 2px;
+  background-color: white;
+  margin-right: 10px;
+}
+.form__decoration::after {
+  content: '';
+  display: inline-block;
+  width: 100px;
+  height: 2px;
+  background-color: white;
+  margin-left: 10px;
+}
+.social__links > li {
+  width: 30px;
+  height: 30px;
+}
