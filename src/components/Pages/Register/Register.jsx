@@ -68,7 +68,7 @@ function Register() {
       {(formik) => {
         return (
           <Form>
-            <div className='register__form container p-3 w-50'>
+            <div className='register__form container p-5 w-50'>
               <figure className='user__image w-25'>
                 <img className='w-100 rounded-circle' src={userImage} alt='' />
               </figure>
