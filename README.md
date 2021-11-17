@@ -21,6 +21,6 @@ react-player   : npm install react-player.\
 react-redux    : npm i --save redux react-redux.\
 redux-devtools : npm install --save redux-devtools-extension.\
 redux-thunk    : npm install redux-thunk.\
-axios          : npm i axios.
-react-formik   : npm i --save formik.
+axios          : npm i axios.\
+react-formik   : npm i --save formik.\
 yup            : npm install yup --save.
