@@ -88,7 +88,7 @@ const Login = () => {
               className='text-white text-capitalize ps-2'>
               remember me
             </label>
-            <NavLink href='#' className='text-capitalize ms-auto text-white'>
+            <NavLink to='#' className='text-capitalize ms-auto text-white'>
               forget password
             </NavLink>
           </div>
