@@ -4,6 +4,7 @@ import Register from './components/Pages/Register/Register';
 import Home from './components/Pages/Home/Home';
 import Profile from './components/Pages/Profile/Profile';
 import Products from './components/Pages/Products/Products';
+import Cart from './components/Pages/Cart/Cart';
 import  NotFound  from './components/Pages/NotFound/NotFound';
 import './App.scss';
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Home/>
       <Profile />
       <Products />
+      <Cart />
       <NotFound />
     </div>
   );
