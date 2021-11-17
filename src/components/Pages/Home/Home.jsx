@@ -22,9 +22,9 @@ function Home() {
                   height='315'
                   src='https://www.youtube.com/embed/b5l9rGLvwOo?start=4'
                   title='YouTube video player'
-                  frameborder='0'
+                  frameBorder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowfullscreen></iframe>
+                  allowFullScreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
                     <i className='fas fa-star'></i>
@@ -40,7 +40,7 @@ function Home() {
                     <i className='fas fa-share'></i>
                   </div>
                   <div className='ms-auto'>
-                    <i class='far fa-bookmark'></i>
+                    <i className='far fa-bookmark'></i>
                   </div>
                 </div>
                 <form className='' action=''>
@@ -66,9 +66,9 @@ function Home() {
                   height='315'
                   src='https://www.youtube.com/embed/noHF02jQHe4?start=8'
                   title='YouTube video player'
-                  frameborder='0'
+                  frameBorder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowfullscreen></iframe>
+                  allowFullScreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
                     <i className='fas fa-star'></i>
@@ -110,9 +110,9 @@ function Home() {
                   height='315'
                   src='https://www.youtube.com/embed/8pkO4gculCM'
                   title='YouTube video player'
-                  frameborder='0'
+                  frameBorder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowfullscreen></iframe>
+                  allowFullScreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
                     <i className='fas fa-star'></i>
@@ -154,9 +154,9 @@ function Home() {
                   height='315'
                   src='https://www.youtube.com/embed/IiEf1RwMQS8'
                   title='YouTube video player'
-                  frameborder='0'
+                  frameBorder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowfullscreen></iframe>
+                  allowFullScreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
                     <i className='fas fa-star'></i>
@@ -172,7 +172,7 @@ function Home() {
                     <i className='fas fa-share'></i>
                   </div>
                   <div className='ms-auto'>
-                    <i class='far fa-bookmark'></i>
+                    <i className='far fa-bookmark'></i>
                   </div>
                 </div>
                 <form className='' action=''>
@@ -198,9 +198,9 @@ function Home() {
                   height='315'
                   src='https://www.youtube.com/embed/CAn3IxTCv7M'
                   title='YouTube video player'
-                  frameborder='0'
+                  frameBorder='0'
                   allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowfullscreen></iframe>
+                  allowFullScreen></iframe>
                 <div className='d-flex mb-3'>
                   <div className='me-2'>
                     <i className='fas fa-star'></i>
@@ -216,7 +216,7 @@ function Home() {
                     <i className='fas fa-share'></i>
                   </div>
                   <div className='ms-auto'>
-                    <i class='far fa-bookmark'></i>
+                    <i className='far fa-bookmark'></i>
                   </div>
                 </div>
                 <form className='' action=''>
