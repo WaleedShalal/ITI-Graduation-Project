@@ -7,7 +7,7 @@ function FormikErrorMessage({ name }) {
     <ErrorMessage name={name}>
       {(errMessage) => {
         return (
-          <div className='error__message bg-warning text-danger text-capitalize'>
+          <div className='error__message bg-warning text-danger text-capitalize  ps-2'>
             {errMessage}
           </div>
         );

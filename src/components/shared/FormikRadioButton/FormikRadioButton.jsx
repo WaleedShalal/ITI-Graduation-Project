@@ -5,28 +5,30 @@ import './FormikRadioButton.scss';
 
 function FormRadioButton({ name, label, options }) {
   return (
-    <div className='form__radio'>
+    <div className='form__radio col-6'>
       <label htmlFor={name} className=' text-white text-capitalize'>
         {label}
       </label>
       <Field name={name}>
         {(formikField) => {
           return (
-            <div className='text-white'>
+            <div className='text-white d-flex justify-content-evenly'>
               {options.map((option) => {
                 return (
                   <div key={option.id}>
-                    <label htmlFor={option.value} className=''>
-                      {option.value}
-                    </label>
                     <input
-                      className='input__style '
+                      className='radio__input__style '
                       type='radio'
                       id={option.value}
                       {...formikField.field}
                       value={option.value}
                       checked={option.value === formikField.field.value}
                     />
+                    <label
+                      htmlFor={option.value}
+                      className='radio__label__style d-flex justify-content-center align-items-center rounded-pill text-capitalize mb-3'>
+                      {option.value}
+                    </label>
                   </div>
                 );
               })}

@@ -1,0 +1,12 @@
+.radio__label__style {
+  background-color: red;
+  width: 50px;
+  padding: 0 30px !important;
+  cursor: pointer;
+}
+.radio__input__style {
+  display: none;
+}
+.radio__input__style:checked + .radio__label__style {
+  background-color: green;
+}
