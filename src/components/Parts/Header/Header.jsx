@@ -1,14 +1,19 @@
 import React from "react";
+import { NavLink ,Link ,useLocation } from "react-router-dom";
 import "./Header.scss";
 
-function Header() {
+function Header(props) {
+  let location = useLocation();
+  console.log(location.pathname);
   return (
     <div className="header">
       <div className="container-fluid">
         <header className="header-navbar">
           <div className="leftPart">
             <div className="logo">
-              <span>minuteف</span>
+              <Link to='/'>
+              minuteف
+              </Link>
             </div>
             <div className="search-container">
               <form className="search">
@@ -29,7 +34,18 @@ function Header() {
           </div>
           <div className="rightPart">
             <div className="RighC">
-              <i className="fas fa-home "></i>
+              <NavLink 
+                style={({ isActive }) => {
+                  return {
+                    display: "block",
+                    margin: "1rem 0",
+                    color: isActive ? "white" : "rgba(255, 255, 255, 0.65)",
+                  };
+                }}
+                to={`/`}
+              >
+                <i className="fas fa-home "></i>
+              </NavLink>
             </div>
             <div className="RighC">
               <i className="fas fa-comment "></i>
@@ -38,10 +54,62 @@ function Header() {
               <i className="fas fa-bell "></i>
             </div>
             <div className="RighC">
-              <i className="fas fa-user-circle active "></i>
-            </div>
+              <NavLink
+                style={({ isActive }) => {
+                  return {
+                    display: "block",
+                    margin: "1rem 0",
+                    color: isActive ? "white" : "rgba(255, 255, 255, 0.65)",
+                  };
+                }}
+                to={`/cart`}
+              >
+                <i class="fas fa-shopping-bag"></i>
+              </NavLink>
+            </div> 
             <div className="RighC">
-              Logout <i className="fas fa-sign-out-alt ps-2"></i>
+              <NavLink
+                style={({ isActive }) => {
+                  return {
+                    display: "block",
+                    margin: "1rem 0",
+                    color: isActive ? "white" : "rgba(255, 255, 255, 0.65)",
+                  };
+                }}
+                to={`/profile`}
+              >
+                <i className="fas fa-user-circle"></i>
+              </NavLink>
+            </div>
+           
+            <div className="RighC">
+            {location.pathname !== "/register" ? 
+          
+              <NavLink
+                style={({ isActive }) => {
+                  return {
+                    display: "block",
+                    margin: "1rem 0",
+                    color: isActive ? "white" : "rgba(255, 255, 255, 0.65)",
+                  };
+                }}
+                to={`/register`}
+              >
+               Sign up <i className="fas fa-sign-out-alt ps-2"></i>
+              </NavLink>
+              :<NavLink
+              style={({ isActive }) => {
+                return {
+                  display: "block",
+                  margin: "1rem 0",
+                  color: isActive ? "white" : "rgba(255, 255, 255, 0.65)",
+                };
+              }}
+              to={`/login`}
+            >
+              Sign in <i className="fas fa-sign-out-alt ps-2"></i>
+            </NavLink>
+                }
             </div>
           </div>
         </header>

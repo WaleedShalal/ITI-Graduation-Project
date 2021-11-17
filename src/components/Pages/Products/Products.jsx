@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchProducts,
@@ -24,7 +25,9 @@ const Products = () => {
         <div className='row'>
           <div className='options'>
             <div className='col-md-3'>
+              <Link to='/admin'>
               Edit Products <i className='far fa-edit'></i>
+              </Link>
             </div>
             <div className='filter col-sm-12 col-md-3'>
               <span>Filter by : </span>

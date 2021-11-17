@@ -1,4 +1,4 @@
-import React from "react";
+import { Link  } from "react-router-dom";
 import Post from "../../Parts/Post/Post";
 import Stars from "../../Parts/Stars/Stars";
 import Stories from "../../Parts/Stories/Stories";
@@ -24,8 +24,8 @@ function Profile() {
               <span className="rate-number">4.0</span>
             </div>
             <div className="Ecommerce-Link-site">
-                <a href="##">Ecommerce</a>
-                <span><i class="fas fa-shopping-bag"></i></span>
+                <Link to="/products">Ecommerce</Link>
+                <span><i className="fas fa-shopping-bag"></i></span>
             </div>
             <ul className="description">
               <li className='active'>
@@ -33,16 +33,16 @@ function Profile() {
                   <span>Posts</span>100
                 </a>
               </li>
-              <li class="jk3gM">
+              <li className="jk3gM">
                 <a href="/blog/mohamedebrahimdiab/followers">
                   <span>Followers</span>
-                  <span class="KlOKT">20K</span>
+                  <span className="KlOKT">20K</span>
                 </a>
               </li>
-              <li class="jk3gM">
+              <li className="jk3gM">
                 <a href="/blog/mohamedebrahimdiab/followers">
                   <span>Following</span>
-                  <span class="KlOKT">400</span>
+                  <span className="KlOKT">400</span>
                 </a>
               </li>
             </ul>

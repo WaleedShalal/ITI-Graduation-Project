@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import {
@@ -12,7 +12,7 @@ import './Admin.scss';
 const Admin = () => {
   const { fetchedData } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const history = useHistory();
+  let navigate = useNavigate();
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -24,7 +24,7 @@ const Admin = () => {
         <div className='d-flex justify-content-between mb-2'>
           <NavLink to='/productform/new'>
             <button
-              onClick={() => history.push('/productform/new')}
+              onClick={() => navigate('/productform/new')}
               className='btn btn-primary m-1'>
               Add
             </button>
@@ -60,7 +60,7 @@ const Admin = () => {
                     <td>
                       <i
                         onClick={() =>
-                          history.push(`/productform/${product.id}`)
+                          navigate(`/productform/${product.id}`)
                         }
                         style={{ cursor: 'pointer' }}
                         className='fas fa-edit'></i>

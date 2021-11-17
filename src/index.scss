@@ -9,8 +9,12 @@ body {
   --post-padding: 20px;
     --post-header-vertical-padding: 15px;
     background: #001935;
+    color: #fff !important;
 }
-
+a{
+  color: #fff;
+  text-decoration: none;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
