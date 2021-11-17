@@ -9,9 +9,6 @@ function FormCheckboxInput({ name, type, label }) {
         {(formikField) => {
           return (
             <div className=''>
-              <label htmlFor={name} className='text-white text-capitalize'>
-                {label}
-              </label>
               <input
                 className='input__style'
                 type={type}
@@ -19,6 +16,9 @@ function FormCheckboxInput({ name, type, label }) {
                 {...formikField.field}
                 defaultChecked={formikField.field.value}
               />
+              <label htmlFor={name} className='ps-1 text-white text-capitalize'>
+                {label}
+              </label>
             </div>
           );
         }}

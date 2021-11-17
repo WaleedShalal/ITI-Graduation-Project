@@ -1,0 +1,20 @@
+.register__form {
+  box-shadow: 1px 1px 10px 3px black;
+  border-radius: 15px;
+  margin-top: 150px;
+  position: relative;
+  .user__image {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+  }
+  .form__wrapper {
+    margin-top: 100px;
+    .address__btn {
+      width: 35px;
+      height: 25px;
+      padding-bottom: 8px !important;
+    }
+  }
+}
