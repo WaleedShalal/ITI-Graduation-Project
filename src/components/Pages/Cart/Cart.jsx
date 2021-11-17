@@ -60,11 +60,8 @@ const Cart = () => {
                       <img className='cart-img' src={product.image} alt='' />
                     </td>
                     <td>
-                      {/* <Link to={`/purchased/${product.id}`}>
+                      <Link to={`/products/${product.id}`}>
                         {product.description}
-                      </Link> */}
-                      <Link to="/productDetails">
-                      {product.description} 
                       </Link>
                     </td>
                     <td>

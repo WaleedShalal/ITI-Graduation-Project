@@ -22,9 +22,10 @@ function App() {
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='products' element={<Products />} />
+        <Route path='products/:id' element={<ProductDetails />} />
         <Route path='cart' element={<Cart />} />
         <Route path='admin' element={<Admin />} />
-        <Route path='productDetails' element={<ProductDetails />} />
+        {/* <Route path='productDetails' element={<ProductDetails />} /> */}
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
