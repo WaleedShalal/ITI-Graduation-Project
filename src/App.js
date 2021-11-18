@@ -9,6 +9,7 @@ import Cart from './components/Pages/Cart/Cart';
 import Admin from './components/Pages/Admin/Admin';
 import NotFound from './components/Pages/NotFound/NotFound';
 import ProductDetails from './components/Pages/ProductDetails/ProductDetails';
+import ProductForm from './components/Pages/ProductForm/ProductForm';
 import './App.scss';
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
         <Route path='products/:id' element={<ProductDetails />} />
         <Route path='cart' element={<Cart />} />
         <Route path='admin' element={<Admin />} />
-        {/* <Route path='productDetails' element={<ProductDetails />} /> */}
+        <Route path='/productform/:id' element={<ProductForm />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
