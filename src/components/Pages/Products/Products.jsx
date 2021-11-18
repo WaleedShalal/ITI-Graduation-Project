@@ -17,6 +17,7 @@ const Products = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -26,7 +27,7 @@ const Products = () => {
           <div className='options'>
             <div className='col-md-3'>
               <Link to='/admin'>
-              Edit Products <i className='far fa-edit'></i>
+                Edit Products <i className='far fa-edit'></i>
               </Link>
             </div>
             <div className='filter col-sm-12 col-md-3'>
