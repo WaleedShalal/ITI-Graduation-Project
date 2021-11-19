@@ -1,10 +1,14 @@
 import React from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './Header.scss';
 
 function Header(props) {
+  const { fetchedData } = useSelector((state) => state);
+
   let location = useLocation();
   console.log(location.pathname);
+  console.log(location);
   return (
     <div className='header'>
       <div className='container-fluid'>
@@ -59,7 +63,8 @@ function Header(props) {
                   };
                 }}
                 to={`/cart`}>
-                <i className='fas fa-shopping-bag'></i>
+                <i className='fas fa-shopping-bag'></i>{' '}
+                {fetchedData.purchased.length}
               </NavLink>
             </div>
             <div className='RighC'>
@@ -114,31 +119,6 @@ function Header(props) {
                   Logout <i className='fas fa-sign-out-alt ps-2'></i>
                 </NavLink>
               )}
-              {/* {location.pathname === '/register' ? (
-                <NavLink
-                  style={({ isActive }) => {
-                    return {
-                      display: 'block',
-                      margin: '1rem 0',
-                      color: isActive ? 'white' : 'rgba(255, 255, 255, 0.65)',
-                    };
-                  }}
-                  to={`/login`}>
-                  Sign in <i className='fas fa-sign-out-alt ps-2'></i>
-                </NavLink>
-              ) : (
-                <NavLink
-                  style={({ isActive }) => {
-                    return {
-                      display: 'block',
-                      margin: '1rem 0',
-                      color: isActive ? 'white' : 'rgba(255, 255, 255, 0.65)',
-                    };
-                  }}
-                  to={`/login`}>
-                  Sign in <i className='fas fa-sign-out-alt ps-2'></i>
-                </NavLink>
-              )} */}
             </div>
           </div>
         </header>

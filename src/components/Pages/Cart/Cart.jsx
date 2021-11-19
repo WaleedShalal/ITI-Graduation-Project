@@ -41,7 +41,7 @@ const Cart = () => {
             </button>
             <table className='table'>
               <thead>
-                <tr className='text-left'>
+                <tr className='text-left text-white'>
                   <th>#</th>
                   <th>Pro.Img</th>
                   <th>Pro.Des</th>
@@ -50,7 +50,7 @@ const Cart = () => {
                   <th>Total</th>
                 </tr>
               </thead>
-              <tbody className='text-left'>
+              <tbody className='text-left text-white'>
                 {fetchedData.purchased.map((product, index) => (
                   <tr key={product.id}>
                     <td>
@@ -60,7 +60,7 @@ const Cart = () => {
                       <img className='cart-img' src={product.image} alt='' />
                     </td>
                     <td>
-                      <Link to={`/products/${product.id}`}>
+                      <Link to={`/cart/productdetails/${product.id}`}>
                         {product.description}
                       </Link>
                     </td>
@@ -92,7 +92,9 @@ const Cart = () => {
                 ))}
                 <tr>
                   <td colSpan='5'></td>
-                  <td className='font-weight-bold'>{handleTotal()}$</td>
+                  <td className='font-weight-bold text-white'>
+                    {handleTotal()}$
+                  </td>
                 </tr>
               </tbody>
             </table>

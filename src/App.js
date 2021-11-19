@@ -23,10 +23,14 @@ function App() {
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='products' element={<Products />} />
-        <Route path='products/:id' element={<ProductDetails />} />
+        <Route
+          path='products/productdetails/:id'
+          element={<ProductDetails />}
+        />
+        <Route path='cart/productdetails/:id' element={<ProductDetails />} />
         <Route path='cart' element={<Cart />} />
         <Route path='admin' element={<Admin />} />
-        <Route path='/productform/:id' element={<ProductForm />} />
+        <Route path='productform/:id' element={<ProductForm />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

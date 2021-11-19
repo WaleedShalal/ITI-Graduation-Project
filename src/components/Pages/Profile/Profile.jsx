@@ -1,14 +1,14 @@
-import { Link  } from "react-router-dom";
-import Post from "../../Parts/Post/Post";
-import Stars from "../../Parts/Stars/Stars";
-import Stories from "../../Parts/Stories/Stories";
-import "./Profile.scss";
+import { Link } from 'react-router-dom';
+import Post from '../../Parts/Post/Post';
+import Stars from '../../Parts/Stars/Stars';
+import Stories from '../../Parts/Stories/Stories';
+import './Profile.scss';
 function Profile() {
   return (
-    <div className="profile">
-      <div className="container">
-        <div className="row">
-          <div className="content-page col-8">
+    <div className='profile'>
+      <div className='container'>
+        <div className='row'>
+          <div className='content-page col-8'>
             <Stories />
             <Post />
             <Post />
@@ -16,33 +16,35 @@ function Profile() {
             <Post />
             <Post />
           </div>
-          <div className="user-info col-4">
+          <div className='user-info col-4'>
             <span>Mohamed Diab</span>
-            <img src="http://placehold.it/70" alt="profile-image" />
-            <div className="rate d-flex">
+            <img src='http://placehold.it/70' alt='profile-img' />
+            <div className='rate d-flex'>
               <Stars />
-              <span className="rate-number">4.0</span>
+              <span className='rate-number'>4.0</span>
             </div>
-            <div className="Ecommerce-Link-site">
-                <Link to="/products">Ecommerce</Link>
-                <span><i className="fas fa-shopping-bag"></i></span>
+            <div className='Ecommerce-Link-site'>
+              <Link to='/products'>Ecommerce</Link>
+              <span>
+                <i className='fas fa-shopping-bag'></i>
+              </span>
             </div>
-            <ul className="description">
+            <ul className='description'>
               <li className='active'>
-                <a href="/blog/mohamedebrahimdiab">
+                <a href='/blog/mohamedebrahimdiab'>
                   <span>Posts</span>100
                 </a>
               </li>
-              <li className="jk3gM">
-                <a href="/blog/mohamedebrahimdiab/followers">
+              <li className='jk3gM'>
+                <a href='/blog/mohamedebrahimdiab/followers'>
                   <span>Followers</span>
-                  <span className="KlOKT">20K</span>
+                  <span className='KlOKT'>20K</span>
                 </a>
               </li>
-              <li className="jk3gM">
-                <a href="/blog/mohamedebrahimdiab/followers">
+              <li className='jk3gM'>
+                <a href='/blog/mohamedebrahimdiab/followers'>
                   <span>Following</span>
-                  <span className="KlOKT">400</span>
+                  <span className='KlOKT'>400</span>
                 </a>
               </li>
             </ul>

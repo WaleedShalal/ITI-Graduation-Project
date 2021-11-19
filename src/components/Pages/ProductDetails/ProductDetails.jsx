@@ -1,21 +1,23 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { addCart } from '../../../store/cartActions';
 import userImage from '../../../assets/images/user-img.png';
 import './ProductDetails.scss';
 
 const ProductDetails = () => {
   const { id } = useParams();
+  const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { fetchedData } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const { fetchedData } = useSelector((state) => state);
+  const isFromCart = pathname.includes('cart');
+  const productItem = isFromCart
+    ? fetchedData.purchased.filter((p) => p.id === parseInt(id))[0]
+    : fetchedData.filter.filter((p) => p.id === parseInt(id))[0];
   const handleBack = () => {
-    navigate('/cart');
+    isFromCart ? navigate('/cart') : navigate('/products');
   };
-  const purchased = fetchedData.purchased.filter(
-    (p) => p.id === parseInt(id),
-  )[0];
   return (
     <React.Fragment>
       <section className='full-details container  pb-3'>
@@ -26,31 +28,19 @@ const ProductDetails = () => {
               <div className='row'>
                 <div className='mini__images col-2'>
                   <figure className=''>
-                    <img
-                      className='product-img w-100'
-                      src={purchased.image}
-                      alt=''
-                    />
+                    <img className=' w-100' src={productItem.image} alt='' />
                   </figure>
                   <figure className=''>
-                    <img
-                      className='product-img w-100'
-                      src={purchased.image}
-                      alt=''
-                    />
+                    <img className=' w-100' src={productItem.image} alt='' />
                   </figure>
                   <figure className=''>
-                    <img
-                      className='product-img w-100'
-                      src={purchased.image}
-                      alt=''
-                    />
+                    <img className=' w-100' src={productItem.image} alt='' />
                   </figure>
                 </div>
                 <figure className='col-10 mb-0'>
                   <img
                     className='product-img w-100'
-                    src={purchased.image}
+                    src={productItem.image}
                     alt=''
                   />
                 </figure>
@@ -60,32 +50,32 @@ const ProductDetails = () => {
               <div className='info'>
                 <div className='mb-3'>
                   <span className='fs-5 fw-bold'>Product Title</span> :{' '}
-                  {purchased.title}.
+                  {productItem.title}.
                 </div>
                 <div className='mb-3'>
                   <span className='fs-5 fw-bold'>Product Desciption</span> :{' '}
-                  {purchased.description}.
+                  {productItem.description}.
                 </div>
                 <div className='mb-3'>
                   <span className='fs-5 fw-bold'>Product Price</span> :{' '}
-                  {purchased.price}$.
+                  {productItem.price}$.
                 </div>
                 <div className=''>
                   <span className='fs-5 fw-bold'>Product Count</span> :{' '}
-                  {purchased.count}.
+                  {productItem.count}.
                 </div>
               </div>
               <div className='options__btn row'>
                 <div className='col-6'>
                   <button
-                    onClick={() => dispatch(addCart(purchased))}
+                    onClick={() => dispatch(addCart(productItem))}
                     className='btn btn-primary'>
                     Add Cart
                   </button>
                 </div>
                 <div className='col-6'>
                   <button onClick={handleBack} className='btn btn-primary'>
-                    Back To ShoppingCart
+                    {isFromCart ? 'Back Cart' : 'Back Products'}
                   </button>
                 </div>
               </div>
