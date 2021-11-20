@@ -1,18 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import Post from '../../Parts/Post/Post'
-import {db} from '../.../../../../Firebase/Firebase'
-import './Home.scss'
+import Post from '../../Parts/Post/Post';
+import { db, FirebaseContext } from '../.../../../../Firebase/Firebase';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import './Home.scss';
 
 function Home() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    db.collection('posts').onSnapshot(snapshot=> {
-     setPosts(snapshot.docs.map(doc => ({id:doc.id , post:doc.data()})));
-    // console.log(snapshot.docs.map(doc => doc.data())); 
-    }); 
-  
-  }, [])
+    db.collection('posts').onSnapshot((snapshot) => {
+      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() })));
+      // console.log(snapshot.docs.map(doc => doc.data()));
+    });
+  }, []);
+  /* ------------------------------ start message ----------------------------- */
+  const { firebase, messagesCollection, messagingUsersCollection } =
+    useContext(FirebaseContext);
+  const [usersTest] = useCollectionData(messagingUsersCollection, {
+    idField: 'id',
+  });
+  useEffect(() => {
+    // console.log([usersTest]);
+  }, [usersTest]);
   return (
     <section className='home__page'>
       <h1 className='text-center text-capitalize mb-5'>home</h1>
@@ -28,12 +37,18 @@ function Home() {
                 />
               </figure>
               <div className='offset-1 col-9'>
-                { posts.map(({id,post})=>{
-                 return <Post key={id} username={post.username} video={post.video} caption={post.caption}/>
+                {posts.map(({ id, post }) => {
+                  return (
+                    <Post
+                      key={id}
+                      username={post.username}
+                      video={post.video}
+                      caption={post.caption}
+                    />
+                  );
                 })}
               </div>
             </div>
-          
           </div>
           <div className='offset-1 col-4'>
             <div className='row'>

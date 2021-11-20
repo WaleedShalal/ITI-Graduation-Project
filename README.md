@@ -26,4 +26,5 @@ react-formik   : npm i --save formik.\
 yup            : npm install yup --save.\
 firebase       : npm i firebase --save.\
 firebase-tools : npm install -g firebase-tools.
+firebase-hooks : npm i react-firebase-hooks.
  

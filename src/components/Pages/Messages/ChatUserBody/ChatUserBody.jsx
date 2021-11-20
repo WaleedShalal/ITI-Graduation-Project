@@ -3,7 +3,7 @@ import userImage from '../../../../assets/images/user-img.png';
 
 function ChatUserBody() {
   return (
-    <div class='d-flex align-items-baseline'>
+    <div className='d-flex align-items-baseline'>
       <div className='flex-shrink-0'>
         <figure className='messages__chatBodyImage'>
           <img src={userImage} className='w-100 rounded-circle' alt='...' />

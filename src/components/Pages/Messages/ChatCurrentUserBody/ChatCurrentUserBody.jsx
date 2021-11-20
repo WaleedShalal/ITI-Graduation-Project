@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import userImage from '../../../../assets/images/user-img.png';
+import { FirebaseContext } from '../../../../Firebase/Firebase';
+import { SecondUserContext } from './../../../../context/SecondUser';
 
 function ChatCurrentUserBody() {
+  const { messagesCollection } = useContext(FirebaseContext);
+  const { secondUserData } = useContext(SecondUserContext);
   return (
-    <div class='d-flex align-items-baseline'>
+    <div className='d-flex align-items-baseline'>
       <div className='flex-grow-1 me-3'>
         <h4 className='mb-0 text-end'>current__UserMessage</h4>
       </div>

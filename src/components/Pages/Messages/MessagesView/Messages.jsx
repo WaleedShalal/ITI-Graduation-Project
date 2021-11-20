@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FirebaseContext } from '../../../../Firebase/Firebase';
 import ChatCurrentUserBody from '../ChatCurrentUserBody/ChatCurrentUserBody';
 import ChatUserBody from '../ChatUserBody/ChatUserBody';
 import MessagesUsers from '../MessagesUsers/MessagesUsers';
 import ChatUserHeader from './../ChatUserHeader/ChatUserHeader';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 import './Messages.scss';
+import ChatUserFooter from '../ChatUserFooter/ChatUserFooter';
 
 function Messages() {
+  const { messagingUsersCollection } = useContext(FirebaseContext);
+  const [users] = useCollectionData(messagingUsersCollection);
+  console.log(users);
   return (
     <section className='messages my-3'>
       <div className='container'>
@@ -16,23 +22,10 @@ function Messages() {
                 <h3>username</h3>
                 <i className='fas fa-edit'></i>
               </div>
-              <div className='messages__inboxBody px-3 py-4'>
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
-                <MessagesUsers />
+              <div className='messages__inboxBody py-4'>
+                {users?.map((data) => {
+                  return <MessagesUsers data={data} key={Math.random()} />;
+                })}
               </div>
             </div>
             <div className='messages__chat col-8 ps-0'>
@@ -65,18 +58,7 @@ function Messages() {
                 <ChatCurrentUserBody />
               </div>
               <div className='messages__chatFooter d-flex justify-content-between align-items-center px-4 py-2'>
-                <form className='messages__SendForm d-flex w-100 py-2'>
-                  <input
-                    className='w-100 px-3 rounded-pill me-2'
-                    type='text'
-                    placeholder='Enter a message...'
-                  />
-                  <button
-                    className='btn btn-primary  rounded-pill'
-                    type='submit'>
-                    Send
-                  </button>
-                </form>
+                <ChatUserFooter />
               </div>
             </div>
           </div>

@@ -1,26 +1,35 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App";
-import { Provider } from "react-redux";
-import store from "./store/store";
-import { AuthProvider } from "./context/Auth";
-import reportWebVitals from "./reportWebVitals";
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
-import "./index.scss";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from './App';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import { AuthProvider } from './context/Auth';
+import reportWebVitals from './reportWebVitals';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+import './index.scss';
+import FirebaseProvider from './Firebase/Firebase';
+import SecondUserProvider from './context/SecondUser';
+import CurrentUserProvider from './context/CurrentUser';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <AuthProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </AuthProvider>
+      <FirebaseProvider>
+        <CurrentUserProvider>
+          <SecondUserProvider>
+            <AuthProvider>
+              <BrowserRouter>
+                <App />
+              </BrowserRouter>
+            </AuthProvider>
+          </SecondUserProvider>
+        </CurrentUserProvider>
+      </FirebaseProvider>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
