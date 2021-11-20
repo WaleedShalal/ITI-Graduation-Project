@@ -1,24 +1,13 @@
-<<<<<<< HEAD
 import React from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 import { auth } from "../../../Firebase/Firebase";
-import "./Header.scss";
-=======
-import React from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './Header.scss';
->>>>>>> 8701ff68f11f8914b4123646db8cb5dcdca86bd2
 
 function Header(props) {
   const { fetchedData } = useSelector((state) => state);
 
   let location = useLocation();
-<<<<<<< HEAD
-=======
-  console.log(location.pathname);
-  console.log(location);
->>>>>>> 8701ff68f11f8914b4123646db8cb5dcdca86bd2
   return (
     <div className="header">
       <div className="container-fluid">
@@ -74,15 +63,9 @@ function Header(props) {
                     color: isActive ? "white" : "rgba(255, 255, 255, 0.65)",
                   };
                 }}
-<<<<<<< HEAD
-                to={`/cart`}
-              >
-                <i className="fas fa-shopping-bag"></i>
-=======
                 to={`/cart`}>
                 <i className='fas fa-shopping-bag'></i>{' '}
                 {fetchedData.purchased.length}
->>>>>>> 8701ff68f11f8914b4123646db8cb5dcdca86bd2
               </NavLink>
             </div>
             <div className="RighC">
