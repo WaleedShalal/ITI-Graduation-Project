@@ -57,10 +57,6 @@ function Profile() {
             <span>{`${getUser.user.firstName} ${getUser.user.lastName}`}</span>
             <img src="http://placehold.it/70" alt="profile-image" />
             <div className="rate d-flex">
-          <div className='user-info col-4'>
-            <span>Mohamed Diab</span>
-            <img src='http://placehold.it/70' alt='profile-img' />
-            <div className='rate d-flex'>
               <Stars />
               <span className='rate-number'>4.0</span>
             </div>
@@ -93,8 +89,6 @@ function Profile() {
         </div>
       </div>
       </div>
-    </div>
-    </div>
   );
 }
 
