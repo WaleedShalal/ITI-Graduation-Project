@@ -48,7 +48,17 @@ function Header(props) {
               </NavLink>
             </div>
             <div className='RighC'>
-              <i className='fas fa-comment '></i>
+              <NavLink
+                style={({ isActive }) => {
+                  return {
+                    display: 'block',
+                    margin: '1rem 0',
+                    color: isActive ? 'white' : 'rgba(255, 255, 255, 0.65)',
+                  };
+                }}
+                to={`/messages`}>
+                <i className='fas fa-comment '></i>
+              </NavLink>
             </div>
             <div className='RighC'>
               <i className='fas fa-bell '></i>

@@ -10,6 +10,7 @@ import Admin from './components/Pages/Admin/Admin';
 import NotFound from './components/Pages/NotFound/NotFound';
 import ProductDetails from './components/Pages/ProductDetails/ProductDetails';
 import ProductForm from './components/Pages/ProductForm/ProductForm';
+import Messages from './components/Pages/Messages/MessagesView/Messages';
 import './App.scss';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/home' element={<Navigate to='/' />} />
+        <Route path='/messages' element={<Messages />} />
         <Route path='profile' element={<Profile />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />

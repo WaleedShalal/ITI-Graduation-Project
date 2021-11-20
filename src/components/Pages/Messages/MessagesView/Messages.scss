@@ -1,0 +1,56 @@
+.messages {
+  height: calc(100vh - 86px);
+  .messages__wrapper {
+    border: 1px solid lightgray;
+    .messages__inbox {
+      height: calc(100vh - 86px);
+      border-right: 1px solid lightgray;
+      display: grid;
+      grid-template-rows: 55px 1fr;
+      overflow: hidden;
+      .messages__inboxHeader {
+        border-bottom: 1px solid lightgray;
+        height: 55px;
+      }
+      .messages__inboxBody {
+        height: 100%;
+        overflow-y: scroll;
+        .messages__inboxBodyImage {
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+    .messages__chat {
+      height: calc(100vh - 86px);
+      display: grid;
+      grid-template-rows: 55px 1fr 50px;
+      overflow: hidden;
+      .messages__chatHeader {
+        border-bottom: 1px solid lightgray;
+        .messages__chatHeaderImage {
+          width: 30px;
+        }
+        .online__status {
+          font-size: 14px;
+        }
+      }
+      .messages__chatBody {
+        overflow-y: scroll;
+        .messages__chatBodyImage {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .messages__chatFooter {
+        // background-color: green;
+        .messages__SendForm {
+          input {
+            border: 1px solid lightgray;
+            background-color: #001935;
+          }
+        }
+      }
+    }
+  }
+}
