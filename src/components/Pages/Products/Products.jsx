@@ -85,8 +85,23 @@ const Products = () => {
           <div className='products'>
             {fetchedData.filter.map((product) => (
               <div key={product.id} className='card'>
-                <img src={product.image} className='card-img-top' alt='...' />
-                <div className='card-body'>
+                <div className='card__header'>
+                  <figure className='text-center'>
+                    <img
+                      src={product.image}
+                      className='card-img-top'
+                      alt='...'
+                    />
+                  </figure>
+                  <div className='product__detailsWrapper'>
+                    <Link
+                      to={`/products/productdetails/${product.id}`}
+                      className='product__details text-capitalize '>
+                      details
+                    </Link>
+                  </div>
+                </div>
+                <div className='card-body text-dark'>
                   <p className='card-text'>{product.title}</p>
                   <p className='card-text'>{product.price}$</p>
                   <div className='btn-container'>
