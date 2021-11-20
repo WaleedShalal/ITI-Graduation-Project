@@ -1,9 +1,46 @@
-import { Link  } from "react-router-dom";
+import { useContext, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Post from "../../Parts/Post/Post";
 import Stars from "../../Parts/Stars/Stars";
 import Stories from "../../Parts/Stories/Stories";
+import { db } from "../../../Firebase/Firebase";
+import { AuthContext } from "../../../context/Auth";
+
 import "./Profile.scss";
 function Profile() {
+  const initialValues = {
+    id: "",
+    user: {
+      address: [],
+      birthDate: "",
+      confirmPassword: "",
+      email: "",
+      firstName: "",
+      followedHashtags: " ",
+      gender: "",
+      lastName: "",
+      password: "",
+      phoneNumber: "",
+      subscribeUs: false,
+      website: "",
+    },
+  };
+  const [getUser, setUsers] = useState(initialValues);
+  const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    db.collection("users").onSnapshot((snapshot) => {
+      snapshot.docs.map((doc) => {
+        if (doc.id == user.uid) {
+          let data = [{ id: doc.id, user: doc.data() }];
+          let getUser = data.filter(function (x) {
+            return x !== undefined;
+          });
+          setUsers(...getUser);
+        }
+      });
+    });
+  }, []);
   return (
     <div className="profile">
       <div className="container">
@@ -17,18 +54,20 @@ function Profile() {
             <Post />
           </div>
           <div className="user-info col-4">
-            <span>Mohamed Diab</span>
+            <span>{`${getUser.user.firstName} ${getUser.user.lastName}`}</span>
             <img src="http://placehold.it/70" alt="profile-image" />
             <div className="rate d-flex">
               <Stars />
               <span className="rate-number">4.0</span>
             </div>
             <div className="Ecommerce-Link-site">
-                <Link to="/products">Ecommerce</Link>
-                <span><i className="fas fa-shopping-bag"></i></span>
+              <Link to="/products">Ecommerce</Link>
+              <span>
+                <i className="fas fa-shopping-bag"></i>
+              </span>
             </div>
             <ul className="description">
-              <li className='active'>
+              <li className="active">
                 <a href="/blog/mohamedebrahimdiab">
                   <span>Posts</span>100
                 </a>

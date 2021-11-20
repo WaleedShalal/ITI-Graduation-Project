@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import Post from '../../Parts/Post/Post'
+import {db} from '../.../../../../Firebase/Firebase'
 import './Home.scss'
 
 function Home() {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    db.collection('posts').onSnapshot(snapshot=> {
+     setPosts(snapshot.docs.map(doc => ({id:doc.id , post:doc.data()})));
+    // console.log(snapshot.docs.map(doc => doc.data())); 
+    }); 
+  
+  }, [])
   return (
     <section className='home__page'>
       <h1 className='text-center text-capitalize mb-5'>home</h1>
@@ -18,217 +28,12 @@ function Home() {
                 />
               </figure>
               <div className='offset-1 col-9'>
-                <iframe
-                  className='w-100'
-                  height='315'
-                  src='https://www.youtube.com/embed/b5l9rGLvwOo?start=4'
-                  title='YouTube video player'
-                  frameBorder='0'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowFullScreen></iframe>
-                <div className='d-flex mb-3'>
-                  <div className='me-2'>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='far fa-star'></i>
-                  </div>
-                  <div className='me-2'>
-                    <i className='fas fa-comment-alt'></i>
-                  </div>
-                  <div>
-                    <i className='fas fa-share'></i>
-                  </div>
-                  <div className='ms-auto'>
-                    <i className='far fa-bookmark'></i>
-                  </div>
-                </div>
-                <form className='' action=''>
-                  <input
-                    className='w-100'
-                    type='text'
-                    placeholder='Add a comment...'
-                  />
-                </form>
+                { posts.map(({id,post})=>{
+                 return <Post key={id} username={post.username} video={post.video} caption={post.caption}/>
+                })}
               </div>
             </div>
-            <div className='row mb-3 py-3'>
-              <figure className='col-2'>
-                <img
-                  className='w-100'
-                  src='https://via.placeholder.com/100'
-                  alt=''
-                />
-              </figure>
-              <div className='offset-1 col-9'>
-                <iframe
-                  className='w-100'
-                  height='315'
-                  src='https://www.youtube.com/embed/noHF02jQHe4?start=8'
-                  title='YouTube video player'
-                  frameBorder='0'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowFullScreen></iframe>
-                <div className='d-flex mb-3'>
-                  <div className='me-2'>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='far fa-star'></i>
-                  </div>
-                  <div className='me-2'>
-                    <i className='fas fa-comment-alt'></i>
-                  </div>
-                  <div>
-                    <i className='fas fa-share'></i>
-                  </div>
-                  <div className='ms-auto'>
-                    <i className='far fa-bookmark'></i>
-                  </div>
-                </div>
-                <form className='' action=''>
-                  <input
-                    className='w-100'
-                    type='text'
-                    placeholder='Add a comment...'
-                  />
-                </form>
-              </div>
-            </div>
-            <div className='row mb-3 py-3'>
-              <figure className='col-2'>
-                <img
-                  className='w-100'
-                  src='https://via.placeholder.com/100'
-                  alt=''
-                />
-              </figure>
-              <div className='offset-1 col-9'>
-                <iframe
-                  className='w-100'
-                  height='315'
-                  src='https://www.youtube.com/embed/8pkO4gculCM'
-                  title='YouTube video player'
-                  frameBorder='0'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowFullScreen></iframe>
-                <div className='d-flex mb-3'>
-                  <div className='me-2'>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='far fa-star'></i>
-                  </div>
-                  <div className='me-2'>
-                    <i className='fas fa-comment-alt'></i>
-                  </div>
-                  <div>
-                    <i className='fas fa-share'></i>
-                  </div>
-                  <div className='ms-auto'>
-                    <i className='far fa-bookmark'></i>
-                  </div>
-                </div>
-                <form className='' action=''>
-                  <input
-                    className='w-100'
-                    type='text'
-                    placeholder='Add a comment...'
-                  />
-                </form>
-              </div>
-            </div>
-            <div className='row mb-3 py-3'>
-              <figure className='col-2'>
-                <img
-                  className='w-100'
-                  src='https://via.placeholder.com/100'
-                  alt=''
-                />
-              </figure>
-              <div className='offset-1 col-9'>
-                <iframe
-                  className='w-100'
-                  height='315'
-                  src='https://www.youtube.com/embed/IiEf1RwMQS8'
-                  title='YouTube video player'
-                  frameBorder='0'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowFullScreen></iframe>
-                <div className='d-flex mb-3'>
-                  <div className='me-2'>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='far fa-star'></i>
-                  </div>
-                  <div className='me-2'>
-                    <i className='fas fa-comment-alt'></i>
-                  </div>
-                  <div>
-                    <i className='fas fa-share'></i>
-                  </div>
-                  <div className='ms-auto'>
-                    <i className='far fa-bookmark'></i>
-                  </div>
-                </div>
-                <form className='' action=''>
-                  <input
-                    className='w-100'
-                    type='text'
-                    placeholder='Add a comment...'
-                  />
-                </form>
-              </div>
-            </div>
-            <div className='row mb-3 py-3'>
-              <figure className='col-2'>
-                <img
-                  className='w-100'
-                  src='https://via.placeholder.com/100'
-                  alt=''
-                />
-              </figure>
-              <div className='offset-1 col-9'>
-                <iframe
-                  className='w-100'
-                  height='315'
-                  src='https://www.youtube.com/embed/CAn3IxTCv7M'
-                  title='YouTube video player'
-                  frameBorder='0'
-                  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-                  allowFullScreen></iframe>
-                <div className='d-flex mb-3'>
-                  <div className='me-2'>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='fas fa-star'></i>
-                    <i className='far fa-star'></i>
-                  </div>
-                  <div className='me-2'>
-                    <i className='fas fa-comment-alt'></i>
-                  </div>
-                  <div>
-                    <i className='fas fa-share'></i>
-                  </div>
-                  <div className='ms-auto'>
-                    <i className='far fa-bookmark'></i>
-                  </div>
-                </div>
-                <form className='' action=''>
-                  <input
-                    className='w-100'
-                    type='text'
-                    placeholder='Add a comment...'
-                  />
-                </form>
-              </div>
-            </div>
+          
           </div>
           <div className='offset-1 col-4'>
             <div className='row'>

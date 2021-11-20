@@ -1,23 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import App from './App';
-import { Provider } from 'react-redux';
-import store from './store/store';
-import reportWebVitals from './reportWebVitals';
-import '../node_modules/bootstrap/dist/css/bootstrap.css';
-import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import './index.scss';
+import App from "./App";
+import { Provider } from "react-redux";
+import store from "./store/store";
+import { AuthProvider } from "./context/Auth";
+import reportWebVitals from "./reportWebVitals";
+import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+import "./index.scss";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AuthProvider>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -23,4 +23,7 @@ redux-devtools : npm install --save redux-devtools-extension.\
 redux-thunk    : npm install redux-thunk.\
 axios          : npm i axios.\
 react-formik   : npm i --save formik.\
-yup            : npm install yup --save.
+yup            : npm install yup --save.\
+firebase       : npm i firebase --save.\
+firebase-tools : npm install -g firebase-tools.
+ 
