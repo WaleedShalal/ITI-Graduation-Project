@@ -84,6 +84,7 @@ function Register() {
         .createUserWithEmailAndPassword(email, password)
         .then((cred) => {
           return db.collection("users").doc(cred.user.uid).set({
+            id:cred.user.uid,
             address,
             birthDate,
             confirmPassword,
@@ -96,6 +97,7 @@ function Register() {
             phoneNumber,
             subscribeUs,
             website,
+
           });
         });
       navigate("/home");
