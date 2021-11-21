@@ -1,19 +1,17 @@
 import React, { useState } from "react";
 import { Formik, Form, FieldArray } from "formik";
 import { useNavigate } from "react-router-dom";
-import * as yup from "yup";
 import FormField from "../../shared/FormikField/FormikField";
 import FormRadioButton from "../../shared/FormikRadioButton/FormikRadioButton";
 import FormCheckboxInput from "../../shared/FormikCheckboxInput/ForminCheckboxInput";
 import userImage from "../../../assets/images/user-img.png";
 import { auth, db } from "../../../Firebase/Firebase";
-
+import { updateProfile } from "firebase/auth";
+import * as yup from "yup";
 import "./Register.scss";
-
 function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState("");
-
   const genderOption = [
     {
       id: 1,
@@ -78,11 +76,13 @@ function Register() {
       subscribeUs,
       website,
     } = e;
-
     try {
       await auth
         .createUserWithEmailAndPassword(email, password)
         .then((cred) => {
+          updateProfile(auth.currentUser, {
+            displayName: `${firstName} ${lastName}`
+          })
           return db.collection("users").doc(cred.user.uid).set({
             id:cred.user.uid,
             address,
@@ -97,15 +97,14 @@ function Register() {
             phoneNumber,
             subscribeUs,
             website,
-
           });
+         
         });
       navigate("/home");
     } catch (err) {
       setError(err.message);
     }
   };
-
   return (
     <Formik
       initialValues={initialValues}
@@ -208,5 +207,4 @@ function Register() {
     </Formik>
   );
 }
-
 export default Register;

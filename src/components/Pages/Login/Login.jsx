@@ -47,7 +47,6 @@ const Login = () => {
       onSubmit={onSubmit}
     >
       {(formik) => {
-        console.log(formik);
         return (
           <Form>
             <section className="login__form container p-5 w-50">

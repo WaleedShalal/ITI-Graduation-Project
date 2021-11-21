@@ -1,23 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Post from "../../Parts/Post/Post";
 import { db } from "../.../../../../Firebase/Firebase";
 import VideoUpload from "../../Parts/VideoUpload/VideoUpload";
 import "./Home.scss";
-
 function Home({ userName }) {
   const [posts, setPosts] = useState([]);
-  
   useEffect(() => {
-    db.collection("posts").orderBy("timestamp","desc").onSnapshot((snapshot) => {
-      setPosts(snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() })));
-      // console.log(snapshot.docs.map(doc => doc.data()));
-    });
+    db.collection("posts")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setPosts(
+          snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() }))
+        );
+      });
   }, []);
   return (
     <section className="home__page">
       <h1 className="text-center text-capitalize mb-5">home</h1>
-   <VideoUpload username={userName} />
+      <VideoUpload username={userName} />
       <div className="container">
         <div className="row">
           <div className="col-7">
@@ -34,6 +35,7 @@ function Home({ userName }) {
                   return (
                     <Post
                       key={id}
+                      postId={id}
                       username={post.username}
                       video={post.videoUrl}
                       caption={post.caption}
