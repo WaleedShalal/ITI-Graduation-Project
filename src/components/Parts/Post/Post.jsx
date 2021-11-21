@@ -10,12 +10,11 @@ function Post({ username, postId, video, caption }) {
   const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
+  
   useEffect(() => {
-    let unsubscribe;
     let mounted = true;
     if (postId) {
-      unsubscribe = db
-        .collection("posts")
+      db.collection("posts")
         .doc(postId)
         .collection("comments")
         .orderBy("timestamp", "asc")
@@ -24,7 +23,7 @@ function Post({ username, postId, video, caption }) {
         });
     }
     return () => {
-      mounted= false;
+      mounted = false;
     };
   }, [postId]);
   const postComment = (e) => {
@@ -58,7 +57,6 @@ function Post({ username, postId, video, caption }) {
         </div>
         <form className="comment" action="">
           <input
-            className="w-100"
             type="text"
             placeholder="Add a comment..."
             value={comment}

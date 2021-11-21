@@ -17,9 +17,9 @@ function Home({ userName }) {
   }, []);
   return (
     <section className="home__page">
-      <h1 className="text-center text-capitalize mb-5">home</h1>
-      <VideoUpload username={userName} />
+  
       <div className="container">
+      <VideoUpload username={userName} />
         <div className="row">
           <div className="col-7">
             <div className="row mb-3 py-3">
