@@ -13,11 +13,12 @@ function ChatUserFooter() {
     messagesCollection.add({
       msg: msgContent,
       sentBy: userData.uid,
-      sentAt: new Date(),
+      sentAt: new Date().toLocaleString(),
       sentTo: secondUserData.userId,
       relation: `${userData.uid}/${secondUserData.userId}`,
     });
     setMsgContent('');
+    console.log('DONE');
   };
   return (
     <>

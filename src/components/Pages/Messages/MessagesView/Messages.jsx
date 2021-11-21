@@ -24,7 +24,7 @@ function Messages() {
         `${userData.uid}/${secondUserData.userId}`,
         `${secondUserData.userId}/${userData.uid}`,
       ])
-      .limit(25);
+      .limit(100);
   const [messages] = useCollectionData(query, { idField: 'id' });
   const [messagesSorted, setMessagesSorted] = useState([]);
   useEffect(() => {
@@ -33,6 +33,7 @@ function Messages() {
       console.log(messages);
       console.log(messagesSorted);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
   return (
     <section className='messages my-3'>
@@ -41,8 +42,8 @@ function Messages() {
           <div className='row'>
             <div className='messages__inbox col-4 pe-0'>
               <div className='messages__inboxHeader d-flex justify-content-around align-items-center px-3'>
-                <h3>username</h3>
-                <i className='fas fa-edit'></i>
+                <h4>{userData?.displayName}</h4>
+                {/* <i className='fas fa-edit'></i> */}
               </div>
               <div className='messages__inboxBody py-4'>
                 {users
@@ -52,40 +53,36 @@ function Messages() {
                   ))}
               </div>
             </div>
-            <div className='messages__chat col-8 ps-0'>
-              {secondUserData ? (
-                <>
-                  <div className='messages__chatHeader d-flex justify-content-between align-items-center px-3'>
-                    <ChatUserHeader />
-                    <i className='fas fa-exclamation-circle'></i>
-                  </div>
-                  <div className='messages__chatBody px-3 py-4'>
-                    {messagesSorted.map((data) => (
-                      <ChatUserBody
-                        key={data.sentAt}
-                        isCurrent={data.sentBy === userData.uid}
-                        data={data.msg}
-                        userPhoto={
-                          data.sentBy === userData.uid
-                            ? userData.photoURL
-                            : secondUserData.userPhoto
-                        }
-                      />
-                    ))}
-                  </div>
-                  <div className='messages__chatFooter d-flex justify-content-between align-items-center px-4 py-2'>
-                    <ChatUserFooter />
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div></div>
-                  <div className='fs-1 d-flex justify-content-center align-items-center'>
-                    welcome to message
-                  </div>
-                </>
-              )}
-            </div>
+            {!secondUserData ? (
+              <div className='fs-1 col-8 ps-0 d-flex justify-content-center align-items-center'>
+                welcome to message
+              </div>
+            ) : (
+              <div className='messages__chat col-8 ps-0'>
+                <div className='messages__chatHeader d-flex justify-content-between align-items-center px-3'>
+                  <ChatUserHeader />
+                  <i className='fas fa-exclamation-circle'></i>
+                </div>
+                <div className='messages__chatBody px-3 py-4'>
+                  {messagesSorted.map((data) => (
+                    <ChatUserBody
+                      key={data.sentAt}
+                      isCurrent={data.sentBy === userData.uid}
+                      data={data.msg}
+                      time={data.sentAt}
+                      userPhoto={
+                        data.sentBy === userData.uid
+                          ? userData.photoURL
+                          : secondUserData.userPhoto
+                      }
+                    />
+                  ))}
+                </div>
+                <div className='messages__chatFooter d-flex justify-content-between align-items-center px-4 py-2'>
+                  <ChatUserFooter />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -2,9 +2,11 @@
   height: calc(100vh - 86px);
   .messages__wrapper {
     border: 1px solid lightgray;
+    border-radius: 5px;
     .messages__inbox {
       height: calc(100vh - 86px);
       border-right: 1px solid lightgray;
+      border-radius: 5px 0px 0px;
       display: grid;
       grid-template-rows: 55px 1fr;
       overflow: hidden;
@@ -44,13 +46,23 @@
       }
       .messages__chatBody {
         overflow-y: scroll;
+        .message__content {
+          max-width: max-content;
+          background-color: yellowgreen;
+          padding: 5px 20px;
+          border-radius: 1px solid yellowgreen;
+          border-radius: 10px 10px 0 10px;
+          &.message__contentSecondUser {
+            border-radius: 10px 10px 10px 0;
+            background-color: gold;
+          }
+        }
         .messages__chatBodyImage {
           width: 30px;
           height: 30px;
         }
       }
       .messages__chatFooter {
-        // background-color: green;
         .messages__SendForm {
           input {
             border: 1px solid lightgray;
@@ -59,5 +71,18 @@
         }
       }
     }
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: lightgrey;
+    border-radius: 0 0 5px 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: green;
   }
 }

@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import userImage from '../../../../assets/images/user-img.png';
 import { SecondUserContext } from './../../../../context/SecondUser';
 
 function MessagesUsers({ data }) {
   const { secondUserData, setSecondUserData } = useContext(SecondUserContext);
+
   return (
     <div
-      className={`d-flex messages__secondUser px-3 ${
+      className={`d-flex align-items-center messages__secondUser px-3 mb-3 ${
         data?.userName === secondUserData?.userName && 'active'
       }`}
       onClick={() => setSecondUserData(data)}>
       <div className='flex-shrink-0'>
-        <figure className='messages__inboxBodyImage'>
+        <figure className='messages__inboxBodyImage mb-0'>
           <img
             src={data.userPhoto}
             className='w-100 rounded-circle'

@@ -7,11 +7,9 @@ export const currentUserContext = createContext();
 function CurrentUserProvider({ children }) {
   const { auth, messagingUsersCollection } = useContext(FirebaseContext);
   const [userData] = useAuthState(auth);
-  console.log(userData?.uid);
   const query =
     userData?.uid &&
     messagingUsersCollection.where('userId', '==', userData.uid);
-  console.log(query);
   const [currentUser] = useCollectionData(query, { idField: 'id' });
   useEffect(() => {
     if (currentUser && currentUser?.length === 0) {
