@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import firebase from "firebase/compat/app"
 import { db, storage } from "../../../Firebase/Firebase";
-function ImageUpload({userName}) {
+import { AuthContext } from "../../../context/Auth";
+function ImageUpload() {
+  const { user } = useContext(AuthContext);
   const [video, setVideo] = useState(null);
   const [progress, setProgress] = useState(0);
   const [caption, setCaption] = useState("");
@@ -33,7 +35,8 @@ function ImageUpload({userName}) {
                     db.collection("posts").add({
                         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
                         caption : caption,
-                        videoUrl : url,  
+                        videoUrl : url, 
+                        username:user.displayName 
                     });
                     setProgress(0); 
                     setCaption('')

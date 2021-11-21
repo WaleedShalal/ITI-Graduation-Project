@@ -12,65 +12,18 @@ import ProductDetails from "./components/Pages/ProductDetails/ProductDetails";
 import ProductForm from "./components/Pages/ProductForm/ProductForm";
 import Messages from "./components/Pages/Messages/MessagesView/Messages";
 import PrivateRoute from "./context/guard";
-import { useContext, useState, useEffect } from "react";
-import { db } from "../src/Firebase/Firebase";
-import { AuthContext } from "../src/context/Auth";
 import "./App.scss";
 
 function App() {
-  const initialValues = {
-    id: "",
-    user: {
-      address: [],
-      birthDate: "",
-      confirmPassword: "",
-      email: "",
-      firstName: "",
-      followedHashtags: " ",
-      gender: "",
-      lastName: "",
-      password: "",
-      phoneNumber: "",
-      subscribeUs: false,
-      website: "",
-    },
-  };
-  const [getUser, setUsers] = useState(initialValues);
-  const { user } = useContext(AuthContext);
   
-  const [name, setName] = useState('')
-  useEffect(() => {
-    db.collection("users").onSnapshot((snapshot) => {
-      snapshot.docs.map((doc) => {
-        if (doc.id === user.uid) {
-          let data = [{ id: doc.id, user: doc.data() }];  
-          let getUser = data.filter(function (x) {
-            return x !== undefined;
-          });
-           setUsers(...getUser);
-        }
-        return getUser;
-      });
-    });
-    setName(`${getUser.user.firstName} ${getUser.user.lastName}`);
-  }, []);
- 
   return (
     <div className="App">
       <Header />
       <Routes>
         <Route exact path="/" element={<PrivateRoute />}>
-          <Route exact path="/" element={<Home userName={name}/>} />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="home" element={<Navigate to="/" />} />
-          <Route
-            exact
-            path="profile"
-            element={
-              <Profile
-                userName={name}
-              />
-            }
-          />
+          <Route exact path="profile" element={<Profile />} />
           <Route path="cart" element={<Cart />} />
           <Route path="admin" element={<Admin />} />
           <Route path="/productform/:id" element={<ProductForm />} />

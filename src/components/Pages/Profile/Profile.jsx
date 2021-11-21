@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import Post from "../../Parts/Post/Post";
 import Stars from "../../Parts/Stars/Stars";
 import Stories from "../../Parts/Stories/Stories";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/Auth";
 import "./Profile.scss";
-function Profile({userName}) {
+function Profile() {
+  const { user } = useContext(AuthContext);
   return (
     <div className="profile">
       <div className="container">
@@ -18,7 +21,7 @@ function Profile({userName}) {
             <Post />
           </div>
           <div className="user-info col-4">
-            <span>{userName}</span>
+            <span>{user.displayName.toUpperCase()}</span>
             <img src="http://placehold.it/70" alt="profile" />
             <div className="rate d-flex">
               <Stars />
