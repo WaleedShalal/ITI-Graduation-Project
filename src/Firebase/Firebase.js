@@ -23,12 +23,18 @@ export { db, auth, provider, storage };
 /* ----------------------------- start messages ----------------------------- */
 export const FirebaseContext = createContext();
 const messagesCollection = db.collection('messages');
-const messagingUsersCollection = db.collection('users');
+const messagingUsersCollection = db.collection('messagingUsers');
 const FirebaseProvider = ({ children }) => {
   firebase.initializeApp(firebaseConfig);
   return (
     <FirebaseContext.Provider
-      value={{ firebase, db, messagesCollection, messagingUsersCollection }}>
+      value={{
+        firebase,
+        db,
+        auth,
+        messagesCollection,
+        messagingUsersCollection,
+      }}>
       {children}
     </FirebaseContext.Provider>
   );

@@ -12,12 +12,16 @@ function ChatUserHeader() {
         <>
           <div className='flex-shrink-0'>
             <figure className='messages__chatHeaderImage'>
-              <img src={userImage} className='w-100 rounded-circle' alt='...' />
+              <img
+                src={secondUserData.userPhoto}
+                className='w-100 rounded-circle'
+                alt='...'
+              />
             </figure>
           </div>
 
           <div className='flex-grow-1 ms-3'>
-            <h4 className='mb-0'>{secondUserData?.firstName}</h4>
+            <h4 className='mb-0'>{secondUserData?.userName}</h4>
             <span className='online__status'>active now</span>
           </div>
         </>

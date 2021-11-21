@@ -1,18 +1,21 @@
 import React, { useContext, useState } from 'react';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
 import { SecondUserContext } from './../../../../context/SecondUser';
+import { currentUserContext } from './../../../../context/CurrentUser';
 
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
   const { messagesCollection } = useContext(FirebaseContext);
+  const { userData } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
   const handleSendMsg = (e) => {
     e.preventDefault();
     messagesCollection.add({
       msg: msgContent,
+      sentBy: userData.uid,
       sentAt: new Date(),
-      sentBy: 'Waleed',
-      sentTo: 'Other',
+      sentTo: secondUserData.userId,
+      relation: `${userData.uid}/${secondUserData.userId}`,
     });
     setMsgContent('');
   };
