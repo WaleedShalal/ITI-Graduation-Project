@@ -19,18 +19,24 @@ function Messages() {
   const { secondUserData } = useContext(SecondUserContext);
   const query =
     secondUserData?.userId &&
-    messagesCollection
-      .where('relation', 'in', [
-        `${userData.uid}/${secondUserData.userId}`,
-        `${secondUserData.userId}/${userData.uid}`,
-      ])
-      .limit(100);
+    messagesCollection.where('relation', 'in', [
+      `${userData.uid}/${secondUserData.userId}`,
+      `${secondUserData.userId}/${userData.uid}`,
+    ]);
+  // .limit(100);
   const [messages] = useCollectionData(query, { idField: 'id' });
-  const [messagesSorted, setMessagesSorted] = useState([]);
+  const [messagesSorted, setMessagesSorted] = useState([
+    { msg: '', relation: '', sentAt: '', sentBy: '', sentTo: '' },
+  ]);
   useEffect(() => {
     if (messages) {
-      setMessagesSorted(messages?.sort((a, b) => a.sentAt - b.sentAt));
-      console.log(messages);
+      setMessagesSorted(
+        messages.sort((a, b) => {
+          console.log(a);
+          return a.sentAt - b.sentAt;
+        }),
+      );
+      // console.log(messages[1]?.sentAt < messages[2]?.sentAt);
       console.log(messagesSorted);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -43,7 +49,6 @@ function Messages() {
             <div className='messages__inbox col-4 pe-0'>
               <div className='messages__inboxHeader d-flex justify-content-around align-items-center px-3'>
                 <h4>{userData?.displayName}</h4>
-                {/* <i className='fas fa-edit'></i> */}
               </div>
               <div className='messages__inboxBody py-4'>
                 {users
