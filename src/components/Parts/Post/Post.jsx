@@ -10,12 +10,10 @@ function Post({ username, postId, video, caption }) {
   const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
+
   useEffect(() => {
-    let unsubscribe;
-    let mounted = true;
     if (postId) {
-      unsubscribe = db
-        .collection("posts")
+      db.collection("posts")
         .doc(postId)
         .collection("comments")
         .orderBy("timestamp", "asc")
@@ -24,9 +22,10 @@ function Post({ username, postId, video, caption }) {
         });
     }
     return () => {
-      mounted= false;
+      console.log("unmounting");
     };
   }, [postId]);
+
   const postComment = (e) => {
     e.preventDefault();
     db.collection("posts").doc(postId).collection("comments").add({
@@ -40,34 +39,33 @@ function Post({ username, postId, video, caption }) {
     <>
       <div className="post">
         <ReactPlayer width="100%" url={video} controls />
-      </div>
-      <div className="postFooter">
-        <div className="caption">
-          <p>
-            <strong>{username}</strong> {caption}
-          </p>
-        </div>
-        <Rate />
-        <div className="post_comment">
-          {comments.map((comment) => (
-            <p key={comment.timestamp}>
-              <strong>{`${comment.username} `}</strong>
-              {comment.text}
+        <div className="postFooter">
+          <div className="caption">
+            <p>
+              <strong>{username}</strong> {caption}
             </p>
-          ))}
+          </div>
+          <Rate />
+          <div className="post_comment">
+            {comments.map((comment) => (
+              <p key={comment.timestamp}>
+                <strong>{`${comment.username}`}</strong>
+                {comment.text}
+              </p>
+            ))}
+          </div>
+          <form className="comment" action="">
+            <input
+              type="text"
+              placeholder="Add a comment..."
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+            />
+            <button disabled={!comment} type="submit" onClick={postComment}>
+              Post
+            </button>
+          </form>
         </div>
-        <form className="comment" action="">
-          <input
-            className="w-100"
-            type="text"
-            placeholder="Add a comment..."
-            value={comment}
-            onChange={(e) => setComment(e.target.value)}
-          />
-          <button disabled={!comment} type="submit" onClick={postComment}>
-            Post
-          </button>
-        </form>
       </div>
     </>
   );

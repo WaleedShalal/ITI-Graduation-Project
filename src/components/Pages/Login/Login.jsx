@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { auth, FirebaseContext } from '../../../Firebase/Firebase';
+import {  FirebaseContext } from '../../../Firebase/Firebase';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import FormField from '../../shared/FormikField/FormikField';

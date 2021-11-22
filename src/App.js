@@ -1,5 +1,6 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Parts/Header/Header";
+import WelcomePage from "./components/Pages/WelcomePage/WelcomePage";
 import Login from "./components/Pages/Login/Login";
 import Register from "./components/Pages/Register/Register";
 import Home from "./components/Pages/Home/Home";
@@ -35,6 +36,7 @@ function App() {
           <Route path="cart/productdetails/:id" element={<ProductDetails />} />
           <Route path="/messages" element={<Messages />} />
         </Route>
+        <Route path="wellcome" element={<WelcomePage />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

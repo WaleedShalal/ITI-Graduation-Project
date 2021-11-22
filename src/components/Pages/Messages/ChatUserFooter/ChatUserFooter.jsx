@@ -6,6 +6,7 @@ import { currentUserContext } from './../../../../context/CurrentUser';
 
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
+  const [msgCounter, setMsgCounter] = useState(0);
   const { messagesCollection } = useContext(FirebaseContext);
   const { msgCounterFlag } = useContext(FirebaseContext);
   const { userData } = useContext(currentUserContext);
