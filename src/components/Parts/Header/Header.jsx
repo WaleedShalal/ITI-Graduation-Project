@@ -124,7 +124,7 @@ function Header(props) {
                       color: isActive ? 'white' : 'rgba(255, 255, 255, 0.65)',
                     };
                   }}
-                  to={`/login`}>
+                  to={`/wellcome`}>
                   <span onClick={() => auth.signOut()}>
                     Logout <i className='fas fa-sign-out-alt ps-2'></i>
                   </span>
