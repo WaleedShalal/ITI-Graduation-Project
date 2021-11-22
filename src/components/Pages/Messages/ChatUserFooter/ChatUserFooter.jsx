@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
 import { SecondUserContext } from './../../../../context/SecondUser';
 import { currentUserContext } from './../../../../context/CurrentUser';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+// import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
@@ -10,9 +10,9 @@ function ChatUserFooter() {
   const { msgCounterFlag } = useContext(FirebaseContext);
   const { userData } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
-  const [msgFlag] = useCollectionData(msgCounterFlag, {
-    idField: 'id',
-  });
+  // const [msgFlag] = useCollectionData(msgCounterFlag, {
+  //   idField: 'id',
+  // });
   console.log(msgCounterFlag);
   const handleSendMsg = (e) => {
     e.preventDefault();

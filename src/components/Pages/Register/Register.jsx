@@ -9,7 +9,7 @@ import { auth, db } from '../../../Firebase/Firebase';
 import { updateProfile } from 'firebase/auth';
 import * as yup from 'yup';
 import './Register.scss';
-import FormikImageInput from './../../shared/FormikImageInput/FormikImageInput';
+// import FormikImageInput from './../../shared/FormikImageInput/FormikImageInput';
 function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState('');
