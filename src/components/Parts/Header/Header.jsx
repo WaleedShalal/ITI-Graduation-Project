@@ -103,7 +103,7 @@ function Header(props) {
                   to={`/login`}>
                   Sign in <i className='fas fa-sign-out-alt ps-2'></i>
                 </NavLink>
-              ) : location.pathname === '/login' ? (
+              ) : (location.pathname === '/login' || location.pathname === '/wellcome'  ) ? (
                 <NavLink
                   style={({ isActive }) => {
                     return {
