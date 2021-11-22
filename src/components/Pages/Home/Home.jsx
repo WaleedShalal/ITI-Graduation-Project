@@ -14,7 +14,9 @@ function Home({ userName }) {
           snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() }))
         );
       });
-  }, []);
+    }, []);
+    
+
   return (
     <section className="home__page">
   

@@ -5,15 +5,17 @@ import { currentUserContext } from './../../../../context/CurrentUser';
 
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
+  const [msgCounter, setMsgCounter] = useState(0);
   const { messagesCollection } = useContext(FirebaseContext);
   const { userData } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
   const handleSendMsg = (e) => {
     e.preventDefault();
+    setMsgCounter(msgCounter + 1);
     messagesCollection.add({
       msg: msgContent,
       sentBy: userData.uid,
-      sentAt: new Date(),
+      sentAt: +new Date(),
       sentTo: secondUserData.userId,
       relation: `${userData.uid}/${secondUserData.userId}`,
     });

@@ -11,6 +11,7 @@ function ImageUpload() {
   const [loadVideo, setLoadVideo] = useState(false);
   const [error, setError] = useState(false);
   const handleChange = (e) => {
+    
     if (e.target.files[0]) {
       setVideo(e.target.files[0]);
     }
@@ -42,6 +43,7 @@ function ImageUpload() {
                 caption: caption,
                 videoUrl: url,
                 username: user.displayName,
+                userId : user.uid
               });
               setProgress(0);
               setCaption("");
@@ -68,7 +70,7 @@ function ImageUpload() {
         />
         <input type="file" id="file" onChange={handleChange} />
         <label htmlFor="file" className="btn-3">
-          <span><i class="fas fa-cloud-upload-alt"></i> video</span>
+          <span><i className="fas fa-cloud-upload-alt"></i> video</span>
         </label>
        
         <button onClick={handleUpload} className="upload">
