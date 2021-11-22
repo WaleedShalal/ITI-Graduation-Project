@@ -119,17 +119,44 @@ function Register() {
               </figure>
               <div className='form__wrapper'>
                 <div className='row'>
-                  <FormField name='firstName' type='text' label='first name' />
-                  <FormField name='lastName' type='text' label='last name' />
-                  <FormField name='birthDate' type='date' label='birth date' />
+                  <FormField
+                    isRequired='true'
+                    name='firstName'
+                    type='text'
+                    label='first name'
+                  />
+                  <FormField
+                    isRequired='true'
+                    name='lastName'
+                    type='text'
+                    label='last name'
+                  />
+                  <FormField
+                    isRequired='true'
+                    name='birthDate'
+                    type='date'
+                    label='birth date'
+                  />
                   <FormRadioButton
+                    isRequired='true'
                     name='gender'
                     label='gender'
                     options={genderOption}
                   />
-                  <FormField name='email' type='email' label='email' />
-                  <FormField name='password' type='password' label='password' />
                   <FormField
+                    isRequired='true'
+                    name='email'
+                    type='email'
+                    label='email'
+                  />
+                  <FormField
+                    isRequired='true'
+                    name='password'
+                    type='password'
+                    label='password'
+                  />
+                  <FormField
+                    isRequired='true'
                     name='confirmPassword'
                     type='password'
                     label='confirm password'
@@ -144,6 +171,7 @@ function Register() {
                           {address.map((_, index) => (
                             <div className='d-flex align-items-end' key={index}>
                               <FormField
+                                isRequired='false'
                                 name={`address${index}`}
                                 type='text'
                                 label={`address ${index + 1}`}
@@ -177,6 +205,7 @@ function Register() {
                   />
                   <FormField name='website' type='text' label='website' />
                   <FormField
+                    isRequired='true'
                     name='followedHashtags'
                     type='text'
                     label='followed hashtags'

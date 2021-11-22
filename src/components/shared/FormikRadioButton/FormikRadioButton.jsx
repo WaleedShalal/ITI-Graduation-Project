@@ -3,11 +3,11 @@ import { Field } from 'formik';
 import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 import './FormikRadioButton.scss';
 
-function FormRadioButton({ name, label, options }) {
+function FormRadioButton({ isRequired, name, label, options }) {
   return (
     <div className='form__radio col-6'>
       <label htmlFor={name} className='mt-3 text-white text-capitalize'>
-        {label}
+        {label} {isRequired && <span className='text-danger'>*</span>}
       </label>
       <Field name={name}>
         {(formikField) => {

@@ -3,7 +3,7 @@ import { Field } from 'formik';
 import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 import './FormikField.scss';
 
-function FormField({ name, type, label, formType }) {
+function FormField({ isRequired, name, type, label, formType }) {
   const colWidth =
     formType === 'login'
       ? 'col-12'
@@ -18,7 +18,7 @@ function FormField({ name, type, label, formType }) {
         return (
           <div className={colWidth}>
             <label htmlFor={name} className='text-white text-capitalize mt-3'>
-              {label}
+              {label} {isRequired && <span className='text-danger'>*</span>}
             </label>
             <input
               className='input__style w-100 ps-2 mb-1'

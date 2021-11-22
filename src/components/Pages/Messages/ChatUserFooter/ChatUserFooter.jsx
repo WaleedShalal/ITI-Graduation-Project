@@ -16,13 +16,15 @@ function ChatUserFooter() {
   console.log(msgCounterFlag);
   const handleSendMsg = (e) => {
     e.preventDefault();
-    messagesCollection.add({
-      msg: msgContent,
-      sentBy: userData.uid,
-      sentAt: new Date(),
-      sentTo: secondUserData.userId,
-      relation: `${userData.uid}/${secondUserData.userId}`,
-    });
+    if (msgContent) {
+      messagesCollection.add({
+        msg: msgContent,
+        sentBy: userData.uid,
+        sentAt: new Date(),
+        sentTo: secondUserData.userId,
+        relation: `${userData.uid}/${secondUserData.userId}`,
+      });
+    }
     setMsgContent('');
   };
   return (
