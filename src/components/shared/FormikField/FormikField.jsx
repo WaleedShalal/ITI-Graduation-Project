@@ -9,10 +9,9 @@ function FormField({ name, type, label, formType }) {
       ? 'col-12'
       : label === 'email' || label === 'followed hashtags'
       ? 'col-12'
-      : label === 'address'
+      : label.includes('address')
       ? 'col-10'
       : 'col-6';
-
   return (
     <Field name={name}>
       {(formikField) => {

@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import { Formik, Form, FieldArray } from "formik";
-import { useNavigate } from "react-router-dom";
-import FormField from "../../shared/FormikField/FormikField";
-import FormRadioButton from "../../shared/FormikRadioButton/FormikRadioButton";
-import FormCheckboxInput from "../../shared/FormikCheckboxInput/ForminCheckboxInput";
-import userImage from "../../../assets/images/user-img.png";
-import { auth, db } from "../../../Firebase/Firebase";
-import { updateProfile } from "firebase/auth";
-import * as yup from "yup";
-import "./Register.scss";
+import React, { useState } from 'react';
+import { Formik, Form, FieldArray } from 'formik';
+import { useNavigate } from 'react-router-dom';
+import FormField from '../../shared/FormikField/FormikField';
+import FormRadioButton from '../../shared/FormikRadioButton/FormikRadioButton';
+import FormCheckboxInput from '../../shared/FormikCheckboxInput/ForminCheckboxInput';
+import userImage from '../../../assets/images/user-img.png';
+import { auth, db } from '../../../Firebase/Firebase';
+import { updateProfile } from 'firebase/auth';
+import * as yup from 'yup';
+import './Register.scss';
+import FormikImageInput from './../../shared/FormikImageInput/FormikImageInput';
 function Register() {
   const navigate = useNavigate();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const genderOption = [
     {
       id: 1,
@@ -40,25 +41,25 @@ function Register() {
     subscribeUs: false,
   };
   const validationSchema = yup.object({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
-    birthDate: yup.string().required(),
-    gender: yup.string().required(),
+    firstName: yup.string().required('Please enter a first name'),
+    lastName: yup.string().required('Please enter a last name'),
+    birthDate: yup.string().required('Please enter a birth date'),
+    gender: yup.string().required('Please choose gender'),
     email: yup
       .string()
-      .email('Please Enter A Valid Email')
-      .required('Please Enter Email'),
+      .email('Please enter a valid email')
+      .required('Please enter email'),
     password: yup
       .string()
-      .min(8, 'Password Must Be At Least 8 Characters')
-      .required('Please Enter Password'),
+      .min(8, 'Password must me at least 8 characters')
+      .required('Please enter password'),
     confirmPassword: yup
       .string()
-      .oneOf([yup.ref('password'), ''], 'Password Must Be Matched')
+      .oneOf([yup.ref('password'), ''], 'Password must be matched')
       .required(),
-    phoneNumber: yup.string().required(),
-    website: yup.string().required(),
-    followedHashtags: yup.string().required(),
+    phoneNumber: yup.string().required('Please enter a phone number'),
+    website: yup.string(),
+    followedHashtags: yup.string().required('Please enter five hashtags'),
   });
 
   const onSubmit = async (e) => {
@@ -81,10 +82,10 @@ function Register() {
         .createUserWithEmailAndPassword(email, password)
         .then((cred) => {
           updateProfile(auth.currentUser, {
-            displayName: `${firstName} ${lastName}`
-          })
-          return db.collection("users").doc(cred.user.uid).set({
-            id:cred.user.uid,
+            displayName: `${firstName} ${lastName}`,
+          });
+          return db.collection('users').doc(cred.user.uid).set({
+            id: cred.user.uid,
             address,
             birthDate,
             confirmPassword,
@@ -98,7 +99,6 @@ function Register() {
             subscribeUs,
             website,
           });
-         
         });
       navigate('/home');
     } catch (err) {
@@ -121,7 +121,7 @@ function Register() {
                 <div className='row'>
                   <FormField name='firstName' type='text' label='first name' />
                   <FormField name='lastName' type='text' label='last name' />
-                  <FormField name='birthDate' type='date' label='birt hdate' />
+                  <FormField name='birthDate' type='date' label='birth date' />
                   <FormRadioButton
                     name='gender'
                     label='gender'
@@ -144,21 +144,21 @@ function Register() {
                           {address.map((_, index) => (
                             <div className='d-flex align-items-end' key={index}>
                               <FormField
-                                name={`address[${index}]`}
+                                name={`address${index}`}
                                 type='text'
-                                label='address'
+                                label={`address ${index + 1}`}
                               />
                               <div className='col-2 d-flex justify-content-evenly'>
                                 <button
                                   type='button'
-                                  className='address__btn rounded-pill d-flex justify-content-center align-items-center btn btn-primary'
+                                  className='address__btn mb-1 rounded-circle d-flex justify-content-center align-items-center btn btn-primary'
                                   onClick={() => push('')}>
                                   +
                                 </button>
                                 {index > 0 && (
                                   <button
                                     type='button'
-                                    className='address__btn rounded-pill d-flex justify-content-center align-items-center  btn btn-danger'
+                                    className='address__btn mb-1 rounded-circle d-flex justify-content-center align-items-center  btn btn-danger'
                                     onClick={() => remove(index)}>
                                     -
                                   </button>
@@ -181,7 +181,11 @@ function Register() {
                     type='text'
                     label='followed hashtags'
                   />
-
+                  {/* <FormikImageInput
+                    name='profileImage'
+                    type='file'
+                    label='profile image'
+                  /> */}
                   <FormCheckboxInput
                     name='subscribeUs'
                     type='checkbox'

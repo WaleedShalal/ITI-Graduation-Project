@@ -24,21 +24,25 @@ const Cart = () => {
   };
   return (
     <React.Fragment>
-      <div className='container-fluid'>
+      <div className='container'>
         {fetchedData.purchased.length === 0 ? (
-          <h4 className='text-center m-2'>No Items To Show</h4>
+          <h4 className='fs-1 mt-5 d-flex justify-content-center align-items-center '>
+            No Items To Show
+          </h4>
         ) : (
-          <div className='cart-table table-responsive'>
-            <button
-              className='btn btn-primary btn-sm m-2'
-              onClick={() => dispatch(resetCart())}>
-              Reset All
-            </button>
-            <button
-              className='btn btn-outline-danger btn-sm m-2'
-              onClick={() => dispatch(removeAllCart())}>
-              Clear All
-            </button>
+          <div className='mt-3 cart-table table-responsive'>
+            <div className='d-flex justify-content-between mb-3'>
+              <button
+                className='btn btn-outline-primary btn-sm'
+                onClick={() => dispatch(resetCart())}>
+                Reset All
+              </button>
+              <button
+                className='btn btn-outline-danger btn-sm'
+                onClick={() => dispatch(removeAllCart())}>
+                Clear All
+              </button>
+            </div>
             <table className='table'>
               <thead>
                 <tr className='text-left text-white'>
@@ -98,6 +102,18 @@ const Cart = () => {
                 </tr>
               </tbody>
             </table>
+            <div className='d-flex justify-content-between'>
+              <Link
+                to='/products'
+                className='text-capitalize btn btn-outline-warning btn-sm'>
+                back to products
+              </Link>
+              <Link
+                to='#'
+                className='text-capitalize btn btn-outline-success btn-sm'>
+                checkout
+              </Link>
+            </div>
           </div>
         )}
       </div>

@@ -2,12 +2,18 @@ import React, { useContext, useState } from 'react';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
 import { SecondUserContext } from './../../../../context/SecondUser';
 import { currentUserContext } from './../../../../context/CurrentUser';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
   const { messagesCollection } = useContext(FirebaseContext);
+  const { msgCounterFlag } = useContext(FirebaseContext);
   const { userData } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
+  const [msgFlag] = useCollectionData(msgCounterFlag, {
+    idField: 'id',
+  });
+  console.log(msgCounterFlag);
   const handleSendMsg = (e) => {
     e.preventDefault();
     messagesCollection.add({
@@ -18,7 +24,6 @@ function ChatUserFooter() {
       relation: `${userData.uid}/${secondUserData.userId}`,
     });
     setMsgContent('');
-    console.log('DONE');
   };
   return (
     <>

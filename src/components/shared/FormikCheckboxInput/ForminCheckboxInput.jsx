@@ -8,7 +8,7 @@ function FormCheckboxInput({ name, type, label }) {
       <Field name={name}>
         {(formikField) => {
           return (
-            <div className=''>
+            <div className='mt-3'>
               <input
                 className='input__style'
                 type={type}

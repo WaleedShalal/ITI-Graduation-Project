@@ -6,7 +6,7 @@ import './FormikRadioButton.scss';
 function FormRadioButton({ name, label, options }) {
   return (
     <div className='form__radio col-6'>
-      <label htmlFor={name} className=' text-white text-capitalize'>
+      <label htmlFor={name} className='mt-3 text-white text-capitalize'>
         {label}
       </label>
       <Field name={name}>
@@ -26,7 +26,7 @@ function FormRadioButton({ name, label, options }) {
                     />
                     <label
                       htmlFor={option.value}
-                      className='radio__label__style d-flex justify-content-center align-items-center rounded-pill text-capitalize mb-3'>
+                      className='radio__label__style d-flex justify-content-center align-items-center rounded-pill text-capitalize'>
                       {option.value}
                     </label>
                   </div>

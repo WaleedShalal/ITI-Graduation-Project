@@ -23,8 +23,10 @@ function Messages() {
       `${userData.uid}/${secondUserData.userId}`,
       `${secondUserData.userId}/${userData.uid}`,
     ]);
+  console.log(query, '1');
   // .limit(100);
   const [messages] = useCollectionData(query, { idField: 'id' });
+  console.log(messages);
   const [messagesSorted, setMessagesSorted] = useState([
     { msg: '', relation: '', sentAt: '', sentBy: '', sentTo: '' },
   ]);
@@ -32,13 +34,11 @@ function Messages() {
     if (messages) {
       setMessagesSorted(
         messages.sort((a, b) => {
-          console.log(a);
           return a.sentAt - b.sentAt;
         }),
       );
-      // console.log(messages[1]?.sentAt < messages[2]?.sentAt);
-      console.log(messagesSorted);
     }
+    console.log(messages);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
   return (

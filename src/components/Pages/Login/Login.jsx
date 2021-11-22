@@ -91,13 +91,13 @@ const Login = () => {
                   </div>
                   <button
                     type='submit'
-                    className='login__btn btn btn-primary d-block mx-auto w-25 rounded-pill my-5 text-capitalize'
+                    className='login__btn btn btn-primary d-block mx-auto w-25 rounded-pill my-5  text-capitalize'
                     disabled={!formik.isValid}>
                     login
                   </button>
                   <button
                     type='submit'
-                    className='logout__btn btn btn-danger d-block mx-auto w-25 rounded-pill my-5 text-capitalize'
+                    className='logout__btn btn btn-danger d-block mx-auto w-25 rounded-pill my-5  text-capitalize'
                     onClick={() => auth.signOut()}>
                     logout
                   </button>
@@ -143,7 +143,6 @@ const Login = () => {
                 </li>
               </ul>
             </section>
-            );
           </Form>
         );
       }}
