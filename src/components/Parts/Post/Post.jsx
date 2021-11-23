@@ -36,37 +36,7 @@ function Post({ username, postId, video, caption }) {
     setComment("");
   };
   return (
-    // <div className="post">
-    //   <ReactPlayer width="100%" url={video} controls />
-    //   <div className="postFooter">
-    //     <div className="caption">
-    //       <p>
-    //         <strong>{username}</strong> {caption}
-    //       </p>
-    //     </div>
-    //     <Rate />
-    //     <div className="post_comment">
-    //       {comments.map((comment) => (
-    //         <p key={comment.timestamp}>
-    //           <strong>{`${comment.username}`}</strong>
-    //           {comment.text}
-    //         </p>
-    //       ))}
-    //     </div>
-    //     <form className="comment" action="">
-    //       <input
-    //         type="text"
-    //         placeholder="Add a comment..."
-    //         value={comment}
-    //         onChange={(e) => setComment(e.target.value)}
-    //       />
-    //       <button disabled={!comment} type="submit" onClick={postComment}>
-    //         Post
-    //       </button>
-    //     </form>
-    //   </div>
-    // </div>
-    <div class="main-wraper mt-4 ms-2">
+    <div class="main-wraper mt-3">
       <div class="user-post">
         <div class="friend-info">
           <figure>

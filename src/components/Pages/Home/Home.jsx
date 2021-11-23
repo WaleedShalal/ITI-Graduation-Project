@@ -22,16 +22,9 @@ function Home({ userName }) {
     <section className="home__page">
       <div className="container">
         <div className="row">
-          <div className="col-3">
-            <ProfileWidget />
-          </div>
-          <div className="col-6">
-            <VideoUpload username={userName} />
-          </div>
-          <div className="col-3">
-            <PeopleYouKnow />
-          </div>
-          <div className="row">
+          <div className="col-3 pro-widget"> <ProfileWidget /></div>
+          <div className="col-6"> <VideoUpload username={userName} /></div>
+          <div className="col-3 PeopleYouKnow-widget"> <PeopleYouKnow /></div>
             <div className="offset-3 col-6">
               {posts.map(({ id, post }) => {
                 return (
@@ -46,8 +39,9 @@ function Home({ userName }) {
               })}
             </div>
           </div>
-        </div>
-      </div>
+          </div>
+      
+    
     </section>
   );
 }
