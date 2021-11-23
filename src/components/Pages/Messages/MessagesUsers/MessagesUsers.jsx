@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { SecondUserContext } from './../../../../context/SecondUser';
+import './MessagesUsers.scss';
 
 function MessagesUsers({ data }) {
   const { secondUserData, setSecondUserData } = useContext(SecondUserContext);
@@ -14,14 +15,14 @@ function MessagesUsers({ data }) {
         <figure className='messages__inboxBodyImage mb-0'>
           <img
             src={data.userPhoto}
-            className='w-100 rounded-circle'
+            className='user__photo w-100 rounded-circle'
             alt='...'
           />
         </figure>
       </div>
       <div className='flex-grow-1 ms-3'>
-        <h4 className='mb-0'>{data.userName}</h4>
-        <span>active now</span>
+        <h5 className='user__name mb-0'>{data.userName}</h5>
+        <span className='user__status'>Active now</span>
       </div>
     </div>
   );

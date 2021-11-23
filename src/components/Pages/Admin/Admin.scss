@@ -36,6 +36,18 @@
     .navbar__listItem {
       margin: 0 5px;
       position: relative;
+      transition: all 5s ease-in-out;
+      @media (min-width: 575px) and (max-width: 991.98px) {
+        border: 1px solid red;
+        border-radius: 35px;
+        width: 50%;
+        &:hover {
+          width: 100%;
+          .item__link {
+            transform: translateX(505px) rotate(360deg);
+          }
+        }
+      }
       .item__link {
         background: #deebf3;
         border: 1px solid #088dcd;
@@ -45,6 +57,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        transition: all 5s ease-in-out;
+        @media (min-width: 575px) and (max-width: 991.98px) {
+          transform: translateX(-1px);
+        }
         .fa__item {
           color: #088dcd;
           transition: all 0.3s ease-in-out;

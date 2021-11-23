@@ -19,15 +19,17 @@ function ChatUserBody({ isCurrent, data, userPhoto }) {
         </figure>
       </div>
       <div className='flex-grow-1 ms-3'>
-        <h4 className='message__content message__contentSecondUser mb-0'>
+        <h4 className='message__content message__contentSecondUser mb-0 text-dark'>
           {data}
         </h4>
       </div>
     </div>
   ) : (
-    <div className='d-flex align-items-baseline' ref={showLastMsg}>
+    <div className='d-flex align-items-baseline ' ref={showLastMsg}>
       <div className='flex-grow-1 me-3'>
-        <h4 className='message__content ms-auto mb-0 text-end'>{data}</h4>
+        <h4 className='message__content ms-auto mb-0 text-end text-dark'>
+          {data}
+        </h4>
         {/* <h4 className='message__content ms-auto mb-0 text-end'>
           {time.toString()}
         </h4> */}
