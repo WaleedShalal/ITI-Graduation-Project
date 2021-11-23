@@ -1,11 +1,12 @@
 .profile {
   box-sizing: border-box;
-  display: flex;
-  margin: 40px auto 0;
-  max-width: 990px;
-  padding: 0 8px;
-  width: 100%;
-  color: #fff;
+  background-color: white;
+  .main-wraper {
+    margin: 0 0 16px !important;
+  }
+  .new__stories {
+    margin: 0 0 16px !important;
+  }
   .content-page {
     display: flex;
     flex-direction: column;
@@ -13,13 +14,18 @@
     align-items: flex-start;
   }
   .user-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    background-color: #fafafa;
+    height: 750px;
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
     img {
       border-radius: 50%;
       border: 1px solid #ccc;
       margin: 10px 0;
+    }
+    .user__badge {
+      width: 20px;
+      color: #088dcd;
     }
     .rate {
       .rate-number {
@@ -27,15 +33,14 @@
         font-size: 1.1rem;
       }
     }
+    .user__followBtn {
+      width: 100px !important;
+      padding: 3px 0 !important;
+    }
+    .user__description {
+      border-bottom: 1px solid lightgray;
+    }
     .Ecommerce-Link-site {
-      padding: 5px 10px;
-      list-style: none;
-      margin: 0;
-      display: flex;
-      width: 100%;
-      flex-direction: row;
-      align-items: baseline;
-      justify-content: flex-start;
       a {
         align-items: center;
         color: inherit;
@@ -45,19 +50,18 @@
       }
     }
     .description {
-      padding: 0;
       width: 100%;
-      margin-top: 15px;
+      border-bottom: 1px solid lightgray;
       li {
-        padding: 5px 10px;
         list-style: none;
+        padding: 0 8px;
         margin: 0;
         width: 100%;
         &.active,
         &:hover {
-          background: rgba(255, 255, 255, 0.07);
+          background: rgba(8, 141, 205, 0.6);
+          border-radius: 5px;
         }
-
         a {
           align-items: center;
           color: inherit;
@@ -66,6 +70,21 @@
           min-height: 36px;
           text-decoration: none;
         }
+      }
+    }
+    .profile__setting {
+      border-bottom: 1px solid lightgray;
+
+      i {
+        width: 20px;
+        color: #088dcd;
+      }
+    }
+    .reviews__controls {
+      border-bottom: 1px solid lightgray;
+      i {
+        width: 20px;
+        color: #088dcd;
       }
     }
   }

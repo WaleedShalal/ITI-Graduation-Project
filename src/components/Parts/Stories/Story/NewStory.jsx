@@ -20,7 +20,7 @@ function NewStory({ data, storyNum }) {
               <i className='fas fa-plus'></i>
             </div>
           )}
-          <h6 className='text-capitalize mb-0'>
+          <h6 className='text-capitalize text-white mb-0'>
             {storyNum > 0 ? 'waleed elbana' : 'add your story'}
           </h6>
         </div>
