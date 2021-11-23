@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
 import Post from "../../Parts/Post/Post";
 import { db } from "../.../../../../Firebase/Firebase";
 import VideoUpload from "../../Parts/VideoUpload/VideoUpload";
-import "./Home.scss";
 import PeopleYouKnow from "../../Parts/PeopleYouKnow/PeopleYouKnow";
 import ProfileWidget from "../../Parts/ProfileWidget/ProfileWidget";
 import Stories from "../../Parts/Stories/Stories";
+import "./Home.scss";
 function Home({ userName }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
