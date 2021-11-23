@@ -38,7 +38,6 @@ function Profile() {
         </div>
         <div className='row'>
           <div className='content-page col-8'>
-            {/* <Stories /> */}
             {posts.length > 0 ? (
               posts.map(({ id, post }) => {
                 return (
