@@ -18,6 +18,10 @@ code {
     monospace;
 }
 
+.col-3.pro-widget,.col-3.PeopleYouKnow-widget {
+  position: sticky;
+  top: 5px;
+}
 .widget {
   background: #FAFAFA none repeat scroll 0 0;
   border: 1px solid #e1e8ed;
@@ -26,10 +30,10 @@ code {
   margin-bottom: 30px;
   padding: 15px 20px 20px;
   z-index: 9;
-  position: fixed;
+  position: sticky;
   top: 93px;
-  width: 20%;
   margin-top: 70px;
+  top: 0;
 }
 .widget-title {
   display: inline-block;
