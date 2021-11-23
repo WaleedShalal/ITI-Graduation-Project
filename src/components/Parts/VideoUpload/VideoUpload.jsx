@@ -58,7 +58,7 @@ function ImageUpload() {
   };
   return (
    
-      <div className="main-wraper mb-0">
+      <div className="main-wraper mb-0 mt-3">
         <div className="upload_container">
           <span className="new-title">Create New Post</span>
           <input type="file" id="file" onChange={handleChange} />
