@@ -1,0 +1,58 @@
+.followers {
+  max-height: 260px;
+  position: relative;
+}
+
+.followers > li figure {
+  display: inline-block;
+  margin-bottom: 0;
+  max-width: 40px;
+  min-width: 40px;
+  vertical-align: middle;
+  width: 40px;
+}
+.followers > li figure img {
+  border-radius: 100%;
+}
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border-style: none;
+}
+.friend-meta {
+  display: inline-block;
+  padding-left: 10px;
+  vertical-align: middle;
+  width: 79%;
+}
+.friend-meta > h4 {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 0;
+  width: 60%;
+}
+.friend-meta h4 a {
+  font-weight: 500;
+  background-color: transparent;
+  outline: none;
+  color: inherit;
+  text-decoration: none;
+}
+.friend-meta span {
+  color: #9b9b9b;
+  display: inline-block;
+  font-size: 11px;
+  width: 100%;
+}
+
+.friend-meta > a {
+  float: right;
+  font-size: 12px;
+  margin-top: 3px;
+  position: relative;
+  color: #088dcd;
+  outline: none;
+  text-decoration: none;
+}
