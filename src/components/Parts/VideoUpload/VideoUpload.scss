@@ -1,214 +1,171 @@
-.video_upload {
-    align-items: center;
-    background: #fff;
-    border-radius: 3px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    min-height: 115px;
-    padding: 15px 5px;
-    padding-top: 30px;
-    position: relative;
+.main-wraper {
+  background: #fafafa none repeat scroll 0 0;
+  border: 1px solid #e1e8ed;
+  border-radius: 5px;
+  display: block;
+  margin: 94px 0 30px 0;
+  padding: 15px 20px 20px;
+  position: relative;
+  width: 100%;
+  z-index: 9;
+}
+.new-title {
+  display: inline-block;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.new-post {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+.new-post > form {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+}
+.new-post > form > i {
+  font-size: 16px;
+  left: 20px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-    width: 60%;
-    flex-direction: column;
-    margin-top: 50px;
-  box-shadow: 4px 7px 13px -3px rgba(0,0,0,0.75);
--webkit-box-shadow: 4px 7px 13px -3px rgba(0,0,0,0.75);
--moz-box-shadow: 4px 7px 13px -3px rgba(0,0,0,0.75);
-  [type="file"] {
-    height: 0;
-    overflow: hidden;
-    width: 0;
-  }
-  [type="file"] + label {
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
+.new-post > form input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  padding: 10px 20px 10px 50px;
+  width: 100%;
+}
+.upload-media {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 20px 0 0;
+  padding-left: 0;
+  width: 100%;
+}
+.upload_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 10px;
+  .upload {
+    background: #f4f4f4 none repeat scroll 0 0;
+    border-radius: 6px;
+    color: #088dcd;
     display: inline-block;
-    font-family: "Rubik", sans-serif;
-    font-size: inherit;
-    font-weight: 500;   
-    outline: none;
-    padding: .7rem 50px;
-    position: relative;
-    transition: all 0.3s;
-    vertical-align: middle;
+    padding: 7px 20px;
+    font-size: 14px;
+    border: 1px solid #e1e8ed;
+  }
+}
+[type="file"] {
+  height: 0;
+  overflow: hidden;
+  width: 0;
+}
+[type="file"] + label {
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Rubik", sans-serif;
+  font-size: inherit;
+  font-weight: 500;
+  outline: none;
+  padding: 0.7rem 50px;
+  position: relative;
+  transition: all 0.3s;
+  vertical-align: middle;
+
+  &:hover {
+    background-color: darken(#001935, 10%);
+  }
+
+  &.btn-1 {
+    background-color: #001935;
+    box-shadow: 0 6px darken(#001935, 10%);
+    transition: none;
 
     &:hover {
-      background-color: darken(#001935, 10%);
+      box-shadow: 0 4px darken(#001935, 10%);
+      top: 2px;
     }
-
-    &.btn-1 {
-      background-color: #001935;
-      box-shadow: 0 6px darken(#001935, 10%);
-      transition: none;
-
-      &:hover {
-        box-shadow: 0 4px darken(#001935, 10%);
-        top: 2px;
+  }
+  &.btn-2 {
+    background-color: #99c793;
+    border-radius: 50px;
+    overflow: hidden;
+    &:hover {
+      background-color: darken(#99c793, 30%);
+      &::before {
+        right: 75%;
       }
     }
-
-    &.btn-2 {
-      background-color: #99c793;
-      border-radius: 50px;
-      overflow: hidden;
-
-      &:hover {
-        background-color: darken(#99c793, 30%);
-
-        &::before {
-          right: 75%;
-        }
-      }
+  }
+  &.btn-3 {
+    color: #088dcd;
+    border-radius: 0;
+    overflow: hidden;
+    background: #fafafa none repeat scroll 0 0;
+    border: 1px solid #e1e8ed;
+    border-radius: 5px;
+    span {
+      display: inline-block;
+      height: 100%;
+      transition: all 0.3s;
+      width: 100%;
     }
 
-    &.btn-3 {
-      background-color: #607d8b;
-      border-radius: 0;
-      overflow: hidden;
+    &::before {
+      color: #fff;
+      content: "Choose a video";
+      height: 100%;
+      left: 0;
+      line-height: 3;
+      position: absolute;
+      top: -180%;
+      transition: all 0.3s;
+      width: 100%;
+      text-align: center;
+    }
 
+    &:hover {
+      background-color: #8cb2c9;
       span {
-        display: inline-block;
-        height: 100%;
-        transition: all 0.3s;
-        width: 100%;
+        transform: translateY(300%);
       }
 
       &::before {
-        color: #fff;
-        content: "Choose a video";
-        height: 100%;
-        left: 0;
-        line-height: 3;
-        position: absolute;
-        top: -180%;
-        transition: all 0.3s;
-        width: 100%;
-        text-align: center;
-      }
-
-      &:hover {
-        background-color: darken(#607d8b, 30%);
-
-        span {
-          transform: translateY(300%);
-        }
-
-        &::before {
-          top: 0;
-        }
-      }
-    }
-    .balloon {
-      // As suggested by https://twitter.com/dbox/status/365888496486985728
-      display: inline-block;
-      width: 215px;
-      padding: 10px 0 10px 15px;
-      font-family: "Open Sans", sans;
-      font-weight: 400;
-      color: #377d6a;
-      background: #efefef;
-      border: 0;
-      border-radius: 3px;
-      outline: 0;
-      text-indent: 60px; // Arbitrary.
-      transition: all 0.3s ease-in-out;
-
-      &::-webkit-input-placeholder {
-        color: #efefef;
-        text-indent: 0;
-        font-weight: 300;
-      }
-
-      + label {
-        display: inline-block;
-        position: absolute;
-        top: 8px;
-        left: 0;
-        bottom: 8px;
-        padding: 5px 15px;
-        color: #032429;
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        text-shadow: 0 1px 0 rgba(19, 74, 70, 0);
-        transition: all 0.3s ease-in-out;
-        border-radius: 3px;
-        background: rgba(122, 184, 147, 0);
-
-        &:after {
-          position: absolute;
-          content: "";
-          width: 0;
-          height: 0;
-          top: 100%;
-          left: 50%;
-          margin-left: -3px;
-          border-left: 3px solid transparent;
-          border-right: 3px solid transparent;
-          border-top: 3px solid rgba(122, 184, 147, 0);
-          transition: all 0.3s ease-in-out;
-        }
+        top: 0;
       }
     }
   }
-  .upload{
-    padding: 0.7rem 40px;
-    background:  #607d8b;
-    color: #fff;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
+}
+.progress {
+  height: 20px;
+  box-shadow: 2px 14px 15px -7px rgba(30, 166, 250, 0.36);
+  border-radius: 50px;
+  transition: all 0.5s;
+  margin-top: 10px;
+  align-self: flex-start;
+  margin-left: 7px;
+  width: 430px;
+}
+.prog_details {
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-start;
+  width: 100%;
+  p {
+    margin: 5px 0;
+    margin-left: auto;
+    font-size: 13px;
   }
-  .caption{
-    background: #607d8b;
-    border: none;
-    font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    outline: none;
-    padding: 0.7rem 50px;
-    color: #fff;
-    width: 430px;
-    &::placeholder{
-        color: #fff;
-    }
-  }
+}
 
-  .progress  {
-    height: 20px;
-    background: #001935;
-    box-shadow: 2px 14px 15px -7px rgba(30, 166, 250, 0.36);
-    border-radius: 50px;
-    transition: all 0.5s;
-    margin-top: 10px;
-    width: 58%;
-    align-self: flex-start;
-    margin-left: 7px;
-    width: 430px;
-  }
-
-  .upload_container{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-
-  }
-  .prog_details{
-    display: flex;
-    justify-content: space-between;
-    align-self: flex-start;
-    width: 80%;
-    p{
-        margin: 5px 0;
-        margin-left: auto;
-
-
-    }
-  }
+progress::-webkit-progress-value {
+  background: #088dcd;
 }

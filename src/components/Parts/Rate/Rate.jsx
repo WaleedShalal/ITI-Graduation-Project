@@ -3,7 +3,7 @@ import Stars from "../Stars/Stars";
 
 function Rate() {
   return (
-    <div className="d-flex mb-3">
+    <div className="d-flex mt-1">
      <Stars />
       <div className="me-2">
         <i className="fas fa-comment-alt"></i>
