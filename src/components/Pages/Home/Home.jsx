@@ -7,6 +7,7 @@ import ProfileWidget from "../../Parts/ProfileWidget/ProfileWidget";
 import Stories from "../../Parts/Stories/Stories";
 import "./Home.scss";
 import Time from "../../Parts/Time/Time";
+import Footer from "../../Parts/Footer/Footer";
 function Home({ userName }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -44,6 +45,7 @@ function Home({ userName }) {
           </div>
           <div className="col-3">
             <PeopleYouKnow />
+            <Footer />
           </div>
         </div>
       </div>
