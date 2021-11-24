@@ -6,7 +6,7 @@ import { AuthContext } from "../../../context/Auth";
 import firebase from "firebase/compat/app";
 import "./Post.scss";
 
-function Post({ username, postId, video, caption }) {
+function Post({ username, postId, video, caption,rate }) {
   const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
@@ -80,7 +80,7 @@ function Post({ username, postId, video, caption }) {
             <div className="video">
               <ReactPlayer width="100%" url={video} controls />
             </div>
-            <Rate />
+            <Rate PostId={postId} rate={rate}/>
             <a href="post-detail.html" className="post-title">
             {username}
             </a>

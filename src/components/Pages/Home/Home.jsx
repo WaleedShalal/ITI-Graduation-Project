@@ -19,6 +19,7 @@ function Home({ userName }) {
         );
       });
   }, []);
+  
   return (
     <section className="home__page mt-5">
       <div className="container">
@@ -38,6 +39,7 @@ function Home({ userName }) {
                   username={post.username}
                   video={post.videoUrl}
                   caption={post.caption}
+                  rate={post.rate}
                 />
               );
             })}

@@ -1,10 +1,10 @@
 import React from "react";
 import Stars from "../Stars/Stars";
 
-function Rate() {
+function Rate({PostId ,rate}) {
   return (
     <div className="d-flex mt-1">
-     <Stars />
+    <Stars PostId={PostId} rate={rate} />
       <div className="me-2">
         <i className="fas fa-comment-alt"></i>
       </div>

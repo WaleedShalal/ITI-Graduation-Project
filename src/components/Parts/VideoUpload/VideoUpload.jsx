@@ -43,6 +43,7 @@ function ImageUpload() {
                 videoUrl: url,
                 username: user.displayName,
                 userId: user.uid,
+                rate : 0
               });
               setProgress(0);
               setCaption("");

@@ -48,6 +48,7 @@ function Profile() {
                       username={post.username}
                       video={post.videoUrl}
                       caption={post.caption}
+                      rate = {post.rate}
                     />
                   );
                 })
