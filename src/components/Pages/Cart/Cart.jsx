@@ -24,11 +24,16 @@ const Cart = () => {
   };
   return (
     <React.Fragment>
-      <div className='container'>
+      <div className='container cart'>
         {fetchedData.purchased.length === 0 ? (
-          <h4 className='fs-1 mt-5 d-flex justify-content-center align-items-center '>
-            No Items To Show
-          </h4>
+          <div className='mt-5 py-5 d-flex flex-column justify-content-center align-items-center '>
+            <h4 className='fs-1 '>No Items To Show</h4>
+            <Link
+              to='/products'
+              className='mt-5 text-capitalize btn btn-warning btn-sm'>
+              back to products
+            </Link>
+          </div>
         ) : (
           <div className='mt-3 cart-table table-responsive'>
             <div className='d-flex justify-content-between mb-3'>
@@ -43,9 +48,9 @@ const Cart = () => {
                 Clear All
               </button>
             </div>
-            <table className='table'>
+            <table className=' table table-hover'>
               <thead>
-                <tr className='text-left text-white'>
+                <tr className='text-start text-dark'>
                   <th>#</th>
                   <th>Pro.Img</th>
                   <th>Pro.Des</th>
@@ -54,17 +59,25 @@ const Cart = () => {
                   <th>Total</th>
                 </tr>
               </thead>
-              <tbody className='text-left text-white'>
+              <tbody className='text-start text-dark'>
                 {fetchedData.purchased.map((product, index) => (
                   <tr key={product.id}>
                     <td>
                       <span>{index + 1}- </span>
                     </td>
                     <td>
-                      <img className='cart-img' src={product.image} alt='' />
+                      <figure className='mb-0'>
+                        <img
+                          className='cart-img w-100'
+                          src={product.image}
+                          alt=''
+                        />
+                      </figure>
                     </td>
                     <td>
-                      <Link to={`/cart/productdetails/${product.id}`}>
+                      <Link
+                        className='text-primary'
+                        to={`/cart/productdetails/${product.id}`}>
                         {product.description}
                       </Link>
                     </td>
@@ -73,14 +86,14 @@ const Cart = () => {
                         <button
                           name='decrease'
                           onClick={(e) => dispatch(itemQuantity(e, product))}
-                          className='btn btn-primary btn-sm'>
+                          className='btn btn-outline-warning btn-sm'>
                           -
                         </button>
-                        <div className='ml-3 mr-3 p-1'> {product.count} </div>
+                        <div className='ms-3 me-3 p-1'> {product.count} </div>
                         <button
                           name='increase'
                           onClick={(e) => dispatch(itemQuantity(e, product))}
-                          className='btn btn-primary btn-sm'>
+                          className='btn btn-outline-primary btn-sm'>
                           +
                         </button>
                       </div>
@@ -95,14 +108,14 @@ const Cart = () => {
                   </tr>
                 ))}
                 <tr>
-                  <td colSpan='5'></td>
-                  <td className='font-weight-bold text-white'>
-                    {handleTotal()}$
+                  <td colSpan='5' className='text-capitalize fw-bold'>
+                    total
                   </td>
+                  <td className='fw-bold text-dark py-3'>{handleTotal()}$</td>
                 </tr>
               </tbody>
             </table>
-            <div className='d-flex justify-content-between'>
+            <div className='d-flex justify-content-between mb-3'>
               <Link
                 to='/products'
                 className='text-capitalize btn btn-outline-warning btn-sm'>
