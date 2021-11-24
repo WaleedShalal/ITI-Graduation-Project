@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./ProfileWidget.scss";
 function ProfileWidget() {
   return (
-    <div className="widget">
+    <div className="widget profile-widget">
       <h4 className="widget-title">Your profile has a new Experience section</h4>
       <p>
         Showcase your professional experience and education to help potential

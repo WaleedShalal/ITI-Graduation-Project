@@ -40,19 +40,18 @@ img {
   color: inherit;
   text-decoration: none;
 }
-.friend-meta span {
-  color: #9b9b9b;
-  display: inline-block;
-  font-size: 11px;
-  width: 100%;
-}
+// .friend-meta span {
+//   color: #9b9b9b;
+//   font-size: 11px;
+//   width: 100%;
+// }
 
-.friend-meta > a {
+.friend-meta > span {
   float: right;
   font-size: 12px;
   margin-top: 3px;
   position: relative;
   color: #088dcd;
-  outline: none;
-  text-decoration: none;
+  cursor: pointer;
+
 }

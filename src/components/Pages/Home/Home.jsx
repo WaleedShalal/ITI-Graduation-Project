@@ -6,6 +6,7 @@ import PeopleYouKnow from "../../Parts/PeopleYouKnow/PeopleYouKnow";
 import ProfileWidget from "../../Parts/ProfileWidget/ProfileWidget";
 import Stories from "../../Parts/Stories/Stories";
 import "./Home.scss";
+import Time from "../../Parts/Time/Time";
 function Home({ userName }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -22,19 +23,13 @@ function Home({ userName }) {
     <section className="home__page mt-5">
       <div className="container">
         <div className="row">
-          <div className="col-3 pro-widget">
-            {" "}
+          <div className="col-3">
+            <Time />
             <ProfileWidget />
           </div>
           <div className="col-6">
             <Stories />
             <VideoUpload username={userName} />
-          </div>
-          <div className="col-3 PeopleYouKnow-widget">
-            {" "}
-            <PeopleYouKnow />
-          </div>
-          <div className="offset-3 col-6">
             {posts.map(({ id, post }) => {
               return (
                 <Post
@@ -46,6 +41,9 @@ function Home({ userName }) {
                 />
               );
             })}
+          </div>
+          <div className="col-3">
+            <PeopleYouKnow />
           </div>
         </div>
       </div>
