@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import {  FirebaseContext } from '../../../Firebase/Firebase';
+import { FirebaseContext } from '../../../Firebase/Firebase';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
 import FormField from '../../shared/FormikField/FormikField';
@@ -18,7 +18,7 @@ const Login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth
       .signInWithPopup(provider)
-      .then((data) => console.log(data))
+      .then(() => navigate('/home'))
       .catch((error) => console.log(error));
   };
   const navigate = useNavigate();
