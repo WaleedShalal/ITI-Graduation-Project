@@ -79,7 +79,7 @@ function Header() {
               </Link>
             </li>
             <li className='navbar__listItem nav-item'>
-              <Link className=' item__link nav-link' to='/products'>
+              <Link className=' item__link nav-link' to='/cart'>
                 <i className='fa__item fas fa-shopping-cart'>
                   {fetchedData.purchased.length}
                 </i>

@@ -210,11 +210,14 @@ main {
         display: flex;
         .product__addBtn {
           background-color: #088dcd;
-          transition: all 0.2s ease-in-out;
+          transition: all 0.5s ease-in-out;
           &:hover {
             background-color: white;
             color: #088dcd;
           }
+        }
+        .product__removeBtn {
+          transition: all 0.2s linear;
         }
       }
       button {

@@ -115,7 +115,7 @@ const Products = () => {
                         <button
                           key={product.id}
                           onClick={() => dispatch(removeCart(product))}
-                          className='btn btn-outline-danger'>
+                          className='product__removeBtn btn btn-outline-danger'>
                           Remove Cart
                         </button>
                       ) : null,

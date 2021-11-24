@@ -1,3 +1,37 @@
-.product-img {
-  height: 500px;
+.full-details {
+  border-radius: 5px;
+  .product-img {
+    height: 480px;
+  }
+  .product-info {
+    background-color: #fafafa;
+    border-radius: 5px;
+    .options__btn {
+      .option__addCart {
+        background-color: #088dcd;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          color: #088dcd;
+          background-color: white;
+          border-color: #088dcd;
+        }
+      }
+    }
+  }
+}
+.product__reviews {
+  .customers__rates {
+    .cutomer__review {
+      background-color: #fafafa;
+      border-radius: 5px;
+
+      .customer__img {
+        height: 90px;
+
+        img {
+          border: 2px solid #088dcd;
+        }
+      }
+    }
+  }
 }
