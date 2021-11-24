@@ -5,9 +5,9 @@ import VideoUpload from "../../Parts/VideoUpload/VideoUpload";
 import PeopleYouKnow from "../../Parts/PeopleYouKnow/PeopleYouKnow";
 import ProfileWidget from "../../Parts/ProfileWidget/ProfileWidget";
 import Stories from "../../Parts/Stories/Stories";
-import "./Home.scss";
 import Time from "../../Parts/Time/Time";
 import Footer from "../../Parts/Footer/Footer";
+import "./Home.scss";
 function Home({ userName }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -19,7 +19,6 @@ function Home({ userName }) {
         );
       });
   }, []);
-
   return (
     <section className="home__page mt-5">
       <div className="container">

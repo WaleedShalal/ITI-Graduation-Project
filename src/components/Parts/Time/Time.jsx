@@ -7,14 +7,14 @@ function Time() {
   const weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
   const months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
   return (
-    <div class="widget whitish low-opacity">
+    <div className="widget whitish low-opacity">
       <img src={timeImage} alt="" />
       <div
-        class="bg-image"
+        className="bg-image"
         style={{ backgroundImage: `url(${Background})` }}
       ></div>
-      <div class="date-time">
-        <div class="realtime">
+      <div className="date-time">
+        <div className="realtime">
           <span id="hours">
             {d.getHours() < 10 ? `0${d.getHours()}` : d.getHours()}
           </span>

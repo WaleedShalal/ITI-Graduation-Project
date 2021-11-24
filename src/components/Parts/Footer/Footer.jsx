@@ -3,7 +3,7 @@ import './Footer.scss'
 function Footer() {
     return (
         <footer className="footer">
-        <ul class="foote_bottom_ul_amrc">
+        <ul className="foote_bottom_ul_amrc">
         <li><a href="http://webenlance.com">Home</a></li>
         <li><a href="http://webenlance.com">About</a></li>
         <li><a href="http://webenlance.com">Services</a></li>
@@ -12,13 +12,13 @@ function Footer() {
         <li><a href="http://webenlance.com">Contact</a></li>
         </ul>
       
-        <p class="text-center">Copyright @2021 | developed by  <a href="#">Waleed && Diab</a></p>
+        <p className="text-center">Copyright @2021 | developed by  <a href="#">Waleed && Diab</a></p>
         
-        <ul class="social_footer_ul">
-        <li><a href="http://webenlance.com"><i class="fab fa-facebook-f"></i></a></li>
-        <li><a href="http://webenlance.com"><i class="fab fa-twitter"></i></a></li>
-        <li><a href="http://webenlance.com"><i class="fab fa-linkedin"></i></a></li>
-        <li><a href="http://webenlance.com"><i class="fab fa-instagram"></i></a></li>
+        <ul className="social_footer_ul">
+        <li><a href="http://webenlance.com"><i className="fab fa-facebook-f"></i></a></li>
+        <li><a href="http://webenlance.com"><i className="fab fa-twitter"></i></a></li>
+        <li><a href="http://webenlance.com"><i className="fab fa-linkedin"></i></a></li>
+        <li><a href="http://webenlance.com"><i className="fab fa-instagram"></i></a></li>
         </ul>
         </footer>
         
