@@ -5,6 +5,8 @@ import VideoUpload from "../../Parts/VideoUpload/VideoUpload";
 import PeopleYouKnow from "../../Parts/PeopleYouKnow/PeopleYouKnow";
 import ProfileWidget from "../../Parts/ProfileWidget/ProfileWidget";
 import Stories from "../../Parts/Stories/Stories";
+import Time from "../../Parts/Time/Time";
+import Footer from "../../Parts/Footer/Footer";
 import "./Home.scss";
 function Home({ userName }) {
   const [posts, setPosts] = useState([]);
@@ -17,24 +19,17 @@ function Home({ userName }) {
         );
       });
   }, []);
-
   return (
     <section className="home__page mt-5">
       <div className="container">
         <div className="row">
-          <div className="col-3 pro-widget">
-            {" "}
+          <div className="col-3">
+            <Time />
             <ProfileWidget />
           </div>
           <div className="col-6">
             <Stories />
             <VideoUpload username={userName} />
-          </div>
-          <div className="col-3 PeopleYouKnow-widget">
-            {" "}
-            <PeopleYouKnow />
-          </div>
-          <div className="offset-3 col-6">
             {posts.map(({ id, post }) => {
               return (
                 <Post
@@ -46,6 +41,10 @@ function Home({ userName }) {
                 />
               );
             })}
+          </div>
+          <div className="col-3">
+            <PeopleYouKnow />
+            <Footer />
           </div>
         </div>
       </div>

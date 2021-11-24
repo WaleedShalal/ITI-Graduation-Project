@@ -73,7 +73,7 @@ function ImageUpload() {
           </div>
           <div className="new-post">
             <form method="post">
-            <i class="fas fa-pen-alt"></i>
+            <i className="fas fa-pen-alt"></i>
               <input
                 type="text"
                 placeholder="Create New Post"

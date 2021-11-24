@@ -1,0 +1,63 @@
+.whitish:before {
+    background: rgba(255, 255, 255, .9);
+  }
+  .low-opacity:before {
+    opacity: .7;
+  }
+  .widget > img {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 2;
+  }
+  img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+    border-style: none;
+  }
+  
+  .bg-image {
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+  }
+  .date-time {
+    display: inline-block;
+    padding: 50px 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+  }
+  .realtime {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+  }
+  .realtime > span {
+    color: #088dcd;
+    font-size: 40px;
+    font-weight: 500;
+  }
+  .date-time > span#date {
+    color: #3e3f5e;
+    display: inline-block;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+    max-width: 90%;
+    text-shadow: 0 0 3px rgba(255, 255, 255,90%);
+    overflow-wrap: break-word;
+  }

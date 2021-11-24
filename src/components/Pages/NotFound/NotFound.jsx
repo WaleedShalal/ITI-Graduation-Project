@@ -5,7 +5,7 @@ import './NotFound.scss'
 function NotFound() {
   return (
     <section className="not-found">
-      <span><i class="fas fa-sad-tear fa-2x"></i></span>
+      <span><i className="fas fa-sad-tear fa-2x"></i></span>
       <h1>Oops!</h1>
       <h2>404 Not Found</h2>
       <div className="error-details">
