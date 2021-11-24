@@ -53,7 +53,7 @@ const Admin = () => {
                   <tr key={product.id}>
                     <td className='text-dark'>{product.id}</td>
                     <td className='text-dark'>
-                      <img className='product-img' src={product.image} alt='' />
+                      <img className='producs-img' src={product.image} alt='' />
                     </td>
                     <td className='text-dark '>{product.title}</td>
                     <td className='text-dark'> {product.price}$</td>

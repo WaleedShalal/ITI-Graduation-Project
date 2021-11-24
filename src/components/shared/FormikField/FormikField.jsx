@@ -17,7 +17,7 @@ function FormField({ isRequired, name, type, label, formType }) {
       {(formikField) => {
         return (
           <div className={colWidth}>
-            <label htmlFor={name} className='text-white text-capitalize mt-3'>
+            <label htmlFor={name} className='text-dark text-capitalize mt-3'>
               {label} {isRequired && <span className='text-danger'>*</span>}
             </label>
             <input
