@@ -55,14 +55,10 @@ const ProductForm = () => {
     }
     navigate('/admin');
   };
-  console.log('TTTTTTTTTTTTTTT');
   return (
     <React.Fragment>
-      <section>
+      <section className='product__form mt-5'>
         <div className='container'>
-          <h1 className='text-center'>
-            {id === 'new' ? 'Add Product' : 'Edit Product'}
-          </h1>
           <form onSubmit={handleSubmit}>
             {id !== 'new' && (
               <div className='form-group'>
@@ -77,6 +73,7 @@ const ProductForm = () => {
                   className='form-control'
                   step='1'
                   autoComplete='off'
+                  disabled
                 />
               </div>
             )}
@@ -147,9 +144,14 @@ const ProductForm = () => {
                 className='form-control'
               />
             </div>
-            <div className=' mt-4 text-center w-50 mx-auto'>
-              <button type='submit' className='btn btn-primary w-25'>
-                {id === 'new' ? 'Add' : 'Edit'}
+            <div className=' mt-4 text-center d-flex justify-content-between w-50 mx-auto'>
+              <button className='text-capitalize btn btn-outline-warning w-25'>
+                back to admin
+              </button>
+              <button
+                type='submit'
+                className='text-capitalize btn btn-primary w-25'>
+                {id === 'new' ? 'confirm add' : 'confirm edit'}
               </button>
             </div>
           </form>

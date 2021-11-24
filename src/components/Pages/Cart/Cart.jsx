@@ -121,11 +121,13 @@ const Cart = () => {
                 className='text-capitalize btn btn-outline-warning btn-sm'>
                 back to products
               </Link>
-              <Link
-                to='#'
-                className='text-capitalize btn btn-outline-success btn-sm'>
-                checkout
-              </Link>
+              {handleTotal() > 0 && (
+                <Link
+                  to='#'
+                  className='text-capitalize btn btn-outline-success btn-sm'>
+                  checkout
+                </Link>
+              )}
             </div>
           </div>
         )}
