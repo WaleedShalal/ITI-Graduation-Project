@@ -117,6 +117,8 @@ nav.main__navbar.navbar.navbar-expand-lg.navbar-light {
         z-index: 2;
         opacity: 0;
         transition: all 0.5s ease-in-out;
+        visibility: hidden;
+
         > li {
           cursor: pointer;
           transition: all 0.2s ease-in-out;
@@ -162,6 +164,7 @@ nav.main__navbar.navbar.navbar-expand-lg.navbar-light {
       &.nested__list {
         &:hover {
           .list__itemOption {
+            visibility: visible;
             opacity: 1;
           }
         }

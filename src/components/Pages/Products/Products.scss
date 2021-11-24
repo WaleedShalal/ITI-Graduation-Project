@@ -2,13 +2,20 @@ $mainFontSize: 1em;
 main {
   min-height: 499px;
   margin-top: 30px;
+  background-color: #fafafa;
+  border-radius: 5px;
+  .options__wrapper {
+    background-color: white;
+  }
   .options {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
     margin-bottom: 20px;
-    justify-content: space-between;
-
+    background-color: #fafafa;
+    border-radius: 5px;
+    color: #088dcd;
+    .option__edit {
+      color: #088dcd;
+    }
     @media (max-width: 575.98px) {
       .filter {
         text-align: center;
@@ -61,6 +68,7 @@ main {
       }
     }
   }
+
   @media (min-width: 991.99px) and(max-width: 1199.98px) {
     .filter {
       text-align: left;
@@ -125,8 +133,10 @@ main {
     width: 265px;
     height: auto;
     margin-bottom: 30px;
-    box-shadow: 1px 1px rgba(1, 1, 1, 0.2);
     transition: all 0.2s linear;
+    border: 2px solid #deebf3;
+    border-radius: 20px;
+    transition: all 0.2s ease-in-out;
     @media (max-width: 575.98px) {
       margin-left: auto;
       margin-right: auto;
@@ -134,6 +144,9 @@ main {
     .card__header {
       position: relative;
       overflow: hidden;
+      border-bottom: 2px solid #fafafa;
+      border-radius: 0 0 10px 10px;
+
       figure {
         img {
           width: 60%;
@@ -143,8 +156,9 @@ main {
         }
       }
       .product__detailsWrapper {
-        background-color: rgba(0, 0, 0, 0.3);
-        width: 100%;
+        background-color: #deebf3e3;
+        border-radius: 20px 20px 0 0;
+        width: 103%;
         height: 100%;
         position: absolute;
         top: 150%;
@@ -163,7 +177,7 @@ main {
           border: 1px solid lightgray;
           transition: all 0.3s ease-in-out;
           &:hover {
-            background-color: black;
+            background-color: #088dcd;
             color: white;
           }
         }
@@ -194,10 +208,23 @@ main {
       }
       .btn-container {
         display: flex;
+        .product__addBtn {
+          background-color: #088dcd;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            background-color: white;
+            color: #088dcd;
+          }
+        }
       }
       button {
         margin: 0px auto;
       }
+    }
+    &:hover {
+      box-shadow: 5px 3px #088dcd;
+      border-radius: none;
+      transform: translateX(-5px) scaleY(1.03);
     }
   }
 }

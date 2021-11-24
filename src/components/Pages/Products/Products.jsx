@@ -23,10 +23,10 @@ const Products = () => {
   return (
     <React.Fragment>
       <main className='container'>
-        <div className='row'>
-          <div className='options'>
+        <div className='options__wrapper row '>
+          <div className='options d-flex flex-wrap justify-content-between py-3 '>
             <div className='col-md-3'>
-              <Link to='/admin'>
+              <Link className='option__edit' to='/admin'>
                 Edit Products <i className='far fa-edit'></i>
               </Link>
             </div>
@@ -81,7 +81,7 @@ const Products = () => {
             )}
           </div>
         </div>
-        <div className='row'>
+        <div className='row py-4'>
           <div className='products'>
             {fetchedData.filter.map((product) => (
               <div key={product.id} className='card'>
@@ -107,7 +107,7 @@ const Products = () => {
                   <div className='btn-container'>
                     <button
                       onClick={() => dispatch(addCart(product))}
-                      className='btn btn-primary'>
+                      className='product__addBtn btn btn-primary'>
                       Add Cart
                     </button>
                     {fetchedData.purchased.map((pur) =>
