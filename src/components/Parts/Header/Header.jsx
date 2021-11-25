@@ -78,6 +78,7 @@ function Header() {
                       </h5>
                     </div>
                   </Link>
+                  <div className="list__itemProfileDecoration"></div>
                 </div>
               </li>
             )}

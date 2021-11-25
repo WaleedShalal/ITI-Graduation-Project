@@ -93,10 +93,26 @@ nav.main__navbar.navbar.navbar-expand-lg.navbar-light {
         border-radius: 30px;
         cursor: pointer;
         padding: 3px 10px 3px 4px;
+        position: relative;
+        overflow: hidden;
+        .list__itemProfileDecoration {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background-color: #deebf3a9;
+          border-radius: 30px;
+          width: 0%;
+          height: 100%;
+          transition: all 0.4s ease-in-out;
+        }
+        &:hover {
+          .list__itemProfileDecoration {
+            width: 100%;
+          }
+        }
         > a {
           height: 37px;
           > figure {
-            border: 1px solid green;
             padding: 2px;
             img {
               max-width: 25px;
