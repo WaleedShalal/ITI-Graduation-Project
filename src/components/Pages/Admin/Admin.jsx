@@ -35,8 +35,8 @@ const Admin = () => {
             reset default <i className='fas fa-redo-alt'></i>
           </button>
         </div>
-        <div className=' table-responsive text-center'>
-          <table className='admin-table table-hover table '>
+        <div className=' table-responsive text-center w-100'>
+          <table className='admin-table table-hover table'>
             <thead>
               <tr className='text-dark'>
                 <th>ID</th>

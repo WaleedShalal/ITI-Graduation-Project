@@ -25,12 +25,12 @@ const Products = () => {
       <main className='container'>
         <div className='options__wrapper row '>
           <div className='options d-flex flex-wrap justify-content-between py-3 '>
-            <div className='col-md-3'>
+            <div className='col-sm-6 col-lg text-center py-1'>
               <Link className='option__edit' to='/admin'>
                 Edit Products <i className='far fa-edit'></i>
               </Link>
             </div>
-            <div className='filter col-sm-12 col-md-3'>
+            <div className='filter col-sm-6 col-lg text-center py-1'>
               <span>Filter by : </span>
               <select
                 value={fetchedData.filterValue}
@@ -51,7 +51,7 @@ const Products = () => {
                 <option value='electronics'>electronics</option>
               </select>
             </div>
-            <div className='sort col-sm-12 col-md-3'>
+            <div className='sort col-sm-6 col-lg  text-center py-1'>
               <span>Sort by : </span>
               <select
                 value={fetchedData.sortValue}
@@ -71,7 +71,7 @@ const Products = () => {
               </select>
             </div>
             {fetchedData.purchased.length > 0 && (
-              <div className='button col-sm-12 col-md-3'>
+              <div className='button col-sm-6 col-lg text-center py-1'>
                 <button
                   className='btn btn-outline-danger btn-sm'
                   onClick={() => dispatch(removeAllCart())}>
@@ -82,7 +82,7 @@ const Products = () => {
           </div>
         </div>
         <div className='row py-4'>
-          <div className='products'>
+          <div className='products d-flex flex-wrap justify-content-between'>
             {fetchedData.filter.map((product) => (
               <div key={product.id} className='card'>
                 <div className='card__header'>

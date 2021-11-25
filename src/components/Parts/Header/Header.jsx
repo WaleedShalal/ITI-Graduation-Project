@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
-import { NavLink, Link, useLocation } from "react-router-dom";
-import { auth } from "../../../Firebase/Firebase";
-import { useSelector } from "react-redux";
-import userImage from "../../../assets/images/user-img.png";
-import "./Header.scss";
-import { AuthContext } from "../../../context/Auth";
+import React, { useContext } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
+import { auth } from '../../../Firebase/Firebase';
+import { useSelector } from 'react-redux';
+import userImage from '../../../assets/images/user-img.png';
+import './Header.scss';
+import { AuthContext } from '../../../context/Auth';
 
 function Header() {
   const { user } = useContext(AuthContext);
@@ -41,24 +41,23 @@ function Header() {
               </button>
             </form>
           </div>
-          <ul className="navbar__list navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+          <ul className='navbar__list navbar-nav ms-auto mb-2 mb-lg-0 align-items-center'>
             {user && (
-              <li className="navbar__listItem  nav-item">
-                <div className="list__itemProfile">
+              <li className='navbar__listItem  nav-item'>
+                <div className='list__itemProfile'>
                   <Link
-                    className="nav-link active d-flex align-items-center p-1"
-                    aria-current="page"
-                    to="/profile"
-                  >
-                    <figure className="mb-0 rounded-circle">
+                    className='nav-link active d-flex align-items-center p-1'
+                    aria-current='page'
+                    to='/profile'>
+                    <figure className='mb-0 rounded-circle'>
                       <img
-                        className="w-100 rounded-circle"
+                        className='w-100 rounded-circle'
                         src={userImage}
-                        alt=""
+                        alt=''
                       />
                     </figure>
-                    <div className="ms-1">
-                      <h5 className="text-capitalize mb-0">
+                    <div className='ms-1'>
+                      <h5 className='text-capitalize mb-0'>
                         {user.displayName}
                       </h5>
                     </div>
@@ -66,7 +65,7 @@ function Header() {
                 </div>
               </li>
             )}
-            <li className="navbar__listItem nav-item">
+            <li className='navbar__listItem nav-item'>
               <Link
                 className='item__link nav-link active'
                 aria-current='page'

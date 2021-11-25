@@ -5,7 +5,7 @@ import './FormikField.scss';
 
 function FormField({ isRequired, name, type, label, formType }) {
   const colWidth =
-    formType === 'login'
+    formType === 'login' || 'productForm'
       ? 'col-12'
       : label === 'email' || label === 'followed hashtags'
       ? 'col-12'

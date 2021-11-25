@@ -172,7 +172,7 @@ function Register() {
                             <div className='d-flex align-items-end' key={index}>
                               <FormField
                                 isRequired='false'
-                                name={`address${index}`}
+                                name={`address[${index}]`}
                                 type='text'
                                 label={`address ${index + 1}`}
                               />
