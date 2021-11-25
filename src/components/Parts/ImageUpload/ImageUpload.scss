@@ -1,0 +1,21 @@
+.page {
+  position: relative;
+
+  .img-holder{
+    margin: auto;
+    width: 150px;
+    border-radius: 5px;
+    margin-top: 1rem;
+  }
+  .img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  .label {
+    color: #009688;
+    i {
+      cursor: pointer;
+    }
+  }
+}

@@ -35,6 +35,10 @@ function Post({ username, postId, video, caption,rate }) {
     });
     setComment("");
   };
+
+  const deletePost = ()=>{
+    db.collection("posts").doc(postId).delete();
+  }
   return (
     <div className="main-wraper mt-3">
       <div className="user-post">
@@ -55,7 +59,7 @@ function Post({ username, postId, video, caption,rate }) {
                     <i className="fas fa-ban"></i>Hide Post
                     <span>Hide This Post</span>
                   </li>
-                  <li>
+                  <li onClick={deletePost}>
                     <i className="fas fa-trash"></i>Delete Post
                     <span>If inappropriate Post By Mistake</span>
                   </li>

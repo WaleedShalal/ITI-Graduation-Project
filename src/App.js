@@ -16,6 +16,7 @@ import ProductForm from './components/Pages/ProductForm/ProductForm';
 import Messages from './components/Pages/Messages/MessagesView/Messages';
 import PrivateRoute from './context/guard';
 import './App.scss';
+import EditProfile from './components/Pages/EditProfile/EditProfile';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route exact path='home' element={<Navigate to='/' />} />
           <Route exact path='profile' element={<Profile />} />
+          <Route exact path='edit' element={<EditProfile />} />
           <Route path='cart' element={<Cart />} />
           <Route path='admin' element={<Admin />} />
           <Route path='/productform/:id' element={<ProductForm />} />
