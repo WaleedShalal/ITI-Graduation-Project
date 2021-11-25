@@ -1,15 +1,13 @@
-import './Profile.scss';
 import { Link } from 'react-router-dom';
 import Post from '../../Parts/Post/Post';
 import Stars from '../../Parts/Stars/Stars';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../context/Auth';
 import { db } from '../.../../../../Firebase/Firebase';
-
-import './Profile.scss';
 import NoPosts from '../../Parts/Post/NoPosts';
 import Stories from '../../Parts/Stories/Stories';
 import ImageUpload from './../../Parts/VideoUpload/VideoUpload';
+import './Profile.scss';
 function Profile() {
   const [posts, setPosts] = useState([]);
   const { user } = useContext(AuthContext);
@@ -48,6 +46,7 @@ function Profile() {
                       username={post.username}
                       video={post.videoUrl}
                       caption={post.caption}
+                      rate = {post.rate}
                     />
                   );
                 })

@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import { db } from "../.../../../../Firebase/Firebase";
+
 import "./PeopleYouKnow.scss";
 function PeopleYouKnow() {
   const [users, setUsers] = useState([]);
@@ -8,7 +9,11 @@ function PeopleYouKnow() {
       setUsers(snapshot.docs.map((doc) => doc.data()));
     });
   });
-
+  const handleFollow = (id,F) => {
+    db.collection("users").doc(id).update({
+      follow : !F
+    });
+  };
   return (
     <div className="widget stick-widget">
       <h4 className="widget-title">Who's follownig</h4>
@@ -28,7 +33,7 @@ function PeopleYouKnow() {
                   </a>
                   <span>{user.followedHashtags}</span>
                 </h4>
-                <span className="underline">follow</span>
+                <span className="underline" onClick={()=>handleFollow(user.id, user.follow)}>{!user.follow ? "follow" : "unfollow"}</span>
               </div>
             </li>
           );

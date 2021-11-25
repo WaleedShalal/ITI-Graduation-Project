@@ -6,7 +6,7 @@ import { AuthContext } from "../../../context/Auth";
 import firebase from "firebase/compat/app";
 import "./Post.scss";
 
-function Post({ username, postId, video, caption }) {
+function Post({ username, postId, video, caption,rate }) {
   const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
@@ -35,6 +35,10 @@ function Post({ username, postId, video, caption }) {
     });
     setComment("");
   };
+
+  const deletePost = ()=>{
+    db.collection("posts").doc(postId).delete();
+  }
   return (
     <div className="main-wraper mt-3">
       <div className="user-post">
@@ -55,7 +59,7 @@ function Post({ username, postId, video, caption }) {
                     <i className="fas fa-ban"></i>Hide Post
                     <span>Hide This Post</span>
                   </li>
-                  <li>
+                  <li onClick={deletePost}>
                     <i className="fas fa-trash"></i>Delete Post
                     <span>If inappropriate Post By Mistake</span>
                   </li>
@@ -80,7 +84,7 @@ function Post({ username, postId, video, caption }) {
             <div className="video">
               <ReactPlayer width="100%" url={video} controls />
             </div>
-            <Rate />
+            <Rate PostId={postId} rate={rate}/>
             <a href="post-detail.html" className="post-title">
             {username}
             </a>
