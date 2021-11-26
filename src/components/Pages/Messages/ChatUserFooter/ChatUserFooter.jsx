@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
-import { FirebaseContext } from '../../../../Firebase/Firebase';
-import { SecondUserContext } from './../../../../context/SecondUser';
-import { currentUserContext } from './../../../../context/CurrentUser';
+import React, { useContext, useState } from "react";
+import { FirebaseContext } from "../../../../Firebase/Firebase";
+import { SecondUserContext } from "./../../../../context/SecondUser";
+import { currentUserContext } from "./../../../../context/CurrentUser";
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
-
+import "./ChatUserFooter.scss";
 function ChatUserFooter() {
-  const [msgContent, setMsgContent] = useState('');
+  const [msgContent, setMsgContent] = useState("");
   const [msgCounter, setMsgCounter] = useState(0);
   const { messagesCollection } = useContext(FirebaseContext);
   const { msgCounterFlag } = useContext(FirebaseContext);
@@ -26,25 +26,33 @@ function ChatUserFooter() {
         relation: `${userData.uid}/${secondUserData.userId}`,
       });
     }
-    setMsgContent('');
+    setMsgContent("");
   };
   return (
-    <>
-      <form
-        className='messages__SendForm d-flex w-100 py-2'
-        onSubmit={handleSendMsg}>
-        <input
-          className='w-100 px-3 rounded-pill me-2 text-white'
-          type='text'
-          placeholder='Enter a message...'
-          value={msgContent}
-          onChange={(e) => setMsgContent(e.target.value)}
-        />
-        <button className='btn btn-primary  rounded-pill' type='submit'>
-          Send
-        </button>
-      </form>
-    </>
+  
+
+      <div class="row reply">
+        <div class="col-sm-1 col-xs-1 pt-2 icon-btn">
+          <i class="far fa-smile"></i>
+        </div>
+        <div class="col-sm-11 col-xs-11 reply-main">
+          <form className="d-flex" onSubmit={handleSendMsg}>
+            <input
+              rows="1"
+              id="comment"
+              className="form-control"
+              type="text"
+              placeholder="Enter a message..."
+              value={msgContent}
+              onChange={(e) => setMsgContent(e.target.value)}
+            />
+            <button class="col-sm-1 col-xs-1 icon-btn reply-send" type="submit">
+              <i class="fas fa-paper-plane" aria-hidden="true" style={{color:msgContent?"#088dcd" : "#93918f"}}></i>
+            </button>
+          </form>
+        </div>
+      </div>
+   
   );
 }
 

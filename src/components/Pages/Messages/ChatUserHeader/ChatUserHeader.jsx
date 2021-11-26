@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ChatUserHeader.scss';
 import { useContext } from 'react';
 import { SecondUserContext } from './../../../../context/SecondUser';
 
 function ChatUserHeader() {
+  const [image, setimage] = useState (
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+  );
   const { secondUserData } = useContext(SecondUserContext);
   return (
     <div className='d-flex align-items-center'>
@@ -12,7 +15,7 @@ function ChatUserHeader() {
           <div className='flex-shrink-0'>
             <figure className='messages__chatHeaderImage mb-0'>
               <img
-                src={secondUserData.userPhoto}
+                src={secondUserData.userPhoto ? secondUserData.userPhoto  : image }
                 className='w-100 rounded-circle'
                 alt='...'
               />
