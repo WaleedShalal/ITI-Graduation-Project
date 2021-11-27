@@ -86,7 +86,8 @@ const ProductForm = () => {
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={onSubmit}>
+      onSubmit={onSubmit}
+      enableReinitialize>
       {(formik) => {
         console.log(formik);
         return (
