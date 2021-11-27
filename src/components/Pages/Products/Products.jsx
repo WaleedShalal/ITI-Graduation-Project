@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
@@ -9,11 +9,25 @@ import {
   showSortAndFilter,
 } from '../../../store/cartActions';
 import './Products.scss';
+import Pagination from '../../Parts/Pagination/Pagination';
 
 const Products = () => {
   const { fetchedData } = useSelector((state) => state);
-  console.log(fetchedData);
   const dispatch = useDispatch();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productPerPage] = useState(10);
+
+  const indexOfLastProduct = currentPage * productPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productPerPage;
+  const currentProducts = fetchedData.filter.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct,
+  );
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
+  console.log(currentProducts);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -22,7 +36,7 @@ const Products = () => {
 
   return (
     <React.Fragment>
-      <main className='container'>
+      <section className='main__products container'>
         <div className='options__wrapper row '>
           <div className='options d-flex flex-wrap justify-content-between py-3 '>
             <div className='col-sm-6 col-lg text-center py-1'>
@@ -83,7 +97,7 @@ const Products = () => {
         </div>
         <div className='row py-4'>
           <div className='products d-flex flex-wrap justify-content-between'>
-            {fetchedData.filter.map((product) => (
+            {currentProducts.map((product) => (
               <div key={product.id} className='card'>
                 <div className='card__header'>
                   <figure className='text-center'>
@@ -126,7 +140,12 @@ const Products = () => {
             ))}
           </div>
         </div>
-      </main>
+        <Pagination
+          dataPerPage={productPerPage}
+          totalData={fetchedData.filter.length}
+          paginate={paginate}
+        />
+      </section>
     </React.Fragment>
   );
 };

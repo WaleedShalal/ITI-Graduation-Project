@@ -1,0 +1,26 @@
+import React from 'react';
+
+function Pagination({ dataPerPage, totalData, paginate }) {
+  const pagesNumber = [];
+  for (let i = 1; i <= Math.floor(totalData / dataPerPage); i++) {
+    pagesNumber.push(i);
+  }
+  return (
+    <ul className='pagination d-flex justify-content-center'>
+      {pagesNumber.map((number) => {
+        return (
+          <li key={number} className='page-item'>
+            <a
+              onClick={() => paginate(number)}
+              className='text-dark page-link'
+              href='!#'>
+              {number}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+export default Pagination;
