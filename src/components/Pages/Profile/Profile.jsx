@@ -46,7 +46,7 @@ function Profile() {
                       username={post.username}
                       video={post.videoUrl}
                       caption={post.caption}
-                      rate = {post.rate}
+                      rate={post.rate}
                     />
                   );
                 })
@@ -77,7 +77,7 @@ function Profile() {
               </p>
               <p className='text-capitalize mb-2'>age : 26</p>
               <div className=' Ecommerce-Link-site w-100 text-center mb-2'>
-                <Link className='text-primary text-capitalize' to='/products'>
+                <Link className='text-primary text-capitalize' to='/products/1'>
                   e-commerce page
                 </Link>
                 <span className='text-primary'>

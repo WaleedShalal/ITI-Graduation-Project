@@ -30,8 +30,8 @@ function App() {
           <Route exact path='edit' element={<EditProfile />} />
           <Route path='cart' element={<Cart />} />
           <Route path='admin' element={<Admin />} />
-          <Route path='/productform/:id' element={<ProductForm />} />
-          <Route path='products' element={<Products />} />
+          <Route path='productform/:id' element={<ProductForm />} />
+          <Route path='products/:id' element={<Products />} />
           <Route
             path='products/productdetails/:id'
             element={<ProductDetails />}

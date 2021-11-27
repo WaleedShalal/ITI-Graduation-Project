@@ -118,7 +118,7 @@ function Header() {
             {/* <div className='item__linkDecoration'></div> */}
             <ul className='list__itemOption list-unstyled text-dark p-2'>
               <li className='option__eCommerce mb-2'>
-                <Link className='btn text-capitalize w-100' to='/products'>
+                <Link className='btn text-capitalize w-100' to='/products/1'>
                   <i className='fas fa-store'></i> ecommerce
                 </Link>
                 {/* <div className='item__linkDecoration'></div> */}

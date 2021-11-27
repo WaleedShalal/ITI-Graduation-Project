@@ -25,9 +25,10 @@ const Products = () => {
     indexOfLastProduct,
   );
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  console.log(currentProducts);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
 
   useEffect(() => {
     dispatch(fetchProducts());
