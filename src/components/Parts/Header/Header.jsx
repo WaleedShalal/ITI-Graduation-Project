@@ -25,7 +25,6 @@ function Header() {
         }
       });
   }, [data]);
-  console.log(data);
   return (
     <nav className="main__navbar navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">

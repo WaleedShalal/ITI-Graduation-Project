@@ -4,6 +4,24 @@ a.main-btn:hover,
   background: #055f8b;
   color: #fff;
 }
-.profile-widget{
-  top:400px !important;
+.user-heading{
+  background: #2dc3e8;
+  color: #fff;
+  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 4px 4px 0 0;
+  padding: 30px;
+  text-align: center;
+  position: relative;
+  left: -20px;
+  top: -15px;
+  width: calc(100% + 40px);
+  img {
+  width: 190px;
+  height:190px;
+}
+h1{
+  font-size: 22px;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
 }
