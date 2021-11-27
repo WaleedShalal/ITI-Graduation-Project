@@ -8,37 +8,35 @@ import './FormikSelectInput.scss';
 function FormikSelectInput({ isRequired, name, type, label, formType }) {
   const { id } = useParams();
   const { fetchedData } = useSelector((state) => state);
-  const [newProduct, setNewProduct] = useState({
-    id: '',
-    title: '',
-    price: '',
-    image: '',
-    description: '',
-    category: '',
-  });
+  // const [newProduct, setNewProduct] = useState({
+  //   id: '',
+  //   title: '',
+  //   price: '',
+  //   image: '',
+  //   description: '',
+  //   category: '',
+  // });
 
-  useEffect(() => {
-    let num = id;
-    if (num !== 'new') {
-      setNewProduct(
-        fetchedData.products.filter((product) => product.id === +num)[0],
-      );
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]);
+  // useEffect(() => {
+  //   let num = id;
+  //   if (num !== 'new') {
+  //     setNewProduct(
+  //       fetchedData.products.filter((product) => product.id === +num)[0],
+  //     );
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [id]);
 
   return (
     <Field name={name}>
       {(formikField) => {
-        console.log(formikField.field.value);
-        console.log({ ...formikField.field });
         return (
           <div className='form-group'>
             <label htmlFor={name} className='text-dark text-capitalize mt-3'>
               {label} {isRequired && <span className='text-danger'>*</span>}
             </label>
             <select
-              className='input__style w-100 ps-2 mb-1'
+              className='w-100 ps-2 mb-1'
               type={type}
               id={name}
               {...formikField.field}

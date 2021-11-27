@@ -3,15 +3,13 @@ import { Field } from 'formik';
 import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 import './FormikField.scss';
 
-function FormField({ isRequired, name, type, label, formType }) {
-  const colWidth =
-    formType === ('login' || 'productForm')
-      ? 'col-12'
-      : label === 'email' || label === 'followed hashtags'
-      ? 'col-12'
-      : label.includes('address')
-      ? 'col-10'
-      : 'col-6';
+function FormField({
+  isRequired = 'true',
+  name,
+  type,
+  label,
+  colWidth = 'col-12',
+}) {
   return (
     <Field name={name}>
       {(formikField) => {
