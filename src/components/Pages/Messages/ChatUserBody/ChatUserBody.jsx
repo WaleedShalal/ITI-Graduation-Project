@@ -2,7 +2,6 @@ import React from 'react';
 import { useEffect, useRef } from 'react';
 
 function ChatUserBody({ isCurrent, data, userPhoto }) {
-  // console.log(time);
   const showLastMsg = useRef(null);
   const scrollToBottom = () => {
     showLastMsg.current?.scrollIntoView({ behavior: 'smooth' });

@@ -1,5 +1,4 @@
 .product__form {
-  // background-color: #deebf3;
   background-color: #f5f5f5;
   border-radius: 5px;
   .form__productWrapper {
@@ -13,10 +12,12 @@
       border: none;
       &:focus-visible {
         outline: 3px solid #deebf3 !important;
-        // border-color: red !important;
       }
     }
     .form__productBtn {
+      .product__addBtn {
+        background-color: #088dcd !important;
+      }
       .product__backBtn {
         &:hover {
           color: white !important;
