@@ -28,7 +28,7 @@ function EditProfile() {
       .then((snapshot) => {
         setData(snapshot.data());
       });
-  }, [data]);
+  }, []);
   const onSubmit = (e) => {
     e.preventDefault();
     db.collection("users").doc(auth.currentUser.uid).update(data);
@@ -38,6 +38,7 @@ function EditProfile() {
     }, 3000);
   };
   const handleChange = (e) => {
+    console.log(e.target.value);
     setData({ ...data, [e.target.name]: e.target.value });
   };
   

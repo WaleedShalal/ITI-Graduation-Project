@@ -82,7 +82,7 @@ function Register() {
         .createUserWithEmailAndPassword(email, password)
         .then((cred) => {
           updateProfile(auth.currentUser, {
-            displayName: `${firstName} ${lastName}`,
+            displayName: `${firstName}_${lastName}`,
           });
           return db.collection("users").doc(cred.user.uid).set({
             id: cred.user.uid,
