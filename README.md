@@ -27,4 +27,5 @@ yup            : npm install yup --save.\
 firebase       : npm i firebase --save.\
 firebase-tools : npm install -g firebase-tools.
 firebase-hooks : npm i react-firebase-hooks.
+moment         : npm install moment --save.
  

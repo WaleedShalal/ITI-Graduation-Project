@@ -1,48 +1,55 @@
 import React, { useContext, useState } from "react";
 import { FirebaseContext } from "../../../../Firebase/Firebase";
 // import ChatCurrentUserBody from '../ChatCurrentUserBody/ChatCurrentUserBody';
-import { currentUserContext } from "./../../../../context/CurrentUser";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-import ChatUserBody from "../ChatUserBody/ChatUserBody";
-import MessagesUsers from "../MessagesUsers/MessagesUsers";
-import ChatUserHeader from "./../ChatUserHeader/ChatUserHeader";
-import ChatUserFooter from "../ChatUserFooter/ChatUserFooter";
-import "./Messages.scss";
-import { SecondUserContext } from "./../../../../context/SecondUser";
-import { useEffect } from "react";
+import { currentUserContext } from './../../../../context/CurrentUser';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+import ChatUserBody from '../ChatUserBody/ChatUserBody';
+import MessagesUsers from '../MessagesUsers/MessagesUsers';
+import ChatUserHeader from './../ChatUserHeader/ChatUserHeader';
+import ChatUserFooter from '../ChatUserFooter/ChatUserFooter';
+import './Messages.scss';
+import { SecondUserContext } from './../../../../context/SecondUser';
+import { useEffect } from 'react';
+import { orderBy } from 'firebase/firestore';
 
 function Messages() {
   const [image, setimage] = useState  (
     "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
   );
   const { messagingUsersCollection } = useContext(FirebaseContext);
+  const [isLoading, setIsLoading] = useState(false);
   const [users] = useCollectionData(messagingUsersCollection);
   const { messagesCollection } = useContext(FirebaseContext);
   const { userData } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
+
   const query =
     secondUserData?.userId &&
-    messagesCollection.where("relation", "in", [
-      `${userData.uid}/${secondUserData.userId}`,
-      `${secondUserData.userId}/${userData.uid}`,
-    ]);
-  console.log(query, "1");
-  // .limit(100);
-  const [messages] = useCollectionData(query, { idField: "id" });
-  console.log(messages);
-  const [messagesSorted, setMessagesSorted] = useState([
-    { msg: "", relation: "", sentAt: "", sentBy: "", sentTo: "" },
-  ]);
+    messagesCollection
+      .where('relation', 'in', [
+        `${userData.uid}/${secondUserData.userId}`,
+        `${secondUserData.userId}/${userData.uid}`,
+      ])
+      .limit(30);
+  const [messages] = useCollectionData(query, { idField: 'id' });
+  // const [messages] = useCollectionData(query, orderBy('messages', 'asc'));
+  const [messagesSorted, setMessagesSorted] = useState([]);
+  // const [messagesSorted, setMessagesSorted] = useState([
+  //   { msg: '', relation: '', sentAt: '', sentBy: '', sentTo: '' },
+  // ]);
   useEffect(() => {
     if (messages) {
-      setMessagesSorted(
-        messages.sort((a, b) => {
-          return a.sentAt - b.sentAt;
-        })
-      );
+      let sortedMsg = sortingMessages();
+      sortedMsg[0]?.sentAt && setMessagesSorted(sortedMsg);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
+  const sortingMessages = () => {
+    let sortedMsg = messages.sort((a, b) => a.sentAt - b.sentAt);
+    return sortedMsg;
+  };
+
+  console.log(messagesSorted);
   return (
     <section className="messages my-3">
       <div className="container">

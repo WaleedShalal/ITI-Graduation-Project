@@ -110,3 +110,33 @@
     background: green;
   }
 }
+
+// header {
+//   background-color: lightgray;
+//   height: 50px;
+//   #check {
+//     display: none;
+//   }
+//   #check + label {
+//     cursor: pointer;
+//     display: none;
+//     @media (max-width: 991.98px) {
+//       display: block;
+//     }
+//   }
+//   #check:checked ~ ul {
+//     left: 0;
+//   }
+//   ul {
+//     @media (max-width: 991.98px) {
+//       position: fixed;
+//       top: 113px;
+//       left: -150px;
+//       flex-direction: column;
+//       background-color: lightgreen;
+//       width: 150px;
+//       height: 100%;
+//       transition: all 1s ease-in-out;
+//     }
+//   }
+// }

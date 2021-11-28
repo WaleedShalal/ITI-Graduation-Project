@@ -3,10 +3,10 @@ import { FirebaseContext } from "../../../../Firebase/Firebase";
 import { SecondUserContext } from "./../../../../context/SecondUser";
 import { currentUserContext } from "./../../../../context/CurrentUser";
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
-import "./ChatUserFooter.scss";
+import firebase from 'firebase/compat/app';
+
 function ChatUserFooter() {
-  const [msgContent, setMsgContent] = useState("");
-  const [msgCounter, setMsgCounter] = useState(0);
+  const [msgContent, setMsgContent] = useState('');
   const { messagesCollection } = useContext(FirebaseContext);
   const { msgCounterFlag } = useContext(FirebaseContext);
   const { userData } = useContext(currentUserContext);
@@ -14,14 +14,15 @@ function ChatUserFooter() {
   // const [msgFlag] = useCollectionData(msgCounterFlag, {
   //   idField: 'id',
   // });
-  console.log(msgCounterFlag);
   const handleSendMsg = (e) => {
     e.preventDefault();
+    let msgTime = firebase.firestore.FieldValue.serverTimestamp();
     if (msgContent) {
       messagesCollection.add({
         msg: msgContent,
         sentBy: userData.uid,
-        sentAt: new Date(),
+        // sentAt: new Date(),
+        sentAt: msgTime,
         sentTo: secondUserData.userId,
         relation: `${userData.uid}/${secondUserData.userId}`,
       });

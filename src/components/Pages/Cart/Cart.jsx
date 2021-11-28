@@ -117,8 +117,8 @@ const Cart = () => {
             </table>
             <div className='d-flex justify-content-between mb-3'>
               <Link
-                to='/products'
-                className='text-capitalize btn btn-outline-warning btn-sm'>
+                to='/products/1'
+                className='text-capitalize text-warning btn btn-outline-warning btn-sm'>
                 back to products
               </Link>
               {handleTotal() > 0 && (
