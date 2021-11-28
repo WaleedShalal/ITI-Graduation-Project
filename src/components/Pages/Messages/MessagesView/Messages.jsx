@@ -48,8 +48,6 @@ function Messages() {
     let sortedMsg = messages.sort((a, b) => a.sentAt - b.sentAt);
     return sortedMsg;
   };
-
-  console.log(messagesSorted);
   return (
     <section className="messages my-3">
       <div className="container">

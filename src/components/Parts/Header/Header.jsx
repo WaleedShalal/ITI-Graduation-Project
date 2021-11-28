@@ -25,7 +25,7 @@ function Header() {
           setData(snapshot.data());
         }
       });
-  }, [data]);
+  }, []);
 
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
