@@ -4,7 +4,7 @@ import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 import './FormikField.scss';
 
 function FormField({
-  isRequired = 'true',
+  isRequired = true,
   name,
   type,
   label,

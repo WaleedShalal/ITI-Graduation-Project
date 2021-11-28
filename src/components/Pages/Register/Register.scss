@@ -1,7 +1,7 @@
 .register__form {
   background-color: #fafafa;
-  box-shadow: 1px 1px 10px 3px #088dcd;
-  border-radius: 15px;
+  // box-shadow: 1px 1px 10px 3px #088dcd;
+  border-radius: 5px;
   margin-top: 150px;
   position: relative;
   .user__image {
@@ -12,11 +12,21 @@
   }
   .form__wrapper {
     margin-top: 80px;
-    .address__btn {
-      width: 34px;
-      height: 34px;
-      padding-bottom: 8px !important;
+    .address__btnWrapper {
+      padding-top: 40px;
+      .address__addBtn,
+      .address__removeBtn {
+        width: 34px;
+        height: 34px;
+        padding-bottom: 8px !important;
+      }
+      // .address__addBtn {
+      //   background-color: deebf3 !important;
+      // }
     }
+  }
+  .register__btn {
+    background-color: #088dcd !important;
   }
   input {
     padding: 5px 0;

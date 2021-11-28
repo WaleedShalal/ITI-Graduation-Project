@@ -3,7 +3,7 @@ import { Field } from 'formik';
 import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 import './FormikRadioButton.scss';
 
-function FormRadioButton({ isRequired, name, label, options }) {
+function FormRadioButton({ isRequired = 'true', name, label, options }) {
   return (
     <div className='form__radio col-6'>
       <label htmlFor={name} className='mt-3 text-dark text-capitalize'>
@@ -12,10 +12,10 @@ function FormRadioButton({ isRequired, name, label, options }) {
       <Field name={name}>
         {(formikField) => {
           return (
-            <div className='text-white d-flex justify-content-evenly'>
+            <div className='formik__radioBtn d-flex justify-content-evenly'>
               {options.map((option) => {
                 return (
-                  <div key={option.id}>
+                  <div key={option.id} className='radio__btnWrapper'>
                     <input
                       className='radio__input__style '
                       type='radio'
@@ -26,7 +26,7 @@ function FormRadioButton({ isRequired, name, label, options }) {
                     />
                     <label
                       htmlFor={option.value}
-                      className='radio__label__style d-flex justify-content-center align-items-center rounded-pill text-capitalize'>
+                      className='radio__label__style d-flex justify-content-center align-items-center text-capitalize'>
                       {option.value}
                     </label>
                   </div>
