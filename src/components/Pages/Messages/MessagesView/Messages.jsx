@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { FirebaseContext } from "../../../../Firebase/Firebase";
+import React, { useContext, useState } from 'react';
+import { FirebaseContext } from '../../../../Firebase/Firebase';
 // import ChatCurrentUserBody from '../ChatCurrentUserBody/ChatCurrentUserBody';
 import { currentUserContext } from './../../../../context/CurrentUser';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -13,12 +13,12 @@ import { useEffect } from 'react';
 import { orderBy } from 'firebase/firestore';
 
 function Messages() {
-  const [image, setimage] = useState  (
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+  const [image, setimage] = useState(
+    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   );
   const { messagingUsersCollection } = useContext(FirebaseContext);
-  const [isLoading, setIsLoading] = useState(false);
   const [users] = useCollectionData(messagingUsersCollection);
+  console.log(users);
   const { messagesCollection } = useContext(FirebaseContext);
   const { userData } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
@@ -49,15 +49,15 @@ function Messages() {
     return sortedMsg;
   };
   return (
-    <section className="messages my-3">
-      <div className="container">
-        <div className="messages__wrapper">
-          <div className="row">
-            <div className="messages__inbox col-4 pe-0">
-              <div className="messages__inboxHeader d-flex justify-content-around align-items-center px-3">
+    <section className='messages my-3'>
+      <div className='container'>
+        <div className='messages__wrapper'>
+          <div className='row'>
+            <div className='messages__inbox col-4 pe-0'>
+              <div className='messages__inboxHeader d-flex justify-content-around align-items-center px-3'>
                 <h4>chats</h4>
               </div>
-              <div className="messages__inboxBody py-4 mt-1">
+              <div className='messages__inboxBody py-4 mt-1'>
                 {users
                   ?.filter((data) => data.userId !== userData.uid)
                   ?.map((data, index) => (
@@ -66,16 +66,16 @@ function Messages() {
               </div>
             </div>
             {!secondUserData ? (
-              <div className="fs-1 col-8 ps-0 d-flex inbox justify-content-center align-items-center">
-                <i class="fas fa-inbox fa-2x"></i>
+              <div className='fs-1 col-8 ps-0 d-flex inbox justify-content-center align-items-center'>
+                <i class='fas fa-inbox fa-2x'></i>
               </div>
             ) : (
-              <div className="messages__chat col-8 ps-0">
-                <div className="messages__chatHeader d-flex justify-content-between align-items-center px-3">
+              <div className='messages__chat col-8 ps-0'>
+                <div className='messages__chatHeader d-flex justify-content-between align-items-center px-3'>
                   <ChatUserHeader />
-                  <i className="fas fa-exclamation-circle"></i>
+                  <i className='fas fa-exclamation-circle'></i>
                 </div>
-                <div className="messages__chatBody px-3 py-4 mt-3">
+                <div className='messages__chatBody px-3 py-4 mt-3'>
                   {messagesSorted.map((data) => (
                     <ChatUserBody
                       key={data.sentAt}
