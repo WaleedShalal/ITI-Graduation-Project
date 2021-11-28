@@ -1,6 +1,6 @@
 import React from 'react';
 import okay from './images/okay-icon.png';
-import banner from './images/banner-1.jpg';
+import Logo from './images/logo.jpg';
 import './WelcomePage.scss';
 import { Link } from 'react-router-dom';
 function WelcomePage() {
@@ -8,8 +8,7 @@ function WelcomePage() {
     <section className='graybox'>
       <div
         data-edit='text'
-        className='free-automobile-sec'
-        style={{ backgroundImage: `url(${banner})` }}>
+        className='free-automobile-sec'>
         <h4>Come together &</h4>
         <h2 data-edit='text'>Share your review video.</h2>
         <h3 data-edit='text'>

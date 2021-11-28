@@ -1,25 +1,44 @@
 .messages {
   height: calc(100vh - 86px);
+  .inbox i{
+    color: #088dcd;
+  }
   .messages__wrapper {
-    border: 3px solid #088dcd;
-    border-radius: 5px;
+    background-color: #f7f7f7;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 6%), 0 2px 5px 0 rgba(0, 0, 0, 20%);
     .messages__inbox {
       height: calc(100vh - 86px);
-      border-right: 1px solid #088dcd;
+
       border-radius: 5px 0px 0px;
       display: grid;
       grid-template-rows: 55px 1fr;
       overflow: hidden;
       .messages__inboxHeader {
-        border-bottom: 1px solid #088dcd;
-        height: 55px;
+        margin: 0;
+        height: 5rem;
+        width: 100%;
+        background-color: #eee;
+        z-index: 1000;
       }
       .messages__inboxBody {
-        background-color: #f5f5f5;
         height: 100%;
         overflow-y: scroll;
+        background-color: #fff;
         .messages__secondUser {
+          position: relative;
+          padding: 10px !important;
+          border-bottom: 1px solid #f7f7f7;
+          height: 72px;
+          margin: 0 !important;
           cursor: pointer;
+          &:hover
+          {
+            background-color: #f2f2f2;
+          }
           .messages__inboxBodyImage {
             width: 50px;
             height: 50px;
@@ -35,9 +54,13 @@
       height: calc(100vh - 86px);
       display: grid;
       grid-template-rows: 55px 1fr 50px;
-      overflow: hidden;
+      border-left: 1px solid rgba(0, 0, 0, 0.08);
       .messages__chatHeader {
-        border-bottom: 1px solid lightgray;
+        margin: 0;
+        height: 5rem;
+        width: 100%;
+        background-color: #eee;
+        z-index: 1000;
         .messages__chatHeaderImage {
           width: 30px;
         }
@@ -50,13 +73,12 @@
         background-color: #fbfbfb;
         .message__content {
           max-width: max-content;
-          background-color: rgba(202, 239, 142, 0.5);
+          background-color: #deebf3;
           padding: 5px 20px;
           border-radius: 1px solid rgba(202, 239, 142, 0.5);
           border-radius: 10px 10px 0 10px;
           &.message__contentSecondUser {
             border-radius: 10px 10px 10px 0;
-            background-color: #deebf3;
           }
         }
         .messages__chatBodyImage {

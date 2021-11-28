@@ -24,11 +24,11 @@ function Home({ userName }) {
     <section className="home__page mt-5">
       <div className="container">
         <div className="row">
-          <div className="col-3">
-            <Time />
+          <div className="col-12 col-lg-3">
             <ProfileWidget />
+            <Time />
           </div>
-          <div className="col-6">
+          <div className="col-12 col-lg-6">
             <Stories />
             <VideoUpload username={userName} />
             {posts.map(({ id, post }) => {
@@ -44,7 +44,7 @@ function Home({ userName }) {
               );
             })}
           </div>
-          <div className="col-3">
+          <div className="col-12 col-lg-3">
             <PeopleYouKnow />
             <Footer />
           </div>

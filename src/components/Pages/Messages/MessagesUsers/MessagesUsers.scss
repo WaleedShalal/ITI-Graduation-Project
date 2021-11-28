@@ -1,6 +1,8 @@
 .messages__secondUser {
   .user__photo {
-    border: 2px solid #088dcd;
+    border-radius: 50%;
+    height: 49px;
+    width: 49px;
   }
   .user__name {
     color: #3e3f5e;

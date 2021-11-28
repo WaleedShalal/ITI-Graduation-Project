@@ -1,11 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { SecondUserContext } from './../../../../context/SecondUser';
 import './MessagesUsers.scss';
 
 function MessagesUsers({ data }) {
+  const [image, setimage] = useState(
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+  );
   const { secondUserData, setSecondUserData } = useContext(SecondUserContext);
 
-  return (
+  return data.userName && (
     <div
       className={`d-flex align-items-center messages__secondUser px-3 mb-3 ${
         data?.userName === secondUserData?.userName && 'active'
@@ -14,8 +17,8 @@ function MessagesUsers({ data }) {
       <div className='flex-shrink-0'>
         <figure className='messages__inboxBodyImage mb-0'>
           <img
-            src={data.userPhoto}
-            className='user__photo w-100 rounded-circle'
+            src={data.userPhoto ?data.userPhoto : image}
+            className='user__photo'
             alt='...'
           />
         </figure>
