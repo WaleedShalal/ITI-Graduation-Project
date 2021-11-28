@@ -56,8 +56,8 @@ const Login = () => {
       {(formik) => {
         return (
           <Form>
-            <section className='login__form container p-5 w-50'>
-              <figure className='user__image w-25 mb-5'>
+            <section className='login__form container px-5 pt-3 pb-3 w-50 mb-3'>
+              <figure className='user__image w-25 mb-0'>
                 <img className='w-100 rounded-circle' src={userImage} alt='' />
               </figure>
               <div className='form__wrapper w-75 mx-auto'>
@@ -66,7 +66,6 @@ const Login = () => {
                     name='email'
                     type='text'
                     label='email'
-                    formType='login'
                     value={formik.values.email}
                   />
                   <FormField
@@ -76,70 +75,85 @@ const Login = () => {
                     formType='login'
                     value={formik.values.password}
                   />
-                  <div className='d-flex'>
+                  <div className='d-flex align-items-baseline'>
                     <FormCheckboxInput
                       name='subscribeUs'
                       type='checkbox'
                       label='remember me'
-                      // value={input.rememberMe}
                     />
                     <NavLink
                       to='#'
-                      className='text-capitalize ms-auto text-white'>
-                      forget password
+                      className='forgot__link text-capitalize ms-auto text-dark'>
+                      forget password ?
                     </NavLink>
                   </div>
                   <button
                     type='submit'
-                    className='login__btn btn btn-primary d-block mx-auto w-25 rounded-pill my-5  text-capitalize'
+                    className='login__btn btn btn-primary d-block mx-auto w-25 rounded mt-5  mb-3  text-capitalize'
                     disabled={!formik.isValid}>
                     login
                   </button>
-                  <button
+                  {/* <button
                     type='submit'
                     className='logout__btn btn btn-danger d-block mx-auto w-25 rounded-pill my-5  text-capitalize'
                     onClick={() => auth.signOut()}>
                     logout
-                  </button>
+                  </button> */}
                   <p className='form__error'>{error}</p>
+                  <div className='form__decoration text-dark col-12 d-flex justify-content-center align-items-center mb-5'>
+                    Or
+                  </div>
                 </div>
               </div>
-              <div className='form__decoration text-white d-flex justify-content-center align-items-center mb-5'>
-                Or
-              </div>
-              <ul className='social__links list-unstyled d-flex mx-auto justify-content-around text-white w-50 '>
-                <li className=''>
-                  <NavLink className='' to='#' onClick={handleLoginWithGoogle}>
-                    <figure className='mb-0'>
-                      <img
-                        className='w-100 rounded-circle'
-                        src={googleImage}
-                        alt=''
-                      />
-                    </figure>
-                  </NavLink>
+              <ul className='social__links list-unstyled d-flex flex-column  mx-auto  w-75 '>
+                <li className='w-100  py-1 my-1 '>
+                  <div className='social__linksWrapper  mx-auto text-start'>
+                    <NavLink
+                      className='d-flex align-items-baseline'
+                      to='#'
+                      onClick={handleLoginWithGoogle}>
+                      <figure className='social__linksImage mb-0'>
+                        <img
+                          className='w-100 rounded-circle'
+                          src={googleImage}
+                          alt=''
+                        />
+                      </figure>
+                      <h6 className='text-capitalize text-dark ms-2'>google</h6>
+                    </NavLink>
+                  </div>
                 </li>
-                <li>
-                  <NavLink to='#'>
-                    <figure className='mb-0'>
-                      <img
-                        className='w-100 rounded-circle'
-                        src={facebookImage}
-                        alt=''
-                      />
-                    </figure>
-                  </NavLink>
+                <li className='w-100  py-1 my-1'>
+                  <div className=' social__linksWrapper mx-auto text-start'>
+                    <NavLink className='d-flex align-items-baseline' to='#'>
+                      <figure className='social__linksImage mb-0'>
+                        <img
+                          className='w-100 rounded-circle'
+                          src={facebookImage}
+                          alt=''
+                        />
+                      </figure>
+                      <h6 className='text-capitalize text-dark ms-2'>
+                        facebook
+                      </h6>
+                    </NavLink>
+                  </div>
                 </li>
-                <li>
-                  <NavLink to='#'>
-                    <figure className='mb-0'>
-                      <img
-                        className='w-100 rounded-circle'
-                        src={twitterImage}
-                        alt=''
-                      />
-                    </figure>
-                  </NavLink>
+                <li className='w-100  py-1 my-1'>
+                  <div className='social__linksWrapper  mx-auto text-start'>
+                    <NavLink className='d-flex align-items-baseline' to='#'>
+                      <figure className='social__linksImage mb-0'>
+                        <img
+                          className='w-100 rounded-circle'
+                          src={twitterImage}
+                          alt=''
+                        />
+                      </figure>
+                      <h6 className='text-capitalize text-dark ms-2'>
+                        twitter
+                      </h6>
+                    </NavLink>
+                  </div>
                 </li>
               </ul>
             </section>

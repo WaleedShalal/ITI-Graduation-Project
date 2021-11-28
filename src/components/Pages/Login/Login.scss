@@ -1,7 +1,6 @@
 .login__form {
-  box-shadow: 1px 1px 10px 3px black;
-  background-color: #fafafa;
-  border-radius: 15px;
+  background-color: #f5f5f5;
+  border-radius: 5px;
   position: relative;
   margin-top: 150px;
   .user__image {
@@ -9,6 +8,11 @@
     top: 0%;
     left: 50%;
     transform: translate(-50%, -60%);
+  }
+  .forgot__link {
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 .input__style {
@@ -23,31 +27,55 @@
 }
 .login__btn {
   width: 100px;
+  background-color: #088dcd !important;
 }
-.login__btn:hover {
-  color: blue;
-  background-color: white;
-}
+
 .error__message {
   border-radius: 15px;
 }
 .form__decoration::before {
   content: '';
   display: inline-block;
-  width: 100px;
+  width: 200px;
   height: 2px;
-  background-color: white;
+  background-color: #deebf3;
   margin-right: 10px;
 }
 .form__decoration::after {
   content: '';
   display: inline-block;
-  width: 100px;
+  width: 200px;
   height: 2px;
-  background-color: white;
+  background-color: #deebf3;
   margin-left: 10px;
 }
-.social__links > li {
-  width: 30px;
-  height: 30px;
+.social__links {
+  > li {
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: translateY(-3px);
+      background-color: #deebf3;
+    }
+
+    .social__linksWrapper {
+      width: 120px;
+      &:hover {
+        img {
+          transform: scale(1.15);
+        }
+      }
+      .social__linksImage {
+        width: 30px !important;
+        height: 30px !important;
+        img {
+          border: 2px solid #deebf3;
+          border-radius: 50%;
+          transition: all 0.3s ease-in-out;
+        }
+      }
+    }
+  }
 }
