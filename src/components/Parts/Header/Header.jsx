@@ -7,10 +7,10 @@ import { AuthContext } from '../../../context/Auth';
 import Notifications from '../Notifications/Notifications';
 
 function Header() {
-  const [image, setimage] = useState(
+  const [image] = useState(
     'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   );
- const [data, setData] = useState({
+  const [data, setData] = useState({
     imageUrl: image,
   });
   const { user } = useContext(AuthContext);
@@ -29,7 +29,7 @@ function Header() {
 
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
-      <div className='container-fluid'>
+      <div className='container-fluid align-items-baseline'>
         <Link className='navbar__logo navbar-brand nav-link' to='/'>
           Minuteف
         </Link>
@@ -49,7 +49,7 @@ function Header() {
         {user && (
           <div className='navbar__list ms-auto '>
             <div className='navbar__listItem nav-item'>
-              <div className='list__itemProfile'>
+              <div className='list__itemProfile d-flex'>
                 <Link
                   className='profile__link nav-link d-flex align-items-center p-1'
                   aria-current='page'
