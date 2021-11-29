@@ -30,11 +30,9 @@ function Messages() {
   useEffect(() => {
     if (messages) {
       let sortedMsg = sortingMessages();
-      if (sortedMsg[0]?.sentAt !== null) {
-        setMessagesSorted(sortedMsg);
-      }
-      // sortedMsg[0]?.sentAt && setMessagesSorted(sortedMsg);
+      sortedMsg[0]?.sentAt !== null && setMessagesSorted(sortedMsg);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
 
   const sortingMessages = () => {
