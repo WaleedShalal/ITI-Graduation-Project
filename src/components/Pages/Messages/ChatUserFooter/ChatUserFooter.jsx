@@ -10,7 +10,6 @@ function ChatUserFooter() {
   const { messagesCollection } = useContext(FirebaseContext);
   const { data } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
-  console.log(data);
   const handleSendMsg = (e) => {
     e.preventDefault();
     let msgTime = firebase.firestore.FieldValue.serverTimestamp();
