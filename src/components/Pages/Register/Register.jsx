@@ -58,8 +58,6 @@ function Register() {
       .oneOf([yup.ref('password'), ''], 'Password must be matched')
       .required(),
     address: yup.array().of(yup.string().required('Please enter an address')),
-    phoneNumber: yup.string().required('Please enter a phone number'),
-    website: yup.string(),
     followedHashtags: yup.string().required('Please enter five hashtags'),
   });
 
@@ -198,12 +196,14 @@ function Register() {
                     }}
                   </FieldArray>
                   <FormField
+                    isRequired={false}
                     name='phoneNumber'
                     type='text'
                     label='phone number'
                     colWidth='col-6'
                   />
                   <FormField
+                    isRequired={false}
                     name='website'
                     type='text'
                     label='website'
