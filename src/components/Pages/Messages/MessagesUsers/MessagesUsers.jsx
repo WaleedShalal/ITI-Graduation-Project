@@ -3,7 +3,7 @@ import { SecondUserContext } from './../../../../context/SecondUser';
 import './MessagesUsers.scss';
 
 function MessagesUsers({ data }) {
-  const [image, setimage] = useState(
+  const [image] = useState(
     'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   );
   const { secondUserData, setSecondUserData } = useContext(SecondUserContext);

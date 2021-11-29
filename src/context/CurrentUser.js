@@ -24,20 +24,18 @@ function CurrentUserProvider({ children }) {
   const [currentUser] = useCollectionData(query, { idField: 'id' });
 
   useEffect(() => {
-    
-    auth.onAuthStateChanged(function(user) {
+    auth.onAuthStateChanged(function (user) {
       if (user) {
         db.collection('users')
-        .doc(user.uid)
-        .get()
-        .then((snapshot) => {
-          if (snapshot.exists) {
-            setData(snapshot.data());
-          }
-        });
+          .doc(user.uid)
+          .get()
+          .then((snapshot) => {
+            if (snapshot.exists) {
+              setData(snapshot.data());
+            }
+          });
       }
     });
-   
   }, [currentUser]);
 
   return (

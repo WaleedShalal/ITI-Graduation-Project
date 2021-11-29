@@ -1,4 +1,4 @@
-import React, { useContext, useState,useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
 import { currentUserContext } from './../../../../context/CurrentUser';
 import { SecondUserContext } from './../../../../context/SecondUser';
@@ -24,19 +24,24 @@ function Messages() {
       ])
       .limit(30);
   const [messages] = useCollectionData(query, { idField: 'id' });
-  const [messagesSorted, setMessagesSorted] = useState([]);
-
+  const [messagesSorted, setMessagesSorted] = useState([
+    { msg: '', relation: '', sentAt: '', sentBy: '', sentTo: '' },
+  ]);
   useEffect(() => {
     if (messages) {
       let sortedMsg = sortingMessages();
-      sortedMsg[0]?.sentAt && setMessagesSorted(sortedMsg);
+      if (sortedMsg[0]?.sentAt !== null) {
+        setMessagesSorted(sortedMsg);
+      }
+      // sortedMsg[0]?.sentAt && setMessagesSorted(sortedMsg);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
+
   const sortingMessages = () => {
-    let sortedMsg = messages.sort((a, b) => a.sentAt - b.sentAt);
+    let sortedMsg = messages?.sort((a, b) => a.sentAt - b.sentAt);
     return sortedMsg;
   };
+
   return (
     <section className='messages my-3'>
       <div className='container'>
@@ -49,8 +54,8 @@ function Messages() {
               <div className='messages__inboxBody py-4 mt-1'>
                 {users
                   ?.filter((user) => user.id !== data.id)
-                  ?.map((data, index) => (
-                    <MessagesUsers data={data} key={index} />
+                  ?.map((data) => (
+                    <MessagesUsers data={data} key={data.id} />
                   ))}
               </div>
             </div>
@@ -65,14 +70,14 @@ function Messages() {
                   <i className='fas fa-exclamation-circle'></i>
                 </div>
                 <div className='messages__chatBody px-3 py-4 mt-3'>
-                  {messagesSorted.map((data) => (
+                  {messagesSorted?.map((message) => (
                     <ChatUserBody
-                      key={data.sentAt}
-                      isCurrent={data.sentBy === data.id}
-                      data={data.msg}
-                      time={data.sentAt}
+                      key={message.sentAt}
+                      isCurrent={message.sentBy === data.id}
+                      data={message.msg}
+                      time={message.sentAt}
                       userPhoto={
-                        data.sentBy === data.id
+                        message.sentBy === data.id
                           ? data.imageUrl
                           : secondUserData.imageUrl
                       }

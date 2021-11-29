@@ -1,9 +1,8 @@
-import React, { useState ,useEffect, useRef } from 'react';
-
+import React, { useState, useEffect, useRef } from 'react';
 
 function ChatUserBody({ isCurrent, data, userPhoto }) {
-  const [image, setimage] = useState(
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+  const [image] = useState(
+    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   );
   const showLastMsg = useRef(null);
   const scrollToBottom = () => {
@@ -17,7 +16,11 @@ function ChatUserBody({ isCurrent, data, userPhoto }) {
     <div className='d-flex align-items-baseline pt-3' ref={showLastMsg}>
       <div className='flex-shrink-0'>
         <figure className='messages__chatBodyImage'>
-          <img src={userPhoto ?userPhoto : image } className='w-100 rounded-circle' alt='...' />
+          <img
+            src={userPhoto ? userPhoto : image}
+            className='w-100 rounded-circle'
+            alt='...'
+          />
         </figure>
       </div>
       <div className='flex-grow-1 ms-3'>
@@ -38,7 +41,11 @@ function ChatUserBody({ isCurrent, data, userPhoto }) {
       </div>
       <div className='flex-shrink-0'>
         <figure className='messages__chatBodyImage'>
-          <img src={userPhoto ?userPhoto : image } className='w-100 rounded-circle' alt='...' />
+          <img
+            src={userPhoto ? userPhoto : image}
+            className='w-100 rounded-circle'
+            alt='...'
+          />
         </figure>
       </div>
     </div>
