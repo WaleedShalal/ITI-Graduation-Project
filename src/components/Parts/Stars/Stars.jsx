@@ -5,19 +5,23 @@ const colors = {
   orange: "#FFBA5A",
   grey: "#a9a9a9",
 };
-function Stars({PostId , rate}) {
-  const [currentValue, setCurrentValue] = useState(rate);
+function Stars({PostId , rate , review}) {
+  const [currentValue, setCurrentValue] = useState(review);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
   const handleClick = (value) => {
-    setCurrentValue(value);
-    db.collection("posts").doc(PostId).update({
+    if (!review) {
+      setCurrentValue(value);
+      db.collection("posts").doc(PostId).update({
       rate : value
     });
+    }
   };
  
   const handleMouseOver = (newHoverValue) => {
-    setHoverValue(newHoverValue);
+    if(!review) {
+      setHoverValue(newHoverValue);
+    }
   };
 
   const handleMouseLeave = () => {
