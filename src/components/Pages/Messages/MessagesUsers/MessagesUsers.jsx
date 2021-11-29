@@ -14,7 +14,7 @@ function MessagesUsers({ data }) {
           data?.firstName === secondUserData?.firstName && 'active'
         }`}
         onClick={() => setSecondUserData(data)}>
-        <div className='flex-shrink-0'>
+        <div className='inbox__imageWrapper flex-shrink-0'>
           <figure className='messages__inboxBodyImage mb-0'>
             <img
               src={data.imageUrl ? data.imageUrl : image}
@@ -22,6 +22,9 @@ function MessagesUsers({ data }) {
               alt='...'
             />
           </figure>
+          {data?.firstName === secondUserData?.firstName && (
+            <span className='active__statusInbox'></span>
+          )}
         </div>
         <div className='flex-grow-1 ms-3'>
           <h5 className='user__name mb-0'>{data.firstName}</h5>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import './ChatUserHeader.scss';
 import { useContext } from 'react';
 import { SecondUserContext } from './../../../../context/SecondUser';
+import './ChatUserHeader.scss';
 
 function ChatUserHeader() {
   const [image] = useState(
@@ -12,7 +12,7 @@ function ChatUserHeader() {
     <div className='d-flex align-items-center'>
       {secondUserData && (
         <>
-          <div className='flex-shrink-0'>
+          <div className='header__imageWrapper flex-shrink-0'>
             <figure className='messages__chatHeaderImage mb-0'>
               <img
                 src={secondUserData.imageUrl ? secondUserData.imageUrl : image}
@@ -20,11 +20,11 @@ function ChatUserHeader() {
                 alt='...'
               />
             </figure>
+            <span className='active__statusHeader'></span>
           </div>
-
           <div className='flex-grow-1 ms-3'>
             <h6 className='mb-0'>{secondUserData?.firstName}</h6>
-            <span className='online__status'>active now</span>
+            <span className='online__status'>Active now</span>
           </div>
         </>
       )}

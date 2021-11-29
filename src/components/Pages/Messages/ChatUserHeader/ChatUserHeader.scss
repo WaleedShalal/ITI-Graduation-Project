@@ -1,0 +1,14 @@
+.header__imageWrapper {
+  position: relative;
+  .active__statusHeader {
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    display: block;
+    bottom: 3px;
+    right: 0;
+    background-color: #78de45;
+    border-radius: 50%;
+    outline: 2px solid white;
+  }
+}

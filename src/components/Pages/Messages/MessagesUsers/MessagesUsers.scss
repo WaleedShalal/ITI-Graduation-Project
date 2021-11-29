@@ -1,8 +1,22 @@
 .messages__secondUser {
-  .user__photo {
-    border-radius: 50%;
-    height: 49px;
-    width: 49px;
+  .inbox__imageWrapper {
+    position: relative;
+    .user__photo {
+      border-radius: 50%;
+      height: 49px;
+      width: 49px;
+    }
+    .active__statusInbox {
+      width: 14px;
+      height: 14px;
+      position: absolute;
+      display: block;
+      bottom: 3px;
+      right: 3px;
+      background-color: #78de45;
+      border-radius: 50%;
+      outline: 3px solid white;
+    }
   }
   .user__name {
     color: #3e3f5e;

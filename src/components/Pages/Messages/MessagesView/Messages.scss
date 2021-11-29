@@ -1,6 +1,7 @@
 .messages {
+  padding-top: 60px;
   height: calc(100vh - 86px);
-  .inbox i{
+  .inbox i {
     color: #088dcd;
   }
   .messages__wrapper {
@@ -35,8 +36,7 @@
           height: 72px;
           margin: 0 !important;
           cursor: pointer;
-          &:hover
-          {
+          &:hover {
             background-color: #f2f2f2;
           }
           .messages__inboxBodyImage {
@@ -110,4 +110,3 @@
     background: green;
   }
 }
-

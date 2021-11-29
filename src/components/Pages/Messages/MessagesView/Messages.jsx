@@ -27,6 +27,7 @@ function Messages() {
   const [messagesSorted, setMessagesSorted] = useState([
     { msg: '', relation: '', sentAt: '', sentBy: '', sentTo: '' },
   ]);
+  console.log(messages);
   useEffect(() => {
     if (messages) {
       let sortedMsg = sortingMessages();

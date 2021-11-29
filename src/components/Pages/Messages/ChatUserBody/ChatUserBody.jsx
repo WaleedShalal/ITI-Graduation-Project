@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import moment from 'moment';
 
-function ChatUserBody({ isCurrent, data, userPhoto }) {
+function ChatUserBody({ isCurrent, data, userPhoto, time }) {
   const [image] = useState(
     'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   );
@@ -13,40 +14,49 @@ function ChatUserBody({ isCurrent, data, userPhoto }) {
   }, [data]);
 
   return !isCurrent ? (
-    <div className='d-flex align-items-baseline pt-3' ref={showLastMsg}>
-      <div className='flex-shrink-0'>
-        <figure className='messages__chatBodyImage'>
-          <img
-            src={userPhoto ? userPhoto : image}
-            className='w-100 rounded-circle'
-            alt='...'
-          />
-        </figure>
-      </div>
-      <div className='flex-grow-1 ms-3'>
-        <h4 className='message__content message__contentSecondUser mb-0 text-dark'>
-          {data}
-        </h4>
+    <div
+      className='d-flex align-items-baseline flex-column pt-3'
+      ref={showLastMsg}>
+      <h6 className='message__sentAt text-center'>
+        {time && moment(time.toDate()).calendar()}
+      </h6>
+      <div className='d-flex'>
+        <div className='flex-shrink-0'>
+          <figure className='messages__chatBodyImage'>
+            <img
+              src={userPhoto ? userPhoto : image}
+              className='w-100 rounded-circle'
+              alt='...'
+            />
+          </figure>
+        </div>
+        <div className='flex-grow-1 ms-3'>
+          <h4 className='message__content message__contentSecondUser mb-0 text-dark'>
+            {data}
+          </h4>
+        </div>
       </div>
     </div>
   ) : (
-    <div className='d-flex align-items-baseline' ref={showLastMsg}>
-      <div className='flex-grow-1 me-3'>
-        <h4 className='message__content ms-auto mb-0 text-end text-dark'>
-          {data}
-        </h4>
-        {/* <h4 className='message__content ms-auto mb-0 text-end'>
-          {time.toString()}
-        </h4> */}
-      </div>
-      <div className='flex-shrink-0'>
-        <figure className='messages__chatBodyImage'>
-          <img
-            src={userPhoto ? userPhoto : image}
-            className='w-100 rounded-circle'
-            alt='...'
-          />
-        </figure>
+    <div className='d-flex align-items-baseline flex-column' ref={showLastMsg}>
+      <h6 className='message__sentAt text-center'>
+        {time && moment(time?.toDate()).calendar()}
+      </h6>
+      <div className='ms-auto d-flex'>
+        <div className='flex-grow-1 me-3'>
+          <h4 className='message__content ms-auto mb-0 text-end text-dark'>
+            {data}
+          </h4>
+        </div>
+        <div className='flex-shrink-0'>
+          <figure className='messages__chatBodyImage'>
+            <img
+              src={userPhoto ? userPhoto : image}
+              className='w-100 rounded-circle'
+              alt='...'
+            />
+          </figure>
+        </div>
       </div>
     </div>
   );
