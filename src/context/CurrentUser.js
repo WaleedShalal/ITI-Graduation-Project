@@ -1,51 +1,42 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { db, FirebaseContext } from "../Firebase/Firebase";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useCollectionData } from "react-firebase-hooks/firestore";
-export const currentUserContext = createContext();
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { auth, db, FirebaseContext } from '../Firebase/Firebase';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
+export const currentUserContext = createContext();
 function CurrentUserProvider({ children }) {
   const [data, setData] = useState({
-    firstName: "",
-    lastName: "",
-    birthDate: "",
-    gender: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-    address: [""],
-    phoneNumber: "",
-    website: "",
-    followedHashtags: "",
+    firstName: '',
+    lastName: '',
+    birthDate: '',
+    gender: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    address: [''],
+    phoneNumber: '',
+    website: '',
+    followedHashtags: '',
     subscribeUs: false,
+    id: '',
   });
-  const { auth, messagingUsersCollection } = useContext(FirebaseContext);
-  const [userData] = useAuthState(auth);
-  const query =
-    userData?.uid &&
-    messagingUsersCollection.where("userId", "==", userData.uid);
-  const [currentUser] = useCollectionData(query, { idField: "id" });
+  const { messagingUsersCollection } = useContext(FirebaseContext);
+  const query = data.id && messagingUsersCollection.where('id', '==', data.id);
+  const [currentUser] = useCollectionData(query, { idField: 'id' });
+
   useEffect(() => {
-    if (currentUser && currentUser?.length === 0) {
-      messagingUsersCollection.add({
-        userId: userData.uid,
-        userName: userData.displayName,
-        userPhoto: userData.photoURL,
-      });
-    }
-    db.collection("users")
+    db.collection('users')
       .doc(auth.currentUser?.uid)
       .get()
       .then((snapshot) => {
         if (snapshot.exists) {
+          console.log(snapshot.data());
           setData(snapshot.data());
         }
       });
   }, [currentUser]);
 
-  console.log(data);
   return (
-    <currentUserContext.Provider value={{ userData }}>
+    <currentUserContext.Provider value={{ data }}>
       {children}
     </currentUserContext.Provider>
   );

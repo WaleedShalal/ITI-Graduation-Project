@@ -1,42 +1,31 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useEffect } from 'react';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
-// import ChatCurrentUserBody from '../ChatCurrentUserBody/ChatCurrentUserBody';
 import { currentUserContext } from './../../../../context/CurrentUser';
+import { SecondUserContext } from './../../../../context/SecondUser';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import ChatUserBody from '../ChatUserBody/ChatUserBody';
 import MessagesUsers from '../MessagesUsers/MessagesUsers';
 import ChatUserHeader from './../ChatUserHeader/ChatUserHeader';
 import ChatUserFooter from '../ChatUserFooter/ChatUserFooter';
 import './Messages.scss';
-import { SecondUserContext } from './../../../../context/SecondUser';
-import { useEffect } from 'react';
-import { orderBy } from 'firebase/firestore';
 
 function Messages() {
-  const [image, setimage] = useState(
-    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-  );
   const { messagingUsersCollection } = useContext(FirebaseContext);
   const [users] = useCollectionData(messagingUsersCollection);
-  console.log(users);
   const { messagesCollection } = useContext(FirebaseContext);
-  const { userData } = useContext(currentUserContext);
+  const { data } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
-
   const query =
-    secondUserData?.userId &&
+    secondUserData?.id &&
     messagesCollection
       .where('relation', 'in', [
-        `${userData.uid}/${secondUserData.userId}`,
-        `${secondUserData.userId}/${userData.uid}`,
+        `${data.id}/${secondUserData.id}`,
+        `${secondUserData.id}/${data.id}`,
       ])
       .limit(30);
   const [messages] = useCollectionData(query, { idField: 'id' });
-  // const [messages] = useCollectionData(query, orderBy('messages', 'asc'));
   const [messagesSorted, setMessagesSorted] = useState([]);
-  // const [messagesSorted, setMessagesSorted] = useState([
-  //   { msg: '', relation: '', sentAt: '', sentBy: '', sentTo: '' },
-  // ]);
+
   useEffect(() => {
     if (messages) {
       let sortedMsg = sortingMessages();
@@ -59,7 +48,7 @@ function Messages() {
               </div>
               <div className='messages__inboxBody py-4 mt-1'>
                 {users
-                  ?.filter((data) => data.userId !== userData.uid)
+                  ?.filter((user) => user.id !== data.id)
                   ?.map((data, index) => (
                     <MessagesUsers data={data} key={index} />
                   ))}
@@ -67,7 +56,7 @@ function Messages() {
             </div>
             {!secondUserData ? (
               <div className='fs-1 col-8 ps-0 d-flex inbox justify-content-center align-items-center'>
-                <i class='fas fa-inbox fa-2x'></i>
+                <i className='fas fa-inbox fa-2x'></i>
               </div>
             ) : (
               <div className='messages__chat col-8 ps-0'>
@@ -79,13 +68,13 @@ function Messages() {
                   {messagesSorted.map((data) => (
                     <ChatUserBody
                       key={data.sentAt}
-                      isCurrent={data.sentBy === userData.uid}
+                      isCurrent={data.sentBy === data.id}
                       data={data.msg}
                       time={data.sentAt}
                       userPhoto={
-                        data.sentBy === userData.uid
-                          ? userData.photoURL
-                          : secondUserData.userPhoto
+                        data.sentBy === data.id
+                          ? data.imageUrl
+                          : secondUserData.imageUrl
                       }
                     />
                   ))}

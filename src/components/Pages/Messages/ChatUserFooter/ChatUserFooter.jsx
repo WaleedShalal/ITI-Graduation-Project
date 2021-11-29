@@ -8,33 +8,29 @@ import './ChatUserFooter.scss';
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
   const { messagesCollection } = useContext(FirebaseContext);
-  const { msgCounterFlag } = useContext(FirebaseContext);
-  const { userData } = useContext(currentUserContext);
+  const { data } = useContext(currentUserContext);
   const { secondUserData } = useContext(SecondUserContext);
-  // const [msgFlag] = useCollectionData(msgCounterFlag, {
-  //   idField: 'id',
-  // });
+  console.log(data);
   const handleSendMsg = (e) => {
     e.preventDefault();
     let msgTime = firebase.firestore.FieldValue.serverTimestamp();
     if (msgContent) {
       messagesCollection.add({
         msg: msgContent,
-        sentBy: userData.uid,
-        // sentAt: new Date(),
+        sentBy: data.id,
         sentAt: msgTime,
-        sentTo: secondUserData.userId,
-        relation: `${userData.uid}/${secondUserData.userId}`,
+        sentTo: secondUserData.id,
+        relation: `${data.id}/${secondUserData.id}`,
       });
     }
     setMsgContent('');
   };
   return (
-    <div class='row reply'>
-      <div class='col-sm-1 col-xs-1 pt-2 icon-btn'>
-        <i class='far fa-smile'></i>
+    <div className='row reply'>
+      <div className='col-sm-1 col-xs-1 pt-2 icon-btn'>
+        <i className='far fa-smile'></i>
       </div>
-      <div class='col-sm-11 col-xs-11 reply-main'>
+      <div className='col-sm-11 col-xs-11 reply-main'>
         <form className='d-flex' onSubmit={handleSendMsg}>
           <input
             rows='1'
@@ -45,9 +41,11 @@ function ChatUserFooter() {
             value={msgContent}
             onChange={(e) => setMsgContent(e.target.value)}
           />
-          <button class='col-sm-1 col-xs-1 icon-btn reply-send' type='submit'>
+          <button
+            className='col-sm-1 col-xs-1 icon-btn reply-send'
+            type='submit'>
             <i
-              class='fas fa-paper-plane'
+              className='fas fa-paper-plane'
               aria-hidden='true'
               style={{ color: msgContent ? '#088dcd' : '#93918f' }}></i>
           </button>
