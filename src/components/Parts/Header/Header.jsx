@@ -29,7 +29,7 @@ function Header() {
 
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
-      <div className='container-fluid align-items-baseline'>
+      <div className='container-fluid align-items-center'>
         <Link className='navbar__logo navbar-brand nav-link' to='/'>
           Minuteف
         </Link>
@@ -47,8 +47,8 @@ function Header() {
           </form>
         </div>
         {user && (
-          <div className='navbar__list ms-auto '>
-            <div className='navbar__listItem nav-item'>
+          <div className='navbar__listProfile ms-auto '>
+            <div className='navbar__listItemProfile nav-item'>
               <div className='list__itemProfile d-flex'>
                 <Link
                   className='profile__link nav-link d-flex align-items-center p-1'
@@ -77,46 +77,62 @@ function Header() {
           <span className='navbar-toggler-icon'></span>
         </label>
         <ul className='navbar__list navbar-nav ms-0 mb-2 mb-lg-0 align-items-center'>
-          <li className='navbar__listItem nav-item'>
+          <li className='navbar__listItem nav-item d-flex'>
             <Link
               className='item__link nav-link active'
               aria-current='page'
               to='/'>
               <i className='fa__item fas fa-home'></i>
+              <span className='text-capitalize d-block d-lg-none ms-3'>
+                home
+              </span>
             </Link>
             {/* <div className='item__linkDecoration'></div> */}
           </li>
-          <li className='navbar__listItem nav-item'>
+          <li className='navbar__listItem nav-item d-flex'>
             <Link className='item__link nav-link' to='/messages'>
               <i className='fa__item far fa-comment-alt'></i>
               <span className='item__notification'></span>
+              <span className='text-capitalize d-block d-lg-none  ms-3'>
+                messages
+              </span>
             </Link>
+
             {/* <div className='item__linkDecoration'></div> */}
           </li>
-          <li className='item__forNotification navbar__listItem nav-item'>
+          <li className='item__forNotification navbar__listItem nav-item d-flex'>
             <input type='checkbox' id='notification' />
             <label
               htmlFor='notification'
               className='item__forNotification item__link nav-link'>
               <i className='fa__item far fa-bell'></i>
               <span className='item__notification'></span>
+              <span className='text-capitalize d-block d-lg-none  ms-3'>
+                notifications
+              </span>
             </label>
             <Notifications />
             {/* <div className='item__linkDecoration'></div> */}
           </li>
-          <li className='navbar__listItem nav-item'>
+          <li className='navbar__listItem nav-item d-flex'>
             <Link className=' item__link nav-link' to='/cart'>
               <i className='fa__item fas fa-shopping-cart'>
                 {fetchedData.purchased.length}
               </i>
+              <span className='text-capitalize d-block d-lg-none ms-3'>
+                cart
+              </span>
             </Link>
             {/* <div className='item__linkDecoration'></div> */}
           </li>
-          <li className='navbar__listItem nested__list  nav-item'>
-            <div className='item__link '>
+          <li className='navbar__listItem nested__list nav-item d-flex'>
+            <div className='item__link nav-link'>
               <i className='fa__item fas fa-th-large'></i>
+              <span className='text-capitalize d-block d-lg-none  ms-3'>
+                more
+              </span>
+              <i class='fas fa-sort-down d-block d-lg-none ms-auto pe-1'></i>
             </div>
-            {/* <div className='item__linkDecoration'></div> */}
             <ul className='list__itemOption list-unstyled text-dark p-2'>
               <li className='option__eCommerce mb-2'>
                 <Link className='btn text-capitalize w-100' to='/products/1'>
@@ -154,6 +170,7 @@ function Header() {
                 )}
               </li>
             </ul>
+            {/* <div className='item__linkDecoration'></div> */}
           </li>
         </ul>
       </div>
