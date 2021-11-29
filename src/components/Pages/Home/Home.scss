@@ -1,9 +1,12 @@
-.col-3.pro-widget,.col-3.PeopleYouKnow-widget {
+.home__page {
+  padding-top: 50px;
+  .col-3.pro-widget,
+  .col-3.PeopleYouKnow-widget {
     position: sticky;
     top: 5px;
   }
   .widget {
-    background: #FAFAFA none repeat scroll 0 0;
+    background: #fafafa none repeat scroll 0 0;
     border: 1px solid #e1e8ed;
     border-radius: 5px;
     display: block;
@@ -22,11 +25,11 @@
     position: relative;
   }
   h4 {
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     color: #3e3f5e;
   }
-  
+
   .widget > ul {
     display: inline-block;
     list-style: outside none none;
@@ -44,7 +47,7 @@
     font-size: 13px;
     line-height: 21px;
     color: #3e3f5e;
-    font-family: "Roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin-top: 0;
     font-weight: 300;
   }
@@ -54,13 +57,14 @@
     text-transform: capitalize;
     font-weight: 500;
     transition: all 0.2s linear 0s;
-    background: rgba(8,141,205,.6);
+    background: rgba(8, 141, 205, 0.6);
     border: 2px solid transparent;
     border-radius: 30px;
     color: #fff;
     display: inline-block;
   }
-  a{
+  a {
     outline: none;
     text-decoration: none;
   }
+}

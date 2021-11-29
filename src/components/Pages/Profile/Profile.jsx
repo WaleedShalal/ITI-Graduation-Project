@@ -50,7 +50,7 @@ function Profile() {
   return (
     <div className='profile pt-5'>
       <div className='container'>
-        <div className='row flex-column-reverse flex-lg-row'>
+        <div className='row profile__wrapper flex-column-reverse flex-lg-row'>
           <div className='col-lg-7 col-12'>
             <Stories />
             <ImageUpload />
