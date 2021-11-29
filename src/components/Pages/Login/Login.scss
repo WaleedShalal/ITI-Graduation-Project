@@ -9,11 +9,6 @@
     left: 50%;
     transform: translate(-50%, -60%);
   }
-  .forgot__link {
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
 .input__style {
   border-radius: 5px;
@@ -24,10 +19,27 @@
 }
 .form__wrapper {
   margin-top: 100px;
-}
-.login__btn {
-  width: 100px;
-  background-color: #088dcd !important;
+  .sub__forgetWrapper {
+    @media (max-width: 767.98px) {
+      flex-direction: column;
+      align-items: center !important;
+      .forgot__linkWrapper {
+        margin-left: 0 !important;
+      }
+    }
+    .forgot__link {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .login__btn {
+    background-color: #088dcd !important;
+    @media (max-width: 767.98px) {
+      width: 50% !important;
+      font-size: 16px;
+    }
+  }
 }
 
 .error__message {
@@ -59,7 +71,6 @@
       transform: translateY(-3px);
       background-color: #deebf3;
     }
-
     .social__linksWrapper {
       width: 120px;
       &:hover {

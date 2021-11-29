@@ -56,7 +56,7 @@ const Login = () => {
       {(formik) => {
         return (
           <Form>
-            <section className='login__form container px-5 pt-3 pb-3 w-50 mb-3'>
+            <section className='login__form container px-3 pt-3 pb-3 w-50 mb-3'>
               <figure className='user__image w-25 mb-0'>
                 <img className='w-100 rounded-circle' src={userImage} alt='' />
               </figure>
@@ -75,23 +75,25 @@ const Login = () => {
                     formType='login'
                     value={formik.values.password}
                   />
-                  <div className='d-flex align-items-baseline'>
+                  <div className='sub__forgetWrapper d-flex align-items-baseline'>
                     <FormCheckboxInput
                       name='subscribeUs'
                       type='checkbox'
                       label='remember me'
                     />
-                    <NavLink
-                      to='#'
-                      className='forgot__link text-capitalize ms-auto text-dark'>
-                      forget password ?
-                    </NavLink>
+                    <div className='forgot__linkWrapper ms-auto'>
+                      <NavLink
+                        to='#'
+                        className='forgot__link text-capitalize  text-dark'>
+                        forget password ?
+                      </NavLink>
+                    </div>
                   </div>
                   <button
                     type='submit'
                     className='login__btn btn btn-primary d-block mx-auto w-25 rounded mt-5  mb-3  text-capitalize'
                     disabled={!formik.isValid}>
-                    login
+                    <div className='mx-auto w-75'>login</div>
                   </button>
                   {/* <button
                     type='submit'
