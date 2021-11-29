@@ -66,7 +66,7 @@ const ProductForm = () => {
       {(formik) => {
         return (
           <Form>
-            <div className='product__form container py-3 mt-4'>
+            <div className='product__form container pb-3 mt-4'>
               <div className='form__productWrapper'>
                 <div className='row'>
                   <FormField name='title' type='text' label='title' />

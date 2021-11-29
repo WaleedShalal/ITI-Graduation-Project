@@ -16,7 +16,7 @@ const Products = () => {
   const dispatch = useDispatch();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [productPerPage] = useState(10);
+  const [productPerPage] = useState(8);
 
   const indexOfLastProduct = currentPage * productPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productPerPage;
