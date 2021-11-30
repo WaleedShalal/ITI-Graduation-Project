@@ -4,21 +4,24 @@ h3 {
   margin: 0;
 }
 
+.graybox {
+  padding-top: 50px;
+}
 .free-automobile-sec {
-  width: 1200px;
-  height: 600px;
-  margin: 15px auto;
-  padding: 100px 550px 100px 80px;
-  background-image: url("./images/logo.jpg");
-  background-repeat: no-repeat;
-  background-position: right;
-  box-sizing: border-box;
+  // width: 1200px;
+  // height: 600px;
+  margin: 0 auto !important;
+  // padding: ;
+  // background-image: url('./logo.png');
+  // background-repeat: no-repeat;
+  // background-position: right;
+  // box-sizing: border-box;
   text-align: left;
-  position: relative;
+  // position: relative;
 }
 
 .free-automobile-sec-1 p a {
-  font-size: 24px;
+  font-size: 19px;
   color: #636363;
   text-decoration: none;
   margin: 0 20px 0 20px;
@@ -27,7 +30,7 @@ h3 {
 
 .free-automobile-sec-1 p {
   margin: 0 0 60px 0;
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
 }
 
 .free-automobile-sec h3 {
@@ -36,7 +39,7 @@ h3 {
   padding-bottom: 30px;
   line-height: 25px;
   letter-spacing: 0.5px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 15px;
   color: #000000;
   font-weight: 500;
@@ -45,7 +48,7 @@ h3 {
 .free-automobile-sec h4 {
   margin: 0 0 12px 0;
   padding: 0px;
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   font-size: 36px;
   color: #6a9b5d;
   text-transform: uppercase;
@@ -56,8 +59,8 @@ h3 {
 .free-automobile-sec h2 {
   margin: 0 0 12px 0;
   padding: 0px;
-  font-family: "Fjalla One", sans-serif;
-  font-size: 52px;
+  font-family: 'Fjalla One', sans-serif;
+  font-size: 45px;
   color: #6a9b5d;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -93,7 +96,7 @@ h3 {
   margin: 0 35px 0 0;
   float: left;
   border: 2px solid #d75a4a;
-  font-family: "Fjalla One", sans-serif;
+  font-family: 'Fjalla One', sans-serif;
   font-size: 18px;
   text-transform: uppercase;
   color: #d75a4a;

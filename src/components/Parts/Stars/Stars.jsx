@@ -1,25 +1,25 @@
-import React, { useState } from "react";
-import { db } from "../../../Firebase/Firebase";
-import "./Stars.scss";
+import React, { useState } from 'react';
+import { db } from '../../../Firebase/Firebase';
+import './Stars.scss';
 const colors = {
-  orange: "#FFBA5A",
-  grey: "#a9a9a9",
+  orange: '#FFBA5A',
+  grey: '#a9a9a9',
 };
-function Stars({PostId , rate , review}) {
+function Stars({ PostId, review }) {
   const [currentValue, setCurrentValue] = useState(review);
   const [hoverValue, setHoverValue] = useState(undefined);
   const stars = Array(5).fill(0);
   const handleClick = (value) => {
     if (!review) {
       setCurrentValue(value);
-      db.collection("posts").doc(PostId).update({
-      rate : value
-    });
+      db.collection('posts').doc(PostId).update({
+        rate: value,
+      });
     }
   };
- 
+
   const handleMouseOver = (newHoverValue) => {
-    if(!review) {
+    if (!review) {
       setHoverValue(newHoverValue);
     }
   };
@@ -29,7 +29,7 @@ function Stars({PostId , rate , review}) {
   };
 
   return (
-    <ul className="stars mb-0">
+    <ul className='stars mb-0'>
       {stars.map((_, index) => {
         return (
           <li
@@ -42,9 +42,8 @@ function Stars({PostId , rate , review}) {
             }}
             onMouseLeave={handleMouseLeave}
             onMouseOver={() => handleMouseOver(index + 1)}
-            onClick={() => handleClick(index + 1)}
-          >
-            <i className="fas fa-star"></i>
+            onClick={() => handleClick(index + 1)}>
+            <i className='fas fa-star'></i>
           </li>
         );
       })}

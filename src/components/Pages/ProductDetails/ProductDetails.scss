@@ -2,6 +2,7 @@
   padding-bottom: 50px;
   border-radius: 5px;
   border-bottom: 1px solid lightgray;
+  padding-top: 50px;
   .product__images {
     .mini__images {
       img {
@@ -131,15 +132,15 @@
     pointer-events: none;
   }
 }
-.add_review{
+.add_review {
   border: none;
   color: #fff;
   background-color: #088dcd;
   text-transform: capitalize;
   padding: 5px !important;
-    // &:hover {
-    //   color: #088dcd;
-    //   background-color: #fff;
-    //   border:1px solid #088dcd;
-    // }
+  // &:hover {
+  //   color: #088dcd;
+  //   background-color: #fff;
+  //   border:1px solid #088dcd;
+  // }
 }

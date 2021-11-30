@@ -10,7 +10,7 @@ import ImageUpload from './../../Parts/VideoUpload/VideoUpload';
 import './Profile.scss';
 function Profile() {
   const [image, setimage] = useState(
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   );
   const [data, setData] = useState({
     imageUrl: image,
@@ -20,7 +20,7 @@ function Profile() {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    db.collection("users")
+    db.collection('users')
       .doc(auth.currentUser?.uid)
       .get()
       .then((snapshot) => {
@@ -65,7 +65,7 @@ function Profile() {
                       video={post.videoUrl}
                       caption={post.caption}
                       rate={post.rate}
-                    />  
+                    />
                   );
                 })
               ) : (
@@ -81,8 +81,8 @@ function Profile() {
               </h5>
               <img src={data.imageUrl ? data.imageUrl : image} alt='profile' />
               <div className='rate d-flex'>
-                <Stars />
-                <span className='rate-number text-dark'>5.0</span>
+                <Stars review={4} />
+                <span className='rate-number text-dark'>4.0</span>
               </div>
               <button className='user__followBtn btn btn-outline-primary text-capitalize mt-2'>
                 follow

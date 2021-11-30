@@ -31,7 +31,9 @@ function Header() {
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
       <div className='container-fluid align-items-center'>
         <Link className='navbar__logo navbar-brand nav-link' to='/'>
-          Minuteف
+          {/* <figure className='m-0'> */}
+          <img src='./logo.png' alt='' />
+          {/* </figure> */}
         </Link>
         <div className='navbar__search'>
           <form className='search__form d-flex'>

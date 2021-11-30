@@ -6,10 +6,15 @@
   top: 0;
   z-index: 10000;
   .navbar__logo {
-    color: #1d3554;
-    font-size: 25px;
-    font-weight: bold;
     padding-left: 5px;
+    height: 41px;
+    padding: 0 10px 0 5px !important;
+    img {
+      width: 70px;
+      height: 100%;
+      border-radius: 30px;
+      outline: 2px solid #088dcd;
+    }
   }
   .navbar__search {
     width: 400px;
@@ -200,76 +205,6 @@
   #check:checked ~ ul {
     left: 0;
   }
-  // ul {
-  //   @media (max-width: 991.98px) {
-  //     position: fixed;
-  //     top: 63.5px;
-  //     left: -170px;
-  //     flex-direction: column;
-  //     background-color: #f5f5f5 !important;
-  //     width: 170px;
-  //     height: 100%;
-  //     transition: all 1s ease-in-out;
-  //     padding: 20px 5px;
-  //     .navbar__listItem {
-  //       width: 100%;
-  //       background-color: white !important;
-  //       margin-bottom: 5px !important;
-  //       border-radius: 30px !important;
-  //       transition: all 0.3s ease-in-out;
-  //       position: relative;
-  //       // overflow: hidden;
-  //       // padding: 3px 1px !important;
-  //       &:hover {
-  //         .item__link {
-  //           margin-left: 126px;
-  //         }
-  //         .item__linkDecoration {
-  //           width: 100%;
-  //         }
-  //       }
-  //       .item__link {
-  //         border-radius: 50% !important;
-  //         height: 33px !important;
-  //         width: 33px !important;
-  //         transition: all 1s ease-in-out !important;
-  //         .item__notification {
-  //           background-color: red;
-  //           height: 6px !important;
-  //           width: 6px !important;
-  //           border-radius: 100%;
-  //           position: absolute;
-  //           top: 3px !important;
-  //           right: 0;
-  //           transform: translate(-50%, -50%);
-  //         }
-  //       }
-  //       .item__linkDecoration {
-  //         position: absolute;
-  //         top: 0;
-  //         left: 0;
-  //         height: 100%;
-  //         width: 0%;
-  //         background-color: #deebf3a9;
-  //         transition: all 5.5s ease-in-out;
-  //       }
-  //     }
-  //     .list__itemOption {
-  //       right: 0px !important;
-  //       left: 0;
-  //       top: 35px !important;
-  //       background-color: red !important;
-  //     }
-  //     &.nested__list {
-  //       &:hover {
-  //         .list__itemOption {
-  //           visibility: visible;
-  //           opacity: 1;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
   @media (max-width: 575.98px) {
     .navbar__logo {
       font-size: 18px;

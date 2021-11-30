@@ -1,14 +1,12 @@
 import React from 'react';
 import okay from './images/okay-icon.png';
-import Logo from './images/logo.jpg';
-import './WelcomePage.scss';
 import { Link } from 'react-router-dom';
+import './WelcomePage.scss';
+
 function WelcomePage() {
   return (
     <section className='graybox'>
-      <div
-        data-edit='text'
-        className='free-automobile-sec'>
+      <div data-edit='text' className='free-automobile-sec'>
         <h4>Come together &</h4>
         <h2 data-edit='text'>Share your review video.</h2>
         <h3 data-edit='text'>
