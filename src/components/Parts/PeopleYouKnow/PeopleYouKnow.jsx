@@ -1,6 +1,6 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { db } from "../.../../../../Firebase/Firebase";
-
+import avatar from "../../../assets/images/avatar.jpg";
 import "./PeopleYouKnow.scss";
 function PeopleYouKnow() {
   const [users, setUsers] = useState([]);
@@ -8,10 +8,13 @@ function PeopleYouKnow() {
     db.collection("users").onSnapshot((snapshot) => {
       setUsers(snapshot.docs.map((doc) => doc.data()));
     });
-  });
-  const handleFollow = (id,F) => {
+    return ()=>{
+      setUsers([])
+    }
+  },[]);
+  const handleFollow = (id, F) => {
     db.collection("users").doc(id).update({
-      follow : !F
+      follow: !F,
     });
   };
   return (
@@ -22,7 +25,7 @@ function PeopleYouKnow() {
           return (
             <li key={user.id}>
               <figure>
-                <img alt="" src="https://via.placeholder.com/100" />
+                <img alt="" src={avatar} />
               </figure>
               <div className="friend-meta">
                 <h4>
@@ -33,7 +36,12 @@ function PeopleYouKnow() {
                   </a>
                   <span>{user.followedHashtags}</span>
                 </h4>
-                <span className="underline" onClick={()=>handleFollow(user.id, user.follow)}>{!user.follow ? "follow" : "unfollow"}</span>
+                <span
+                  className="underline"
+                  onClick={() => handleFollow(user.id, user.follow)}
+                >
+                  {!user.follow ? "follow" : "unfollow"}
+                </span>
               </div>
             </li>
           );

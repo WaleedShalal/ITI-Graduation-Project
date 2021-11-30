@@ -12,7 +12,7 @@ function Footer() {
         <li><a href="http://webenlance.com">Contact</a></li>
         </ul>
       
-        <p className="text-center">Copyright @2021 | developed by  <a href="#">Waleed && Diab</a></p>
+        <p className="text-center ms-3">Copyright @2021</p>
         
         <ul className="social_footer_ul  m-auto">
         <li><a href="http://webenlance.com"><i className="fab fa-facebook-f"></i></a></li>

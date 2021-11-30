@@ -1,26 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext} from "react";
+import { AuthContext } from "../../../context/Auth";
 import { auth, db } from "../../../Firebase/Firebase";
 import "./ImageUpload.scss";
 
 function ImageUpload() {
-  const [image, setimage] = useState(
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-  );
-  const [data, setData] = useState({
-    imageUrl:
-      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-  });
-
-  useEffect(() => {
-    db.collection("users")
-      .doc(auth.currentUser?.uid)
-      .get()
-      .then((snapshot) => {
-        setData(snapshot.data());
-      });
-  }, []);
+  const { data, image ,setData } = useContext(AuthContext);
   const imageHandler = (e) => {
-    const reader = new FileReader();
+  const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
         db.collection("users")

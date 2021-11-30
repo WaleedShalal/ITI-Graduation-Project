@@ -6,7 +6,7 @@ import { AuthContext } from "../../../context/Auth";
 import firebase from "firebase/compat/app";
 import "./Post.scss";
 
-function Post({ username, postId, video, caption,rate }) {
+function Post({ username, postId, video, caption, rate }) {
   const { user } = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
@@ -21,9 +21,6 @@ function Post({ username, postId, video, caption,rate }) {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
     }
-    return () => {
-      console.log("unmounting");
-    };
   }, [postId]);
 
   const postComment = (e) => {
@@ -36,9 +33,9 @@ function Post({ username, postId, video, caption,rate }) {
     setComment("");
   };
 
-  const deletePost = ()=>{
+  const deletePost = () => {
     db.collection("posts").doc(postId).delete();
-  }
+  };
   return (
     <div className="main-wraper mt-3">
       <div className="user-post">
@@ -84,34 +81,32 @@ function Post({ username, postId, video, caption,rate }) {
             <div className="video">
               <ReactPlayer width="100%" url={video} controls />
             </div>
-            <Rate PostId={postId} rate={rate}/>
+            <Rate PostId={postId} rate={rate} />
             <a href="post-detail.html" className="post-title">
-            {username}
+              {username}
             </a>
-            <p className="caption">
-            {caption}
-            </p>
-          <div className="postFooter">
-            <div className="post_comment">
-              {comments.map((comment) => (
-                <p key={comment.timestamp}>
-                  <strong className="me-1">{`${comment.username}`}</strong>
-                  {comment.text}
-                </p>
-              ))}
+            <p className="caption">{caption}</p>
+            <div className="postFooter">
+              <div className="post_comment">
+                {comments.map((comment) => (
+                  <p key={comment.timestamp}>
+                    <strong className="me-1">{`${comment.username}`}</strong>
+                    {comment.text}
+                  </p>
+                ))}
+              </div>
+              <form className="comment" action="">
+                <input
+                  type="text"
+                  placeholder="Add a comment..."
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                />
+                <button disabled={!comment} type="submit" onClick={postComment}>
+                  Post
+                </button>
+              </form>
             </div>
-            <form className="comment" action="">
-              <input
-                type="text"
-                placeholder="Add a comment..."
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-              />
-              <button disabled={!comment} type="submit" onClick={postComment}>
-                Post
-              </button>
-            </form>
-          </div>
           </div>
         </div>
       </div>

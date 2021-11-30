@@ -19,14 +19,12 @@ function Home({ userName }) {
         );
       });
   }, []);
-  
   return (
     <section className="home__page mt-5">
       <div className="container">
         <div className="row">
           <div className="col-12 col-lg-3">
             <ProfileWidget />
-            <Time />
           </div>
           <div className="col-12 col-lg-6">
             <Stories />
@@ -46,6 +44,7 @@ function Home({ userName }) {
           </div>
           <div className="col-12 col-lg-3">
             <PeopleYouKnow />
+            <Time />
             <Footer />
           </div>
         </div>

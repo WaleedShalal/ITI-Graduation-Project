@@ -38,7 +38,6 @@ function EditProfile() {
     }, 3000);
   };
   const handleChange = (e) => {
-    console.log(e.target.value);
     setData({ ...data, [e.target.name]: e.target.value });
   };
   
@@ -210,7 +209,7 @@ function EditProfile() {
                     <div className="text-right">
                       <button
                         type="button"
-                        id="submit"
+                    
                         name="submit"
                         className="btn btn-secondary me-2"
                         onClick={()=>navigate('/home')}
@@ -219,7 +218,7 @@ function EditProfile() {
                       </button>
                       <button
                         type="submit"
-                        id="submit"
+                        
                         name="submit"
                         className="btn btn-primary"
                       >

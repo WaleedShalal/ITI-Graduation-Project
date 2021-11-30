@@ -1,40 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../context/Auth';
-import { auth, db } from '../../../Firebase/Firebase';
-import './ProfileWidget.scss';
+import React, { useContext} from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/Auth";
+import "./ProfileWidget.scss";
 function ProfileWidget() {
-  const [image] = useState(
-    'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
-  );
-  const [data, setData] = useState({
-    imageUrl: image,
-  });
-  const { user } = useContext(AuthContext);
-  useEffect(() => {
-    db.collection('users')
-      .doc(auth.currentUser?.uid)
-      .get()
-      .then((snapshot) => {
-        if (snapshot.exists) {
-          setData(snapshot.data());
-        }
-      });
-  }, [data]);
+  const { user, data, image } = useContext(AuthContext);
   return (
-    <div className='w-100 widget profile-widget text-center'>
-      <div className='user-heading round'>
-        <Link to='#'>
+    <div className="w-100 widget profile-widget text-center">
+      <div className="user-heading round">
+        <a href="/">
           <img
-            className='rounded-circle'
+            className="rounded-circle"
             src={data.imageUrl ? data.imageUrl : image}
-            alt=''
+            alt=""
           />
-        </Link>
-        <h1 className='mt-2'>{user.displayName}</h1>
+        </a>
+        <h1 className="mt-2">{user.displayName}</h1>
         <p>{user.email}</p>
       </div>
-      <h4 className='widget-title'>
+      <h4 className="widget-title">
         Your profile has a new Experience section
       </h4>
       <p>
@@ -43,11 +26,12 @@ function ProfileWidget() {
         opportunities.
       </p>
       <Link
-        to='/profile'
-        className='main-btn'
-        href='profile.html'
-        title=''
-        data-ripple=''>
+        to="/profile"
+        className="main-btn"
+        href="profile.html"
+        title=""
+        data-ripple=""
+      >
         view profile
       </Link>
     </div>

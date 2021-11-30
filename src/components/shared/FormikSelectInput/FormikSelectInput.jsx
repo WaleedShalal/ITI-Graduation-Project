@@ -1,31 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import { Field } from 'formik';
 import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 import './FormikSelectInput.scss';
 
-function FormikSelectInput({ isRequired, name, type, label, formType }) {
-  const { id } = useParams();
-  const { fetchedData } = useSelector((state) => state);
-  // const [newProduct, setNewProduct] = useState({
-  //   id: '',
-  //   title: '',
-  //   price: '',
-  //   image: '',
-  //   description: '',
-  //   category: '',
-  // });
-
-  // useEffect(() => {
-  //   let num = id;
-  //   if (num !== 'new') {
-  //     setNewProduct(
-  //       fetchedData.products.filter((product) => product.id === +num)[0],
-  //     );
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [id]);
+function FormikSelectInput({ isRequired, name, type, label }) {
 
   return (
     <Field name={name}>

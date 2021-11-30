@@ -176,7 +176,6 @@ const ProductDetails = () => {
               return (
                 <Review
                   key={index}
-                  userId={review.userId}
                   userName={review.userName}
                   comment={review.comment}
                   rate={review.rate}
