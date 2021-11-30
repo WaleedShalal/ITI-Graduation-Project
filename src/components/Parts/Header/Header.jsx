@@ -26,6 +26,13 @@ function Header() {
         }
       });
   }, []);
+  // const [isChecked, setIsChecked] = useState(true);
+
+  const handleChecked = () => {
+    const isChecked = document.getElementById('check');
+    isChecked.setAttribute('checked', false);
+    console.log(isChecked.defaultChecked);
+  };
 
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
@@ -113,7 +120,7 @@ function Header() {
                 notifications
               </span>
             </label>
-            <Notifications />
+            <Notifications handleChecked={handleChecked} />
             {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='navbar__listItem nav-item d-flex'>

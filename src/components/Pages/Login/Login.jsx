@@ -57,9 +57,9 @@ const Login = () => {
         return (
           <Form>
             <section className='login__form container px-3 pt-3 pb-3 w-50 mb-3'>
-              <figure className='user__image w-25 mb-0'>
+              {/* <figure className='user__image w-25 mb-0'>
                 <img className='w-100 rounded-circle' src={userImage} alt='' />
-              </figure>
+              </figure> */}
               <div className='form__wrapper w-75 mx-auto'>
                 <div className='row'>
                   <FormField

@@ -113,9 +113,9 @@ function Register() {
         return (
           <Form>
             <div className='register__form container p-5  pb-0 w-75'>
-              <figure className='user__image w-25'>
+              {/* <figure className='user__image w-25'>
                 <img className='w-100 rounded-circle' src={userImage} alt='' />
-              </figure>
+              </figure> */}
               <div className='form__wrapper'>
                 <div className='row'>
                   <FormField
