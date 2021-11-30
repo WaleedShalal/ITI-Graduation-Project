@@ -176,6 +176,10 @@ img {
       button[type="submit"] {
         padding: 5px 20px;
         cursor: pointer;
+        background-color: #74646445;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
         &:not(:disabled) {
           background-color: #055f8b;
           border: none;
