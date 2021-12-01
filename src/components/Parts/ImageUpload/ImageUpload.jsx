@@ -1,19 +1,21 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { AuthContext } from "../../../context/Auth";
 import { auth, db } from "../../../Firebase/Firebase";
+import avatar from "../../../assets/images/avatar.jpg";
 import "./ImageUpload.scss";
 
 function ImageUpload() {
-  const { data, image ,setData } = useContext(AuthContext);
+  const { data } = useContext(AuthContext);
   const imageHandler = (e) => {
-  const reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = () => {
       if (reader.readyState === 2) {
-        db.collection("users")
-          .doc(auth.currentUser?.uid)
-          .update({ imageUrl: reader.result });
-        setData({
-          imageUrl: reader.result,
+        auth.onAuthStateChanged(function (user) {
+          if (user) {
+            db.collection("users")
+              .doc(user.uid)
+              .update({ imageUrl: reader.result });
+          }
         });
       }
     };
@@ -24,7 +26,7 @@ function ImageUpload() {
     <div className="page">
       <div className="img-holder">
         <img
-          src={data.imageUrl ? data.imageUrl : image}
+          src={data.imageUrl ? data.imageUrl : avatar}
           alt=""
           id="img"
           className="img rounded-circle"

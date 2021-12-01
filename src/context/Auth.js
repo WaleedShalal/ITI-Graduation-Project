@@ -11,34 +11,39 @@ export const AuthProvider = ({ children }) => {
     imageUrl: avatar,
   });
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
-      setLoading(false);
-    });
-
-    return unsubscribe;
-  }, []);
+    let isMounted = true;
+    if(isMounted) {
+      auth.onAuthStateChanged((user) => {
+        setUser(user);
+        setLoading(false);
+      });
+    }
+    return ()=>{isMounted = false};
+  });
 
   // get user data
   useEffect(() => {
-    auth.onAuthStateChanged(function (user) {
-      if (user) {
-        db.collection("users")
-          .doc(user.uid)
-          .get()
-          .then((snapshot) => {
-            if (snapshot.exists) {
-              setData(snapshot.data());
-            }
-          });
-      }
-    });
-  }, []);
+    let isMounted = true;
+    if (isMounted) {
+      auth.onAuthStateChanged(function (user) {
+        if (user) {
+          db.collection("users")
+            .doc(user.uid)
+            .get()
+            .then((snapshot) => {
+              if (snapshot.exists) {
+                setData(snapshot.data());
+              }
+            });
+        }
+      });
+    }
+  });
 
   if (loading) return <Loader />;
 
   return (
-    <AuthContext.Provider value={{ user, data, setData, loading, setLoading }}>
+    <AuthContext.Provider value={{ user, data,setData, loading, setLoading }}>
       {children}
     </AuthContext.Provider>
   );

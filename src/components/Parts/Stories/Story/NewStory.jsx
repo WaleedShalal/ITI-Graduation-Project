@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import { Link } from "react-router-dom";
 Modal.setAppElement("#root");
 function NewStory({ image, name, storyNum }) {
   const [open, setOpen] = useState(false);

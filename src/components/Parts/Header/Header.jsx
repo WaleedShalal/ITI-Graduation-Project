@@ -4,10 +4,11 @@ import { auth } from '../../../Firebase/Firebase';
 import { useSelector } from 'react-redux';
 import { AuthContext } from '../../../context/Auth';
 import Notifications from '../Notifications/Notifications';
+import avatar from "../../../assets/images/avatar.jpg";
 import './Header.scss';
 
 function Header() {
-  const { user, data, image } = useContext(AuthContext);
+  const { user, data} = useContext(AuthContext);
   const { fetchedData } = useSelector((state) => state);
   let location = useLocation();
 
@@ -37,11 +38,11 @@ function Header() {
                 <Link
                   className='profile__link nav-link d-flex align-items-center p-1'
                   aria-current='page'
-                  to='/profile'>
+                  to={`/profile/${data.id}`}>
                   <figure className='mb-0 rounded-circle'>
                     <img
-                      className='w-100 rounded-circle'
-                      src={data.imageUrl ? data.imageUrl : image}
+                      className='rounded-circle'
+                      src={data.imageUrl ? data.imageUrl : avatar}
                       alt=''
                     />
                   </figure>

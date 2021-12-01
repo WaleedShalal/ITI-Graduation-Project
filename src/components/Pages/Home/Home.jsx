@@ -11,14 +11,21 @@ import "./Home.scss";
 function Home({ userName }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    db.collection("posts")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) => {
-        setPosts(
-          snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() }))
-        );
-      });
-  }, []);
+    let isMounted = true;
+    if (isMounted) {
+      db.collection("posts")
+        .orderBy("timestamp", "desc")
+        .onSnapshot((snapshot) => {
+          setPosts(
+            snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() }))
+          );
+        });
+    }
+    return () => {
+      isMounted = false;
+    };
+  });
+
   return (
     <section className="home__page mt-5">
       <div className="container">
@@ -35,6 +42,7 @@ function Home({ userName }) {
                   key={id}
                   postId={id}
                   username={post.username}
+                  userId={post.userId}
                   video={post.videoUrl}
                   caption={post.caption}
                   rate={post.rate}

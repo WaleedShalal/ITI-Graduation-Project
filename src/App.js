@@ -29,7 +29,7 @@ function App() {
         <Route exact path='/' element={<PrivateRoute />}>
           <Route exact path='/' element={<Home />} />
           <Route exact path='home' element={<Navigate to='/' />} />
-          <Route exact path='profile' element={<Profile />} />
+          <Route exact path='profile/:id' element={<Profile />} />
           <Route exact path='edit' element={<EditProfile />} />
           <Route path='cart' element={<Cart />} />
           <Route path='admin' element={<Admin />} />
