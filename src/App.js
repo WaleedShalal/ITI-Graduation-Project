@@ -22,7 +22,9 @@ function App() {
   const { pathname } = useLocation();
   return (
     <div className='App'>
-      {pathname !== '/login' && pathname !== '/register' && <Header />}
+      {pathname !== '/login' &&
+        pathname !== '/register' &&
+        pathname !== '/wellcome' && <Header />}
       <Routes>
         <Route exact path='/' element={<PrivateRoute />}>
           <Route exact path='/' element={<Home />} />
