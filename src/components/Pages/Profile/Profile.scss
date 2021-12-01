@@ -64,7 +64,8 @@
           width: 100%;
           &.active,
           &:hover {
-            background: rgba(8, 141, 205, 0.6);
+            background: #deebf3;
+            // background: rgba(8, 141, 205, 0.6);
             border-radius: 5px;
           }
           a {
@@ -72,17 +73,38 @@
             color: inherit;
             display: flex;
             justify-content: space-between;
-            min-height: 36px;
+            height: 36px;
             text-decoration: none;
           }
         }
       }
-      .profile__setting {
+      .reviews__controls {
         border-bottom: 1px solid lightgray;
-
-        i {
-          width: 20px;
-          color: #088dcd;
+        li {
+          padding: 0 8px;
+          margin: 0 !important;
+          width: 100%;
+          height: 36px;
+          &:hover {
+            background: #deebf3;
+            border-radius: 5px;
+          }
+        }
+      }
+      .profile__setting {
+        li {
+          padding: 0 8px;
+          margin: 0 !important;
+          width: 100%;
+          height: 36px;
+          &:hover {
+            background: #deebf3;
+            border-radius: 5px;
+          }
+          i {
+            width: 20px;
+            color: #088dcd;
+          }
         }
       }
       .reviews__controls {

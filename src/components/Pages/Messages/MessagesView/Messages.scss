@@ -62,7 +62,10 @@
         background-color: #eee;
         z-index: 1000;
         .messages__chatHeaderImage {
-          width: 30px;
+          img {
+            width: 30px !important;
+            height: 30px !important;
+          }
         }
         .online__status {
           font-size: 14px;
@@ -79,11 +82,14 @@
           border-radius: 10px 10px 0 10px;
           &.message__contentSecondUser {
             border-radius: 10px 10px 10px 0;
+            // background-color: rgba(0, 0, 255, 0.171);
           }
         }
         .messages__chatBodyImage {
-          width: 30px;
-          height: 30px;
+          img {
+            width: 40px !important;
+            height: 40px !important;
+          }
         }
       }
       .messages__chatFooter {
@@ -103,10 +109,10 @@
     background: white;
   }
   ::-webkit-scrollbar-thumb {
-    background: lightgrey;
+    background: #deebf3;
     border-radius: 0 0 5px 5px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: green;
+    background: #088dcd;
   }
 }
