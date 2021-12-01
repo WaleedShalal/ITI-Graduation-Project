@@ -1,5 +1,4 @@
 import React from 'react';
-import okay from './images/okay-icon.png';
 import { Link } from 'react-router-dom';
 import './WelcomePage.scss';
 

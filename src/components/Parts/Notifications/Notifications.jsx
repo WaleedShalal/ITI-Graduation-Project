@@ -8,9 +8,7 @@ function Notifications({ handleChecked }) {
       <div className='window__header d-flex  align-items-baseline px-1'>
         <i className='fa__item far fa-bell'></i>
         <h6 className='ps-2 text-capitalize fw-bold'>notification</h6>
-        <div onClick={() => handleChecked()} className='ms-auto'>
-          X
-        </div>
+        <div onClick={() => handleChecked()} className='ms-auto'></div>
       </div>
       <div className='window__body'>
         <NotificationMsg />

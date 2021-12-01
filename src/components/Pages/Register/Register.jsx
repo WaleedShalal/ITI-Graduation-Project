@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import FormField from '../../shared/FormikField/FormikField';
 import FormRadioButton from '../../shared/FormikRadioButton/FormikRadioButton';
 import FormCheckboxInput from '../../shared/FormikCheckboxInput/ForminCheckboxInput';
-import userImage from '../../../assets/images/user-img.png';
 import { auth, db } from '../../../Firebase/Firebase';
 import { updateProfile } from 'firebase/auth';
 import * as yup from 'yup';
@@ -214,22 +213,24 @@ function Register() {
                     type='text'
                     label='followed hashtags'
                   />
-                  {/* <FormikImageInput
-                    name='profileImage'
-                    type='file'
-                    label='profile image'
-                  /> */}
                   <FormCheckboxInput
                     name='subscribeUs'
                     type='checkbox'
                     label='subscribe us'
                   />
-                  <button
-                    type='submit'
-                    disabled={!formik.isValid}
-                    className='register__btn rounded w-25 mx-auto mt-5 btn btn-success text-capitalize'>
-                    register
-                  </button>
+                  <div className='d-flex justify-content-evenly mt-5'>
+                    <button
+                      className=' rounded w-25 btn btn-outline-danger text-capitalize'
+                      onClick={() => navigate('/login')}>
+                      sign in
+                    </button>
+                    <button
+                      type='submit'
+                      disabled={!formik.isValid}
+                      className='register__btn rounded w-25 btn btn-success text-capitalize'>
+                      register
+                    </button>
+                  </div>
                   <p className='form__error'>{error}</p>
                 </div>
               </div>

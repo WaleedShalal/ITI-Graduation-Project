@@ -8,19 +8,11 @@ import FormCheckboxInput from '../../shared/FormikCheckboxInput/ForminCheckboxIn
 import googleImage from '../../../assets/images/google.png';
 import facebookImage from '../../../assets/images/facebook.png';
 import twitterImage from '../../../assets/images/twitter.png';
-import userImage from '../../../assets/images/user-img.png';
 import './Login.scss';
 
 const Login = () => {
   /* ---------------------------- start login auth ---------------------------- */
-  const { auth, firebase } = useContext(FirebaseContext);
-  const handleLoginWithGoogle = () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    auth
-      .signInWithPopup(provider)
-      .then(() => navigate('/home'))
-      .catch((error) => console.log(error));
-  };
+  const { auth } = useContext(FirebaseContext);
   const navigate = useNavigate();
   const initialValues = {
     email: '',
@@ -57,9 +49,6 @@ const Login = () => {
         return (
           <Form>
             <section className='login__form container px-3 pt-3 pb-3 w-50 mb-3'>
-              {/* <figure className='user__image w-25 mb-0'>
-                <img className='w-100 rounded-circle' src={userImage} alt='' />
-              </figure> */}
               <div className='form__wrapper w-75 mx-auto'>
                 <div className='row'>
                   <FormField
@@ -95,12 +84,11 @@ const Login = () => {
                     disabled={!formik.isValid}>
                     <div className='mx-auto w-75'>login</div>
                   </button>
-                  {/* <button
-                    type='submit'
-                    className='logout__btn btn btn-danger d-block mx-auto w-25 rounded-pill my-5  text-capitalize'
-                    onClick={() => auth.signOut()}>
-                    logout
-                  </button> */}
+                  <button
+                    className=' btn btn-outline-danger d-block mx-auto w-25 rounded mt-5  mb-3  text-capitalize'
+                    onClick={() => navigate('/register')}>
+                    <div className='mx-auto w-75'>register</div>
+                  </button>
                   <p className='form__error'>{error}</p>
                   <div className='form__decoration text-dark col-12 d-flex justify-content-center align-items-center mb-5'>
                     Or
@@ -110,10 +98,7 @@ const Login = () => {
               <ul className='social__links list-unstyled d-flex flex-column  mx-auto  w-75 '>
                 <li className='w-100  py-1 my-1 '>
                   <div className='social__linksWrapper  mx-auto text-start'>
-                    <NavLink
-                      className='d-flex align-items-baseline'
-                      to='#'
-                      onClick={handleLoginWithGoogle}>
+                    <NavLink className='d-flex align-items-baseline' to='#'>
                       <figure className='social__linksImage mb-0'>
                         <img
                           className='w-100 rounded-circle'
