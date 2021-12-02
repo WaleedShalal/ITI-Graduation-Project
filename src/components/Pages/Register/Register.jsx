@@ -33,10 +33,10 @@ function Register() {
     email: '',
     password: '',
     confirmPassword: '',
-    address: [''],
+    address: [],
     phoneNumber: '',
     website: '',
-    followedHashtags: '',
+    followedHashtags: [],
     subscribeUs: false,
   };
   const validationSchema = yup.object({
@@ -57,7 +57,10 @@ function Register() {
       .oneOf([yup.ref('password'), ''], 'Password must be matched')
       .required(),
     address: yup.array().of(yup.string().required('Please enter an address')),
-    followedHashtags: yup.string().required('Please enter five hashtags'),
+    followedHashtags: yup
+      .array()
+      .min(5, 'followedHashtags field must have at least 5 hashs')
+      .of(yup.string().required('Please Five Hastags')),
   });
 
   const onSubmit = async (e) => {
@@ -103,11 +106,13 @@ function Register() {
       setError(err.message);
     }
   };
+
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={validationSchema}
-      onSubmit={onSubmit}>
+      onSubmit={onSubmit}
+      enableReinitialize={true}>
       {(formik) => {
         return (
           <Form>
@@ -208,11 +213,82 @@ function Register() {
                     label='website'
                     colWidth='col-6'
                   />
-                  <FormField
+                  <FieldArray name='followedHashtags'>
+                    {(props) => {
+                      const { push, form } = props;
+                      const { values } = form;
+                      let { followedHashtags } = values;
+                      const hashTags = [
+                        'fashion',
+                        'art',
+                        'sports',
+                        'technology',
+                        'cars',
+                        'food',
+                        'lifestyle',
+                        'drawing',
+                        'nature',
+                        'travel',
+                        'makeup',
+                        'skincare',
+                        'design',
+                        'animals',
+                        'animation',
+                        'songs',
+                      ];
+                      const handleAddHash = (hash) => {
+                        !followedHashtags.includes(`#${hash}`) &&
+                          push(`#${hash}`);
+                        // formik.setFieldValue(
+                        //   'followedHashtags',
+                        //   followedHashtags.toString().replace(/,/g, ' '),
+                        // );
+                      };
+                      const handleRemoveHash = (e, hash) => {
+                        e.stopPropagation();
+                        let updatedFollowedHashtags = followedHashtags.filter(
+                          (followedHashtag) => followedHashtag !== `#${hash}`,
+                        );
+                        formik.setFieldValue(
+                          'followedHashtags',
+                          updatedFollowedHashtags,
+                        );
+                      };
+                      return (
+                        <>
+                          <FormField
+                            name='followedHashtags'
+                            type='text'
+                            label='followed hashtags'
+                            isDisabled={true}
+                          />
+                          <ul className='hashtags__list list-unstyled d-flex flex-wrap justify-content-evenly align-items-center my-3 w-75 mx-auto'>
+                            {hashTags.map((hash) => {
+                              return (
+                                <li
+                                  key={hash}
+                                  onClick={() => handleAddHash(hash)}
+                                  className='text-capitalize text-white m-1'>
+                                  <span>{hash}</span>
+                                  {followedHashtags.includes(`#${hash}`) && (
+                                    <i
+                                      onClick={(e) => handleRemoveHash(e, hash)}
+                                      className='far fa-window-close ms-2'></i>
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </>
+                      );
+                    }}
+                  </FieldArray>
+                  {/* <FormField
+                    onClick={() => handleTest()}
                     name='followedHashtags'
                     type='text'
                     label='followed hashtags'
-                  />
+                  /> */}
                   <FormCheckboxInput
                     name='subscribeUs'
                     type='checkbox'
@@ -234,7 +310,6 @@ function Register() {
                   <p className='form__error'>{error}</p>
                 </div>
               </div>
-              <pre> </pre>
             </div>
           </Form>
         );

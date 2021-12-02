@@ -4,6 +4,7 @@ import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 import './FormikField.scss';
 
 function FormField({
+  isDisabled = false,
   isRequired = true,
   name,
   type,
@@ -22,6 +23,7 @@ function FormField({
               className='input__style w-100 ps-2 mb-1'
               type={type}
               id={name}
+              disabled={isDisabled}
               {...formikField.field}
               defaultChecked={formikField.field.value}
             />

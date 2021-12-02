@@ -27,5 +27,27 @@
   }
   input {
     padding: 5px 0;
+    &[name='followedHashtags'] {
+      text-transform: capitalize;
+      background-color: white;
+    }
+  }
+  .hashtags__list {
+    > li {
+      background-color: #bbd9ec;
+      padding: 5px 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: #bbd9ec !important;
+        background-color: white;
+        i {
+          &:hover {
+            font-weight: bold;
+          }
+        }
+      }
+    }
   }
 }
