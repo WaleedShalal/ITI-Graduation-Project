@@ -17,6 +17,7 @@ import Messages from './components/Pages/Messages/MessagesView/Messages';
 import PrivateRoute from './context/guard';
 import './App.scss';
 import EditProfile from './components/Pages/EditProfile/EditProfile';
+import SearchPage from './components/Pages/SearchPage/SearchPage';
 
 function App() {
   const { pathname } = useLocation();
@@ -45,6 +46,7 @@ function App() {
         <Route path='wellcome' element={<WelcomePage />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
+        <Route path='search/:city' element={<SearchPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

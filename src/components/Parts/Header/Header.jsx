@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation ,useNavigate } from 'react-router-dom';
 import { auth } from '../../../Firebase/Firebase';
 import { useSelector } from 'react-redux';
 import { AuthContext } from '../../../context/Auth';
@@ -10,8 +10,12 @@ import './Header.scss';
 function Header() {
   const { user, data} = useContext(AuthContext);
   const { fetchedData } = useSelector((state) => state);
-  let location = useLocation();
-
+  const location = useLocation();
+  const Navigate = useNavigate(); 
+  const handleSearch = (e) =>{
+    e.preventDefault();
+    Navigate(`/search/${e.target[0].value}`)
+  }
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
       <div className='container-fluid align-items-center'>
@@ -19,7 +23,7 @@ function Header() {
           <img src='./logo.png' alt='' />
         </Link>
         <div className='navbar__search'>
-          <form className='search__form d-flex'>
+          <form  onSubmit={handleSearch} className='search__form d-flex'>
             <input
               className='search__formInput form-control'
               type='search'

@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
       });
     }
     return ()=>{isMounted = false};
-  });
+  },[]);
 
   // get user data
   useEffect(() => {
@@ -38,7 +38,8 @@ export const AuthProvider = ({ children }) => {
         }
       });
     }
-  });
+    return ()=>{isMounted = false};
+  },[]);
 
   if (loading) return <Loader />;
 

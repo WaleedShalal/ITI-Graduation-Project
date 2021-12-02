@@ -16,6 +16,8 @@ function Profile() {
     email:""
   });
   useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
       db.collection("posts")
       .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
@@ -31,11 +33,14 @@ function Profile() {
           });
         setPosts(posts);
       })
-    
+    }
+      return ()=>{isMounted = false}
   },[param.id]);
 
   useEffect(() => {
-    db.collection("users")
+    let isMounted = true;
+    if (isMounted) {
+      db.collection("users")
       .doc(param.id)
       .get()
       .then((snapshot) => {
@@ -43,7 +48,9 @@ function Profile() {
           setData(snapshot.data());
         }
       });
-  });
+    }
+  return ()=>{isMounted = false}
+  },[param.id]);
 
   return (
     <div className="profile pt-5">

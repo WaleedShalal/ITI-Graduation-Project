@@ -64,13 +64,13 @@ function NewStory({ image, name, storyNum }) {
               </div>
               <ul className="right">
                 <li className="me-2">
-                  <i class="fas fa-pause"></i>
+                  <i className="fas fa-pause"></i>
                 </li>
                 <li className="me-2">
-                  <i class="fas fa-volume-mute"></i>
+                  <i className="fas fa-volume-mute"></i>
                 </li>
                 <li onClick={() => setOpen(false)}>
-                  <i class="fas fa-times"></i>
+                  <i className="fas fa-times"></i>
                 </li>
               </ul>
             </div>

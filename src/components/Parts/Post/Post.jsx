@@ -4,10 +4,11 @@ import Rate from "../Rate/Rate";
 import { db } from "../../../Firebase/Firebase";
 import { AuthContext } from "../../../context/Auth";
 import firebase from "firebase/compat/app";
-import "./Post.scss";
 import { Link } from "react-router-dom";
+import "./Post.scss";
 
 function Post({ username, postId, video, caption, rate ,userId}) {
+  const [isMounted ,setMounted ] = useState(true)
   const { user, data} = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
@@ -23,17 +24,24 @@ function Post({ username, postId, video, caption, rate ,userId}) {
         });
     }
     return () => {isMounted = false};
-  });
+  },[postId]);
 
-  const postComment = (e) => {
+  useEffect(() => {
+    return () => { 
+      setMounted(false)
+    }
+  }, []);
+  const postComment =  (e) => {
     e.preventDefault();
-    db.collection("posts").doc(postId).collection("comments").add({
-      text: comment,
-      username: user.displayName,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      userId:data.id
-    });
-    setComment("");
+    if(isMounted){
+      db.collection("posts").doc(postId).collection("comments").add({
+        text: comment,
+        username: user.displayName,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        userId:data.id
+      });
+      setComment("");
+    }
   };
 
   const deletePost = () => {

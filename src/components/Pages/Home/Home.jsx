@@ -8,7 +8,7 @@ import Stories from "../../Parts/Stories/Stories";
 import Time from "../../Parts/Time/Time";
 import Footer from "../../Parts/Footer/Footer";
 import "./Home.scss";
-function Home({ userName }) {
+function Home() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     let isMounted = true;
@@ -24,7 +24,7 @@ function Home({ userName }) {
     return () => {
       isMounted = false;
     };
-  });
+  },[]);
 
   return (
     <section className="home__page mt-5">
@@ -35,7 +35,7 @@ function Home({ userName }) {
           </div>
           <div className="col-12 col-lg-6">
             <Stories />
-            <VideoUpload username={userName} />
+            <VideoUpload  />
             {posts.map(({ id, post }) => {
               return (
                 <Post

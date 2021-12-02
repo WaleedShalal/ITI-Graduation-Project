@@ -12,7 +12,7 @@ function PeopleYouKnow() {
       });
     }
     return () => {isMounted = false}
-  });
+  },[]);
   const handleFollow = (id, F) => {
     db.collection("users").doc(id).update({
       follow: !F,

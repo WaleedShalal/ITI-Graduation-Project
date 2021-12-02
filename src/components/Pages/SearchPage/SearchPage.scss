@@ -1,0 +1,110 @@
+.search__title {
+  background-color: rgb(0, 30, 76);
+  height: auto;
+  margin-top: 62.27px;
+  color: #fff;
+  .search__content h1 {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: -0.5px;
+    line-height: 29px;
+    margin-top: 0px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 0px;
+  }
+}
+.results {
+  margin-top: 100px;
+  .box {
+    margin-bottom: 12px;
+    padding: 24px 16px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(217, 221, 228);
+    border-radius: 2px;
+    .info {
+      display: flex;
+      align-items: center;
+      .follow {
+        margin-left: 5px;
+        cursor: pointer;
+        color: #0009;
+      }
+      .followers {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 0px;
+        list-style: none;
+        padding: 0;
+        li {
+          margin-right: 20px;
+          .num {
+            font-weight: 600;
+            color: #262626;
+          }
+        }
+      }
+      .address {
+        font-size: 12px;
+        font-weight: 600;
+        font-style: normal;
+        letter-spacing: -0.27px;
+        line-height: 19px;
+        color: rgb(77, 97, 130);
+        display: block;
+      }
+      figure {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-right: 10px;
+        width: 75px;
+        img {
+          border-radius: 50%;
+        }
+      }
+    }
+
+    p {
+      font-size: 13px;
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: -0.3px;
+      line-height: 20px;
+      color: rgb(77, 97, 130);
+      margin-top: 10px;
+    }
+  }
+  .filter {
+    margin-bottom: 12px;
+    padding: 24px 16px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(217, 221, 228);
+    border-radius: 4px;
+    .filter__header {
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgb(217, 221, 228);
+      margin-bottom: 16px;
+    }
+    .filter__city{
+        margin-bottom: 16px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgb(217, 221, 228);
+    h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        font-style: normal;
+        letter-spacing: -0.35px;
+        line-height: 22px;
+        cursor: pointer;
+        color: rgb(0, 20, 51);
+        margin: 0px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }}
+  }
+}
