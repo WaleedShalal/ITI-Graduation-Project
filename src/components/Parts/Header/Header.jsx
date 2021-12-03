@@ -1,34 +1,35 @@
 import React, { useContext } from 'react';
-import { NavLink, Link, useLocation ,useNavigate } from 'react-router-dom';
+import { NavLink, Link, useLocation, useNavigate } from 'react-router-dom';
 import { auth } from '../../../Firebase/Firebase';
 import { useSelector } from 'react-redux';
 import { AuthContext } from '../../../context/Auth';
 import Notifications from '../Notifications/Notifications';
-import avatar from "../../../assets/images/avatar.jpg";
+import avatar from '../../../assets/images/avatar.jpg';
+import logoImg from '../../../assets/images/logo/logo.png';
 import './Header.scss';
 
 function Header() {
-  const { user, data} = useContext(AuthContext);
+  const { user, data } = useContext(AuthContext);
   const { fetchedData } = useSelector((state) => state);
   let location = useLocation();
-  const Navigate = useNavigate(); 
+  const Navigate = useNavigate();
 
   const addClassActive = () => {
     let item = document.getElementById('notifications__window');
     item.classList.toggle('active');
   };
-  const handleSearch = (e) =>{
+  const handleSearch = (e) => {
     e.preventDefault();
-    Navigate(`/search/${e.target[0].value}`)
-  }
+    Navigate(`/search/${e.target[0].value}`);
+  };
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
       <div className='container-fluid align-items-center'>
         <Link className='navbar__logo navbar-brand nav-link' to='/'>
-          <img src='./logo.png' alt='' />
+          <img src={logoImg} alt='' />
         </Link>
         <div className='navbar__search'>
-          <form  onSubmit={handleSearch} className='search__form d-flex'>
+          <form onSubmit={handleSearch} className='search__form d-flex'>
             <input
               className='search__formInput form-control'
               type='search'

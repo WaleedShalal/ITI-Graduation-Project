@@ -18,11 +18,11 @@ import img_7 from '../../../assets/images/highlights/img7.png';
 
 import './Stories.scss';
 
-function Stories() {
+function Stories({ id }) {
   const { pathname } = useLocation();
 
   const storyData =
-    pathname !== '/profile'
+    pathname !== `/profile/${id}`
       ? [
           { name: 'waleed elbana', image: img1 },
           { name: 'laura chouette', image: img2 },
@@ -43,7 +43,7 @@ function Stories() {
         ];
   return (
     <div className='new__stories p-3'>
-      {pathname !== '/profile' ? (
+      {pathname !== `/profile/${id}` ? (
         <h6 className='text-capitalize text-dark mb-3'>recent stories</h6>
       ) : (
         <h6 className='text-capitalize text-dark mb-3'>highlights</h6>
@@ -56,6 +56,7 @@ function Stories() {
               image={data.image}
               name={data.name}
               storyNum={index}
+              id={id}
             />
           );
         })}

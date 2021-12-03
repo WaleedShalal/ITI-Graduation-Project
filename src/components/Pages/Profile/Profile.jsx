@@ -58,7 +58,7 @@ function Profile() {
       <div className='container'>
         <div className='row profile__wrapper flex-column-reverse flex-lg-row'>
           <div className='col-lg-7 col-12'>
-            <Stories />
+            <Stories id={param.id} />
             <ImageUpload />
             <div className='content-page w-100'>
               {posts.length > 0 ? (

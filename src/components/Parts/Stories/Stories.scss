@@ -73,40 +73,39 @@
     display: none;
   }
 }
-.profileImage{
+.profileImage {
   width: 40px;
   height: 40px;
   margin-right: 5px;
 }
-.storyHeadr{
+.storyHeadr {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 17px;
 }
-.time{
-color:#d7d7d785
+.time {
+  color: #d7d7d785;
 }
-.left{
+.left {
   display: flex;
   align-items: center;
 }
-.right{
+.right {
   display: flex;
   list-style: none;
   margin: 0;
-  padding:0;
+  padding: 0;
   color: #fff;
-  font-size:1.2rem;
-  li{
+  font-size: 1.2rem;
+  li {
     cursor: pointer;
   }
 }
-.story_image img{
-  height:31rem;
+.story_image img {
+  height: 22rem;
 }
-.load{
+.load {
   height: 3px;
   width: 100%;
 }
-
