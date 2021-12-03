@@ -82,7 +82,9 @@ function Messages() {
                     />
                   ))}
                 </div>
-                <ChatUserFooter />
+                <div className='messages__chatFooter'>
+                  <ChatUserFooter />
+                </div>
               </div>
             )}
           </div>

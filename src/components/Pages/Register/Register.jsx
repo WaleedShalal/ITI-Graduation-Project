@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Formik, Form, FieldArray } from 'formik';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import FormField from '../../shared/FormikField/FormikField';
 import FormRadioButton from '../../shared/FormikRadioButton/FormikRadioButton';
 import FormCheckboxInput from '../../shared/FormikCheckboxInput/ForminCheckboxInput';
@@ -8,7 +8,6 @@ import { auth, db } from '../../../Firebase/Firebase';
 import { updateProfile } from 'firebase/auth';
 import * as yup from 'yup';
 import './Register.scss';
-// import FormikImageInput from './../../shared/FormikImageInput/FormikImageInput';
 function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -115,11 +114,9 @@ function Register() {
       enableReinitialize={true}>
       {(formik) => {
         return (
-          <Form>
+          <Form className='register__formWrapper'>
+            <div className='background__overlay'></div>
             <div className='register__form container p-5  pb-0 w-75'>
-              {/* <figure className='user__image w-25'>
-                <img className='w-100 rounded-circle' src={userImage} alt='' />
-              </figure> */}
               <div className='form__wrapper'>
                 <div className='row'>
                   <FormField
@@ -294,18 +291,21 @@ function Register() {
                     type='checkbox'
                     label='subscribe us'
                   />
-                  <div className='d-flex justify-content-evenly mt-5'>
-                    <button
-                      className=' rounded w-25 btn btn-outline-danger text-capitalize'
-                      onClick={() => navigate('/login')}>
-                      sign in
-                    </button>
+                  <div className='d-flex justify-content-evenly my-3'>
                     <button
                       type='submit'
                       disabled={!formik.isValid}
                       className='register__btn rounded w-25 btn btn-success text-capitalize'>
                       register
                     </button>
+                  </div>
+                  <div className='text-center'>
+                    <span className='text-capitalize'>
+                      already have account?{' '}
+                    </span>
+                    <Link className='text-capitalize' to='/login'>
+                      sign in
+                    </Link>
                   </div>
                   <p className='form__error'>{error}</p>
                 </div>

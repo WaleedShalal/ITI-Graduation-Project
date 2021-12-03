@@ -60,7 +60,7 @@ function WelcomePage() {
             </div>
           </div>
           <figure className='website__logo col-sm-12 col-lg-4 order-lg-2 order-sm-1  mb-0 dropDown'>
-            <img className='w-100' src='./logo.png' alt='' />
+            <img className='w-100' src='./logo.png' alt='logo' />
           </figure>
         </div>
       </div>

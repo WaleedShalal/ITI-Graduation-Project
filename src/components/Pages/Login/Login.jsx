@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FirebaseContext } from '../../../Firebase/Firebase';
 import { Formik, Form } from 'formik';
 import * as yup from 'yup';
@@ -48,8 +48,8 @@ const Login = () => {
       {(formik) => {
         return (
           <Form>
-            <section className='login__form container px-3 pt-3 pb-3 w-50 mb-3'>
-              <div className='form__wrapper w-75 mx-auto'>
+            <div className='login__form container pb-3 w-50 mb-3'>
+              <div className='form__wrapper w-75 mx-auto pt-3'>
                 <div className='row'>
                   <FormField
                     name='email'
@@ -84,13 +84,8 @@ const Login = () => {
                     disabled={!formik.isValid}>
                     <div className='mx-auto w-75'>login</div>
                   </button>
-                  <button
-                    className=' btn btn-outline-danger d-block mx-auto w-25 rounded mt-5  mb-3  text-capitalize'
-                    onClick={() => navigate('/register')}>
-                    <div className='mx-auto w-75'>register</div>
-                  </button>
                   <p className='form__error'>{error}</p>
-                  <div className='form__decoration text-dark col-12 d-flex justify-content-center align-items-center mb-5'>
+                  <div className='form__decoration text-dark col-12 d-flex justify-content-center align-items-center mb-4'>
                     Or
                   </div>
                 </div>
@@ -143,7 +138,13 @@ const Login = () => {
                   </div>
                 </li>
               </ul>
-            </section>
+              <div className='text-center'>
+                <span className='text-capitalize'>don't have account? </span>
+                <Link className='text-capitalize' to='/register'>
+                  join now
+                </Link>
+              </div>
+            </div>
           </Form>
         );
       }}

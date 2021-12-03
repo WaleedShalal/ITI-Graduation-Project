@@ -342,19 +342,24 @@
   }
   .fadeInLeftBig {
     animation-name: fadeInLefttBig;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
+    // animation-duration: 1.5s;
   }
   .fadeInLeftBig:nth-of-type(2) {
-    animation-duration: 2.5s;
+    animation-duration: 1.5s;
+    // animation-duration: 2.5s;
   }
   .fadeInLeftBig:nth-of-type(3) {
-    animation-duration: 3s;
+    animation-duration: 2s;
+    // animation-duration: 3s;
   }
   .fadeInLeftBig:nth-of-type(4) {
-    animation-duration: 3.5s;
+    animation-duration: 2.5s;
+    // animation-duration: 3.5s;
   }
   .fadeInLeftBig:nth-of-type(5) {
-    animation-duration: 4s;
+    animation-duration: 3s;
+    // animation-duration: 4s;
   }
   @keyframes fadeInLefttBig {
     0% {
@@ -368,7 +373,8 @@
   }
   .dropDown {
     animation-name: dropDown;
-    animation-duration: 6s;
+    animation-duration: 5s;
+    // animation-duration: 6s;
   }
   @keyframes dropDown {
     0% {
@@ -383,7 +389,8 @@
 
   .fadeInLeftBigLinks {
     animation-name: fadeInLeftBigLinks;
-    animation-duration: 8s;
+    animation-duration: 5s;
+    // animation-duration: 8s;
   }
   @keyframes fadeInLeftBigLinks {
     0% {
@@ -396,7 +403,14 @@
     }
   }
   @media (max-width: 575.98px) {
-    margin-top: 50px;
+    margin-top: 0;
+    .container {
+      max-width: 540px;
+      padding-right: 0.75rem;
+      padding-left: 0.75rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
     .website__info {
       order: 2;
       .info__gretting {
@@ -422,7 +436,8 @@
         margin-top: 15px !important;
         margin-bottom: 20px;
         .links__wrapper {
-          width: 100% !important;
+          width: 75% !important;
+          justify-content: center !important;
           a {
             font-size: 16px;
           }
@@ -439,7 +454,7 @@
   }
 
   @media (min-width: 576px) and (max-width: 767.98px) {
-    margin-top: 50px;
+    margin-top: 0;
     .website__info {
       order: 2;
       .info__gretting {
@@ -466,6 +481,7 @@
         margin-bottom: 20px;
         .links__wrapper {
           width: 70% !important;
+          justify-content: center !important;
           a {
             font-size: 16px;
           }
@@ -476,12 +492,12 @@
       order: 1;
       text-align: center;
       img {
-        width: 50% !important;
+        width: 55% !important;
       }
     }
   }
   @media (min-width: 768px) and (max-width: 991.98px) {
-    margin-top: 50px;
+    margin-top: 0;
     .website__info {
       order: 2;
       .info__gretting {
@@ -508,6 +524,7 @@
         margin-bottom: 20px;
         .links__wrapper {
           width: 70% !important;
+          justify-content: center !important;
           a {
             font-size: 16px;
           }

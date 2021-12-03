@@ -12,6 +12,12 @@
     & > i {
       transform: rotate(45deg);
     }
+    .fa__itemClose {
+      &:hover {
+        font-weight: bold;
+        color: red;
+      }
+    }
   }
   .window__body {
     white-space: wrap;
@@ -39,10 +45,7 @@
       }
     }
   }
-}
-#notification {
-  display: none;
-}
-#notification:checked + label + .notification__window {
-  right: 0;
+  &.active {
+    right: 0;
+  }
 }

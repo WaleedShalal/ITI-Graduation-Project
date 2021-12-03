@@ -1,33 +1,40 @@
 .messages {
   padding-top: 60px;
-  height: calc(100vh - 86px);
+  flex-shrink: 0;
+  flex-grow: 1;
+  // height: calc(100vh - 86px);
   .inbox i {
     color: #088dcd;
   }
   .messages__wrapper {
     background-color: #f7f7f7;
-    height: 100%;
+    height: 475px;
+    // height: 100%;
     overflow: hidden;
     margin: 0;
     padding: 0;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 6%), 0 2px 5px 0 rgba(0, 0, 0, 20%);
     .messages__inbox {
-      height: calc(100vh - 86px);
-
+      height: 475px;
+      display: flex;
+      flex-direction: column;
+      // height: calc(100vh - 86px);
       border-radius: 5px 0px 0px;
-      display: grid;
-      grid-template-rows: 55px 1fr;
+      // display: grid;
+      // grid-template-rows: 55px 1fr;
       overflow: hidden;
       .messages__inboxHeader {
         margin: 0;
-        height: 5rem;
+        height: 4rem;
+        // height: 5rem;
         width: 100%;
         background-color: #eee;
         z-index: 1000;
       }
       .messages__inboxBody {
-        height: 100%;
+        flex-grow: 1;
         overflow-y: scroll;
+        // overflow-x: h;
         background-color: #fff;
         .messages__secondUser {
           position: relative;
@@ -51,13 +58,17 @@
       }
     }
     .messages__chat {
-      height: calc(100vh - 86px);
-      display: grid;
-      grid-template-rows: 55px 1fr 50px;
+      height: 475px;
+      display: flex;
+      flex-direction: column;
+      // height: calc(100vh - 86px);
+      // display: grid;
+      // grid-template-rows: 55px 1fr 50px;
       border-left: 1px solid rgba(0, 0, 0, 0.08);
       .messages__chatHeader {
         margin: 0;
-        height: 5rem;
+        height: 4rem;
+        // height: 5rem;
         width: 100%;
         background-color: #eee;
         z-index: 1000;
@@ -74,6 +85,7 @@
       .messages__chatBody {
         overflow-y: scroll;
         background-color: #fbfbfb;
+        flex-grow: 1;
         .message__content {
           max-width: max-content;
           background-color: #deebf3;
@@ -93,6 +105,7 @@
         }
       }
       .messages__chatFooter {
+        height: 55px;
         .messages__SendForm {
           input {
             border: 1px solid lightgray;

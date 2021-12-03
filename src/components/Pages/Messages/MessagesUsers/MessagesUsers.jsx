@@ -18,7 +18,7 @@ function MessagesUsers({ data }) {
           <figure className='messages__inboxBodyImage mb-0'>
             <img
               src={data.imageUrl ? data.imageUrl : image}
-              className='user__photo'
+              className='user__photo '
               alt='...'
             />
           </figure>

@@ -11,6 +11,12 @@ function Header() {
   const { fetchedData } = useSelector((state) => state);
   let location = useLocation();
 
+  const addClassActive = () => {
+    let item = document.getElementById('notifications__window');
+    item.classList.toggle('active');
+    console.log(item);
+  };
+
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
       <div className='container-fluid align-items-center'>
@@ -85,17 +91,21 @@ function Header() {
             {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='item__forNotification navbar__listItem nav-item d-flex'>
-            <input type='checkbox' id='notification' />
+            {/* <input type='checkbox' id='notification' />
             <label
               htmlFor='notification'
-              className='item__forNotification item__link nav-link'>
+              className='item__forNotification item__link nav-link'> */}
+            <div
+              className='item__link nav-link'
+              onClick={() => addClassActive()}>
               <i className='fa__item far fa-bell'></i>
               <span className='item__notification'></span>
               <span className='text-capitalize d-block d-lg-none  ms-3'>
                 notifications
               </span>
-            </label>
-            <Notifications />
+            </div>
+            {/* </label> */}
+            <Notifications addClassActive={addClassActive} />
             {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='navbar__listItem nav-item d-flex'>

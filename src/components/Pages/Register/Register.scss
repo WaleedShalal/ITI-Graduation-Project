@@ -1,50 +1,68 @@
-.register__form {
-  background-color: #fafafa;
-  // box-shadow: 1px 1px 10px 3px #088dcd;
-  border-radius: 5px;
-  margin-top: 150px;
+.register__formWrapper {
+  background-image: url('../../../assets/images/background/img6.jpg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
   position: relative;
-  .user__image {
+  .background__overlay {
     position: absolute;
-    top: 0%;
-    left: 50%;
-    transform: translate(-50%, -60%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // background-color: rgba($color: #bbd9ec, $alpha: 0.5);
+    z-index: 1;
   }
-  .form__wrapper {
-    margin-top: 20px;
-    .address__btnWrapper {
-      padding-top: 40px;
-      .address__addBtn,
-      .address__removeBtn {
-        width: 34px;
-        height: 34px;
-        padding-bottom: 8px !important;
+  .register__form {
+    background-color: rgba($color: #bbd9ec, $alpha: 0.3);
+    // background-color: transparent;
+    // background-color: #fafafa;
+    // box-shadow: 1px 1px 10px 3px #088dcd;
+    border-radius: 5px;
+    position: relative;
+    z-index: 100;
+    .user__image {
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+    }
+    .form__wrapper {
+      margin-top: 20px;
+      .address__btnWrapper {
+        padding-top: 40px;
+        .address__addBtn,
+        .address__removeBtn {
+          width: 34px;
+          height: 34px;
+          padding-bottom: 8px !important;
+        }
       }
     }
-  }
-  .register__btn {
-    background-color: #088dcd !important;
-  }
-  input {
-    padding: 5px 0;
-    &[name='followedHashtags'] {
-      text-transform: capitalize;
-      background-color: white;
+    .register__btn {
+      background-color: #088dcd !important;
     }
-  }
-  .hashtags__list {
-    > li {
-      background-color: #bbd9ec;
-      padding: 5px 5px;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      &:hover {
-        color: #bbd9ec !important;
+    input {
+      padding: 5px 0;
+      &[name='followedHashtags'] {
+        text-transform: capitalize;
         background-color: white;
-        i {
-          &:hover {
-            font-weight: bold;
+      }
+    }
+    .hashtags__list {
+      > li {
+        background-color: #bbd9ec;
+        padding: 5px 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          color: #bbd9ec !important;
+          background-color: white;
+          i {
+            &:hover {
+              font-weight: bold;
+            }
           }
         }
       }
