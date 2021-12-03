@@ -4,13 +4,14 @@ import avatar from "../../../assets/images/avatar.jpg";
 import "./PeopleYouKnow.scss";
 function PeopleYouKnow() {
   const [users, setUsers] = useState([]);
-  useEffect(() => {
-    db.collection("users").onSnapshot((snapshot) => {
-      setUsers(snapshot.docs.map((doc) => doc.data()));
-    });
-    return ()=>{
-      setUsers([])
+  useEffect(() => { 
+    let isMounted = true;
+    if (isMounted) {
+      db.collection("users").onSnapshot((snapshot) => {
+        setUsers(snapshot.docs.map((doc) => doc.data()));
+      });
     }
+    return () => {isMounted = false}
   },[]);
   const handleFollow = (id, F) => {
     db.collection("users").doc(id).update({

@@ -8,17 +8,24 @@ import Stories from "../../Parts/Stories/Stories";
 import Time from "../../Parts/Time/Time";
 import Footer from "../../Parts/Footer/Footer";
 import "./Home.scss";
-function Home({ userName }) {
+function Home() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    db.collection("posts")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) => {
-        setPosts(
-          snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() }))
-        );
-      });
-  }, []);
+    let isMounted = true;
+    if (isMounted) {
+      db.collection("posts")
+        .orderBy("timestamp", "desc")
+        .onSnapshot((snapshot) => {
+          setPosts(
+            snapshot.docs.map((doc) => ({ id: doc.id, post: doc.data() }))
+          );
+        });
+    }
+    return () => {
+      isMounted = false;
+    };
+  },[]);
+
   return (
     <section className="home__page mt-5">
       <div className="container">
@@ -28,13 +35,14 @@ function Home({ userName }) {
           </div>
           <div className="col-12 col-lg-6">
             <Stories />
-            <VideoUpload username={userName} />
+            <VideoUpload  />
             {posts.map(({ id, post }) => {
               return (
                 <Post
                   key={id}
                   postId={id}
                   username={post.username}
+                  userId={post.userId}
                   video={post.videoUrl}
                   caption={post.caption}
                   rate={post.rate}

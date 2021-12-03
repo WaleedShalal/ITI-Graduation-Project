@@ -16,6 +16,7 @@ import ProductForm from './components/Pages/ProductForm/ProductForm';
 import Messages from './components/Pages/Messages/MessagesView/Messages';
 import PrivateRoute from './context/guard';
 import EditProfile from './components/Pages/EditProfile/EditProfile';
+import SearchPage from './components/Pages/SearchPage/SearchPage';
 import DeafultFooter from './components/Parts/DefaultFooter/DeafultFooter';
 import './App.scss';
 
@@ -30,7 +31,7 @@ function App() {
         <Route exact path='/' element={<PrivateRoute />}>
           <Route exact path='/' element={<Home />} />
           <Route exact path='home' element={<Navigate to='/' />} />
-          <Route exact path='profile' element={<Profile />} />
+          <Route exact path='profile/:id' element={<Profile />} />
           <Route exact path='edit' element={<EditProfile />} />
           <Route path='cart' element={<Cart />} />
           <Route path='admin' element={<Admin />} />
@@ -46,6 +47,7 @@ function App() {
         <Route path='wellcome' element={<WelcomePage />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
+        <Route path='search/:name' element={<SearchPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       {/* <DeafultFooter /> */}

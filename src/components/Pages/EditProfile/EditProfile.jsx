@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../../context/Auth";
 import { auth, db } from "../../../Firebase/Firebase";
 import ImageUpload from "../../Parts/ImageUpload/ImageUpload";
 import "./EditProfile.scss";
 function EditProfile() {
   const navigate = useNavigate();
+  const context = useContext(AuthContext);
   const [updated, setUpdated] = useState(false);
   const [data, setData] = useState({
     address: [],
@@ -31,7 +33,9 @@ function EditProfile() {
   }, []);
   const onSubmit = (e) => {
     e.preventDefault();
-    db.collection("users").doc(auth.currentUser.uid).update(data);
+    db.collection("users")
+      .doc(auth.currentUser.uid)
+      .update({ ...data, imageUrl: context.data.imageUrl });
     setUpdated(true);
     setTimeout(() => {
       setUpdated(false);
@@ -40,9 +44,9 @@ function EditProfile() {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-  
+
   return (
-    <div className="container mt-5">
+    <div className="edit__profile container">
       <div className="row gutters">
         <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
           <div className="card h-100">
@@ -50,7 +54,7 @@ function EditProfile() {
               <div className="account-settings">
                 <div className="user-profile">
                   <div className="user-avatar">
-                      <ImageUpload />
+                    <ImageUpload />
                   </div>
                   <h5 className="user-name">
                     {data.email.substring(0, data.email.lastIndexOf("@"))}
@@ -69,11 +73,11 @@ function EditProfile() {
           </div>
         </div>
         <div className="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-        {updated && (
-          <div className="alert alert-success text- center" role="alert">
-            data has been updated successfully
-          </div>
-        )}
+          {updated && (
+            <div className="alert alert-success text- center" role="alert">
+              data has been updated successfully
+            </div>
+          )}
           <div className="card h-100">
             <div className="card-body">
               <form onSubmit={onSubmit}>
@@ -209,16 +213,14 @@ function EditProfile() {
                     <div className="text-right">
                       <button
                         type="button"
-                    
                         name="submit"
                         className="btn btn-secondary me-2"
-                        onClick={()=>navigate('/home')}
+                        onClick={() => navigate("/home")}
                       >
                         Cancel
                       </button>
                       <button
                         type="submit"
-                        
                         name="submit"
                         className="btn btn-primary"
                       >

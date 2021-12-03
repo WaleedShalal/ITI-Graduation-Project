@@ -78,8 +78,9 @@
           > figure {
             padding: 2px;
             img {
-              max-width: 25px;
-              max-height: 25px;
+             width: 25px;
+            height: 25px;
+            object-fit: cover;
             }
           }
         }

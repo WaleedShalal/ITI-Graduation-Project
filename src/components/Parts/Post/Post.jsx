@@ -4,15 +4,17 @@ import Rate from "../Rate/Rate";
 import { db } from "../../../Firebase/Firebase";
 import { AuthContext } from "../../../context/Auth";
 import firebase from "firebase/compat/app";
+import { Link } from "react-router-dom";
 import "./Post.scss";
 
-function Post({ username, postId, video, caption, rate }) {
-  const { user } = useContext(AuthContext);
+function Post({ username, postId, video, caption, rate ,userId}) {
+  const [isMounted ,setMounted ] = useState(true)
+  const { user, data} = useContext(AuthContext);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
-
   useEffect(() => {
-    if (postId) {
+    let isMounted = true;
+    if (postId && isMounted) {
       db.collection("posts")
         .doc(postId)
         .collection("comments")
@@ -21,16 +23,25 @@ function Post({ username, postId, video, caption, rate }) {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
     }
-  }, [postId]);
+    return () => {isMounted = false};
+  },[postId]);
 
-  const postComment = (e) => {
+  useEffect(() => {
+    return () => { 
+      setMounted(false)
+    }
+  }, []);
+  const postComment =  (e) => {
     e.preventDefault();
-    db.collection("posts").doc(postId).collection("comments").add({
-      text: comment,
-      username: user.displayName,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setComment("");
+    if(isMounted){
+      db.collection("posts").doc(postId).collection("comments").add({
+        text: comment,
+        username: user.displayName,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        userId:data.id
+      });
+      setComment("");
+    }
   };
 
   const deletePost = () => {
@@ -82,15 +93,15 @@ function Post({ username, postId, video, caption, rate }) {
               <ReactPlayer width="100%" url={video} controls />
             </div>
             <Rate PostId={postId} rate={rate} />
-            <a href="post-detail.html" className="post-title">
+            <Link to={`/profile/${userId}`} className="post-title">
               {username}
-            </a>
+            </Link>
             <p className="caption">{caption}</p>
             <div className="postFooter">
               <div className="post_comment">
                 {comments.map((comment) => (
                   <p key={comment.timestamp}>
-                    <strong className="me-1">{`${comment.username}`}</strong>
+                    <Link to={`/profile/${comment.userId}`} className="me-1">{`${comment.username}`}</Link>
                     {comment.text}
                   </p>
                 ))}

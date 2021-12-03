@@ -1,16 +1,17 @@
 import React, { useContext} from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/Auth";
+import avatar from "../../../assets/images/avatar.jpg";
 import "./ProfileWidget.scss";
 function ProfileWidget() {
-  const { user, data, image } = useContext(AuthContext);
+  const { user, data } = useContext(AuthContext);
   return (
     <div className="w-100 widget profile-widget text-center">
       <div className="user-heading round">
         <a href="/">
           <img
             className="rounded-circle"
-            src={data.imageUrl ? data.imageUrl : image}
+            src={data.imageUrl ? data.imageUrl : avatar}
             alt=""
           />
         </a>
@@ -26,7 +27,7 @@ function ProfileWidget() {
         opportunities.
       </p>
       <Link
-        to="/profile"
+         to={`/profile/${data.id}`}
         className="main-btn"
         href="profile.html"
         title=""

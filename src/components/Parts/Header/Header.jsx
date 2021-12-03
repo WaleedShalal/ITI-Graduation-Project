@@ -1,22 +1,26 @@
 import React, { useContext } from 'react';
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation ,useNavigate } from 'react-router-dom';
 import { auth } from '../../../Firebase/Firebase';
 import { useSelector } from 'react-redux';
 import { AuthContext } from '../../../context/Auth';
 import Notifications from '../Notifications/Notifications';
+import avatar from "../../../assets/images/avatar.jpg";
 import './Header.scss';
 
 function Header() {
-  const { user, data, image } = useContext(AuthContext);
+  const { user, data} = useContext(AuthContext);
   const { fetchedData } = useSelector((state) => state);
   let location = useLocation();
+  const Navigate = useNavigate(); 
 
   const addClassActive = () => {
     let item = document.getElementById('notifications__window');
     item.classList.toggle('active');
-    console.log(item);
   };
-
+  const handleSearch = (e) =>{
+    e.preventDefault();
+    Navigate(`/search/${e.target[0].value}`)
+  }
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
       <div className='container-fluid align-items-center'>
@@ -24,7 +28,7 @@ function Header() {
           <img src='./logo.png' alt='' />
         </Link>
         <div className='navbar__search'>
-          <form className='search__form d-flex'>
+          <form  onSubmit={handleSearch} className='search__form d-flex'>
             <input
               className='search__formInput form-control'
               type='search'
@@ -43,11 +47,11 @@ function Header() {
                 <Link
                   className='profile__link nav-link d-flex align-items-center p-1'
                   aria-current='page'
-                  to='/profile'>
+                  to={`/profile/${data.id}`}>
                   <figure className='mb-0 rounded-circle'>
                     <img
-                      className='w-100 rounded-circle'
-                      src={data.imageUrl ? data.imageUrl : image}
+                      className='rounded-circle'
+                      src={data.imageUrl ? data.imageUrl : avatar}
                       alt=''
                     />
                   </figure>
