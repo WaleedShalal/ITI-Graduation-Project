@@ -46,7 +46,7 @@ function App() {
         <Route path='wellcome' element={<WelcomePage />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
-        <Route path='search/:city' element={<SearchPage />} />
+        <Route path='search/:name' element={<SearchPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </div>

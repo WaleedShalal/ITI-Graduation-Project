@@ -65,7 +65,7 @@ export  const users = [
     {
       id: 5,
       name: "AliLuk",
-      address: "cairo, Egypt",
+      address: "Cairo, Egypt",
       posts: "692",
       followers: "3.2m",
       following: "489",
@@ -82,7 +82,7 @@ export  const users = [
     {
       id: 6,
       name: "Mai_Hassans",
-      address: "cairo, Egypt",
+      address: "Cairo, Egypt",
       posts: "692",
       followers: "3.2m",
       following: "489",
@@ -99,7 +99,7 @@ export  const users = [
     {
       id: 7,
       name: "dala_almohands",
-      address: "cairo, Egypt",
+      address: "Cairo, Egypt",
       posts: "1,478",
       followers: "1.4m",
       following: "1,072",
@@ -114,7 +114,7 @@ export  const users = [
     {
       id: 8,
       name: "saraomar",
-      address: "Smouha,giza, Egypt",
+      address: "Smouha,Giza, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -126,7 +126,7 @@ export  const users = [
     {
       id: 9,
       name: "mohamedDiab",
-      address: "kafr el sheikh, Egypt",
+      address: "Kafr El Sheikh, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -150,7 +150,7 @@ export  const users = [
     {
       id: 11,
       name: "hassanGad",
-      address: "cairo, Egypt",
+      address: "Cairo, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -162,7 +162,7 @@ export  const users = [
     {
       id: 12,
       name: "samirmohamed",
-      address: "Smouha,giza, Egypt",
+      address: "Smouha,Giza, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -174,7 +174,7 @@ export  const users = [
     {
       id: 13,
       name: "omarkhaled",
-      address: "Smouha,giza, Egypt",
+      address: "Smouha,Giza, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -186,7 +186,7 @@ export  const users = [
     {
       id: 14,
       name: "sabryHassan",
-      address: "Smouha,giza, Egypt",
+      address: "Smouha,Giza, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -198,7 +198,7 @@ export  const users = [
     {
       id: 15,
       name: "AhmedEbrahim",
-      address: "Smouha,giza, Egypt",
+      address: "Smouha,Giza, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -222,7 +222,7 @@ export  const users = [
     {
       id: 17,
       name: "nadaosman",
-      address: "cairo, Egypt",
+      address: "Cairo, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -234,7 +234,7 @@ export  const users = [
     {
       id: 18,
       name: "ahmedHassan",
-      address: "kafr el sheikh, Egypt",
+      address: "Kafr El Sheikh, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -246,7 +246,7 @@ export  const users = [
     {
       id: 19,
       name: "ahmedsaid",
-      address: "kafr el sheikh, Egypt",
+      address: "Kafr El Sheikh, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
@@ -270,7 +270,7 @@ export  const users = [
     {
       id: 21,
       name: "salmaosam",
-      address: "giza, Egypt",
+      address: "Giza, Egypt",
       posts: "1,875",
       followers: "1.4m",
       following: "1,470",
