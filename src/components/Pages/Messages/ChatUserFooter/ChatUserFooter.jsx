@@ -26,10 +26,10 @@ function ChatUserFooter() {
   };
   return (
     <div className='row reply'>
-      <div className='col-sm-1 col-xs-1 pt-2 icon-btn'>
+      <div className='col-1  pt-2 icon-btn'>
         <i className='far fa-smile'></i>
       </div>
-      <div className='col-sm-11 col-xs-11 reply-main'>
+      <div className='col-11 reply-main'>
         <form className='d-flex' onSubmit={handleSendMsg}>
           <input
             rows='1'
@@ -38,11 +38,10 @@ function ChatUserFooter() {
             type='text'
             placeholder='Enter a message...'
             value={msgContent}
+            autoComplete='off'
             onChange={(e) => setMsgContent(e.target.value)}
           />
-          <button
-            className='col-sm-1 col-xs-1 icon-btn reply-send'
-            type='submit'>
+          <button className='col icon-btn reply-send' type='submit'>
             <i
               className='fas fa-paper-plane'
               aria-hidden='true'

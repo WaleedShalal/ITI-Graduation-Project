@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
+import './ChatUserBody.scss';
 
 function ChatUserBody({ isCurrent, data, userPhoto, time }) {
   const [image] = useState(
@@ -7,7 +8,12 @@ function ChatUserBody({ isCurrent, data, userPhoto, time }) {
   );
   const showLastMsg = useRef();
   const scrollToBottom = () => {
-    showLastMsg.current?.scrollIntoView({ behavior: 'smooth' });
+    showLastMsg.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+      inline: 'nearest',
+    });
+    // showLastMsg.current?.scrollIntoView({ behavior: 'smooth' });
   };
   useEffect(() => {
     scrollToBottom();

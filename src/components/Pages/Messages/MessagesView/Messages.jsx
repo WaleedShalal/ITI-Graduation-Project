@@ -49,7 +49,7 @@ function Messages() {
               <div className='messages__inboxHeader d-flex justify-content-around align-items-center px-3'>
                 <h4>chats</h4>
               </div>
-              <div className='messages__inboxBody py-4 mt-1'>
+              <div className='messages__inboxBody py-2'>
                 {users
                   ?.filter((user) => user.id !== data.id)
                   ?.map((data) => (
@@ -62,12 +62,14 @@ function Messages() {
                 <i className='fas fa-inbox fa-2x'></i>
               </div>
             ) : (
-              <div className='messages__chat col-8 ps-0'>
+              <div className='messages__chat col-8 ps-0 d-flex'>
                 <div className='messages__chatHeader d-flex justify-content-between align-items-center px-3'>
                   <ChatUserHeader />
-                  <i className='fas fa-exclamation-circle'></i>
+                  <span>
+                    <i className='chat__headerEx fas fa-info'></i>
+                  </span>
                 </div>
-                <div className='messages__chatBody px-3 py-4 mt-3'>
+                <div className='messages__chatBody px-3 py-4'>
                   {messagesSorted?.map((message) => (
                     <ChatUserBody
                       key={message.sentAt}

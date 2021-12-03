@@ -23,12 +23,30 @@ function Register() {
       label: 'Female',
     },
   ];
+  const classifyUsers = [
+    {
+      id: 1,
+      value: 'normal user',
+      label: 'normal user',
+    },
+    {
+      id: 2,
+      value: 'product owner',
+      label: 'product owner',
+    },
+    {
+      id: 3,
+      value: 'blogger',
+      label: 'blogger',
+    },
+  ];
 
   const initialValues = {
     firstName: '',
     lastName: '',
     birthDate: '',
     gender: '',
+    userBadge: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -43,6 +61,7 @@ function Register() {
     lastName: yup.string().required('Please enter a last name'),
     birthDate: yup.string().required('Please enter a birth date'),
     gender: yup.string().required('Please choose gender'),
+    userBadge: yup.string().required('Please choose Badge'),
     email: yup
       .string()
       .email('Please enter a valid email')
@@ -143,7 +162,18 @@ function Register() {
                     options={genderOption}
                     colWidth='col-6'
                   />
-                  <FormField name='email' type='email' label='email' />
+                  <FormField
+                    name='email'
+                    type='email'
+                    label='email'
+                    colWidth='col-6'
+                  />
+                  <FormRadioButton
+                    name='userBadge'
+                    label='userBadge'
+                    options={classifyUsers}
+                    colWidth='col-6'
+                  />
                   <FormField
                     name='password'
                     type='password'

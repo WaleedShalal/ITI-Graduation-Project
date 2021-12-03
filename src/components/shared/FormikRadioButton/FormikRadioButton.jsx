@@ -26,7 +26,7 @@ function FormRadioButton({ isRequired = 'true', name, label, options }) {
                     />
                     <label
                       htmlFor={option.value}
-                      className='radio__label__style d-flex justify-content-center align-items-center text-capitalize'>
+                      className='radio__label__style d-flex flex-nowrap justify-content-center align-items-center text-capitalize '>
                       {option.value}
                     </label>
                   </div>
@@ -36,7 +36,7 @@ function FormRadioButton({ isRequired = 'true', name, label, options }) {
           );
         }}
       </Field>
-      <div className='d-flex w-100'>
+      <div className='d-flex w-100 mt-1'>
         <FormErrorMessage className='w-100' name={name} />
       </div>
     </div>
