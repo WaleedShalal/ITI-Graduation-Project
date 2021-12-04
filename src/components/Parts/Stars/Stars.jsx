@@ -29,7 +29,7 @@ function Stars({ PostId, review }) {
   };
 
   return (
-    <ul className='stars mb-0'>
+    <ul className='stars mb-0 fs-4'>
       {stars.map((_, index) => {
         return (
           <li

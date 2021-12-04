@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/Auth";
 import avatar from "../../../assets/images/avatar.jpg";
@@ -27,7 +27,7 @@ function ProfileWidget() {
         opportunities.
       </p>
       <Link
-         to={`/profile/${data.id}`}
+        to={`/profile/${data.id}`}
         className="main-btn"
         href="profile.html"
         title=""

@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
   const [data, setData] = useState({
     imageUrl: avatar,
   });
+  const [users, setUsers] = useState([]);
   useEffect(() => {
     let isMounted = true;
     if(isMounted) {
@@ -40,11 +41,20 @@ export const AuthProvider = ({ children }) => {
     }
     return ()=>{isMounted = false};
   },[]);
-
+  // get all users 
+  useEffect(() => { 
+    let isMounted = true;
+    if (isMounted) {
+      db.collection("users").onSnapshot((snapshot) => {
+        setUsers(snapshot.docs.map((doc) => doc.data()));
+      });
+    }
+    return () => {isMounted = false}
+  },[]);
   if (loading) return <Loader />;
 
   return (
-    <AuthContext.Provider value={{ user, data,setData, loading, setLoading }}>
+    <AuthContext.Provider value={{ user,users, data,setData, loading, setLoading }}>
       {children}
     </AuthContext.Provider>
   );

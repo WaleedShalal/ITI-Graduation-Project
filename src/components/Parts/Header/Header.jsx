@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { AuthContext } from '../../../context/Auth';
 import Notifications from '../Notifications/Notifications';
 import avatar from '../../../assets/images/avatar.jpg';
+import Loader from '../Loader/Loader'
 import logoImg from '../../../assets/images/logo/logo.png';
 import './Header.scss';
 
@@ -22,7 +23,7 @@ function Header() {
     e.preventDefault();
     Navigate(`/search/${e.target[0].value}`);
   };
-  return (
+  return ( data.email ?
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
       <div className='container-fluid align-items-center'>
         <Link className='navbar__logo navbar-brand nav-link' to='/'>
@@ -173,7 +174,7 @@ function Header() {
           </li>
         </ul>
       </div>
-    </nav>
+    </nav> :  <Loader />
 
     /* ------------------------------- start edit ------------------------------- */
 

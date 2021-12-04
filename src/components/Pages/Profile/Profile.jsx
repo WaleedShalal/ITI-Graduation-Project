@@ -1,15 +1,18 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Post from "../../Parts/Post/Post";
 import Stars from "../../Parts/Stars/Stars";
 import { db } from "../.../../../../Firebase/Firebase";
 import NoPosts from "../../Parts/Post/NoPosts";
 import Stories from "../../Parts/Stories/Stories";
+import Loader from "../../Parts/Loader/Loader"
 import ImageUpload from "./../../Parts/VideoUpload/VideoUpload";
 import avatar from "./../../../assets/images/avatar.jpg";
 import "./Profile.scss";
+import { AuthContext } from "../../../context/Auth";
 
 function Profile() {
+  const { user ,users } = useContext(AuthContext);
   const param = useParams();
   const [posts, setPosts] = useState([]);
   const [data, setData] = useState({
@@ -54,6 +57,7 @@ function Profile() {
   },[param.id]);
 
   return (
+    data.email && users.length && user ?
     <div className='profile pt-5'>
       <div className='container'>
         <div className='row profile__wrapper flex-column-reverse flex-lg-row'>
@@ -160,7 +164,7 @@ function Profile() {
           </div>
         </div>
       </div>
-    </div>
+    </div>:  <Loader />
   );
 }
 

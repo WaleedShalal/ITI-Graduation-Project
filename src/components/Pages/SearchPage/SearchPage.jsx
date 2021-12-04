@@ -10,6 +10,7 @@ function SearchPage() {
 
   const results = users.filter(function (el) {
     if (city === "all") {
+      if(role !== "all") return el.name.startsWith(param.name.toLowerCase()) && el.role === role 
       return el.name.startsWith(param.name.toLowerCase());
     }
     if (role === "all") {
@@ -33,7 +34,7 @@ function SearchPage() {
       <div className="results">
         <div className="container">
           <div className="row">
-            <div className="filter col-3">
+            <div className="filter col-12 mx-auto col-lg-3">
               <div className="filter__header">
                 <h3>Filters</h3>
                 <div className="filter__selected">
@@ -101,7 +102,7 @@ function SearchPage() {
                 </div>
               </div>
             </div>
-            <div className="resultsection col-9">
+            <div className="resultsection col-12 col-lg-9">
               {results.length ? (
                 results.map((user) => {
                   return (

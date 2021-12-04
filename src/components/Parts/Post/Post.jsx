@@ -93,15 +93,15 @@ function Post({ username, postId, video, caption, rate ,userId}) {
               <ReactPlayer width="100%" url={video} controls />
             </div>
             <Rate PostId={postId} rate={rate} />
-            <Link to={`/profile/${userId}`} className="post-title">
+            <a href={`/profile/${userId}`} className="post-title">
               {username}
-            </Link>
+            </a>
             <p className="caption">{caption}</p>
             <div className="postFooter">
               <div className="post_comment">
                 {comments.map((comment) => (
                   <p key={comment.timestamp}>
-                    <Link to={`/profile/${comment.userId}`} className="me-1">{`${comment.username}`}</Link>
+                    <a href={`/profile/${comment.userId}`} className="me-1">{`${comment.username}`}</a>
                     {comment.text}
                   </p>
                 ))}

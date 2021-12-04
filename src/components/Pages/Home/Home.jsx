@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Post from "../../Parts/Post/Post";
 import { db } from "../.../../../../Firebase/Firebase";
 import VideoUpload from "../../Parts/VideoUpload/VideoUpload";
@@ -6,10 +6,14 @@ import PeopleYouKnow from "../../Parts/PeopleYouKnow/PeopleYouKnow";
 import ProfileWidget from "../../Parts/ProfileWidget/ProfileWidget";
 import Stories from "../../Parts/Stories/Stories";
 import Time from "../../Parts/Time/Time";
+import Loader from "../../Parts/Loader/Loader";
 import Footer from "../../Parts/Footer/Footer";
 import "./Home.scss";
+import { AuthContext } from "../../../context/Auth";
 function Home() {
   const [posts, setPosts] = useState([]);
+  const { user, data ,users } = useContext(AuthContext);
+ 
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
@@ -25,8 +29,7 @@ function Home() {
       isMounted = false;
     };
   },[]);
-
-  return (
+  return ( data.email && users.length && user ?
     <section className="home__page mt-5">
       <div className="container">
         <div className="row">
@@ -36,7 +39,7 @@ function Home() {
           <div className="col-12 col-lg-6">
             <Stories />
             <VideoUpload  />
-            {posts.map(({ id, post }) => {
+            {posts.length ?  posts.map(({ id, post }) => {
               return (
                 <Post
                   key={id}
@@ -48,7 +51,10 @@ function Home() {
                   rate={post.rate}
                 />
               );
-            })}
+            }) : <div className="d-flex justify-content-center mt-5">
+            <div className="spinner-border" style={{color: '#088dcd'}} role="status">
+            </div>
+          </div>}
           </div>
           <div className="col-12 col-lg-3">
             <PeopleYouKnow />
@@ -57,7 +63,7 @@ function Home() {
           </div>
         </div>
       </div>
-    </section>
+    </section> :  <Loader />
   );
 }
 
