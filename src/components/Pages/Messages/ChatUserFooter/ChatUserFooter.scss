@@ -78,3 +78,13 @@
   background: transparent;
   cursor: pointer;
 }
+.messages__form {
+  position: relative;
+  .emoji-picker-react {
+    position: absolute;
+    top: -340px;
+  }
+  .active {
+    display: none;
+  }
+}
