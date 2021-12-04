@@ -1,8 +1,11 @@
 import Picker from 'emoji-picker-react';
 import './Emoji.scss';
-function Emoji({ onEmojiClick }) {
+function Emoji({ onEmojiClick, handleGrandparent }) {
   return (
-    <div id='emoji' className='active'>
+    <div
+      id='emoji'
+      className='emoji__wrapper'
+      onClick={(e) => handleGrandparent(e)}>
       <Picker
         onEmojiClick={onEmojiClick}
         // preload={false}

@@ -22,6 +22,26 @@ function Header() {
     e.preventDefault();
     Navigate(`/search/${e.target[0].value}`);
   };
+
+  window.onclick = (e) => {
+    let element = document.getElementById('main__navbarList');
+    let elementTwo = document.getElementById('more__option');
+    let tragetElement = e.target;
+    if (tragetElement.classList.contains('navbar-toggler-icon'))
+      element.classList.toggle('active');
+    if (!tragetElement.classList.contains('navbar-toggler-icon'))
+      !tragetElement.classList.contains('navbar__list') &&
+        !elementTwo.classList.contains('active') &&
+        element.classList.contains('active') &&
+        element.classList.remove('active');
+    elementTwo.classList.remove('active');
+  };
+
+  const testClass = () => {
+    let element = document.getElementById('more__option');
+    element.classList.toggle('active');
+  };
+
   return (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
       <div className='container-fluid align-items-center'>
@@ -67,14 +87,16 @@ function Header() {
             </div>
           </div>
         )}
-        <input type='checkbox' id='check' />
-        <label htmlFor='check' className='ms-auto'>
+        {/* <input type='checkbox' id='check' /> */}
+        <div className='navbar__togglerIcon ms-auto'>
           <span className='navbar-toggler-icon'></span>
-        </label>
-        <ul className='navbar__list navbar-nav ms-0 mb-2 mb-lg-0 align-items-center'>
+        </div>
+        <ul
+          id='main__navbarList'
+          className='navbar__list navbar-nav ms-0 mb-2 mb-lg-0 align-items-center'>
           <li className='navbar__listItem nav-item d-flex'>
             <Link
-              className='item__link nav-link active'
+              className='item__link not__optionLink nav-link active'
               aria-current='page'
               to='/'>
               <i className='fa__item fas fa-home'></i>
@@ -85,7 +107,9 @@ function Header() {
             {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='navbar__listItem nav-item d-flex'>
-            <Link className='item__link nav-link' to='/messages'>
+            <Link
+              className='item__link  not__optionLink nav-link'
+              to='/messages'>
               <i className='fa__item far fa-comment-alt'></i>
               <span className='item__notification'></span>
               <span className='text-capitalize d-block d-lg-none  ms-3'>
@@ -103,7 +127,7 @@ function Header() {
             <div
               className='item__link nav-link'
               onClick={() => addClassActive()}>
-              <i className='fa__item far fa-bell'></i>
+              <i className='fa__item  not__optionLink far fa-bell'></i>
               <span className='item__notification'></span>
               <span className='text-capitalize d-block d-lg-none  ms-3'>
                 notifications
@@ -114,7 +138,7 @@ function Header() {
             {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='navbar__listItem nav-item d-flex'>
-            <Link className=' item__link nav-link' to='/cart'>
+            <Link className=' item__link  not__optionLink nav-link' to='/cart'>
               <i className='fa__item fas fa-shopping-cart'>
                 {fetchedData.purchased.length}
               </i>
@@ -125,7 +149,10 @@ function Header() {
             {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='navbar__listItem nested__list nav-item d-flex'>
-            <div className='item__link nav-link'>
+            <div
+              id='more__option'
+              className='item__link  nav-link'
+              onClick={testClass}>
               <i className='fa__item fas fa-th-large'></i>
               <span className='text-capitalize d-block d-lg-none  ms-3'>
                 more
@@ -134,13 +161,17 @@ function Header() {
             </div>
             <ul className='list__itemOption list-unstyled text-dark p-2'>
               <li className='option__eCommerce mb-2'>
-                <Link className='btn text-capitalize w-100' to='/products/1'>
+                <Link
+                  className='option__link btn text-capitalize w-100'
+                  to='/products/1'>
                   <i className='fas fa-store'></i> ecommerce
                 </Link>
                 {/* <div className='item__linkDecoration'></div> */}
               </li>
               <li className='option__setting mb-2'>
-                <Link className='btn text-capitalize w-100' to='/edit'>
+                <Link
+                  className='option__link btn text-capitalize w-100'
+                  to='/edit'>
                   <i className='fas fa-cogs'></i> Edit Profile
                 </Link>
                 {/* <div className='item__linkDecoration'></div> */}
@@ -148,20 +179,20 @@ function Header() {
               <li className='option__logout'>
                 {location.pathname === '/register' ? (
                   <NavLink
-                    className=' btn btn-outline-danger  text-capitalize w-100'
+                    className='option__link btn btn-outline-danger  text-capitalize w-100'
                     to={`/login`}>
                     <i className='fas fa-sign-out-alt'></i> Sign in
                   </NavLink>
                 ) : location.pathname === '/login' ||
                   location.pathname === '/wellcome' ? (
                   <NavLink
-                    className=' btn btn-outline-danger  text-capitalize w-100'
+                    className='option__link btn btn-outline-danger  text-capitalize w-100'
                     to={`/register`}>
                     <i className='fas fa-sign-out-alt'></i> Sign up
                   </NavLink>
                 ) : (
                   <NavLink
-                    className=' btn btn-outline-danger  text-capitalize w-100'
+                    className='option__link btn btn-outline-danger  text-capitalize w-100'
                     to={`/wellcome`}
                     onClick={() => auth.signOut()}>
                     <i className='fas fa-sign-out-alt'></i> logout

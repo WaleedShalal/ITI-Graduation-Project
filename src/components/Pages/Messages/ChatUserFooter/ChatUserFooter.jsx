@@ -26,23 +26,42 @@ function ChatUserFooter() {
     setMsgContent('');
   };
 
-  async function onEmojiClick(event, emojiObject) {
+  const onEmojiClick = (event, emojiObject) => {
     emojiObject && setMsgContent(`${msgContent}${emojiObject?.emoji}`);
-  }
+  };
 
   function handleToggleEmoji() {
     let emojiElement = document.getElementById('emoji');
     emojiElement.classList.toggle('active');
+    isInEmoji = !isInEmoji;
   }
+
+  let isInEmoji = false;
+
+  const handleGrandparent = (e) => {
+    // isInEmoji = true;
+    console.log(e.target);
+  };
+  // window.onclick = (e) => {
+  //   let emojiElement = document.getElementById('emoji');
+  //   if (!isInEmoji && emojiElement.classList.contains('active')) {
+  //     console.log('LLL');
+  //     // emojiElement.classList.remove('active');
+  //     isInEmoji = false;
+  //   }
+  // };
 
   return (
     <div className='row reply'>
       <div className='col-1  pt-2 icon-btn'>
-        <i className='far fa-smile' onClick={handleToggleEmoji}></i>
+        <i className='chat__emoji far fa-smile' onClick={handleToggleEmoji}></i>
       </div>
       <div className='col-11 reply-main'>
         <form className='messages__form d-flex' onSubmit={handleSendMsg}>
-          <Emoji onEmojiClick={onEmojiClick} />
+          <Emoji
+            onEmojiClick={onEmojiClick}
+            handleGrandparent={handleGrandparent}
+          />
           <input
             rows='1'
             id='comment'

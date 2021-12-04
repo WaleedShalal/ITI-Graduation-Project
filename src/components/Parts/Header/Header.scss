@@ -78,9 +78,9 @@
           > figure {
             padding: 2px;
             img {
-             width: 25px;
-            height: 25px;
-            object-fit: cover;
+              width: 25px;
+              height: 25px;
+              object-fit: cover;
             }
           }
         }
@@ -190,23 +190,33 @@
         }
       }
     }
+    &.active {
+      left: 0;
+    }
   }
   .item__forNotification {
     cursor: pointer;
   }
-  #check {
-    display: none;
-  }
-  #check + label {
+  // #check {
+  //   display: none;
+  // }
+  // #check + label {
+  //   cursor: pointer;
+  //   display: none;
+  //   @media (max-width: 991.98px) {
+  //     display: block;
+  //   }
+  // #check:checked ~ ul {
+  //   left: 0;
+  // }
+  .navbar__togglerIcon {
     cursor: pointer;
     display: none;
     @media (max-width: 991.98px) {
       display: block;
     }
   }
-  #check:checked ~ ul {
-    left: 0;
-  }
+
   @media (max-width: 575.98px) {
     .navbar__logo {
       font-size: 18px;
