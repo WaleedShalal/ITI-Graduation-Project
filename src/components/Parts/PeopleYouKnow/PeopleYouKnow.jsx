@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext} from "react";
 import { db } from "../.../../../../Firebase/Firebase";
 import avatar from "../../../assets/images/avatar.jpg";
+import { AuthContext } from "../../../context/Auth";
 import "./PeopleYouKnow.scss";
 function PeopleYouKnow() {
-  const [users, setUsers] = useState([]);
-  useEffect(() => { 
-    let isMounted = true;
-    if (isMounted) {
-      db.collection("users").onSnapshot((snapshot) => {
-        setUsers(snapshot.docs.map((doc) => doc.data()));
-      });
-    }
-    return () => {isMounted = false}
-  },[]);
+  const { users } = useContext(AuthContext);
   const handleFollow = (id, F) => {
     db.collection("users").doc(id).update({
       follow: !F,
@@ -35,7 +27,7 @@ function PeopleYouKnow() {
                       ? user.userName
                       : user.email.substring(0, user.email.lastIndexOf("@"))}
                   </a>
-                  <span>{user.followedHashtags}</span>
+                  <span>Followed by tarekelswahly + 3 more</span>
                 </h4>
                 <span
                   className="underline"

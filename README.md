@@ -28,6 +28,6 @@ firebase       : npm i firebase --save.\
 firebase-tools : npm install -g firebase-tools.\
 firebase-hooks : npm i react-firebase-hooks.\
 moment         : npm install moment --save.\
-react-modal    : npm install react-modal.
+react-modal    : npm install react-modal.\
 emoji-picker   : npm i emoji-picker-react
  
