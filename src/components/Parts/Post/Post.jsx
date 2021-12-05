@@ -4,7 +4,6 @@ import Rate from '../Rate/Rate';
 import { db } from '../../../Firebase/Firebase';
 import { AuthContext } from '../../../context/Auth';
 import firebase from 'firebase/compat/app';
-import { Link } from 'react-router-dom';
 import './Post.scss';
 import Emoji from '../Emoji/Emoji';
 
@@ -55,10 +54,37 @@ function Post({ username, postId, video, caption, rate, userId }) {
     emojiObject && setComment(`${comment}${emojiObject?.emoji}`);
   };
 
-  function handleToggleEmoji() {
+  const handleToggleEmoji = () => {
     let emojiElement = document.getElementById('emoji');
-    emojiElement.classList.toggle('active');
-  }
+    let comment__emoji = document.getElementById('comment__emoji');
+    comment__emoji.classList.toggle('active');
+    comment__emoji.classList.contains('active')
+      ? emojiElement.classList.add('active')
+      : emojiElement.classList.remove('active');
+  };
+
+  const [inEmoji, setInEmoji] = useState(false);
+  const handleParent = (param) => {
+    setInEmoji(param);
+  };
+
+  window.onclick = (e) => {
+    e.preventDefault();
+    let emojiElement = document.getElementById('emoji');
+    let comment__emoji = document.getElementById('comment__emoji');
+    let clickedElement = e.target;
+    handleParent(false);
+    if (emojiElement && comment__emoji && clickedElement) {
+      if (
+        comment__emoji.classList.contains('active') &&
+        !clickedElement.classList.contains('emoji__show') &&
+        !inEmoji
+      ) {
+        emojiElement.classList.remove('active');
+        comment__emoji.classList.remove('active');
+      }
+    }
+  };
 
   return (
     <div className='main-wraper mt-3'>
@@ -106,22 +132,30 @@ function Post({ username, postId, video, caption, rate, userId }) {
               <ReactPlayer width='100%' url={video} controls />
             </div>
             <Rate PostId={postId} rate={rate} />
-            <a href={`/profile/${userId}`} className="post-title">
+            <a href={`/profile/${userId}`} className='post-title'>
               {username}
             </a>
-            <p className="caption">{caption}</p>
-            <div className="postFooter">
-              <div className="post_comment">
+            <p className='caption'>{caption}</p>
+            <div className='postFooter'>
+              <div className='post_comment'>
                 {comments.map((comment) => (
                   <p key={comment.timestamp}>
-                    <a href={`/profile/${comment.userId}`} className="me-1">{`${comment.username}`}</a>
+                    <a
+                      href={`/profile/${comment.userId}`}
+                      className='me-1'>{`${comment.username}`}</a>
                     {comment.text}
                   </p>
                 ))}
               </div>
               <form className='comment align-items-center' action=''>
-                <i className='far fa-smile' onClick={handleToggleEmoji}></i>
-                <Emoji onEmojiClick={onEmojiClick} />
+                <i
+                  id='comment__emoji'
+                  className='emoji__show far fa-smile'
+                  onClick={handleToggleEmoji}></i>
+                <Emoji
+                  onEmojiClick={onEmojiClick}
+                  handleParent={handleParent}
+                />
                 <input
                   type='text'
                   placeholder='Add a comment...'

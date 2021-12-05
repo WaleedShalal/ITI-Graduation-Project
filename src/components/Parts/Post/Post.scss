@@ -205,8 +205,11 @@ img {
       position: absolute;
       top: -340px;
     }
-    .active {
+    .emoji__wrapper {
       display: none;
+      &.active {
+        display: block;
+      }
     }
   }
 }

@@ -8,9 +8,8 @@ import {
   removeAllCart,
   showSortAndFilter,
 } from '../../../store/cartActions';
-import './Products.scss';
 import Pagination from '../../Parts/Pagination/Pagination';
-import axios from 'axios';
+import './Products.scss';
 
 const Products = () => {
   const { fetchedData } = useSelector((state) => state);
@@ -35,22 +34,6 @@ const Products = () => {
     dispatch(fetchProducts());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  // const [currencyData, setCurrencyData] = useState({});
-
-  // useEffect(() => {
-  //   getCurrenyData();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
-
-  // async function getCurrenyData() {
-  //   const { data } = await axios.get(
-  //     'http://data.fixer.io/api/convert?access_key=9d60bd8b0bd44988201375b4abe63a31&from=EUR&to=EGP&amount=100',
-  //   );
-  //   setCurrencyData({ data });
-  //   // .then((res) => setCurrencyData({ ...res.data, base: 'EGP' }));
-  // }
-  // console.log(currencyData);
 
   return (
     <React.Fragment>

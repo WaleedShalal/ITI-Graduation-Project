@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { AuthContext } from '../../../context/Auth';
 import Notifications from '../Notifications/Notifications';
 import avatar from '../../../assets/images/avatar.jpg';
-import Loader from '../Loader/Loader'
+import Loader from '../Loader/Loader';
 import logoImg from '../../../assets/images/logo/logo.png';
 import './Header.scss';
 
@@ -25,17 +25,22 @@ function Header() {
   };
 
   window.onclick = (e) => {
+    e.preventDefault();
     let element = document.getElementById('main__navbarList');
     let elementTwo = document.getElementById('more__option');
     let tragetElement = e.target;
-    if (tragetElement.classList.contains('navbar-toggler-icon'))
-      element.classList.toggle('active');
-    if (!tragetElement.classList.contains('navbar-toggler-icon'))
-      !tragetElement.classList.contains('navbar__list') &&
-        !elementTwo.classList.contains('active') &&
-        element.classList.contains('active') &&
-        element.classList.remove('active');
-    elementTwo.classList.remove('active');
+    console.log('WRONG');
+    if (element && elementTwo && tragetElement) {
+      console.log('CORRECT');
+      if (tragetElement.classList.contains('navbar-toggler-icon'))
+        element.classList.toggle('active');
+      if (!tragetElement.classList.contains('navbar-toggler-icon'))
+        !tragetElement.classList.contains('navbar__list') &&
+          !elementTwo.classList.contains('active') &&
+          element.classList.contains('active') &&
+          element.classList.remove('active');
+      elementTwo.classList.remove('active');
+    }
   };
 
   const testClass = () => {
@@ -43,8 +48,7 @@ function Header() {
     element.classList.toggle('active');
   };
 
-
-  return ( data.email ?
+  return data.email ? (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
       <div className='container-fluid align-items-center'>
         <Link className='navbar__logo navbar-brand nav-link' to='/'>
@@ -206,7 +210,9 @@ function Header() {
           </li>
         </ul>
       </div>
-    </nav> :  <Loader />
+    </nav>
+  ) : (
+    <Loader />
   );
 }
 

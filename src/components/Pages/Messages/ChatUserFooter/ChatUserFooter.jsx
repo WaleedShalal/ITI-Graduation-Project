@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
 import { SecondUserContext } from './../../../../context/SecondUser';
 import { currentUserContext } from './../../../../context/CurrentUser';
-// import { useCollectionData } from 'react-firebase-hooks/firestore';
 import firebase from 'firebase/compat/app';
-import './ChatUserFooter.scss';
 import Emoji from '../../../Parts/Emoji/Emoji';
+import './ChatUserFooter.scss';
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
   const { messagesCollection } = useContext(FirebaseContext);
@@ -32,36 +31,50 @@ function ChatUserFooter() {
 
   function handleToggleEmoji() {
     let emojiElement = document.getElementById('emoji');
-    emojiElement.classList.toggle('active');
-    isInEmoji = !isInEmoji;
+    let chat__emoji = document.getElementById('chat__emoji');
+    chat__emoji.classList.toggle('active');
+    chat__emoji.classList.contains('active')
+      ? emojiElement.classList.add('active')
+      : emojiElement.classList.remove('active');
   }
-
-  let isInEmoji = false;
-
-  const handleGrandparent = (e) => {
-    // isInEmoji = true;
-    console.log(e.target);
+  const [inEmoji, setInEmoji] = useState(false);
+  const handleParent = (param) => {
+    setInEmoji(param);
   };
-  // window.onclick = (e) => {
-  //   let emojiElement = document.getElementById('emoji');
-  //   if (!isInEmoji && emojiElement.classList.contains('active')) {
-  //     console.log('LLL');
-  //     // emojiElement.classList.remove('active');
-  //     isInEmoji = false;
-  //   }
-  // };
+
+  window.onclick = (e) => {
+    let emojiElement = document.getElementById('emoji');
+    let chat__emoji = document.getElementById('chat__emoji');
+    let clickedElement = e.target;
+    handleParent(false);
+    // console.log(
+    //   chat__emoji.classList.contains('active'),
+    //   !clickedElement.classList.contains('emoji__show'),
+    //   !inEmoji,
+    // );
+    if (emojiElement && chat__emoji && clickedElement) {
+      if (
+        chat__emoji.classList.contains('active') &&
+        !clickedElement.classList.contains('emoji__show') &&
+        !inEmoji
+      ) {
+        emojiElement.classList.remove('active');
+        chat__emoji.classList.remove('active');
+      }
+    }
+  };
 
   return (
     <div className='row reply'>
       <div className='col-1  pt-2 icon-btn'>
-        <i className='chat__emoji far fa-smile' onClick={handleToggleEmoji}></i>
+        <i
+          id='chat__emoji'
+          className='emoji__show far fa-smile'
+          onClick={handleToggleEmoji}></i>
       </div>
       <div className='col-11 reply-main'>
         <form className='messages__form d-flex' onSubmit={handleSendMsg}>
-          <Emoji
-            onEmojiClick={onEmojiClick}
-            handleGrandparent={handleGrandparent}
-          />
+          <Emoji onEmojiClick={onEmojiClick} handleParent={handleParent} />
           <input
             rows='1'
             id='comment'

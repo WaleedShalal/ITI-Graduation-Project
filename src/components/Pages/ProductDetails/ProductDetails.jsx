@@ -137,10 +137,10 @@ const ProductDetails = () => {
         <div className='container'>
           <form onSubmit={addReview}>
             <div className='row py-3'>
-              <div class='input-container col-lg-8 col-10'>
+              <div className='input-container col-lg-8 col-10'>
                 <input
                   id='review'
-                  class='input'
+                  className='input'
                   type='text'
                   pattern='.+'
                   required
@@ -148,7 +148,7 @@ const ProductDetails = () => {
                   onChange={handleChangeComment}
                   value={comment}
                 />
-                <label class='label' for='review'>
+                <label className='label' htmlFor='review'>
                   Add Your Review
                 </label>
               </div>

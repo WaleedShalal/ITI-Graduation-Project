@@ -17,7 +17,6 @@ import Messages from './components/Pages/Messages/MessagesView/Messages';
 import PrivateRoute from './context/guard';
 import EditProfile from './components/Pages/EditProfile/EditProfile';
 import SearchPage from './components/Pages/SearchPage/SearchPage';
-import DeafultFooter from './components/Parts/DefaultFooter/DeafultFooter';
 import './App.scss';
 
 function App() {
@@ -50,7 +49,6 @@ function App() {
         <Route path='search/:name' element={<SearchPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
-      {/* <DeafultFooter /> */}
     </div>
   );
 }
