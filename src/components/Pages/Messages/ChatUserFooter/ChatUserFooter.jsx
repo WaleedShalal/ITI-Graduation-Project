@@ -42,27 +42,27 @@ function ChatUserFooter() {
     setInEmoji(param);
   };
 
-  window.onclick = (e) => {
-    let emojiElement = document.getElementById('emoji');
-    let chat__emoji = document.getElementById('chat__emoji');
-    let clickedElement = e.target;
-    handleParent(false);
-    // console.log(
-    //   chat__emoji.classList.contains('active'),
-    //   !clickedElement.classList.contains('emoji__show'),
-    //   !inEmoji,
-    // );
-    if (emojiElement && chat__emoji && clickedElement) {
-      if (
-        chat__emoji.classList.contains('active') &&
-        !clickedElement.classList.contains('emoji__show') &&
-        !inEmoji
-      ) {
-        emojiElement.classList.remove('active');
-        chat__emoji.classList.remove('active');
-      }
-    }
-  };
+  // window.onclick = (e) => {
+  //   let emojiElement = document.getElementById('emoji');
+  //   let chat__emoji = document.getElementById('chat__emoji');
+  //   let clickedElement = e.target;
+  //   handleParent(false);
+  //   // console.log(
+  //   //   chat__emoji.classList.contains('active'),
+  //   //   !clickedElement.classList.contains('emoji__show'),
+  //   //   !inEmoji,
+  //   // );
+  //   if (emojiElement && chat__emoji && clickedElement) {
+  //     if (
+  //       chat__emoji.classList.contains('active') &&
+  //       !clickedElement.classList.contains('emoji__show') &&
+  //       !inEmoji
+  //     ) {
+  //       emojiElement.classList.remove('active');
+  //       chat__emoji.classList.remove('active');
+  //     }
+  //   }
+  // };
 
   return (
     <div className='row reply'>

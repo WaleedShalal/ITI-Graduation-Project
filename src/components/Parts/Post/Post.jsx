@@ -68,23 +68,22 @@ function Post({ username, postId, video, caption, rate, userId }) {
     setInEmoji(param);
   };
 
-  window.onclick = (e) => {
-    e.preventDefault();
-    let emojiElement = document.getElementById('emoji');
-    let comment__emoji = document.getElementById('comment__emoji');
-    let clickedElement = e.target;
-    handleParent(false);
-    if (emojiElement && comment__emoji && clickedElement) {
-      if (
-        comment__emoji.classList.contains('active') &&
-        !clickedElement.classList.contains('emoji__show') &&
-        !inEmoji
-      ) {
-        emojiElement.classList.remove('active');
-        comment__emoji.classList.remove('active');
-      }
-    }
-  };
+  // window.onclick = (e) => {
+  //   let emojiElement = document.getElementById('emoji');
+  //   let comment__emoji = document.getElementById('comment__emoji');
+  //   let clickedElement = e.target;
+  //   handleParent(false);
+  //   if (emojiElement && comment__emoji && clickedElement) {
+  //     if (
+  //       comment__emoji.classList.contains('active') &&
+  //       !clickedElement.classList.contains('emoji__show') &&
+  //       !inEmoji
+  //     ) {
+  //       emojiElement.classList.remove('active');
+  //       comment__emoji.classList.remove('active');
+  //     }
+  //   }
+  // };
 
   return (
     <div className='main-wraper mt-3'>
