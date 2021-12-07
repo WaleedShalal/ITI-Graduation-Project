@@ -50,7 +50,7 @@ function Register() {
     email: '',
     password: '',
     confirmPassword: '',
-    address: [],
+    address: [''],
     phoneNumber: '',
     website: '',
     followedHashtags: [],
@@ -103,22 +103,25 @@ function Register() {
           updateProfile(auth.currentUser, {
             displayName: `${firstName}_${lastName}`,
           });
-          return db.collection('users').doc(cred.user.uid).set({
-            id: cred.user.uid,
-            address,
-            birthDate,
-            confirmPassword,
-            email,
-            firstName,
-            followedHashtags,
-            gender,
-            lastName,
-            password,
-            phoneNumber,
-            subscribeUs,
-            website,
-            username:`${firstName}_${lastName}`,
-          });
+          return db
+            .collection('users')
+            .doc(cred.user.uid)
+            .set({
+              id: cred.user.uid,
+              address,
+              birthDate,
+              confirmPassword,
+              email,
+              firstName,
+              followedHashtags,
+              gender,
+              lastName,
+              password,
+              phoneNumber,
+              subscribeUs,
+              website,
+              username: `${firstName}_${lastName}`,
+            });
         });
       navigate('/home');
     } catch (err) {
