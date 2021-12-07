@@ -44,9 +44,14 @@
     }
     input {
       padding: 5px 0;
+      border-radius: 5px;
+      border: none;
       &[name='followedHashtags'] {
         text-transform: capitalize;
         background-color: white;
+      }
+      &:focus {
+        outline-color: #088dcd;
       }
     }
     .hashtags__list {

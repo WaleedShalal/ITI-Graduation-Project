@@ -47,105 +47,184 @@ const Login = () => {
       onSubmit={onSubmit}>
       {(formik) => {
         return (
-          <Form>
-            <div className='login__form container pb-3 w-50 mb-3'>
-              <div className='form__wrapper w-75 mx-auto pt-3'>
-                <div className='row'>
-                  <FormField
-                    name='email'
-                    type='text'
-                    label='email'
-                    value={formik.values.email}
-                  />
-                  <FormField
-                    name='password'
-                    type='password'
-                    label='password'
-                    formType='login'
-                    value={formik.values.password}
-                  />
-                  <div className='sub__forgetWrapper d-flex align-items-baseline'>
-                    <FormCheckboxInput
-                      name='subscribeUs'
-                      type='checkbox'
-                      label='remember me'
-                    />
-                    <div className='forgot__linkWrapper ms-auto'>
-                      <NavLink
-                        to='#'
-                        className='forgot__link text-capitalize  text-dark'>
-                        forget password ?
-                      </NavLink>
+          <>
+            <section className='login__page py-5'>
+              <div className='page__overlay'></div>
+              <div className='container-fluid'>
+                <div className='row align-items-center'>
+                  <div className='login__gretting col-6'>
+                    {/* <div className=' fadeIn mb-5'>
+                      <h2 className='text-capitalize '>Come together &</h2>
+                      <h2 className='text-capitalize '>
+                        share your review video.
+                      </h2>
+                    </div> */}
+                    <div className='info__features mt-5'>
+                      <div className='feature d-flex fadeInLeftBig'>
+                        <i className='fas fa-check'></i>
+                        <h5 className='text-capitalize ms-3'>
+                          find bloggers accounts by locations.
+                        </h5>
+                      </div>
+                      <div className='feature d-flex fadeInLeftBig'>
+                        <i className='fas fa-check'></i>
+                        <h5 className='text-capitalize ms-3'>
+                          classify user as (product owner, blogger, normal
+                          user).
+                        </h5>
+                      </div>
+                      <div className='feature d-flex fadeInLeftBig'>
+                        <i className='fas fa-check'></i>
+                        <h5 className='text-capitalize ms-3'>
+                          providing e-commerce feature for each product owner.
+                        </h5>
+                      </div>
+                      <div className='feature d-flex fadeInLeftBig'>
+                        <i className='fas fa-check'></i>
+                        <h5 className='text-capitalize ms-3'>
+                          select the content that you interested in.
+                        </h5>
+                      </div>
+                      <div className='feature d-flex fadeInLeftBig'>
+                        <i className='fas fa-check'></i>
+                        <h5 className='text-capitalize ms-3'>
+                          find bloggers accounts by locations.
+                        </h5>
+                      </div>
+                      <div className='feature d-flex fadeInLeftBig'>
+                        <i className='fas fa-check'></i>
+                        <h5 className='text-capitalize ms-3'>
+                          classify user as (product owner, blogger, normal
+                          user).
+                        </h5>
+                      </div>
+                      <div className='feature d-flex fadeInLeftBig'>
+                        <i className='fas fa-check'></i>
+                        <h5 className='text-capitalize ms-3'>
+                          providing e-commerce feature for each product owner.
+                        </h5>
+                      </div>
+                      <div className='feature d-flex fadeInLeftBig'>
+                        <i className='fas fa-check'></i>
+                        <h5 className='text-capitalize ms-3'>
+                          select the content that you interested in.
+                        </h5>
+                      </div>
                     </div>
                   </div>
-                  <button
-                    type='submit'
-                    className='login__btn btn btn-primary d-block mx-auto w-25 rounded mt-5  mb-3  text-capitalize'
-                    disabled={!formik.isValid}>
-                    <div className='mx-auto w-75'>login</div>
-                  </button>
-                  <p className='form__error'>{error}</p>
-                  <div className='form__decoration text-dark col-12 d-flex justify-content-center align-items-center mb-4'>
-                    Or
-                  </div>
+                  <Form className='offset-1 col-5'>
+                    <div className='login__form pb-3 px-5 w-100 mb-3'>
+                      <div className='form__wrapper  mx-auto pt-3'>
+                        <div className='row'>
+                          <FormField
+                            name='email'
+                            type='text'
+                            label='email'
+                            value={formik.values.email}
+                          />
+                          <FormField
+                            name='password'
+                            type='password'
+                            label='password'
+                            formType='login'
+                            value={formik.values.password}
+                          />
+                          <div className='sub__forgetWrapper d-flex align-items-baseline'>
+                            <FormCheckboxInput
+                              name='subscribeUs'
+                              type='checkbox'
+                              label='remember me'
+                            />
+                            <div className='forgot__linkWrapper ms-auto'>
+                              <NavLink
+                                to='#'
+                                className='forgot__link text-capitalize  text-dark'>
+                                forget password ?
+                              </NavLink>
+                            </div>
+                          </div>
+                          <button
+                            type='submit'
+                            className='login__btn btn btn-primary d-block mx-auto w-25 rounded mt-5  mb-3  text-capitalize'
+                            disabled={!formik.isValid}>
+                            <div className='mx-auto w-75'>login</div>
+                          </button>
+                          <p className='form__error'>{error}</p>
+                          <div className='form__decoration text-dark col-12 d-flex justify-content-center align-items-center mb-4'>
+                            Or
+                          </div>
+                        </div>
+                      </div>
+                      <ul className='social__links list-unstyled d-flex flex-column  mx-auto '>
+                        <li className='w-100  py-1 my-1 '>
+                          <div className='social__linksWrapper  mx-auto text-start'>
+                            <NavLink
+                              className='d-flex align-items-baseline'
+                              to='#'>
+                              <figure className='social__linksImage mb-0'>
+                                <img
+                                  className='w-100 rounded-circle'
+                                  src={googleImage}
+                                  alt=''
+                                />
+                              </figure>
+                              <h6 className='text-capitalize text-dark ms-2'>
+                                google
+                              </h6>
+                            </NavLink>
+                          </div>
+                        </li>
+                        <li className='w-100  py-1 my-1'>
+                          <div className=' social__linksWrapper mx-auto text-start'>
+                            <NavLink
+                              className='d-flex align-items-baseline'
+                              to='#'>
+                              <figure className='social__linksImage mb-0'>
+                                <img
+                                  className='w-100 rounded-circle'
+                                  src={facebookImage}
+                                  alt=''
+                                />
+                              </figure>
+                              <h6 className='text-capitalize text-dark ms-2'>
+                                facebook
+                              </h6>
+                            </NavLink>
+                          </div>
+                        </li>
+                        <li className='w-100  py-1 my-1'>
+                          <div className='social__linksWrapper  mx-auto text-start'>
+                            <NavLink
+                              className='d-flex align-items-baseline'
+                              to='#'>
+                              <figure className='social__linksImage mb-0'>
+                                <img
+                                  className='w-100 rounded-circle'
+                                  src={twitterImage}
+                                  alt=''
+                                />
+                              </figure>
+                              <h6 className='text-capitalize text-dark ms-2'>
+                                twitter
+                              </h6>
+                            </NavLink>
+                          </div>
+                        </li>
+                      </ul>
+                      <div className='text-center'>
+                        <span className='text-capitalize'>
+                          don't have account?{' '}
+                        </span>
+                        <Link className='text-capitalize' to='/register'>
+                          join now
+                        </Link>
+                      </div>
+                    </div>
+                  </Form>
                 </div>
               </div>
-              <ul className='social__links list-unstyled d-flex flex-column  mx-auto  w-75 '>
-                <li className='w-100  py-1 my-1 '>
-                  <div className='social__linksWrapper  mx-auto text-start'>
-                    <NavLink className='d-flex align-items-baseline' to='#'>
-                      <figure className='social__linksImage mb-0'>
-                        <img
-                          className='w-100 rounded-circle'
-                          src={googleImage}
-                          alt=''
-                        />
-                      </figure>
-                      <h6 className='text-capitalize text-dark ms-2'>google</h6>
-                    </NavLink>
-                  </div>
-                </li>
-                <li className='w-100  py-1 my-1'>
-                  <div className=' social__linksWrapper mx-auto text-start'>
-                    <NavLink className='d-flex align-items-baseline' to='#'>
-                      <figure className='social__linksImage mb-0'>
-                        <img
-                          className='w-100 rounded-circle'
-                          src={facebookImage}
-                          alt=''
-                        />
-                      </figure>
-                      <h6 className='text-capitalize text-dark ms-2'>
-                        facebook
-                      </h6>
-                    </NavLink>
-                  </div>
-                </li>
-                <li className='w-100  py-1 my-1'>
-                  <div className='social__linksWrapper  mx-auto text-start'>
-                    <NavLink className='d-flex align-items-baseline' to='#'>
-                      <figure className='social__linksImage mb-0'>
-                        <img
-                          className='w-100 rounded-circle'
-                          src={twitterImage}
-                          alt=''
-                        />
-                      </figure>
-                      <h6 className='text-capitalize text-dark ms-2'>
-                        twitter
-                      </h6>
-                    </NavLink>
-                  </div>
-                </li>
-              </ul>
-              <div className='text-center'>
-                <span className='text-capitalize'>don't have account? </span>
-                <Link className='text-capitalize' to='/register'>
-                  join now
-                </Link>
-              </div>
-            </div>
-          </Form>
+            </section>
+          </>
         );
       }}
     </Formik>
