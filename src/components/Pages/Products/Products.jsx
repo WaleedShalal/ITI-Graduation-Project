@@ -49,8 +49,8 @@ const Products = () => {
   const [maxPriceValue, setMaxPriceValue] = useState(fetchedData.maxPrice);
 
   const handlePriceForm = (e) => {
+    e.preventDefault();
     if (minPriceValue && maxPriceValue) {
-      e.preventDefault();
       dispatch(
         showSortAndFilter(
           e,
