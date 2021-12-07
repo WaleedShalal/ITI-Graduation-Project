@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../../context/Auth";
 import { auth, db } from "../../../Firebase/Firebase";
-import ImageUpload from "../../Parts/ImageUpload/ImageUpload";
+import avatar from "../../../assets/images/avatar.jpg";
+import Loader from "../../../components/Parts/Loader/Loader"
 import "./EditProfile.scss";
 function EditProfile() {
   const navigate = useNavigate();
-  const context = useContext(AuthContext);
   const [updated, setUpdated] = useState(false);
+  const [isMounted, setMounted] = useState(true);
+  
   const [data, setData] = useState({
     address: [],
     birthDate: "",
@@ -22,6 +23,7 @@ function EditProfile() {
     phoneNumber: "",
     subscribeUs: true,
     website: "",
+    imageUrl: "",
   });
   useEffect(() => {
     db.collection("users")
@@ -31,21 +33,39 @@ function EditProfile() {
         setData(snapshot.data());
       });
   }, []);
+
   const onSubmit = (e) => {
     e.preventDefault();
-    db.collection("users")
-      .doc(auth.currentUser.uid)
-      .update({ ...data, imageUrl: context.data.imageUrl });
+    if (isMounted) {
+      db.collection("users")
+        .doc(auth.currentUser.uid)
+        .update(data);
+    }
     setUpdated(true);
     setTimeout(() => {
       setUpdated(false);
     }, 3000);
   };
+
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
-
+  useEffect(() => {
+    return () => {
+      setMounted(false);
+    };
+  }, []);
+  const imageHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setData({...data,imageUrl:reader.result});
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
   return (
+    data.email?
     <div className="edit__profile container">
       <div className="row gutters">
         <div className="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
@@ -54,7 +74,28 @@ function EditProfile() {
               <div className="account-settings">
                 <div className="user-profile">
                   <div className="user-avatar">
-                    <ImageUpload />
+                    <div className="page">
+                      <div className="img-holder">
+                        <img
+                          src={data.imageUrl ? data.imageUrl : avatar}
+                          alt=""
+                          id="img"
+                          className="img rounded-circle"
+                        />
+                      </div>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        name="image-upload"
+                        id="input"
+                        onChange={imageHandler}
+                      />
+                      <div className="label">
+                        <label className="image-upload" htmlFor="input">
+                          <i className="fas fa-camera"></i> change image
+                        </label>
+                      </div>
+                    </div>
                   </div>
                   <h5 className="user-name">
                     {data.email.substring(0, data.email.lastIndexOf("@"))}
@@ -234,7 +275,7 @@ function EditProfile() {
           </div>
         </div>
       </div>
-    </div>
+    </div>:<Loader />
   );
 }
 

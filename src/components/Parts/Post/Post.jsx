@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import ReactPlayer from 'react-player';
-import Rate from '../Rate/Rate';
-import { db } from '../../../Firebase/Firebase';
-import { AuthContext } from '../../../context/Auth';
 import firebase from 'firebase/compat/app';
-import './Post.scss';
+import { auth, db } from '../../../Firebase/Firebase';
+import { AuthContext } from '../../../context/Auth';
+import Rate from '../Rate/Rate';
 import Emoji from '../Emoji/Emoji';
+import avatar from '../../../assets/images/avatar.jpg';
+import './Post.scss';
 
 function Post({ username, postId, video, caption, rate, userId }) {
   const [isMounted, setMounted] = useState(true);
-  const { user, data } = useContext(AuthContext);
+  const { user, data, users } = useContext(AuthContext);
+  const [image, setImage] = useState('');
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState('');
   useEffect(() => {
@@ -41,6 +43,7 @@ function Post({ username, postId, video, caption, rate, userId }) {
         username: user.displayName,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         userId: data.id,
+        profileImage: data.imageUrl,
       });
       setComment('');
     }
@@ -74,12 +77,35 @@ function Post({ username, postId, video, caption, rate, userId }) {
     };
   });
 
+  // get user data
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      auth.onAuthStateChanged(function (user) {
+        if (user) {
+          db.collection('users')
+            .doc(userId)
+            .get()
+            .then((snapshot) => {
+              if (snapshot.exists) {
+                setImage(snapshot.data().imageUrl);
+              }
+            });
+        }
+      });
+    }
+    return () => {
+      isMounted = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data.imageUrl]);
+
   return (
     <div className='main-wraper mt-3'>
       <div className='user-post'>
         <div className='friend-info'>
           <figure>
-            <img alt='' src='https://via.placeholder.com/100' />
+            <img alt='' src={image ? image : avatar} />
           </figure>
           <div className='friend-name'>
             <div className='more'>
@@ -106,8 +132,8 @@ function Post({ username, postId, video, caption, rate, userId }) {
               </div>
             </div>
             <h5>
-              <a title='' href='time-line.html'>
-                Turgut Alp
+              <a title='' href={`/profile/${userId}`}>
+                {username}
               </a>{' '}
               Create Post
             </h5>
@@ -127,12 +153,41 @@ function Post({ username, postId, video, caption, rate, userId }) {
             <div className='postFooter'>
               <div className='post_comment'>
                 {comments.map((comment) => (
-                  <p key={comment.timestamp}>
-                    <a
-                      href={`/profile/${comment.userId}`}
-                      className='me-1'>{`${comment.username}`}</a>
-                    {comment.text}
-                  </p>
+                  <span key={comment.timestamp}>
+                    <figure>
+                      <img alt='' src={comment.profileImage} />
+                    </figure>
+                    <p>
+                      <a
+                        href={`/profile/${comment.userId}`}
+                        className='me-1'>{`${comment.username}`}</a>
+                      <span>
+                        {comment.text.includes('@')
+                          ? comment.text.substring(
+                              0,
+                              comment.text.lastIndexOf('@'),
+                            )
+                          : comment.text}
+                        {users.map(
+                          (user, index) =>
+                            comment.text.includes(user.username) && (
+                              <a key={index} href={`/profile/${user.id}`}>
+                                @{user.username}
+                              </a>
+                            ),
+                        )}
+                        {/* {users.map((user, index) => {
+                          if (comment.text.includes(user.username)) {
+                            return (
+                              <a key={index} href={`/profile/${user.id}`}>
+                                @{user.username}
+                              </a>
+                            );
+                          }
+                        })} */}
+                      </span>
+                    </p>
+                  </span>
                 ))}
               </div>
               <form className='comment align-items-center' action=''>
