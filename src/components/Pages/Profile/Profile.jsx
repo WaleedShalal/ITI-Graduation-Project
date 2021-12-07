@@ -1,63 +1,66 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import Post from "../../Parts/Post/Post";
-import Stars from "../../Parts/Stars/Stars";
-import { db } from "../.../../../../Firebase/Firebase";
-import NoPosts from "../../Parts/Post/NoPosts";
-import Stories from "../../Parts/Stories/Stories";
-import Loader from "../../Parts/Loader/Loader"
-import ImageUpload from "./../../Parts/VideoUpload/VideoUpload";
-import avatar from "./../../../assets/images/avatar.jpg";
-import "./Profile.scss";
-import { AuthContext } from "../../../context/Auth";
+import { useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import Post from '../../Parts/Post/Post';
+import Stars from '../../Parts/Stars/Stars';
+import { db } from '../.../../../../Firebase/Firebase';
+import NoPosts from '../../Parts/Post/NoPosts';
+import Stories from '../../Parts/Stories/Stories';
+import Loader from '../../Parts/Loader/Loader';
+import ImageUpload from './../../Parts/VideoUpload/VideoUpload';
+import avatar from './../../../assets/images/avatar.jpg';
+import './Profile.scss';
+import { AuthContext } from '../../../context/Auth';
 
 function Profile() {
-  const { user ,users } = useContext(AuthContext);
+  const { user, users } = useContext(AuthContext);
   const param = useParams();
   const [posts, setPosts] = useState([]);
   const [data, setData] = useState({
     imageUrl: avatar,
-    email:""
+    email: '',
   });
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
-      db.collection("posts")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) => {
-        var posts = snapshot.docs
-          .filter(function (doc) {
-            if (doc.data().userId !== param.id) {
-              return false; // skip
-            }
-            return true;
-          })
-          .map(function (doc) {
-            return { id: doc.id, post: doc.data() };
-          });
-        setPosts(posts);
-      })
+      db.collection('posts')
+        .orderBy('timestamp', 'desc')
+        .onSnapshot((snapshot) => {
+          var posts = snapshot.docs
+            .filter(function (doc) {
+              if (doc.data().userId !== param.id) {
+                return false; // skip
+              }
+              return true;
+            })
+            .map(function (doc) {
+              return { id: doc.id, post: doc.data() };
+            });
+          setPosts(posts);
+        });
     }
-      return ()=>{isMounted = false}
-  },[param.id]);
+    return () => {
+      isMounted = false;
+    };
+  }, [param.id]);
 
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
-      db.collection("users")
-      .doc(param.id)
-      .get()
-      .then((snapshot) => {
-        if (snapshot.exists) {
-          setData(snapshot.data());
-        }
-      });
+      db.collection('users')
+        .doc(param.id)
+        .get()
+        .then((snapshot) => {
+          if (snapshot.exists) {
+            setData(snapshot.data());
+          }
+        });
     }
-  return ()=>{isMounted = false}
-  },[param.id]);
+    return () => {
+      isMounted = false;
+    };
+  }, [param.id]);
 
-  return (
-    data.email && users.length && user ?
+  return data.email && users.length && user ? (
     <div className='profile pt-5'>
       <div className='container'>
         <div className='row profile__wrapper flex-column-reverse flex-lg-row'>
@@ -75,7 +78,7 @@ function Profile() {
                       video={post.videoUrl}
                       caption={post.caption}
                       rate={post.rate}
-                      userId = {post.userId}
+                      userId={post.userId}
                     />
                   );
                 })
@@ -84,16 +87,18 @@ function Profile() {
               )}
             </div>
           </div>
-          <div className="user-info offset-lg-1 col-lg-4 col-12 p-3">
-            <div className="d-flex flex-column justify-content-center align-items-center mb-5">
-              <h5 className="text-dark">
-                {data.email.substring(0, data.email.lastIndexOf("@")).toUpperCase()}{" "}
-                <i className="user__badge far fa-id-badge"></i>
+          <div className='user-info offset-lg-1 col-lg-4 col-12 p-3'>
+            <div className='d-flex flex-column justify-content-center align-items-center mb-5'>
+              <h5 className='text-dark'>
+                {data.email
+                  .substring(0, data.email.lastIndexOf('@'))
+                  .toUpperCase()}{' '}
+                <i className='user__badge far fa-id-badge'></i>
               </h5>
-              <img src={data.imageUrl ? data.imageUrl : avatar} alt="profile" />
-              <div className="rate d-flex">
+              <img src={data.imageUrl ? data.imageUrl : avatar} alt='profile' />
+              <div className='rate d-flex align-items-baseline'>
                 <Stars review={4} />
-                <span className='rate-number text-dark'>4.0</span>
+                <span className='rate-number text-dark fs-5 fw-bold'>4.0</span>
               </div>
               <button className='user__followBtn btn btn-outline-primary text-capitalize mt-2'>
                 follow
@@ -164,7 +169,9 @@ function Profile() {
           </div>
         </div>
       </div>
-    </div>:  <Loader />
+    </div>
+  ) : (
+    <Loader />
   );
 }
 
