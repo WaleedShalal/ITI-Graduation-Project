@@ -13,7 +13,7 @@ import { AuthContext } from "../../../context/Auth";
 function Home() {
   const [posts, setPosts] = useState([]);
   const { user, data, users } = useContext(AuthContext);
-
+console.log(users);
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
