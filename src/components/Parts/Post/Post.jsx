@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import ReactPlayer from 'react-player';
 import Rate from '../Rate/Rate';
 import { db } from '../../../Firebase/Firebase';
@@ -54,36 +54,25 @@ function Post({ username, postId, video, caption, rate, userId }) {
     emojiObject && setComment(`${comment}${emojiObject?.emoji}`);
   };
 
-  const handleToggleEmoji = () => {
-    let emojiElement = document.getElementById('emoji');
-    let comment__emoji = document.getElementById('comment__emoji');
-    comment__emoji.classList.toggle('active');
-    comment__emoji.classList.contains('active')
-      ? emojiElement.classList.add('active')
-      : emojiElement.classList.remove('active');
-  };
+  let emojiMenu = useRef(null);
+  let emojiIcon = useRef(null);
 
-  const [inEmoji, setInEmoji] = useState(false);
-  const handleParent = (param) => {
-    setInEmoji(param);
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
-  // window.onclick = (e) => {
-  //   let emojiElement = document.getElementById('emoji');
-  //   let comment__emoji = document.getElementById('comment__emoji');
-  //   let clickedElement = e.target;
-  //   handleParent(false);
-  //   if (emojiElement && comment__emoji && clickedElement) {
-  //     if (
-  //       comment__emoji.classList.contains('active') &&
-  //       !clickedElement.classList.contains('emoji__show') &&
-  //       !inEmoji
-  //     ) {
-  //       emojiElement.classList.remove('active');
-  //       comment__emoji.classList.remove('active');
-  //     }
-  //   }
-  // };
+  useEffect(() => {
+    let eventHandler = (event) => {
+      if (
+        !emojiMenu.current?.contains(event.target) &&
+        !emojiIcon.current?.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', eventHandler);
+    return () => {
+      document.removeEventListener('mousedown', eventHandler);
+    };
+  });
 
   return (
     <div className='main-wraper mt-3'>
@@ -148,13 +137,13 @@ function Post({ username, postId, video, caption, rate, userId }) {
               </div>
               <form className='comment align-items-center' action=''>
                 <i
+                  ref={emojiIcon}
+                  onClick={() => setIsOpen((isOpen) => !isOpen)}
                   id='comment__emoji'
-                  className='emoji__show far fa-smile'
-                  onClick={handleToggleEmoji}></i>
-                <Emoji
-                  onEmojiClick={onEmojiClick}
-                  handleParent={handleParent}
-                />
+                  className='emoji__show far fa-smile'></i>
+                {isOpen && (
+                  <Emoji onEmojiClick={onEmojiClick} emojiMenu={emojiMenu} />
+                )}
                 <input
                   type='text'
                   placeholder='Add a comment...'

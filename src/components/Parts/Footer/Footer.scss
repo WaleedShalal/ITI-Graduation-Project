@@ -42,8 +42,8 @@
   border: 1px solid #ccc;
   padding: 8px;
   border-radius: 50%;
-  
-  &:hover{
+
+  &:hover {
     outline: 3px solid lightblue;
   }
 }
@@ -52,14 +52,13 @@
   height: 20px;
   text-align: center;
   transition: all 0.3s ease-in-out;
-  &:hover{
+  &:hover {
     color: darkblue;
     transform: translateY(-2px) scale(1.15);
   }
 }
-.text-center {
+.footer__copyright {
   width: 90%;
-
   a {
     color: #0d6efd;
   }

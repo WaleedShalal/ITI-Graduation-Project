@@ -24,23 +24,21 @@ function Header() {
     Navigate(`/search/${e.target[0].value}`);
   };
 
-  // window.onclick = (e) => {
-  //   let element = document.getElementById('main__navbarList');
-  //   let elementTwo = document.getElementById('more__option');
-  //   let tragetElement = e.target;
-  //   console.log('WRONG');
-  //   if (element && elementTwo && tragetElement) {
-  //     console.log('CORRECT');
-  //     if (tragetElement.classList.contains('navbar-toggler-icon'))
-  //       element.classList.toggle('active');
-  //     if (!tragetElement.classList.contains('navbar-toggler-icon'))
-  //       !tragetElement.classList.contains('navbar__list') &&
-  //         !elementTwo.classList.contains('active') &&
-  //         element.classList.contains('active') &&
-  //         element.classList.remove('active');
-  //     elementTwo.classList.remove('active');
-  //   }
-  // };
+  window.onclick = (e) => {
+    let element = document.getElementById('main__navbarList');
+    let elementTwo = document.getElementById('more__option');
+    let tragetElement = e.target;
+    if (element && elementTwo && tragetElement) {
+      if (tragetElement.classList.contains('navbar-toggler-icon'))
+        element.classList.toggle('active');
+      if (!tragetElement.classList.contains('navbar-toggler-icon'))
+        !tragetElement.classList.contains('navbar__list') &&
+          !elementTwo.classList.contains('active') &&
+          element.classList.contains('active') &&
+          element.classList.remove('active');
+      elementTwo.classList.remove('active');
+    }
+  };
 
   const testClass = () => {
     let element = document.getElementById('more__option');

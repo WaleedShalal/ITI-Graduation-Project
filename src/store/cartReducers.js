@@ -17,8 +17,11 @@ const initialState = {
   filterValue: localStorage.getItem('filterValue')
     ? JSON.parse(localStorage.getItem('filterValue'))
     : '',
+  minPrice: '',
+  maxPrice: '',
   errors: '',
 };
+/* ---------------------------- start price input --------------------------- */
 export const fetchProductsReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionsTypes.FETCH_PRODUCTS_REQUEST:
@@ -117,6 +120,31 @@ export const fetchProductsReducer = (state = initialState, action) => {
         }
       }
     }
+    case actionsTypes.PRICE_VALUE: {
+      let data = [];
+      if (state.filterValue !== 'all') {
+        data = state.products.filter(
+          (product) => product.category === state.filterValue,
+        );
+      } else {
+        data = state.products;
+      }
+      let products = data.filter(
+        (product) =>
+          product.price >= action.min && product.price <= action.max && product,
+      );
+      state.sortValue === 'latest'
+        ? products.sort((a, b) => a.id - b.id)
+        : state.sortValue === 'lowest'
+        ? products.sort((a, b) => a.price - b.price)
+        : products.sort((a, b) => b.price - a.price);
+      return {
+        ...state,
+        filter: products,
+        minPrice: action.min,
+        maxPrice: action.max,
+      };
+    }
     case actionsTypes.RESET_CART: {
       //Clone
       let purchased = [...state.purchased];
@@ -166,3 +194,5 @@ export const fetchProductsReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+const filterByValue = () => {};

@@ -1,14 +1,10 @@
 import Picker from 'emoji-picker-react';
 import './Emoji.scss';
-function Emoji({ onEmojiClick, handleParent }) {
+function Emoji({ onEmojiClick, emojiMenu }) {
   return (
-    <div
-      id='emoji'
-      className='emoji__wrapper'
-      onClick={() => handleParent(true)}>
+    <div id='emoji' className='emoji__wrapper' ref={emojiMenu}>
       <Picker
         onEmojiClick={onEmojiClick}
-        // preload={false}
         disableSearchBar={true}
         disableSkinTonePicker={true}
       />

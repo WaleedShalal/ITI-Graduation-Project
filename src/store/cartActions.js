@@ -62,14 +62,27 @@ export const removeAllCart = () => {
 // END ACTIONS FOR ADD & REMOVE CART
 
 // START ACTIONS FOR SORT AND FILTER
-export const showSortAndFilter = (e, allProduct, allFilter) => {
+export const showSortAndFilter = (
+  e,
+  allProduct,
+  allFilter,
+  minValues,
+  maxValues,
+) => {
   return {
     type:
       e.currentTarget.name === actionsTypes.SORT_VALUE
         ? actionsTypes.SORT_VALUE
-        : actionsTypes.FILTER_VALUE,
+        : e.currentTarget.name === actionsTypes.FILTER_VALUE
+        ? actionsTypes.FILTER_VALUE
+        : actionsTypes.PRICE_VALUE,
+    // e.currentTarget.name === actionsTypes.SORT_VALUE
+    //   ? actionsTypes.SORT_VALUE
+    //   : actionsTypes.FILTER_VALUE,
     product: allProduct,
     filter: allFilter,
+    min: minValues,
+    max: maxValues,
     name: e.currentTarget.name,
     value: e.currentTarget.value,
   };

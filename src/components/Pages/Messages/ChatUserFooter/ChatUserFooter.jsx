@@ -1,10 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
 import { SecondUserContext } from './../../../../context/SecondUser';
 import { currentUserContext } from './../../../../context/CurrentUser';
 import firebase from 'firebase/compat/app';
 import Emoji from '../../../Parts/Emoji/Emoji';
 import './ChatUserFooter.scss';
+import { useEffect } from 'react';
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
   const { messagesCollection } = useContext(FirebaseContext);
@@ -29,40 +30,25 @@ function ChatUserFooter() {
     emojiObject && setMsgContent(`${msgContent}${emojiObject?.emoji}`);
   };
 
-  function handleToggleEmoji() {
-    let emojiElement = document.getElementById('emoji');
-    let chat__emoji = document.getElementById('chat__emoji');
-    chat__emoji.classList.toggle('active');
-    chat__emoji.classList.contains('active')
-      ? emojiElement.classList.add('active')
-      : emojiElement.classList.remove('active');
-  }
-  const [inEmoji, setInEmoji] = useState(false);
-  const handleParent = (param) => {
-    setInEmoji(param);
-  };
+  let emojiMenu = useRef(null);
+  let emojiIcon = useRef(null);
 
-  // window.onclick = (e) => {
-  //   let emojiElement = document.getElementById('emoji');
-  //   let chat__emoji = document.getElementById('chat__emoji');
-  //   let clickedElement = e.target;
-  //   handleParent(false);
-  //   // console.log(
-  //   //   chat__emoji.classList.contains('active'),
-  //   //   !clickedElement.classList.contains('emoji__show'),
-  //   //   !inEmoji,
-  //   // );
-  //   if (emojiElement && chat__emoji && clickedElement) {
-  //     if (
-  //       chat__emoji.classList.contains('active') &&
-  //       !clickedElement.classList.contains('emoji__show') &&
-  //       !inEmoji
-  //     ) {
-  //       emojiElement.classList.remove('active');
-  //       chat__emoji.classList.remove('active');
-  //     }
-  //   }
-  // };
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    let eventHandler = (event) => {
+      if (
+        !emojiMenu.current?.contains(event.target) &&
+        !emojiIcon.current?.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', eventHandler);
+    return () => {
+      document.removeEventListener('mousedown', eventHandler);
+    };
+  });
 
   return (
     <div className='row reply'>
@@ -70,11 +56,14 @@ function ChatUserFooter() {
         <i
           id='chat__emoji'
           className='emoji__show far fa-smile'
-          onClick={handleToggleEmoji}></i>
+          ref={emojiIcon}
+          onClick={() => setIsOpen((isOpen) => !isOpen)}></i>
       </div>
       <div className='col-11 reply-main'>
         <form className='messages__form d-flex' onSubmit={handleSendMsg}>
-          <Emoji onEmojiClick={onEmojiClick} handleParent={handleParent} />
+          {isOpen && (
+            <Emoji onEmojiClick={onEmojiClick} emojiMenu={emojiMenu} />
+          )}
           <input
             rows='1'
             id='comment'
