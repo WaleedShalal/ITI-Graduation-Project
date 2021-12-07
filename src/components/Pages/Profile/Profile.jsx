@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Post from "../../Parts/Post/Post";
 import Stars from "../../Parts/Stars/Stars";
-import { db } from "../.../../../../Firebase/Firebase";
+import { auth, db } from "../.../../../../Firebase/Firebase";
 import NoPosts from "../../Parts/Post/NoPosts";
 import Stories from "../../Parts/Stories/Stories";
 import Loader from "../../Parts/Loader/Loader"
@@ -13,6 +13,7 @@ import { AuthContext } from "../../../context/Auth";
 
 function Profile() {
   const { user ,users } = useContext(AuthContext);
+  const [follow, setFollow] = useState(true)
   const param = useParams();
   const [posts, setPosts] = useState([]);
   const [data, setData] = useState({
@@ -95,9 +96,10 @@ function Profile() {
                 <Stars review={4} />
                 <span className='rate-number text-dark'>4.0</span>
               </div>
-              <button className='user__followBtn btn btn-outline-primary text-capitalize mt-2'>
-                follow
-              </button>
+              {user.uid !== param.id && <button className='user__followBtn btn btn-outline-primary text-capitalize mt-2' onClick={()=>setFollow(!follow)}>
+                {follow ? "follow" : "unfollow" }
+              </button>}
+           
             </div>
             <div className='user__description text-dark px-2 mb-3'>
               <p className='text-capitalize mb-0'>job : front-end developer</p>
