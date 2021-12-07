@@ -4,7 +4,7 @@ import { db, storage } from "../../../Firebase/Firebase";
 import { AuthContext } from "../../../context/Auth";
 import "./VideoUpload.scss";
 function ImageUpload() {
-  const { user } = useContext(AuthContext);
+  const { user ,data} = useContext(AuthContext);
   const [video, setVideo] = useState(null);
   const [progress, setProgress] = useState(0);
   const [caption, setCaption] = useState("");

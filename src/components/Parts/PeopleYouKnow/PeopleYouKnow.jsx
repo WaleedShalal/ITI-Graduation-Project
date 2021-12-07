@@ -1,46 +1,49 @@
-import React, { useContext} from "react";
-import { db } from "../.../../../../Firebase/Firebase";
+import React, { useContext, useEffect, useState } from "react";
+import { auth, db } from "../.../../../../Firebase/Firebase";
 import avatar from "../../../assets/images/avatar.jpg";
 import { AuthContext } from "../../../context/Auth";
 import "./PeopleYouKnow.scss";
-function PeopleYouKnow() {
-  const { users } = useContext(AuthContext);
-  const handleFollow = (id, F) => {
-    db.collection("users").doc(id).update({
-      follow: !F,
-    });
-  };
+function PeopleYouKnow({ userId, username, email }) {
+  const [image, setImage] = useState("");
+  const { user } = useContext(AuthContext);
+  // get user data
+  useEffect(() => {
+    let isMounted = true;
+    if (isMounted) {
+      auth.onAuthStateChanged(function (user) {
+        if (user) {
+          db.collection("users")
+            .doc(userId)
+            .get()
+            .then((snapshot) => {
+              if (snapshot.exists) {
+                setImage(snapshot.data().imageUrl);
+              }
+            });
+        }
+      });
+    }
+    return () => {
+      isMounted = false;
+    };
+  });
+
   return (
-    <div className="widget stick-widget">
-      <h4 className="widget-title">Who's follownig</h4>
-      <ul className="followers">
-        {users.slice(0, 5).map((user) => {
-          return (
-            <li key={user.id}>
-              <figure>
-                <img alt="" src={avatar} />
-              </figure>
-              <div className="friend-meta">
-                <h4>
-                  <a className="d-block" href="time-line.html">
-                    {user.userName
-                      ? user.userName
-                      : user.email.substring(0, user.email.lastIndexOf("@"))}
-                  </a>
-                  <span>Followed by tarekelswahly + 3 more</span>
-                </h4>
-                <span
-                  className="underline"
-                  onClick={() => handleFollow(user.id, user.follow)}
-                >
-                  {!user.follow ? "follow" : "unfollow"}
-                </span>
-              </div>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+      userId !== user.uid &&
+    <li key={userId}>
+      <figure>
+        <img alt="" src={image ? image : avatar} />
+      </figure>
+      <div className="friend-meta">
+        <h4>
+          <a className="d-block" href={`/profile/${userId}`}>
+            {username ? username : email.substring(0, email.lastIndexOf("@"))}
+          </a>
+          <span>Followed by tarekelswahly </span>
+        </h4>
+        <span className="underline">follow</span>
+      </div>
+    </li>
   );
 }
 

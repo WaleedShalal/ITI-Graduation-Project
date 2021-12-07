@@ -117,6 +117,7 @@ function Register() {
             phoneNumber,
             subscribeUs,
             website,
+            username:`${firstName}_${lastName}`,
           });
         });
       navigate('/home');

@@ -20,7 +20,8 @@ export const AuthProvider = ({ children }) => {
       });
     }
     return ()=>{isMounted = false};
-  },[]);
+  },[user?.uid]);
+
 
   // get user data
   useEffect(() => {
@@ -29,18 +30,19 @@ export const AuthProvider = ({ children }) => {
       auth.onAuthStateChanged(function (user) {
         if (user) {
           db.collection("users")
-            .doc(user.uid)
-            .get()
-            .then((snapshot) => {
-              if (snapshot.exists) {
-                setData(snapshot.data());
-              }
-            });
+          .doc(user.uid)
+          .get()
+          .then((snapshot) => {
+            if (snapshot.exists) {
+              setData(snapshot.data());
+            }
+          });
         }
       });
     }
     return ()=>{isMounted = false};
-  },[]);
+  });
+
   // get all users 
   useEffect(() => { 
     let isMounted = true;
