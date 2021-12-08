@@ -76,9 +76,6 @@ export const showSortAndFilter = (
         : e.currentTarget.name === actionsTypes.FILTER_VALUE
         ? actionsTypes.FILTER_VALUE
         : actionsTypes.PRICE_VALUE,
-    // e.currentTarget.name === actionsTypes.SORT_VALUE
-    //   ? actionsTypes.SORT_VALUE
-    //   : actionsTypes.FILTER_VALUE,
     product: allProduct,
     filter: allFilter,
     min: minValues,

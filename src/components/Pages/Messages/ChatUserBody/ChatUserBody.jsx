@@ -23,7 +23,7 @@ function ChatUserBody({ isCurrent, data, userPhoto, time }) {
     <div
       className='d-flex align-items-baseline flex-column pt-3'
       ref={showLastMsg}>
-      <h6 className='message__sentAt text-center'>
+      <h6 className='message__sentAt w-100 text-center'>
         {time && moment(time.toDate()).calendar()}
       </h6>
       <div className='d-flex'>

@@ -14,6 +14,7 @@ import './Products.scss';
 const Products = () => {
   const { fetchedData } = useSelector((state) => state);
   const dispatch = useDispatch();
+  // console.log(fetchedData.filterValue, fetchedData.sortValue);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [productPerPage] = useState(8);
@@ -70,22 +71,19 @@ const Products = () => {
       : setMaxPriceValue(e.target.value);
   };
 
-  const textInput = useRef(null);
+  // const textInput = useRef(null);
 
-  function handleClickElement() {
-    // textInput.current.focus();
-    console.log(textInput);
-  }
+  // function handleClickElement() {
+  //   // textInput.current.focus();
+  //   console.log(textInput);
+  // }
 
   return (
     <React.Fragment>
       <section className='main__products container-fluid'>
         <div className='row'>
-          <div
-            className='for__filterOptions col-sm-4 col-md-3'
-            ref={textInput}
-            onClick={handleClickElement}>
-            <div className='filter__optionWrapper d-flex flex-column justify-content-center align-items-center'>
+          <div className='for__filterOptions col-sm-4 col-md-3'>
+            <div className='filter__optionWrapper d-flex flex-column justify-content-center align-items-center pt-3'>
               <h3 className='text-capitalize mb-5'>filter</h3>
               <ul className='list-unstyled w-100 px-3'>
                 <li>
@@ -219,10 +217,10 @@ const Products = () => {
           </div>
           <div className='col-sm-8 col-md-9'>
             <div className='options__wrapper row'>
-              <div className='options d-flex flex-wrap justify-content-between py-3 '>
+              <div className='options d-flex flex-wrap justify-content-between py-4 '>
                 <div className='col d-flex'>
-                  <h6 className='text-capitalize'>results</h6>
-                  <h6 className='ms-1'>({currentProducts.length})</h6>
+                  <h5 className='text-capitalize'>results</h5>
+                  <h5 className='ms-1'>({currentProducts.length})</h5>
                 </div>
 
                 {fetchedData.purchased.length > 0 && (
@@ -237,7 +235,7 @@ const Products = () => {
               </div>
             </div>
             <div className='row py-4'>
-              <div className='products d-flex flex-wrap justify-content-between'>
+              <div className='products d-flex flex-wrap justify-content-evenly mb-3'>
                 {currentProducts.map((product) => (
                   <div key={product.id} className='card'>
                     <div className='card__header'>
@@ -281,14 +279,14 @@ const Products = () => {
                   </div>
                 ))}
               </div>
+              <Pagination
+                dataPerPage={productPerPage}
+                totalData={fetchedData.filter.length}
+                paginate={paginate}
+              />
             </div>
           </div>
         </div>
-        <Pagination
-          dataPerPage={productPerPage}
-          totalData={fetchedData.filter.length}
-          paginate={paginate}
-        />
       </section>
     </React.Fragment>
     //       <div className='col-9'>

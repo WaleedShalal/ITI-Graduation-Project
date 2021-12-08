@@ -9,13 +9,13 @@ function FormField({
   name,
   type,
   label,
-  colWidth = 'col-12',
+  colWidth = 'col-xl-6',
 }) {
   return (
     <Field name={name}>
       {(formikField) => {
         return (
-          <div className={colWidth}>
+          <div className={`${colWidth}`}>
             <label htmlFor={name} className='text-dark text-capitalize mt-3'>
               {label} {isRequired && <span className='text-danger'>*</span>}
             </label>

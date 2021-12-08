@@ -79,6 +79,7 @@ export const fetchProductsReducer = (state = initialState, action) => {
     }
     case actionsTypes.SORT_VALUE: {
       let filter = action.filter;
+      console.log(filter);
       switch (action.value) {
         case 'lowest': {
           filter = filter.sort((a, b) => a.price - b.price);
@@ -87,7 +88,9 @@ export const fetchProductsReducer = (state = initialState, action) => {
           return { ...state, filter, sortValue: action.value };
         }
         case 'highest': {
+          console.log(filter);
           filter = filter.sort((a, b) => b.price - a.price);
+          console.log(filter);
           localStorage.setItem('sortValue', JSON.stringify(action.value));
           localStorage.setItem('filter', JSON.stringify(filter));
           return { ...state, filter, sortValue: action.value };
@@ -110,6 +113,7 @@ export const fetchProductsReducer = (state = initialState, action) => {
         case 'all': {
           localStorage.setItem('filterValue', JSON.stringify(action.value));
           localStorage.setItem('filter', JSON.stringify(products));
+
           return { ...state, filter: products, filterValue: action.value };
         }
         default: {
@@ -122,13 +126,14 @@ export const fetchProductsReducer = (state = initialState, action) => {
     }
     case actionsTypes.PRICE_VALUE: {
       let data = [];
-      if (state.filterValue !== 'all') {
+      if (state.filterValue !== 'all' && state.filterValue) {
         data = state.products.filter(
           (product) => product.category === state.filterValue,
         );
       } else {
         data = state.products;
       }
+      console.log(data);
       let products = data.filter(
         (product) =>
           product.price >= action.min && product.price <= action.max && product,
@@ -194,5 +199,3 @@ export const fetchProductsReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-const filterByValue = () => {};

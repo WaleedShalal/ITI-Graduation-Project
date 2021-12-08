@@ -1,13 +1,12 @@
 $mainFontSize: 1em;
 .main__products {
   min-height: 499px;
-  padding-top: 30px;
-  // margin-top: 30px;
+  padding-top: 56px;
   background-color: #fafafa;
   border-radius: 5px;
   .for__filterOptions {
     background-color: #fafafa;
-    padding-top: 50px;
+    // padding-top: 50px;
     border-right: 1px solid lightgray;
     cursor: pointer;
     .category {
@@ -59,7 +58,7 @@ $mainFontSize: 1em;
   }
   .options__wrapper {
     background-color: white;
-    padding-top: 50px;
+    // padding-top: 50px;
   }
   .options {
     width: 100%;

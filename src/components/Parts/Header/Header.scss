@@ -266,7 +266,8 @@
       height: 100vh;
       transition: all 1s ease-in-out;
       padding: 25px 10px 25px 3px;
-      overflow-y: scroll;
+      overflow-y: auto;
+      // overflow-y: scroll;
       overflow-x: hidden;
       .navbar__listItem {
         width: 100%;
@@ -353,7 +354,8 @@
       height: 100vh;
       transition: all 1s ease-in-out;
       padding: 25px 10px 25px 3px;
-      overflow-y: scroll;
+      overflow-y: auto;
+      // overflow-y: scroll;
       overflow-x: hidden;
       .navbar__listItem {
         width: 100%;
@@ -440,7 +442,8 @@
       height: 100vh;
       transition: all 1s ease-in-out;
       padding: 25px 10px 25px 3px;
-      overflow-y: scroll;
+      overflow-y: auto;
+      // overflow-y: scroll;
       overflow-x: hidden;
       .navbar__listItem {
         width: 100%;

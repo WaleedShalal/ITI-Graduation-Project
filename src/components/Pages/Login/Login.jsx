@@ -9,6 +9,7 @@ import googleImage from '../../../assets/images/google.png';
 import facebookImage from '../../../assets/images/facebook.png';
 import twitterImage from '../../../assets/images/twitter.png';
 import './Login.scss';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   /* ---------------------------- start login auth ---------------------------- */
@@ -36,7 +37,8 @@ const Login = () => {
       await auth.signInWithEmailAndPassword(e.email, e.password);
       navigate('/home');
     } catch (err) {
-      setError(err.message);
+      setError(err.message.slice(10));
+      toast.error(err.message.slice(10));
     }
   };
 
@@ -52,13 +54,8 @@ const Login = () => {
               <div className='page__overlay'></div>
               <div className='container-fluid'>
                 <div className='row align-items-center'>
-                  <div className='login__gretting col-6'>
-                    {/* <div className=' fadeIn mb-5'>
-                      <h2 className='text-capitalize '>Come together &</h2>
-                      <h2 className='text-capitalize '>
-                        share your review video.
-                      </h2>
-                    </div> */}
+                  {/* <div className='login__gretting col-6'>
+                    
                     <div className='info__features mt-5'>
                       <div className='feature d-flex fadeInLeftBig'>
                         <i className='fas fa-check'></i>
@@ -111,16 +108,17 @@ const Login = () => {
                         </h5>
                       </div>
                     </div>
-                  </div>
-                  <Form className='offset-1 col-5'>
+                  </div> */}
+                  <Form className='login__formWrapper col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto'>
                     <div className='login__form pb-3 px-5 w-100 mb-3'>
-                      <div className='form__wrapper  mx-auto pt-3'>
+                      <div className='form__wrapper mx-auto pt-3 '>
                         <div className='row'>
                           <FormField
                             name='email'
                             type='text'
                             label='email'
                             value={formik.values.email}
+                            colWidth='col-12'
                           />
                           <FormField
                             name='password'
@@ -128,6 +126,7 @@ const Login = () => {
                             label='password'
                             formType='login'
                             value={formik.values.password}
+                            colWidth='col-12'
                           />
                           <div className='sub__forgetWrapper d-flex align-items-baseline'>
                             <FormCheckboxInput

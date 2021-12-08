@@ -3,6 +3,7 @@
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
+  min-height: 100vh;
   position: relative;
   .page__overlay {
     position: absolute;
@@ -11,98 +12,104 @@
     width: 100%;
     height: 100%;
     background-color: rgba($color: #000000, $alpha: 0.2);
-    // z-index: 1;
   }
   .login__gretting {
     color: white;
     z-index: 2;
   }
-  .login__form {
-    // background-color: #f5f5f5;
-    background-color: rgba($color: #ffffff, $alpha: 0.8);
-    border-radius: 5px;
-    position: relative;
-    .user__image {
-      position: absolute;
-      top: 0%;
-      left: 50%;
-      transform: translate(-50%, -60%);
+  .login__formWrapper {
+    @media (max-width: 575.98px) {
+      width: 60%;
     }
-  }
-  .input__style {
-    border-radius: 5px;
-    border: none;
-    &:focus-visible {
-      outline: 3px solid #deebf3 !important;
-    }
-  }
-  .form__wrapper {
-    .sub__forgetWrapper {
-      @media (max-width: 767.98px) {
-        flex-direction: column;
-        align-items: center !important;
-        .forgot__linkWrapper {
-          margin-left: 0 !important;
-        }
-      }
-      .forgot__link {
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-    .login__btn {
-      background-color: #088dcd !important;
-      @media (max-width: 767.98px) {
-        width: 50% !important;
-        font-size: 16px;
-      }
-    }
-  }
-
-  .error__message {
-    border-radius: 15px;
-  }
-  .form__decoration::before {
-    content: '';
-    display: inline-block;
-    width: 200px;
-    height: 2px;
-    background-color: #deebf3;
-    margin-right: 10px;
-  }
-  .form__decoration::after {
-    content: '';
-    display: inline-block;
-    width: 200px;
-    height: 2px;
-    background-color: #deebf3;
-    margin-left: 10px;
-  }
-  .social__links {
-    > li {
-      background-color: white;
+    .login__form {
+      // background-color: #f5f5f5;
+      background-color: rgba($color: #ffffff, $alpha: 0.8);
       border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s ease-in-out;
-      &:hover {
-        transform: translateY(-3px);
-        background-color: #deebf3;
+      position: relative;
+      .user__image {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -60%);
       }
-      .social__linksWrapper {
-        width: 120px;
-        &:hover {
-          img {
-            transform: scale(1.15);
+    }
+    .input__style {
+      border-radius: 5px;
+      border: none;
+      &:focus-visible {
+        outline: 3px solid #deebf3 !important;
+      }
+    }
+    .form__wrapper {
+      .sub__forgetWrapper {
+        @media (max-width: 767.98px) {
+          flex-direction: column;
+          align-items: center !important;
+          .forgot__linkWrapper {
+            margin-left: 0 !important;
           }
         }
-        .social__linksImage {
-          width: 30px !important;
-          height: 30px !important;
-          img {
-            border: 2px solid #deebf3;
-            border-radius: 50%;
-            transition: all 0.3s ease-in-out;
+        .forgot__link {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      .login__btn {
+        background-color: #088dcd !important;
+        @media (max-width: 767.98px) {
+          width: 50% !important;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .error__message {
+      border-radius: 15px;
+    }
+    .form__decoration::before {
+      content: '';
+      display: inline-block;
+      width: 200px;
+      height: 2px;
+      background-color: #088dcd;
+      margin-right: 10px;
+    }
+    .form__decoration::after {
+      content: '';
+      display: inline-block;
+      width: 200px;
+      height: 2px;
+      background-color: #088dcd;
+      margin-left: 10px;
+    }
+    .social__links {
+      > li {
+        background-color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        .social__linksWrapper {
+          width: 120px;
+          .social__linksImage {
+            width: 30px !important;
+            height: 30px !important;
+            img {
+              border: 2px solid #deebf3;
+              border-radius: 50%;
+              transition: all 0.3s ease-in-out;
+            }
+          }
+        }
+        &:hover {
+          transform: translateY(-3px);
+          background-color: #deebf3;
+          .social__linksWrapper {
+            img {
+              transform: scale(1.15);
+              border: 2px solid #088dcd;
+            }
           }
         }
       }

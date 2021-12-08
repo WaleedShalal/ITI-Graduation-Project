@@ -65,40 +65,58 @@ const ProductForm = () => {
       enableReinitialize>
       {(formik) => {
         return (
-          <Form className='product__formWrapper'>
-            <div className='product__form container py-3 mt-4'>
-              <div className='form__productWrapper'>
-                <div className='row'>
-                  <FormField name='title' type='text' label='title' />
-                  <FormField name='price' type='number' label='price' />
-                  <FormField
-                    name='description'
-                    type='text'
-                    label='description'
-                  />
-                  <FormikSelectInput
-                    name='category'
-                    type='text'
-                    label='category'
-                  />
-                  <FormField name='image' type='text' label='image url' />
-                  <div className='form__productBtn col-12 text-center mt-4'>
-                    <Link
-                      to='/admin'
-                      className='product__backBtn text-warning rounded btn btn-outline-warning text-capitalize col'>
-                      back to admin
-                    </Link>
-                    <button
-                      type='submit'
-                      disabled={!formik.isValid}
-                      className='product__addBtn rounded btn btn-primary text-capitalize col ms-4'>
-                      {id === 'new' ? 'add product' : 'edit product'}
-                    </button>
+          <section className='product__formWrapper'>
+            <div className='product__formOverlay'></div>
+            <div className='container'>
+              <div className='row'>
+                <Form className='col-sm-8 mx-auto'>
+                  <div className='product__form py-3 mt-4'>
+                    <div className='form__productWrapper p-3'>
+                      <div className='row'>
+                        <FormField name='title' type='text' label='title' />
+                        <FormField
+                          name='description'
+                          type='text'
+                          label='description'
+                        />
+                        <FormField name='price' type='number' label='price' />
+                        <FormikSelectInput
+                          name='category'
+                          type='text'
+                          label='category'
+                        />
+                        <FormField
+                          name='image'
+                          type='text'
+                          label='image url'
+                          colWidth='col-xl-12'
+                        />
+                        <div className='form__productBtn col-12 text-center mt-5'>
+                          <div className='row'>
+                            <div className='product__backBtnWrapper col-sm-6 '>
+                              <Link
+                                to='/admin'
+                                className='product__backBtn text-warning rounded btn btn-outline-warning text-capitalize'>
+                                back to admin
+                              </Link>
+                            </div>
+                            <div className='product__addBtnWrapper col-sm-6'>
+                              <button
+                                type='submit'
+                                disabled={!formik.isValid}
+                                className='product__addBtn rounded btn btn-primary text-capitalize '>
+                                {id === 'new' ? 'add product' : 'edit product'}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </Form>
               </div>
             </div>
-          </Form>
+          </section>
         );
       }}
     </Formik>

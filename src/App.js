@@ -1,6 +1,8 @@
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle';
+import { ToastContainer } from 'react-toastify';
+import '../node_modules/react-toastify/dist/ReactToastify.css';
 import Header from './components/Parts/Header/Header';
 import WelcomePage from './components/Pages/WelcomePage/WelcomePage';
 import Login from './components/Pages/Login/Login';
@@ -23,6 +25,7 @@ function App() {
   const { pathname } = useLocation();
   return (
     <div className='App'>
+      <ToastContainer />
       {pathname !== '/login' &&
         pathname !== '/register' &&
         pathname !== '/wellcome' && <Header />}

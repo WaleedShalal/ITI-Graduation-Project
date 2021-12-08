@@ -3,13 +3,18 @@ import { Field } from 'formik';
 import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
 import './FormikSelectInput.scss';
 
-function FormikSelectInput({ isRequired, name, type, label }) {
-
+function FormikSelectInput({
+  colWidth = 'col-xl-6',
+  isRequired,
+  name,
+  type,
+  label,
+}) {
   return (
     <Field name={name}>
       {(formikField) => {
         return (
-          <div className='form-group'>
+          <div className={`form-group ${colWidth}`}>
             <label htmlFor={name} className='text-dark text-capitalize mt-3'>
               {label} {isRequired && <span className='text-danger'>*</span>}
             </label>
