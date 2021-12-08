@@ -8,7 +8,7 @@ function ProfileWidget() {
   return (
     <div className="w-100 widget profile-widget text-center">
       <div className="user-heading round">
-        <a href="/">
+        <a href={`/profile/${data.id}`}>
           <img
             className="rounded-circle"
             src={data.imageUrl ? data.imageUrl : avatar}
@@ -16,7 +16,7 @@ function ProfileWidget() {
           />
         </a>
         <h1 className="mt-2">{user.displayName}</h1>
-        <p>{user.email}</p>
+        <p>"{user.email}"</p>
       </div>
       <h4 className="widget-title">
         Your profile has a new Experience section

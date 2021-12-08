@@ -138,6 +138,13 @@ img {
   margin-top: 15px;
   position: relative;
   width: 100%;
+  .showComments{
+    color: #65676b;
+    &:hover{
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
 }
 
 .post-meta > .video {

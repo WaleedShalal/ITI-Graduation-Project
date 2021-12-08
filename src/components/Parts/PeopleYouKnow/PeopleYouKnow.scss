@@ -6,10 +6,9 @@
 .followers > li figure {
   display: inline-block;
   margin-bottom: 0;
-  max-width: 40px;
-  min-width: 40px;
+ 
   vertical-align: middle;
-  width: 40px;
+  width: 45px;
 }
 .followers > li figure img {
   border-radius: 100%;
@@ -44,7 +43,7 @@ img {
 
 .friend-meta > span {
   float: right;
-  font-size: 12px;
+  font-size: .8rem;
   margin-top: 3px;
   position: relative;
   color: #088dcd;

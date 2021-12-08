@@ -3,7 +3,7 @@ import { auth, db } from "../.../../../../Firebase/Firebase";
 import avatar from "../../../assets/images/avatar.jpg";
 import { AuthContext } from "../../../context/Auth";
 import "./PeopleYouKnow.scss";
-function PeopleYouKnow({ userId, username, email }) {
+function PeopleYouKnow({ userId, username, email,role }) {
   const [image, setImage] = useState("");
   const { user } = useContext(AuthContext);
   // get user data
@@ -39,7 +39,7 @@ function PeopleYouKnow({ userId, username, email }) {
           <a className="d-block" href={`/profile/${userId}`}>
             {username ? username : email.substring(0, email.lastIndexOf("@"))}
           </a>
-          <span>Followed by tarekelswahly </span>
+          <span className="text-capitalize">{role}</span>
         </h4>
         <span className="underline">follow</span>
       </div>

@@ -8,12 +8,11 @@ import Stories from "../../Parts/Stories/Stories";
 import Time from "../../Parts/Time/Time";
 import Loader from "../../Parts/Loader/Loader";
 import Footer from "../../Parts/Footer/Footer";
-import "./Home.scss";
 import { AuthContext } from "../../../context/Auth";
+import "./Home.scss";
 function Home() {
   const [posts, setPosts] = useState([]);
   const { user, data, users } = useContext(AuthContext);
-console.log(users);
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
@@ -68,13 +67,14 @@ console.log(users);
             <div className="widget stick-widget">
               <h4 className="widget-title text-center">Who's follownig</h4>
               <ul className="followers">
-                {users.map((user) => {
+                {users.slice(0,4).map((user) => {
                   return (
                     <PeopleYouKnow
                       key={user.id}
                       userId={user.id}
                       username={user.userName}
                       email={user.email}
+                      role={user.role}
                     />
                   );
                 })}
