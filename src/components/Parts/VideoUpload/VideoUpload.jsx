@@ -57,7 +57,7 @@ function ImageUpload() {
     } else {
       setError(true);
     }
-    error && toast.error('Please upload video first');
+    error && toast.error('Please Choose a video');
   };
   return (
     <div className='main-wraper mb-0 mt-3'>
@@ -89,11 +89,11 @@ function ImageUpload() {
               <progress className='progress me-2' value={progress} max='100' />
             )}
             <p className='font-weight-normal text-black'>{video?.name}</p>
-            {/* {error && !video?.name && (
+            {error && !video?.name && (
               <p className='font-weight-normal text-danger'>
                 please choose a video
               </p>
-            )} */}
+            )}
           </div>
         </div>
       </div>

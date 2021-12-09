@@ -143,9 +143,9 @@ function Register() {
           <section className='register__formWrapper pt-5'>
             <div className='container'>
               <div className='row'>
-                <Form className='col-sm-10 col-md-9 col-lg-6 col-xl-7 mx-auto'>
+                <Form className='col-sm-10 col-md-9 col-lg-6 col-xl-8  mx-auto'>
                   <div className='background__overlay'></div>
-                  <div className='register__form p-3 pb-0'>
+                  <div className='register__form p-3 px-5 pb-0'>
                     <div className='form__wrapper'>
                       <div className='row'>
                         <FormField
