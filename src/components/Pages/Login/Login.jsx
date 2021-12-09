@@ -20,7 +20,6 @@ const Login = () => {
     password: '',
     rememberMe: false,
   };
-  const [error, setError] = useState('');
   const validationSchema = yup.object({
     email: yup
       .string()
@@ -36,9 +35,9 @@ const Login = () => {
     try {
       await auth.signInWithEmailAndPassword(e.email, e.password);
       navigate('/home');
+      toast.success('Welcome Back');
     } catch (err) {
-      setError(err.message.slice(10));
-      toast.error(err.message.slice(10));
+      toast.error(err.message.slice(10, err.message.lastIndexOf('(')));
     }
   };
 
@@ -109,7 +108,7 @@ const Login = () => {
                       </div>
                     </div>
                   </div> */}
-                  <Form className='login__formWrapper col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto'>
+                  <Form className='login__formWrapper col-sm-8 col-md-6 col-lg-5 col-xl-5 mx-auto'>
                     <div className='login__form pb-3 px-5 w-100 mb-3'>
                       <div className='form__wrapper mx-auto pt-3 '>
                         <div className='row'>
@@ -148,7 +147,6 @@ const Login = () => {
                             disabled={!formik.isValid}>
                             <div className='mx-auto w-75'>login</div>
                           </button>
-                          <p className='form__error'>{error}</p>
                           <div className='form__decoration text-dark col-12 d-flex justify-content-center align-items-center mb-4'>
                             Or
                           </div>
