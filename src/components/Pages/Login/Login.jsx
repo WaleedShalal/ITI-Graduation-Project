@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { FirebaseContext } from '../../../Firebase/Firebase';
 import { Formik, Form } from 'formik';
@@ -8,8 +8,8 @@ import FormCheckboxInput from '../../shared/FormikCheckboxInput/ForminCheckboxIn
 import googleImage from '../../../assets/images/google.png';
 import facebookImage from '../../../assets/images/facebook.png';
 import twitterImage from '../../../assets/images/twitter.png';
-import './Login.scss';
 import { toast } from 'react-toastify';
+import './Login.scss';
 
 const Login = () => {
   /* ---------------------------- start login auth ---------------------------- */
@@ -55,61 +55,6 @@ const Login = () => {
               <div className='page__overlay'></div>
               <div className='container-fluid'>
                 <div className='row align-items-center'>
-                  {/* <div className='login__gretting col-6'>
-                    
-                    <div className='info__features mt-5'>
-                      <div className='feature d-flex fadeInLeftBig'>
-                        <i className='fas fa-check'></i>
-                        <h5 className='text-capitalize ms-3'>
-                          find bloggers accounts by locations.
-                        </h5>
-                      </div>
-                      <div className='feature d-flex fadeInLeftBig'>
-                        <i className='fas fa-check'></i>
-                        <h5 className='text-capitalize ms-3'>
-                          classify user as (product owner, blogger, normal
-                          user).
-                        </h5>
-                      </div>
-                      <div className='feature d-flex fadeInLeftBig'>
-                        <i className='fas fa-check'></i>
-                        <h5 className='text-capitalize ms-3'>
-                          providing e-commerce feature for each product owner.
-                        </h5>
-                      </div>
-                      <div className='feature d-flex fadeInLeftBig'>
-                        <i className='fas fa-check'></i>
-                        <h5 className='text-capitalize ms-3'>
-                          select the content that you interested in.
-                        </h5>
-                      </div>
-                      <div className='feature d-flex fadeInLeftBig'>
-                        <i className='fas fa-check'></i>
-                        <h5 className='text-capitalize ms-3'>
-                          find bloggers accounts by locations.
-                        </h5>
-                      </div>
-                      <div className='feature d-flex fadeInLeftBig'>
-                        <i className='fas fa-check'></i>
-                        <h5 className='text-capitalize ms-3'>
-                          classify user as (product owner, blogger, normal
-                          user).
-                        </h5>
-                      </div>
-                      <div className='feature d-flex fadeInLeftBig'>
-                        <i className='fas fa-check'></i>
-                        <h5 className='text-capitalize ms-3'>
-                          providing e-commerce feature for each product owner.
-                        </h5>
-                      </div>
-                      <div className='feature d-flex fadeInLeftBig'>
-                        <i className='fas fa-check'></i>
-                        <h5 className='text-capitalize ms-3'>
-                          select the content that you interested in.
-                        </h5>
-                      </div>
-                    </div>
-                  </div> */}
                   <Form className='login__formWrapper col-sm-8 col-md-6 col-lg-5 col-xl-5 mx-auto'>
                     <div className='login__form pb-3 px-5 w-100 mb-3'>
                       <div className='form__wrapper mx-auto pt-3 '>

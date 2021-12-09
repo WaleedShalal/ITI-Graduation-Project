@@ -30,7 +30,7 @@ function ImageUpload() {
           setProgress(progress);
         },
         (error) => {
-          toast.error();
+          toast.error(error);
         },
         () => {
           storage
@@ -56,8 +56,8 @@ function ImageUpload() {
       );
     } else {
       setError(true);
+      toast.error('Please Choose a video');
     }
-    error && toast.error('Please Choose a video');
   };
   return (
     <div className='main-wraper mb-0 mt-3'>

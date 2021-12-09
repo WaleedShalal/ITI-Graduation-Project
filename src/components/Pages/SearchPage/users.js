@@ -8,7 +8,6 @@ import khaled from "./users/khaled.jpg";
 import ali from "./users/ali.jpg";
 import mai from "./users/mai.jpg";
 import dala from "./users/dala.jpg";
-import sara from "./users/sara.jpg";
 import mohamed from "./users/mohamed.jpg";
 import walled from "./users/waleed.jpg";
 import sabry from "./users/sabry.jpg";
@@ -148,7 +147,6 @@ export const users = [
           SHOP THE #FUNAIDKIT 👇🏼 xhbtshop.com`,
     image: sara2,
     role: "Blogger",
-    image: sara,
   },
   {
     id: 9,

@@ -114,7 +114,7 @@ function Header() {
               className='item__link  not__optionLink nav-link'
               to='/messages'>
               <i className='fa__item far fa-comment-alt'></i>
-              <span className='item__notification'></span>
+              <span className='item__notification'>3</span>
               <span className='text-capitalize d-block d-lg-none  ms-3'>
                 messages
               </span>
@@ -131,7 +131,7 @@ function Header() {
               className='item__link nav-link'
               onClick={() => addClassActive()}>
               <i className='fa__item  not__optionLink far fa-bell'></i>
-              <span className='item__notification'></span>
+              <span className='item__notification'>4</span>
               <span className='text-capitalize d-block d-lg-none  ms-3'>
                 notifications
               </span>

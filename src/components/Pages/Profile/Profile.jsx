@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams,useNavigate } from 'react-router-dom';
 import Post from '../../Parts/Post/Post';
 import Stars from '../../Parts/Stars/Stars';
 import { db } from '../.../../../../Firebase/Firebase';
@@ -15,6 +15,7 @@ function Profile() {
   const { user, users } = useContext(AuthContext);
   const [follow, setFollow] = useState(true);
   const param = useParams();
+  const navigate = useNavigate();
   const [posts, setPosts] = useState([]);
   const [data, setData] = useState({
     imageUrl: avatar,
@@ -97,16 +98,23 @@ function Profile() {
                 <i className='user__badge far fa-id-badge'></i>
               </h5>
               <img src={data.imageUrl ? data.imageUrl : avatar} alt='profile' />
-              <div className='rate d-flex align-items-baseline'>
+              <div className='rate d-flex align-items-baseline border-0'>
                 <Stars review={4} />
                 <span className='rate-number text-dark fs-5 fw-bold'>4.0</span>
               </div>
               {user.uid !== param.id && (
+                <div>
                 <button
                   className='user__followBtn btn btn-outline-primary text-capitalize mt-2'
                   onClick={() => setFollow(!follow)}>
                   {follow ? 'follow' : 'unfollow'}
                 </button>
+                <button
+                  className='user__followBtn btn btn-outline-primary text-capitalize mt-2 ms-2'
+                  onClick={() =>navigate('/messages')}>
+                  <i className="fab fa-facebook-messenger"></i>
+                </button>
+                </div>
               )}
             </div>
             <div className='user__description text-dark px-2 mb-3'>

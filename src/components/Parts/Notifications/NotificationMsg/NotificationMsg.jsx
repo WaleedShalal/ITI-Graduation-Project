@@ -1,5 +1,5 @@
 import React from 'react';
-import userImage from '../../../../assets/images/user-img.png';
+import userImage from '../../../../assets/images/highlights/img6.png';
 import './NotificationMsg.scss';
 
 function NotificationMsg() {

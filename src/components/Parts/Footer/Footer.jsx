@@ -27,28 +27,6 @@ function Footer() {
       <p className='footer__copyright text-center ms-3'>
         Copyright &copy; 2021
       </p>
-      <ul className='social_footer_ul  m-auto'>
-        <li>
-          <a href='http://webenlance.com'>
-            <i className='fab fa-facebook-f'></i>
-          </a>
-        </li>
-        <li>
-          <a href='http://webenlance.com'>
-            <i className='fab fa-twitter'></i>
-          </a>
-        </li>
-        <li>
-          <a href='http://webenlance.com'>
-            <i className='fab fa-linkedin'></i>
-          </a>
-        </li>
-        <li>
-          <a href='http://webenlance.com'>
-            <i className='fab fa-instagram'></i>
-          </a>
-        </li>
-      </ul>
     </footer>
   );
 }

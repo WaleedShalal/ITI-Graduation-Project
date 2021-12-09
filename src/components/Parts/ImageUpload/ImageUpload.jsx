@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../../context/Auth";
-import { auth, db } from "../../../Firebase/Firebase";
 import "./ImageUpload.scss";
-
 function ImageUpload() {
-  const { data, setData } = useContext(AuthContext);
+  const { data } = useContext(AuthContext);
   const [image, setImage] = useState(data.imageUrl);
 
   const imageHandler = (e) => {
