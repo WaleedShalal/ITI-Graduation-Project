@@ -5,8 +5,10 @@ import avatar from "../../src/assets/images/avatar.jpg";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+ 
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [edit, setEdit] = useState(false);
   const [data, setData] = useState({
     imageUrl: avatar,
   });
@@ -41,10 +43,11 @@ export const AuthProvider = ({ children }) => {
       });
     }
     return ()=>{isMounted = false};
-  });
+  },[edit]);
 
   // get all users 
   useEffect(() => { 
+    
     let isMounted = true;
     if (isMounted) {
       db.collection("users").onSnapshot((snapshot) => {
@@ -56,7 +59,7 @@ export const AuthProvider = ({ children }) => {
   if (loading) return <Loader />;
 
   return (
-    <AuthContext.Provider value={{ user,users, data,setData, loading, setLoading }}>
+    <AuthContext.Provider value={{ user,users, data,setData,edit, setEdit, loading, setLoading }}>
       {children}
     </AuthContext.Provider>
   );

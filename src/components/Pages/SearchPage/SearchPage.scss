@@ -44,6 +44,9 @@
         width: 75px;
         img {
           border-radius: 50%;
+          object-fit: cover;
+          width: 75px;
+          height: 75px;
         }
       }
     }

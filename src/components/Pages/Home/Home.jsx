@@ -1,19 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
-import Post from '../../Parts/Post/Post';
-import { db } from '../.../../../../Firebase/Firebase';
-import VideoUpload from '../../Parts/VideoUpload/VideoUpload';
-import PeopleYouKnow from '../../Parts/PeopleYouKnow/PeopleYouKnow';
-import ProfileWidget from '../../Parts/ProfileWidget/ProfileWidget';
-import Stories from '../../Parts/Stories/Stories';
-import Time from '../../Parts/Time/Time';
-import Loader from '../../Parts/Loader/Loader';
-import Footer from '../../Parts/Footer/Footer';
-import './Home.scss';
-import { AuthContext } from '../../../context/Auth';
+import React, { useContext, useEffect, useState } from "react";
+import Post from "../../Parts/Post/Post";
+import { db } from "../.../../../../Firebase/Firebase";
+import VideoUpload from "../../Parts/VideoUpload/VideoUpload";
+import PeopleYouKnow from "../../Parts/PeopleYouKnow/PeopleYouKnow";
+import ProfileWidget from "../../Parts/ProfileWidget/ProfileWidget";
+import Stories from "../../Parts/Stories/Stories";
+import Time from "../../Parts/Time/Time";
+import Loader from "../../Parts/Loader/Loader";
+import Footer from "../../Parts/Footer/Footer";
+import { AuthContext } from "../../../context/Auth";
+import "./Home.scss";
 function Home() {
   const [posts, setPosts] = useState([]);
   const { user, data, users } = useContext(AuthContext);
-  // console.log(users);
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
@@ -63,17 +62,18 @@ function Home() {
               </div>
             )}
           </div>
-          <div className='col-12 col-lg-3'>
-            <div className='widget stick-widget'>
-              <h4 className='widget-title text-center'>Who's follownig</h4>
-              <ul className='followers'>
-                {users.map((user) => {
+          <div className="col-12 col-lg-3">
+            <div className="widget stick-widget">
+              <h4 className="widget-title text-center">Who's follownig</h4>
+              <ul className="followers">
+                {users.slice(0,4).map((user) => {
                   return (
                     <PeopleYouKnow
                       key={user.id}
                       userId={user.id}
                       username={user.userName}
                       email={user.email}
+                      role={user.role}
                     />
                   );
                 })}

@@ -5,6 +5,9 @@
     position: sticky;
     top: 5px;
   }
+  h6{
+    font-size: 1.2rem;
+  }
   .widget {
     background: #fafafa none repeat scroll 0 0;
     border: 1px solid #e1e8ed;
@@ -17,7 +20,7 @@
   }
   .widget-title {
     display: inline-block;
-    font-size: 15px;
+     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 20px;
     vertical-align: middle;
@@ -44,12 +47,16 @@
     width: 100%;
   }
   .widget p {
-    font-size: 13px;
+    font-size: .8rem;
+    cursor: pointer;
     line-height: 21px;
     color: #3e3f5e;
     font-family: 'Roboto', sans-serif;
     margin-top: 0;
     font-weight: 300;
+    &:hover{
+      text-decoration: underline;
+    }
   }
   .widget .main-btn {
     font-size: 13px;

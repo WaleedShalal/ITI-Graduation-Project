@@ -10,6 +10,7 @@ import './Post.scss';
 
 function Post({ username, postId, video, caption, rate, userId }) {
   const [isMounted, setMounted] = useState(true);
+  const [showComments, setShowComments] = useState(true);
   const { user, data, users } = useContext(AuthContext);
   const [image, setImage] = useState('');
   const [comments, setComments] = useState([]);
@@ -152,7 +153,7 @@ function Post({ username, postId, video, caption, rate, userId }) {
             <p className='caption'>{caption}</p>
             <div className='postFooter'>
               <div className='post_comment'>
-                {comments.map((comment) => (
+                {showComments ? comments.slice(0,2).map((comment) => (
                   <span key={comment.timestamp}>
                     <figure>
                       <img alt='' src={comment.profileImage} />
@@ -176,19 +177,38 @@ function Post({ username, postId, video, caption, rate, userId }) {
                               </a>
                             ),
                         )}
-                        {/* {users.map((user, index) => {
-                          if (comment.text.includes(user.username)) {
-                            return (
+                      </span>
+                    </p>
+                  </span>
+                )): comments.map((comment) => (
+                  <span key={comment.timestamp}>
+                    <figure>
+                      <img alt='' src={comment.profileImage} />
+                    </figure>
+                    <p>
+                      <a
+                        href={`/profile/${comment.userId}`}
+                        className='me-1'>{`${comment.username}`}</a>
+                      <span>
+                        {comment.text.includes('@')
+                          ? comment.text.substring(
+                              0,
+                              comment.text.lastIndexOf('@'),
+                            )
+                          : comment.text}
+                        {users.map(
+                          (user, index) =>
+                            comment.text.includes(user.username) && (
                               <a key={index} href={`/profile/${user.id}`}>
                                 @{user.username}
                               </a>
-                            );
-                          }
-                        })} */}
+                            ),
+                        )}
                       </span>
                     </p>
                   </span>
                 ))}
+                {showComments && <p className="showComments" onClick={()=>setShowComments(false)}>View {comments.length-2} more comments</p>}
               </div>
               <form className='comment align-items-center' action=''>
                 <i

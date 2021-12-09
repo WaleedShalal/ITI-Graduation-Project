@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../../../Firebase/Firebase";
 import avatar from "../../../assets/images/avatar.jpg";
 import Loader from "../../../components/Parts/Loader/Loader"
 import "./EditProfile.scss";
+import { AuthContext } from "../../../context/Auth";
 function EditProfile() {
   const navigate = useNavigate();
   const [updated, setUpdated] = useState(false);
   const [isMounted, setMounted] = useState(true);
-  
+  const {setEdit} = useContext(AuthContext)
   const [data, setData] = useState({
     address: [],
     birthDate: "",
@@ -42,8 +43,10 @@ function EditProfile() {
         .update(data);
     }
     setUpdated(true);
+    setEdit(true);
     setTimeout(() => {
       setUpdated(false);
+      setEdit(false);
     }, 3000);
   };
 

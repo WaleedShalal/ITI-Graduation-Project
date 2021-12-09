@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import avatar from "../../../assets/images/avatar.jpg";
 import { users } from "./users";
 import "./SearchPage.scss";
 function SearchPage() {
@@ -109,7 +108,7 @@ function SearchPage() {
                     <div key={user.id} className="box">
                       <div className="info">
                         <figure>
-                          <img alt="" src={avatar} />
+                          <img alt="" src={user?.image} />
                         </figure>
                         <div className="info__data">
                           <a href="/">

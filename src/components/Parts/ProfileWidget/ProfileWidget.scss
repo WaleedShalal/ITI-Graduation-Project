@@ -19,10 +19,15 @@ a.main-btn:hover,
   width: 190px;
   height:190px;
   object-fit: cover;
+  box-shadow: 4px 4px 1px 0px #ffffff;
+
+
 }
 h1{
-  font-size: 22px;
   font-weight: 300;
   margin-bottom: 5px;
+  font-size: 2rem;
+  font-style: italic;
+  font-family: none;
 }
 }
