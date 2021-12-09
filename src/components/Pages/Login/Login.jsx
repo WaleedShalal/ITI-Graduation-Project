@@ -35,7 +35,9 @@ const Login = () => {
     try {
       await auth.signInWithEmailAndPassword(e.email, e.password);
       navigate('/home');
-      toast.success('Welcome Back');
+      toast.success(
+        `Welcome Back ${e.email.substring(0, e.email.lastIndexOf('@'))}`,
+      );
     } catch (err) {
       toast.error(err.message.slice(10, err.message.lastIndexOf('(')));
     }
