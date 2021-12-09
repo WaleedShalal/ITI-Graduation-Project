@@ -95,9 +95,9 @@ function Register() {
       phoneNumber,
       subscribeUs,
       website,
-      userBadge : role
+      userBadge: role,
     } = e;
-   
+
     try {
       await auth
         .createUserWithEmailAndPassword(email, password)
@@ -123,7 +123,7 @@ function Register() {
               subscribeUs,
               website,
               username: `${firstName}_${lastName}`,
-              role
+              role,
             });
         });
       navigate('/home');
@@ -295,7 +295,11 @@ function Register() {
                                         <li
                                           key={hash}
                                           onClick={() => handleAddHash(hash)}
-                                          className='text-capitalize text-white m-1'>
+                                          className={`${
+                                            followedHashtags.includes(
+                                              `#${hash}`,
+                                            ) && 'hash__inList'
+                                          } text-capitalize text-white m-1`}>
                                           <span>{hash}</span>
                                           {followedHashtags.includes(
                                             `#${hash}`,

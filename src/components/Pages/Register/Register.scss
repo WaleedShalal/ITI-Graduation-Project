@@ -71,6 +71,13 @@
             }
           }
         }
+        &.hash__inList {
+          background-color: red;
+          &:hover {
+            background-color: orange;
+            color: white !important;
+          }
+        }
       }
     }
   }
