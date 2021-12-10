@@ -10,9 +10,11 @@ import ImageUpload from './../../Parts/VideoUpload/VideoUpload';
 import avatar from './../../../assets/images/avatar.jpg';
 import './Profile.scss';
 import { AuthContext } from '../../../context/Auth';
+import { SecondUserContext } from '../../../context/SecondUser';
 
 function Profile() {
   const { user, users } = useContext(AuthContext);
+  const { setSecondUserData } = useContext(SecondUserContext);
   const [follow, setFollow] = useState(true);
   const param = useParams();
   const [posts, setPosts] = useState([]);
@@ -20,6 +22,17 @@ function Profile() {
     imageUrl: avatar,
     email: '',
   });
+  const [visitedUser, seVisitedUser] = useState({});
+
+  useEffect(() => {
+    let user = users.filter((user) => user.id === param.id)[0];
+    seVisitedUser(user);
+  }, [param.id, users]);
+
+  const handleDirectInbox = () => {
+    setSecondUserData(visitedUser);
+  };
+
   useEffect(() => {
     let isMounted = true;
     if (isMounted) {
@@ -101,6 +114,11 @@ function Profile() {
                 <Stars review={4} />
                 <span className='rate-number text-dark fs-5 fw-bold'>4.0</span>
               </div>
+              {user.uid !== param.id && (
+                <Link to='/messages' onClick={() => handleDirectInbox()}>
+                  test
+                </Link>
+              )}
               {user.uid !== param.id && (
                 <button
                   className='user__followBtn btn btn-outline-primary text-capitalize mt-2'

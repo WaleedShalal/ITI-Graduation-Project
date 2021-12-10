@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import moment from 'moment';
 import './ChatUserBody.scss';
 
-function ChatUserBody({ isCurrent, data, userPhoto, time }) {
+function ChatUserBody({ isCurrent, data, userPhoto, time, secondUserId }) {
   const [image] = useState(
     'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
   );
@@ -15,6 +15,7 @@ function ChatUserBody({ isCurrent, data, userPhoto, time }) {
     });
     // showLastMsg.current?.scrollIntoView({ behavior: 'smooth' });
   };
+  console.log(secondUserId);
   useEffect(() => {
     scrollToBottom();
   }, [data]);

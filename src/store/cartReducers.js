@@ -13,13 +13,62 @@ const initialState = {
     : [],
   sortValue: localStorage.getItem('sortValue')
     ? JSON.parse(localStorage.getItem('sortValue'))
-    : '',
+    : 'latest',
   filterValue: localStorage.getItem('filterValue')
     ? JSON.parse(localStorage.getItem('filterValue'))
-    : '',
+    : 'all',
   minPrice: '',
   maxPrice: '',
   errors: '',
+};
+
+/* ----------------------------- start functions ---------------------------- */
+
+/* ----------------------------- end functions ---------------------------- */
+const handleSort = (actionFilter, actionValue, state) => {
+  let filter = actionFilter;
+  switch (actionValue) {
+    case 'lowest': {
+      filter = filter.sort((a, b) => a.price - b.price);
+      localStorage.setItem('sortValue', JSON.stringify(actionValue));
+      localStorage.setItem('filter', JSON.stringify(filter));
+      return { ...state, filter, sortValue: actionValue };
+    }
+    case 'highest': {
+      filter = filter.sort((a, b) => b.price - a.price);
+      localStorage.setItem('sortValue', JSON.stringify(actionValue));
+      localStorage.setItem('filter', JSON.stringify(filter));
+      return { ...state, filter, sortValue: actionValue };
+    }
+    default: {
+      filter = filter.sort((a, b) => a.id - b.id);
+      localStorage.setItem('sortValue', JSON.stringify(actionValue));
+      localStorage.setItem('filter', JSON.stringify(filter));
+      return { ...state, filter, sortValue: actionValue };
+    }
+    // default:
+    //   localStorage.setItem('sortValue', JSON.stringify(actionValue));
+    //   localStorage.setItem('filter', JSON.stringify(filter));
+    //   return state;
+  }
+};
+const handleFilter = (actionProduct, actionValue, state) => {
+  let products = actionProduct;
+  switch (actionValue) {
+    case 'all': {
+      localStorage.setItem('filterValue', JSON.stringify(actionValue));
+      localStorage.setItem('filter', JSON.stringify(products));
+      const sortting = handleSort(products, state.sortValue, state);
+      return { ...state, filter: sortting.filter, filterValue: actionValue };
+    }
+    default: {
+      products = products.filter((p) => p.category === actionValue);
+      localStorage.setItem('filterValue', JSON.stringify(actionValue));
+      localStorage.setItem('filter', JSON.stringify(products));
+      const sortting = handleSort(products, state.sortValue, state);
+      return { ...state, filter: sortting.filter, filterValue: actionValue };
+    }
+  }
 };
 /* ---------------------------- start price input --------------------------- */
 export const fetchProductsReducer = (state = initialState, action) => {
@@ -78,62 +127,62 @@ export const fetchProductsReducer = (state = initialState, action) => {
       return { ...state, purchased };
     }
     case actionsTypes.SORT_VALUE: {
-      let filter = action.filter;
-      console.log(filter);
-      switch (action.value) {
-        case 'lowest': {
-          filter = filter.sort((a, b) => a.price - b.price);
-          localStorage.setItem('sortValue', JSON.stringify(action.value));
-          localStorage.setItem('filter', JSON.stringify(filter));
-          return { ...state, filter, sortValue: action.value };
-        }
-        case 'highest': {
-          console.log(filter);
-          filter = filter.sort((a, b) => b.price - a.price);
-          console.log(filter);
-          localStorage.setItem('sortValue', JSON.stringify(action.value));
-          localStorage.setItem('filter', JSON.stringify(filter));
-          return { ...state, filter, sortValue: action.value };
-        }
-        case 'latest': {
-          filter = filter.sort((a, b) => a.id - b.id);
-          localStorage.setItem('sortValue', JSON.stringify(action.value));
-          localStorage.setItem('filter', JSON.stringify(filter));
-          return { ...state, filter, sortValue: action.value };
-        }
-        default:
-          localStorage.setItem('sortValue', JSON.stringify(action.value));
-          localStorage.setItem('filter', JSON.stringify(filter));
-          return state;
-      }
+      // let filter = action.filter;
+      // switch (action.value) {
+      //   case 'lowest': {
+      //     filter = filter.sort((a, b) => a.price - b.price);
+      //     localStorage.setItem('sortValue', JSON.stringify(action.value));
+      //     localStorage.setItem('filter', JSON.stringify(filter));
+      //     return { ...state, filter, sortValue: action.value };
+      //   }
+      //   case 'highest': {
+      //     filter = filter.sort((a, b) => b.price - a.price);
+      //     localStorage.setItem('sortValue', JSON.stringify(action.value));
+      //     localStorage.setItem('filter', JSON.stringify(filter));
+      //     return { ...state, filter, sortValue: action.value };
+      //   }
+      //   case 'latest': {
+      //     filter = filter.sort((a, b) => a.id - b.id);
+      //     localStorage.setItem('sortValue', JSON.stringify(action.value));
+      //     localStorage.setItem('filter', JSON.stringify(filter));
+      //     return { ...state, filter, sortValue: action.value };
+      //   }
+      //   default:
+      //     localStorage.setItem('sortValue', JSON.stringify(action.value));
+      //     localStorage.setItem('filter', JSON.stringify(filter));
+      //     return state;
+      // }
+      // default:
+      return handleSort(action.filter, action.value, state);
     }
     case actionsTypes.FILTER_VALUE: {
-      let products = action.product;
-      switch (action.value) {
-        case 'all': {
-          localStorage.setItem('filterValue', JSON.stringify(action.value));
-          localStorage.setItem('filter', JSON.stringify(products));
+      // let products = action.product;
+      // switch (action.value) {
+      //   case 'all': {
+      //     localStorage.setItem('filterValue', JSON.stringify(action.value));
+      //     localStorage.setItem('filter', JSON.stringify(products));
 
-          return { ...state, filter: products, filterValue: action.value };
-        }
-        default: {
-          products = products.filter((p) => p.category === action.value);
-          localStorage.setItem('filterValue', JSON.stringify(action.value));
-          localStorage.setItem('filter', JSON.stringify(products));
-          return { ...state, filter: products, filterValue: action.value };
-        }
-      }
+      //     return { ...state, filter: products, filterValue: action.value };
+      //   }
+      //   default: {
+      //     products = products.filter((p) => p.category === action.value);
+      //     localStorage.setItem('filterValue', JSON.stringify(action.value));
+      //     localStorage.setItem('filter', JSON.stringify(products));
+      //     return { ...state, filter: products, filterValue: action.value };
+      //   }
+      // }
+      return handleFilter(action.product, action.value, state);
     }
     case actionsTypes.PRICE_VALUE: {
       let data = [];
-      if (state.filterValue !== 'all' && state.filterValue) {
+      if (state.filterValue !== 'all') {
+        // if (state.filterValue !== 'all' && state.filterValue) {
         data = state.products.filter(
           (product) => product.category === state.filterValue,
         );
       } else {
         data = state.products;
       }
-      console.log(data);
       let products = data.filter(
         (product) =>
           product.price >= action.min && product.price <= action.max && product,

@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
 import { currentUserContext } from './../../../../context/CurrentUser';
 import { SecondUserContext } from './../../../../context/SecondUser';
@@ -11,6 +12,7 @@ import ChatUserFooter from '../ChatUserFooter/ChatUserFooter';
 import './Messages.scss';
 
 function Messages() {
+  const param = useParams();
   const { messagingUsersCollection } = useContext(FirebaseContext);
   const [users] = useCollectionData(messagingUsersCollection);
   const { messagesCollection } = useContext(FirebaseContext);
@@ -40,6 +42,12 @@ function Messages() {
     let sortedMsg = messages?.sort((a, b) => a.sentAt - b.sentAt);
     return sortedMsg;
   };
+  // const [url, setUrl] = useState(param);
+  useEffect(() => {
+    // setUrl(param);
+    console.log(param);
+  });
+
   return data.email && users ? (
     <section className='messages my-3'>
       <div className='container'>
@@ -76,6 +84,7 @@ function Messages() {
                       isCurrent={message.sentBy === data.id}
                       data={message.msg}
                       time={message.sentAt}
+                      secondUserId={secondUserData.id}
                       userPhoto={
                         message.sentBy === data.id
                           ? data.imageUrl
