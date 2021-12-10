@@ -109,13 +109,18 @@
         }
         .item__notification {
           background-color: red;
-          height: 8px;
-          width: 8px;
+          font-size: 15px;
+          width: 15px;
+          height: 15px;
           border-radius: 100%;
           position: absolute;
           top: 5px;
-          right: 0;
+          right: -11px;
           transform: translate(-50%, -50%);
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
         &:hover {
           outline: 3px solid lightblue;

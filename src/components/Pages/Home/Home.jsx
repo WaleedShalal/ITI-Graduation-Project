@@ -62,7 +62,7 @@ function Home() {
               </div>
             )}
           </div>
-          <div className="col-12 col-lg-3">
+          <div className="d-none d-lg-block col-lg-3">
             <div className="widget stick-widget">
               <h4 className="widget-title text-center">Who's follownig</h4>
               <ul className="followers">

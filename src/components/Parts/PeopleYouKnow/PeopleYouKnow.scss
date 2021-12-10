@@ -6,19 +6,17 @@
 .followers > li figure {
   display: inline-block;
   margin-bottom: 0;
- 
   vertical-align: middle;
   width: 45px;
 }
 .followers > li figure img {
   border-radius: 100%;
-}
-img {
-  height: auto;
-  max-width: 100%;
+  height: 45px;
+  width: 45px;
   vertical-align: middle;
   border-style: none;
 }
+
 .friend-meta {
   display: inline-block;
   padding-left: 10px;
