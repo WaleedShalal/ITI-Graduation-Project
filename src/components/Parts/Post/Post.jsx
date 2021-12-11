@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
+import { Link } from "react-router-dom";
 import ReactPlayer from "react-player";
-import firebase from "firebase/compat/app";
+import firebase from "firebase/compat/app"; 
 import { auth, db } from "../../../Firebase/Firebase";
 import { AuthContext } from "../../../context/Auth";
 import Rate from "../Rate/Rate";
@@ -50,7 +51,7 @@ function Post({ username, postId, video, caption, rate, userId }) {
         profileImage: data.imageUrl,
       });
       setComment("");
-      setShowComments(false)
+      setShowComments(false);
     }
   };
 
@@ -161,7 +162,6 @@ function Post({ username, postId, video, caption, rate, userId }) {
               <a title="" href={`/profile/${userId}`}>
                 {username}
               </a>{" "}
-              Create Post
             </h5>
             <span>
               <i className="fas fa-globe-asia"></i>published: Sep,15 2020
@@ -176,7 +176,9 @@ function Post({ username, postId, video, caption, rate, userId }) {
             <a href={`/profile/${userId}`} className="post-title">
               {username}
             </a>
-            <p className="caption">{caption}</p>
+            <div className="caption">
+              <div>Get the product from this link : <Link to={caption}>Product Link</Link></div>    
+            </div>
             <div className="postFooter">
               <div className="post_comment">
                 {showComments
@@ -238,7 +240,7 @@ function Post({ username, postId, video, caption, rate, userId }) {
                         </p>
                       </span>
                     ))}
-                {comments.length> 3 && showComments && (
+                {comments.length > 3 && showComments && (
                   <p
                     className="showComments"
                     onClick={() => setShowComments(false)}

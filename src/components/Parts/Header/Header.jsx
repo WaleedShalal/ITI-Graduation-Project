@@ -187,7 +187,7 @@ function Header() {
                     <i className='fas fa-sign-out-alt'></i> Sign in
                   </NavLink>
                 ) : location.pathname === '/login' ||
-                  location.pathname === '/wellcome' ? (
+                  location.pathname === '/welcome' ? (
                   <NavLink
                     className='option__link btn btn-outline-danger  text-capitalize w-100'
                     to={`/register`}>
@@ -196,7 +196,7 @@ function Header() {
                 ) : (
                   <NavLink
                     className='option__link btn btn-outline-danger  text-capitalize w-100'
-                    to={`/wellcome`}
+                    to={`/welcome`}
                     onClick={() => auth.signOut()}>
                     <i className='fas fa-sign-out-alt'></i> logout
                   </NavLink>

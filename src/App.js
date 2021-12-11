@@ -28,7 +28,7 @@ function App() {
       <ToastContainer />
       {pathname !== '/login' &&
         pathname !== '/register' &&
-        pathname !== '/wellcome' && <Header />}
+        pathname !== '/welcome' && <Header />}
       <Routes>
         <Route exact path='/' element={<PrivateRoute />}>
           <Route exact path='/' element={<Home />} />
@@ -45,8 +45,9 @@ function App() {
           />
           <Route path='cart/productdetails/:id' element={<ProductDetails />} />
           <Route path='/messages' element={<Messages />} />
+          <Route path='*' element={<WelcomePage />} />
         </Route>
-        <Route path='wellcome' element={<WelcomePage />} />
+        <Route path='welcome' element={<WelcomePage />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='search/:name' element={<SearchPage />} />

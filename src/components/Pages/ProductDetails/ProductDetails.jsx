@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { addCart } from "../../../store/cartActions";
@@ -9,20 +9,30 @@ import "./ProductDetails.scss";
 const ProductDetails = () => {
   const [comment, setcomment] = useState("");
   const [rate, setRate] = useState("");
-  const [reviews, setReviews] = useState([]);
+  const [reviews, setReviews] = useState([{
+        userId: 123,
+        userName: "jhone Deo",
+        comment: "Awesome :)",
+        rate: 5,
+  }]);
 
   const { id } = useParams();
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { fetchedData } = useSelector((state) => state);
+  const [productId,setProductId]= useState("")
   const isFromCart = pathname.includes("cart");
-  const productItem = fetchedData.filter.filter(
-    (p) => p.id === parseInt(id)
+  const productItem = fetchedData.products.filter(
+    (p) => p.id === parseInt(productId)
   )[0];
   const purchasedItem = fetchedData.purchased.filter(
-    (p) => p.id === parseInt(id)
+    (p) => p.id === parseInt(productId)
   )[0];
+
+  useEffect(()=>{
+    setProductId(id);
+  },[id,productId]);
 
   const handleBack = () => {
     isFromCart ? navigate("/cart") : navigate("/products/1");
@@ -55,20 +65,20 @@ const ProductDetails = () => {
             <div className="product__images col-6">
               <div className="row align-items-center">
                 <div className="mini__images col-2">
-                  <figure className="">
-                    <img className="" src={productItem.image} alt="" />
+                  <figure>
+                    <img src={productItem?.image} alt="" />
                   </figure>
-                  <figure className="">
-                    <img className="" src={productItem.image} alt="" />
+                  <figure>
+                    <img src={productItem?.image} alt="" />
                   </figure>
-                  <figure className="">
-                    <img className="" src={productItem.image} alt="" />
+                  <figure>
+                    <img src={productItem?.image} alt="" />
                   </figure>
                 </div>
                 <figure className="col-10 mb-0">
                   <img
                     className="product-img w-100"
-                    src={productItem.image}
+                    src={productItem?.image}
                     alt=""
                   />
                 </figure>
@@ -78,21 +88,21 @@ const ProductDetails = () => {
               <div className="info">
                 <div className="mb-3">
                   <span className="fw-bold  text-capitalize">product id</span> :{" "}
-                  {productItem.id}.
+                  {productItem?.id}.
                 </div>
                 <div className="mb-3">
                   <span className="fw-bold text-capitalize">product Title</span>{" "}
-                  : {productItem.title}.
+                  : {productItem?.title}.
                 </div>
                 <div className="mb-3">
                   <span className="fw-bold text-capitalize">
                     product Desciption
                   </span>{" "}
-                  : {productItem.description}.
+                  : {productItem?.description}.
                 </div>
                 <div className="mb-3">
                   <span className="fw-bold text-capitalize">product Price</span>{" "}
-                  : {productItem.price}$.
+                  : {productItem?.price}$.
                 </div>
                 <div className="">
                   <span className="fw-bold text-capitalize ">

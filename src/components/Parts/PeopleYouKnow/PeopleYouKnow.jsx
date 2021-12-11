@@ -26,7 +26,7 @@ function PeopleYouKnow({ userId, username, email,role }) {
     return () => {
       isMounted = false;
     };
-  },[userId]);
+  });
 
   return (
       userId !== user.uid &&
