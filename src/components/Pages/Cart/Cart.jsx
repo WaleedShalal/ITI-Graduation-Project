@@ -29,7 +29,7 @@ const Cart = () => {
           <div className='mt-5 py-5 d-flex flex-column justify-content-center align-items-center '>
             <h4 className='fs-1 '>No Items To Show</h4>
             <Link
-              to='/products'
+              to='/products/1'
               className='mt-5 text-capitalize btn btn-warning btn-sm'>
               back to products
             </Link>

@@ -23,7 +23,7 @@ export const users = [
     posts: "1,875",
     followers: "1.4m",
     following: "1,470",
-    description: `Sara Sabry | سارة صبري Movie Character So happy you're here
+    description: ` Movie Character So happy you're here
         💞🌻🌞 📍Montreal | Cairo 🐒 sara.sabry@sandcircus.com 👇🏼 TO
         SHOP THE #FUNAIDKIT 👇🏼 xhbtshop.com`,
     image: sara1,
@@ -142,7 +142,7 @@ export const users = [
     posts: "1,875",
     followers: "1.4m",
     following: "1,470",
-    description: `Sara Sabry | سارة صبري Movie Character So happy you're here
+    description: ` Movie Character So happy you're here
           💞🌻🌞 📍Montreal | Cairo 🐒 sara.sabry@sandcircus.com 👇🏼 TO
           SHOP THE #FUNAIDKIT 👇🏼 xhbtshop.com`,
     image: sara2,
@@ -168,7 +168,7 @@ export const users = [
     posts: "1,875",
     followers: "1.4m",
     following: "1,470",
-    description: `Sara Sabry | سارة صبري Movie Character So happy you're here
+    description: ` Movie Character So happy you're here
           💞🌻🌞 📍Montreal | Cairo 🐒 sara.sabry@sandcircus.com 👇🏼 TO
           SHOP THE #FUNAIDKIT 👇🏼 xhbtshop.com`,
     role: "user",
@@ -181,7 +181,7 @@ export const users = [
     posts: "1,875",
     followers: "1.4m",
     following: "1,470",
-    description: `Sara Sabry | سارة صبري Movie Character So happy you're here
+    description: ` Movie Character So happy you're here
           💞🌻🌞 📍Montreal | Cairo 🐒 sara.sabry@sandcircus.com 👇🏼 TO
           SHOP THE #FUNAIDKIT 👇🏼 xhbtshop.com`,
     role: "product owner",
@@ -194,7 +194,7 @@ export const users = [
     posts: "1,875",
     followers: "1.4m",
     following: "1,470",
-    description: `Sara Sabry | سارة صبري Movie Character So happy you're here
+    description: ` Movie Character So happy you're here
           💞🌻🌞 📍Montreal | Cairo 🐒 sara.sabry@sandcircus.com 👇🏼 TO
           SHOP THE #FUNAIDKIT 👇🏼 xhbtshop.com`,
     image: samir,
@@ -245,7 +245,7 @@ export const users = [
     posts: "1,875",
     followers: "1.4m",
     following: "1,470",
-    description: `Sara Sabry | سارة صبري Movie Character So happy you're here
+    description: ` Movie Character So happy you're here
           💞🌻🌞 📍Montreal | Cairo 🐒 sara.sabry@sandcircus.com 👇🏼 TO
           SHOP THE #FUNAIDKIT 👇🏼 xhbtshop.com`,
     role: "user",

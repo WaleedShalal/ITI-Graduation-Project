@@ -13,9 +13,7 @@ function ChatUserBody({ isCurrent, data, userPhoto, time, secondUserId }) {
       block: 'end',
       inline: 'nearest',
     });
-    // showLastMsg.current?.scrollIntoView({ behavior: 'smooth' });
   };
-  console.log(secondUserId);
   useEffect(() => {
     scrollToBottom();
   }, [data]);
