@@ -70,7 +70,7 @@ const ProductDetails = () => {
                     <img className="w-100" src={productItem?.image} alt="" />
                   </figure>
                 </div>
-                <figure className="col-10 mb-0">
+                <figure className="col-9 mb-0">
                   <img
                     className="product-img w-100"
                     src={productItem?.image}

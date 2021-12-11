@@ -45,7 +45,6 @@ function App() {
           />
           <Route path='cart/productdetails/:id' element={<ProductDetails />} />
           <Route path='/messages' element={<Messages />} />
-          <Route path='*' element={<WelcomePage />} />
         </Route>
         <Route path='welcome' element={<WelcomePage />} />
         <Route path='login' element={<Login />} />
