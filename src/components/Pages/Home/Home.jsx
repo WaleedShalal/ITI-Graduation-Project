@@ -1,15 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
-import Post from "../../Parts/Post/Post";
-import { db } from "../.../../../../Firebase/Firebase";
-import VideoUpload from "../../Parts/VideoUpload/VideoUpload";
-import PeopleYouKnow from "../../Parts/PeopleYouKnow/PeopleYouKnow";
-import ProfileWidget from "../../Parts/ProfileWidget/ProfileWidget";
-import Stories from "../../Parts/Stories/Stories";
-import Time from "../../Parts/Time/Time";
-import Loader from "../../Parts/Loader/Loader";
-import Footer from "../../Parts/Footer/Footer";
-import { AuthContext } from "../../../context/Auth";
-import "./Home.scss";
+import React, { useContext, useEffect, useState } from 'react';
+import Post from '../../Parts/Post/Post';
+import { db } from '../.../../../../Firebase/Firebase';
+import VideoUpload from '../../Parts/VideoUpload/VideoUpload';
+import PeopleYouKnow from '../../Parts/PeopleYouKnow/PeopleYouKnow';
+import ProfileWidget from '../../Parts/ProfileWidget/ProfileWidget';
+import Stories from '../../Parts/Stories/Stories';
+import Time from '../../Parts/Time/Time';
+import Loader from '../../Parts/Loader/Loader';
+import Footer from '../../Parts/Footer/Footer';
+import { AuthContext } from '../../../context/Auth';
+import './Home.scss';
 function Home() {
   const [posts, setPosts] = useState([]);
   const { user, data, users } = useContext(AuthContext);
@@ -62,11 +62,11 @@ function Home() {
               </div>
             )}
           </div>
-          <div className="d-none d-lg-block col-lg-3">
-            <div className="widget stick-widget">
-              <h4 className="widget-title text-center">Who's follownig</h4>
-              <ul className="followers">
-                {users.slice(0,4).map((user) => {
+          <div className='d-none d-lg-block col-lg-3'>
+            <div className='widget stick-widget'>
+              <h4 className='widget-title text-center'>Who's follownig</h4>
+              <ul className='followers'>
+                {users.slice(0, 4).map((user) => {
                   return (
                     <PeopleYouKnow
                       key={user.id}
