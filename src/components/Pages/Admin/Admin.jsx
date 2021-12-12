@@ -7,7 +7,6 @@ import {
   fetchProducts,
   fetchDefaultProducts,
 } from '../../../store/cartActions';
-
 import './Admin.scss';
 
 const Admin = () => {
@@ -48,7 +47,7 @@ const Admin = () => {
               </tr>
             </thead>
             <tbody>
-              {fetchedData.products.map((product, index) => {
+              {fetchedData.products.map((product) => {
                 return (
                   <tr key={product.id}>
                     <td className='text-dark'>{product.id}</td>

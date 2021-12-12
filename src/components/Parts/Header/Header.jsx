@@ -14,7 +14,6 @@ function Header() {
   const { fetchedData } = useSelector((state) => state);
   let location = useLocation();
   const Navigate = useNavigate();
-
   const addClassActive = () => {
     let item = document.getElementById('notifications__window');
     item.classList.toggle('active');
@@ -23,7 +22,7 @@ function Header() {
     e.preventDefault();
     Navigate(`/search/${e.target[0].value}`);
   };
-
+  /* ------------------------ will need edit but later ------------------------ */
   window.onclick = (e) => {
     let element = document.getElementById('main__navbarList');
     let elementTwo = document.getElementById('more__option');
@@ -39,11 +38,11 @@ function Header() {
       elementTwo.classList.remove('active');
     }
   };
-
   const testClass = () => {
     let element = document.getElementById('more__option');
     element.classList.toggle('active');
   };
+  /* ------------------------ will need edit but later ------------------------ */
 
   return data.email ? (
     <nav className='main__navbar navbar navbar-expand-lg navbar-light'>
@@ -85,12 +84,10 @@ function Header() {
                     </h5>
                   </div>
                 </Link>
-                {/* <div className='list__itemProfileDecoration'></div> */}
               </div>
             </div>
           </div>
         )}
-        {/* <input type='checkbox' id='check' /> */}
         <div className='navbar__togglerIcon ms-auto'>
           <span className='navbar-toggler-icon'></span>
         </div>
@@ -107,7 +104,6 @@ function Header() {
                 home
               </span>
             </Link>
-            {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='navbar__listItem nav-item d-flex'>
             <Link
@@ -119,14 +115,8 @@ function Header() {
                 messages
               </span>
             </Link>
-
-            {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='item__forNotification navbar__listItem nav-item d-flex'>
-            {/* <input type='checkbox' id='notification' />
-            <label
-              htmlFor='notification'
-              className='item__forNotification item__link nav-link'> */}
             <div
               className='item__link nav-link'
               onClick={() => addClassActive()}>
@@ -136,9 +126,7 @@ function Header() {
                 notifications
               </span>
             </div>
-            {/* </label> */}
             <Notifications addClassActive={addClassActive} />
-            {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='navbar__listItem nav-item d-flex'>
             <Link className=' item__link  not__optionLink nav-link' to='/cart'>
@@ -149,7 +137,6 @@ function Header() {
                 cart
               </span>
             </Link>
-            {/* <div className='item__linkDecoration'></div> */}
           </li>
           <li className='navbar__listItem nested__list nav-item d-flex'>
             <div
@@ -169,7 +156,6 @@ function Header() {
                   to='/products/1'>
                   <i className='fas fa-store'></i> ecommerce
                 </Link>
-                {/* <div className='item__linkDecoration'></div> */}
               </li>
               <li className='option__setting mb-2'>
                 <Link
@@ -177,7 +163,6 @@ function Header() {
                   to='/edit'>
                   <i className='fas fa-cogs'></i> Edit Profile
                 </Link>
-                {/* <div className='item__linkDecoration'></div> */}
               </li>
               <li className='option__logout'>
                 {location.pathname === '/register' ? (
@@ -203,7 +188,6 @@ function Header() {
                 )}
               </li>
             </ul>
-            {/* <div className='item__linkDecoration'></div> */}
           </li>
         </ul>
       </div>

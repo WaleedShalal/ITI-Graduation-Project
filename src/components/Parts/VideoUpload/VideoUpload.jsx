@@ -2,8 +2,9 @@ import React, { useContext, useState } from 'react';
 import firebase from 'firebase/compat/app';
 import { db, storage } from '../../../Firebase/Firebase';
 import { AuthContext } from '../../../context/Auth';
-import './VideoUpload.scss';
 import { toast } from 'react-toastify';
+import './VideoUpload.scss';
+
 function ImageUpload() {
   const { user } = useContext(AuthContext);
   const [video, setVideo] = useState(null);
@@ -11,6 +12,7 @@ function ImageUpload() {
   const [caption, setCaption] = useState('');
   const [loadVideo, setLoadVideo] = useState(false);
   const [error, setError] = useState(false);
+  
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setVideo(e.target.files[0]);

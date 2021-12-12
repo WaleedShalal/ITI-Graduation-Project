@@ -1,7 +1,9 @@
-.rate{
-    border-bottom: 1px solid #ccc;
-    .icons:hover{
-        background-color: #6c757d;
-        color:#fff;
+.rate {
+  border-bottom: 1px solid #ccc;
+  .icons {
+    &:hover {
+      background-color: #6c757d;
+      color: #fff;
     }
+  }
 }

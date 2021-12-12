@@ -1,47 +1,38 @@
+@import '../../../../styles/variables/variables.scss';
 .messages {
   padding-top: 60px;
   flex-shrink: 0;
   flex-grow: 1;
-  // height: calc(100vh - 86px);
   .inbox {
     border-left: 1px solid #dbdbdb;
     i {
-      color: #088dcd;
+      color: $mainColor;
     }
   }
   .messages__wrapper {
     background-color: #f7f7f7;
     height: 475px;
-    // height: 100%;
     overflow: hidden;
     margin: 0;
     padding: 0;
     border: 1px solid #dbdbdb;
     border-radius: 5px;
-    // box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 6%), 0 2px 5px 0 rgba(0, 0, 0, 20%);
     .messages__inbox {
       height: 475px;
       display: flex;
       flex-direction: column;
-      // height: calc(100vh - 86px);
       border-radius: 5px 0px 0px;
-      // display: grid;
-      // grid-template-rows: 55px 1fr;
       overflow: hidden;
       .messages__inboxHeader {
         margin: 0;
         height: 60px;
-        // height: 5rem;
         width: 100%;
         border-bottom: 1px solid #dbdbdb;
-
-        // background-color: #eee;
         z-index: 1000;
       }
       .messages__inboxBody {
         flex-grow: 1;
         overflow-y: auto;
-        // overflow-y: scroll;
         background-color: #fff;
         &::-webkit-scrollbar {
           width: 12px;
@@ -50,7 +41,7 @@
           background: #dee2e6;
         }
         &::-webkit-scrollbar-thumb {
-          background: #deebf3;
+          background: $subColor;
           border-radius: 0 0 5px 5px;
         }
         &::-webkit-scrollbar-thumb:hover {
@@ -71,7 +62,7 @@
             height: 50px;
           }
           &.active {
-            background-color: #deebf3;
+            background-color: $subColor;
             border-radius: 5px;
           }
         }
@@ -81,19 +72,13 @@
       height: 475px;
       display: flex;
       flex-direction: column;
-      // height: calc(100vh - 86px);
-      // display: grid;
-      // grid-template-rows: 55px 1fr 50px;
       border-left: 1px solid rgba(0, 0, 0, 0.08);
       .messages__chatHeader {
         margin: 0;
         height: 60px;
-        // height: 5rem;
         flex-shrink: 0;
         width: 100%;
         border-bottom: 1px solid #dbdbdb;
-
-        // background-color: #eee;
         .chat__headerEx {
           border: 2px solid black;
           border-radius: 50%;
@@ -126,7 +111,7 @@
           background: #dee2e6;
         }
         &::-webkit-scrollbar-thumb {
-          background: #deebf3;
+          background: $subColor;
           border-radius: 0 0 5px 5px;
         }
         &::-webkit-scrollbar-thumb:hover {
@@ -134,13 +119,12 @@
         }
         .message__content {
           max-width: max-content;
-          background-color: #deebf3;
+          background-color: $subColor;
           padding: 5px 20px;
           border-radius: 1px solid rgba(202, 239, 142, 0.5);
           border-radius: 10px 10px 0 10px;
           &.message__contentSecondUser {
             border-radius: 10px 10px 10px 0;
-            // background-color: rgba(0, 0, 255, 0.171);
           }
         }
         .messages__chatBodyImage {
@@ -161,17 +145,4 @@
       }
     }
   }
-  // ::-webkit-scrollbar {
-  //   width: 10px;
-  // }
-  // ::-webkit-scrollbar-track {
-  //   background: green;
-  // }
-  // ::-webkit-scrollbar-thumb {
-  //   background: #deebf3;
-  //   border-radius: 0 0 5px 5px;
-  // }
-  // ::-webkit-scrollbar-thumb:hover {
-  //   background: #088dcd;
-  // }
 }

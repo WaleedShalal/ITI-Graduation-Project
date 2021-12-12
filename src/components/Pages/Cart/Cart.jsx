@@ -12,7 +12,6 @@ import './Cart.scss';
 const Cart = () => {
   const { fetchedData } = useSelector((state) => state);
   const dispatch = useDispatch();
-
   const handleTotal = () => {
     let total = [];
     fetchedData.purchased.map((pur) => total.push(pur.price * pur.count));

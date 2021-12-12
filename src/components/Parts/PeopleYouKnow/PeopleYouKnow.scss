@@ -1,50 +1,49 @@
+@import '../../../styles/variables/variables.scss';
 .followers {
   max-height: 260px;
   position: relative;
+  > li {
+    figure {
+      display: inline-block;
+      margin-bottom: 0;
+      vertical-align: middle;
+      width: 45px;
+      img {
+        border-radius: 100%;
+        height: 45px;
+        width: 45px;
+        vertical-align: middle;
+        border-style: none;
+      }
+    }
+  }
 }
-
-.followers > li figure {
-  display: inline-block;
-  margin-bottom: 0;
-  vertical-align: middle;
-  width: 45px;
-}
-.followers > li figure img {
-  border-radius: 100%;
-  height: 45px;
-  width: 45px;
-  vertical-align: middle;
-  border-style: none;
-}
-
 .friend-meta {
   display: inline-block;
   padding-left: 10px;
   vertical-align: middle;
   width: 79%;
-}
-.friend-meta > h4 {
-  display: inline-block;
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 0;
-  width: 60%;
-}
-.friend-meta h4 a {
-  color: #088dcd;
-  font-size: 14px;
-  font-weight: 500;
-  outline: none;
-  text-decoration: none;
-  margin-bottom: 5px;
-}
-
-.friend-meta > span {
-  float: right;
-  font-size: .8rem;
-  margin-top: 3px;
-  position: relative;
-  color: #088dcd;
-  cursor: pointer;
-
+  > h4 {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 0;
+    width: 60%;
+    a {
+      color: $mainColor;
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+      text-decoration: none;
+      margin-bottom: 5px;
+    }
+  }
+  > span {
+    float: right;
+    font-size: 0.8rem;
+    margin-top: 3px;
+    position: relative;
+    color: $mainColor;
+    cursor: pointer;
+  }
 }

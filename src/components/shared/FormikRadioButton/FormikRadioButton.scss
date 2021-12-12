@@ -1,3 +1,4 @@
+@import '../../../styles/variables/variables.scss';
 .formik__radioBtn {
   background-color: white;
   border-radius: 5px;
@@ -6,7 +7,7 @@
     flex-basis: 100%;
     .radio__label__style {
       font-size: 14px;
-      background-color: #deebf3;
+      background-color: $subColor;
       width: 100%;
       padding: 5px 0 !important;
       border-right: 2px solid white;
@@ -22,6 +23,6 @@
     display: none;
   }
   .radio__input__style:checked + .radio__label__style {
-    background-color: #088dcd;
+    background-color: $mainColor;
   }
 }

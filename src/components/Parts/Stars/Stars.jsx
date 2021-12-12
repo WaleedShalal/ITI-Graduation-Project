@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { db } from '../../../Firebase/Firebase';
 import './Stars.scss';
+
 const colors = {
   orange: '#FFBA5A',
   grey: '#a9a9a9',
 };
+
 function Stars({ PostId, review }) {
   const [currentValue, setCurrentValue] = useState(review);
   const [hoverValue, setHoverValue] = useState(undefined);
@@ -17,13 +19,11 @@ function Stars({ PostId, review }) {
       });
     }
   };
-
   const handleMouseOver = (newHoverValue) => {
     if (!review) {
       setHoverValue(newHoverValue);
     }
   };
-
   const handleMouseLeave = () => {
     setHoverValue(undefined);
   };

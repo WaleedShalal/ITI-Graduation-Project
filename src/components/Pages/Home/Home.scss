@@ -1,3 +1,4 @@
+@import '../../../styles/variables/variables.scss';
 .home__page {
   padding-top: 50px;
   .col-3.pro-widget,
@@ -5,7 +6,7 @@
     position: sticky;
     top: 5px;
   }
-  h6{
+  h6 {
     font-size: 1.2rem;
   }
   .widget {
@@ -17,58 +18,59 @@
     padding: 15px 20px 20px;
     z-index: 9;
     position: relative;
-  }
-  .widget-title {
-    display: inline-block;
-     font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: 20px;
-    vertical-align: middle;
-    width: 100%;
-    position: relative;
+    .widget-title {
+      display: inline-block;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      vertical-align: middle;
+      width: 100%;
+      position: relative;
+    }
   }
   h4 {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     color: #3e3f5e;
   }
-
-  .widget > ul {
-    display: inline-block;
-    list-style: outside none none;
-    margin-bottom: 0;
-    padding: 0;
-    width: 100%;
-  }
-  .widget li {
-    display: flex;
-    margin-bottom: 14px;
-    position: relative;
-    width: 100%;
-  }
-  .widget p {
-    font-size: .8rem;
-    cursor: pointer;
-    line-height: 21px;
-    color: #3e3f5e;
-    font-family: 'Roboto', sans-serif;
-    margin-top: 0;
-    font-weight: 300;
-    &:hover{
-      text-decoration: underline;
+  .widget {
+    ul {
+      display: inline-block;
+      list-style: outside none none;
+      margin-bottom: 0;
+      padding: 0;
+      width: 100%;
+      li {
+        display: flex;
+        margin-bottom: 14px;
+        position: relative;
+        width: 100%;
+      }
     }
-  }
-  .widget .main-btn {
-    font-size: 13px;
-    padding: 7px 15px;
-    text-transform: capitalize;
-    font-weight: 500;
-    transition: all 0.2s linear 0s;
-    background: rgba(8, 141, 205, 0.6);
-    border: 2px solid transparent;
-    border-radius: 30px;
-    color: #fff;
-    display: inline-block;
+    p {
+      font-size: 0.8rem;
+      cursor: pointer;
+      line-height: 21px;
+      color: #3e3f5e;
+      font-family: 'Roboto', sans-serif;
+      margin-top: 0;
+      font-weight: 300;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .main-btn {
+      font-size: 13px;
+      padding: 7px 15px;
+      text-transform: capitalize;
+      font-weight: 500;
+      transition: all 0.2s linear 0s;
+      background: rgba(8, 141, 205, 0.6);
+      border: 2px solid transparent;
+      border-radius: 30px;
+      color: #fff;
+      display: inline-block;
+    }
   }
   a {
     outline: none;

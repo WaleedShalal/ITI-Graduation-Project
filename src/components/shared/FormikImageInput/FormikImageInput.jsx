@@ -1,15 +1,9 @@
 import React from 'react';
 import { Field } from 'formik';
 import FormErrorMessage from '../FormikErrorMessage/FormikErrorMessage';
-import imgTest from '../../../assets/images/google.png';
-import userImage from '../../../assets/images/user-img.png';
-
 import './FormikImageInput';
 
 function FormikImageInput({ name, type, label, formType }) {
-  const imgPic = document.getElementById('testing__img');
-  console.log(imgPic);
-
   return (
     <Field name={name}>
       {(formikField) => {
@@ -31,14 +25,6 @@ function FormikImageInput({ name, type, label, formType }) {
                 <FormErrorMessage name={name} />
               </div>
             </div>
-            {/* <figure className='col-6'>
-              <img
-                id='testing__img'
-                className='profile__imgPreview bg-warning w-100'
-                src={require('../../../assets/images/facebook.png').default}
-                alt=''
-              />
-            </figure> */}
           </>
         );
       }}

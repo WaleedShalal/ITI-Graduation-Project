@@ -1,9 +1,9 @@
+@import '../../../styles/variables/variables.scss';
 .not-found {
-    margin: 13rem 15px;
-    text-align: center;
-    color:#088dcd;
-  }
-  .not-found .btn-error {
+  margin: 13rem 15px;
+  text-align: center;
+  color: $mainColor;
+  .btn-error {
     padding: 10px 16px;
     font-size: 18px;
     line-height: 1.33;
@@ -11,4 +11,4 @@
     background-color: #fc7c7c;
     border: none;
   }
-  
+}

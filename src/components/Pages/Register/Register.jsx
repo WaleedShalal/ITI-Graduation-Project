@@ -8,6 +8,7 @@ import { auth, db } from '../../../Firebase/Firebase';
 import { updateProfile } from 'firebase/auth';
 import * as yup from 'yup';
 import './Register.scss';
+
 function Register() {
   const navigate = useNavigate();
   const [error, setError] = useState('');
@@ -262,10 +263,6 @@ function Register() {
                             const handleAddHash = (hash) => {
                               !followedHashtags.includes(`#${hash}`) &&
                                 push(`#${hash}`);
-                              // formik.setFieldValue(
-                              //   'followedHashtags',
-                              //   followedHashtags.toString().replace(/,/g, ' '),
-                              // );
                             };
                             const handleRemoveHash = (e, hash) => {
                               e.stopPropagation();

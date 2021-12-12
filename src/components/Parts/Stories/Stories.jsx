@@ -15,12 +15,10 @@ import img_4 from '../../../assets/images/highlights/img4.jfif';
 import img_5 from '../../../assets/images/highlights/img5.png';
 import img_6 from '../../../assets/images/highlights/img6.png';
 import img_7 from '../../../assets/images/highlights/img7.png';
-
 import './Stories.scss';
 
 function Stories({ id }) {
   const { pathname } = useLocation();
-
   const storyData =
     pathname !== `/profile/${id}`
       ? [

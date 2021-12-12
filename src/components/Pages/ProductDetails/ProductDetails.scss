@@ -1,3 +1,4 @@
+@import '../../../styles/variables/variables.scss';
 .full-details {
   padding-bottom: 50px;
   border-radius: 5px;
@@ -46,15 +47,15 @@
     }
     .options__btn {
       .option__addCart {
-        background-color: #088dcd;
+        background-color: $mainColor;
         transition: all 0.2s ease-in-out;
         @media (max-width: 575.98px) {
           font-size: 14px;
         }
         &:hover {
-          color: #088dcd;
+          color: $mainColor;
           background-color: white;
-          border-color: #088dcd;
+          border-color: $mainColor;
         }
       }
       .option__backProducts {
@@ -142,7 +143,7 @@
 .add_review {
   border: none;
   color: #fff;
-  background-color: #088dcd;
+  background-color: $mainColor;
   text-transform: capitalize;
   padding: 5px !important;
 }

@@ -1,6 +1,7 @@
 import React, { useContext  } from "react";
 import { AuthContext } from "../../../context/Auth";
 import Stars from "../../Parts/Stars/Stars";
+
 function Review({ userName, comment, rate }) {
   const { data, image } = useContext(AuthContext);
   return (

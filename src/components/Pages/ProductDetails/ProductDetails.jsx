@@ -10,7 +10,6 @@ const ProductDetails = () => {
   const [comment, setcomment] = useState("");
   const [rate, setRate] = useState("");
   const [reviews, setReviews] = useState([]);
-
   const { id } = useParams();
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -151,7 +150,6 @@ const ProductDetails = () => {
                   Add Your Review
                 </label>
               </div>
-
               <input
                 className="input-number col-lg-1 col-3 mt-lg-0 mt-3 me-2 ms-3 ms-lg-0 "
                 type="number"

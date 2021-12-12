@@ -1,11 +1,11 @@
-import React, { useContext, useRef, useState } from 'react';
+import React, { useContext, useRef, useState, useEffect } from 'react';
 import { FirebaseContext } from '../../../../Firebase/Firebase';
 import { SecondUserContext } from './../../../../context/SecondUser';
 import { currentUserContext } from './../../../../context/CurrentUser';
 import firebase from 'firebase/compat/app';
 import Emoji from '../../../Parts/Emoji/Emoji';
 import './ChatUserFooter.scss';
-import { useEffect } from 'react';
+
 function ChatUserFooter() {
   const [msgContent, setMsgContent] = useState('');
   const { messagesCollection } = useContext(FirebaseContext);
@@ -25,16 +25,12 @@ function ChatUserFooter() {
     }
     setMsgContent('');
   };
-
   const onEmojiClick = (event, emojiObject) => {
     emojiObject && setMsgContent(`${msgContent}${emojiObject?.emoji}`);
   };
-
   let emojiMenu = useRef(null);
   let emojiIcon = useRef(null);
-
   const [isOpen, setIsOpen] = useState(false);
-
   useEffect(() => {
     let eventHandler = (event) => {
       if (
@@ -52,7 +48,7 @@ function ChatUserFooter() {
 
   return (
     <div className='row reply'>
-      <div className='col-1  pt-2 icon-btn'>
+      <div className='col-1 pt-2 icon-btn'>
         <i
           id='chat__emoji'
           className='emoji__show far fa-smile'

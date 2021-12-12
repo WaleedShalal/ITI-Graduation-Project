@@ -4,7 +4,6 @@ import "./ImageUpload.scss";
 function ImageUpload() {
   const { data } = useContext(AuthContext);
   const [image, setImage] = useState(data.imageUrl);
-
   const imageHandler = (e) => {
     const reader = new FileReader();
     reader.onload = () => {

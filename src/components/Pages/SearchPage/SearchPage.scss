@@ -50,7 +50,6 @@
         }
       }
     }
-
     p {
       font-size: 13px;
       font-weight: 600;
@@ -111,9 +110,8 @@
       float: left;
       border-radius: 2px;
       width: 100%;
-
       select {
-        font-family: "helvetica neue", helvetica;
+        font-family: 'helvetica neue', helvetica;
         font-size: 1rem;
         font-weight: 200;
         padding: 10px 24px 10px 10px;
@@ -127,9 +125,7 @@
           box-shadow: none;
         }
       }
-     
     }
-
     .filter__city {
       margin-bottom: 16px;
       padding-bottom: 16px;
