@@ -4,9 +4,12 @@ a social media integerated to Ecommerce website
 
 ## Available Scripts
 
-In the project directory, you can run:
+To run the project directory :
 
-### `npm start`
+###  `First`  `npm install`
+###  `Second` `install packages below`
+###  `Finaly` `npm start`
+
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -32,3 +35,8 @@ react-modal    : npm install react-modal.\
 emoji-picker   : npm i emoji-picker-react.\
 react-toastify : npm i react-toastify.\
 react-confirm  : npm install react-confirm-alert --save
+
+# Developed By :
+
+### `Mohamed Diab`  `https://www.linkedin.com/in/mohamed-ebrahem/`
+### `Waleed Elbana` `https://www.linkedin.com/in/waleed-elbana-frontend-developer/`
