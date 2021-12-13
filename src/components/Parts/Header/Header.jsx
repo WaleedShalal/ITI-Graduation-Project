@@ -21,6 +21,7 @@ function Header() {
   const handleSearch = (e) => {
     e.preventDefault();
     Navigate(`/search/${e.target[0].value}`);
+    e.target[0].value = '';
   };
   /* ------------------------ will need edit but later ------------------------ */
   window.onclick = (e) => {
