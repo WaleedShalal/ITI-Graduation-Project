@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './WelcomePage.scss';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./WelcomePage.scss";
 
 function WelcomePage() {
   return (
