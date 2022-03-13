@@ -5,13 +5,13 @@ import "firebase/compat/storage";
 import { createContext } from "react";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDEV7VD8bxklB0UZdMofTIohiaDfgIQ1jc",
-  authDomain: "in-a-minute-a51b9.firebaseapp.com",
-  projectId: "in-a-minute-a51b9",
-  storageBucket: "in-a-minute-a51b9.appspot.com",
-  messagingSenderId: "297137913239",
-  appId: "1:297137913239:web:08f79e5c4947236bacd8d2",
-  measurementId: "G-QZQFC91BC2",
+  apiKey: "AIzaSyC742BlXH5KQw2LEJZlTzI2kblVrfnRLOc",
+  authDomain: "in-a-minute-b2931.firebaseapp.com",
+  projectId: "in-a-minute-b2931",
+  storageBucket: "in-a-minute-b2931.appspot.com",
+  messagingSenderId: "239553102278",
+  appId: "1:239553102278:web:9c1b818f8620ff3e9872c7",
+  measurementId: "G-40RY910WM8",
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
